@@ -1,3 +1,4 @@
+if(currentlink.substring(0,67)=="https://xtrf.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam){
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
 var loader = document.createElement("div");
@@ -15,3 +16,10 @@ document.body.prepend(loader);
 document.body.prepend(backround);
 
 setTimeout( function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";},8000);
+
+
+
+
+
+
+}
