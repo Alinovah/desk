@@ -1,8 +1,5 @@
 var currentlink = window.location.href;
-alert(window.location.href);
-alert(currentlink.substring(0,67));
-alert(currentlink.substring(0,67)=="https://xtrf.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam);
-if(currentlink.substring(0,67)=="https://xtrf.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam){
+if(currentlink.substring(0,67)=="https://xtrf.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
 var loader = document.createElement("div");
