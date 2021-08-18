@@ -18,6 +18,375 @@ document.body.prepend(backround);
 
 setTimeout( function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";},8000);
 
+///////////////////close job if open//////////////////
+setTimeout( function (){ 
+  var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
+  if(closewindow!=undefined){
+    eventFire(closewindow, 'click');
+    //location.reload();
+  }
+}, 2000);
+
+
+//////////////////////////reset process///////////////////////
+setTimeout( function (){ 
+  var controls = $('[class^="controls ng-scope"]')[0];
+  var button = document.createElement("button");
+  button.textContent = "Reset Process";
+  button.className  = "btn ng-scope";
+  button.onclick = resetprocess;
+  controls.appendChild(button);
+}, 7000);
+var count = 50;
+function resetprocess(){
+  var k=-1;
+  movei(k);
+}
+  function movei(z){
+    setTimeout(function(){
+    z=z+1;
+    console.log(z);
+    if(z<20){
+      resetstage(z);
+      movei(z);
+    }
+  },3000);
+  }
+  function resetstage(i){
+  if($('[class^="close x-icon --close ng-scope"]')[0]!=undefined){
+    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+  }
+  var clickables = $('[class^="content ng-scope clickable"]');
+  var flag = 1;
+    count=count-1;
+    var clickables = $('[class^="content ng-scope clickable"]');
+    var clickable=clickables[i];
+    eventFire(clickable, 'click');
+    var jobs = $('[class^="head single clickable"]');
+    //console.log(jobs.length);
+    if(jobs.length==0){
+    var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
+    if(state[0].textContent=="Mark as accepted"){
+      ////do nothing
+      setTimeout(function(){
+      },2700);
+      flag = flag+1;
+      console.log("no change");
+    }else if(state[0].textContent=="Start Job"){
+      setTimeout(function(){
+      console.log("accepted to open");
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      },2700);
+    }else if(state[0].textContent=="Mark as ready"){
+      setTimeout(function(){
+      console.log("started to accepted");
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      setTimeout(function(){
+      eventFire(clickable, 'click');
+      console.log("accepted to open");
+      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
+      console.log(state[1].textContent);
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      },700);
+      },900);
+    }else if(state[0].textContent=="Revert to started"){
+      setTimeout(function(){
+      console.log("ready to started");
+      eventFire(state[0], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      setTimeout(function(){
+      eventFire(clickable, 'click');
+      console.log("started to accepted");
+      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
+      console.log(state[1].textContent);
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      setTimeout(function(){
+      eventFire(clickable, 'click');
+      console.log("accepted to open");
+      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
+      console.log(state[1].textContent);
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      },700);
+      },700);
+      },700);
+    }else{
+      setTimeout(function(){
+      },2700);
+    }
+  }
+}
+////////////////////////////////////////
+function eventFire(el, etype) {
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
+//////////////////////////color empty red///////////////////////
+setTimeout( function (){ 
+var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
+var input1 = inputs[0];
+var input6 = inputs[5];
+var input5 = inputs[4];
+var input9 = inputs[8];
+var intervalId = window.setInterval(function() {
+var languages = $('[class^="nd-display ng-binding ng-scope"]');
+var source = languages[0];
+var target = languages[1];
+if(source.textContent=="Select Language..."){
+  source.style = "background:#f5b8b8";
+}
+if(source.textContent!="Select Language..."){
+  source.style = "background:#ffffff";
+}
+if(target.textContent=="Select Languages..."){
+  target.style = "background:#f5b8b8";
+}
+if(target.textContent!="Select Languages..."){
+  target.style = "background:#ffffff";
+}
+
+if(input1.value==""){
+  input1.style = "background-color: #f5b8b8 !important";
+}
+//console.log(input1.value);
+ //input1.style = "background-color: #f5b8b8 !important";
+if(input1.value!=""){
+  input1.style = "background-color:#ffffff !important";
+}
+
+if(input5.value==""){
+  input5.style = "background-color: #f5b8b8 !important";
+}
+if(input5.value!=""){
+  input5.style = "background-color:#ffffff !important";
+}
+if(input6.value==""){
+  input6.style = "background-color: #f5b8b8 !important";
+}
+if(input6.value!=""){
+  input6.style = "background-color:#ffffff !important";
+}
+if(input9.value==""){
+  input9.style = "background-color: #f5b8b8 !important";
+}
+if(input9.value!=""){
+  input9.style = "background-color:#ffffff !important";
+}
+
+}, 1000);
+}, 7000);
+/////////////////////////expected date///////////////////////////
+setTimeout( function (){ 
+if($('[class^="input__item"]').length==35){
+var client = $('[class^="input__item"]')[0];
+var service = $('[class^="input__item"]')[1];
+var created = $('[class^="input__item"]')[2];
+var expaire = $('[class^="input__item"]')[3];
+var deadline = $('[class^="input__item"]')[4];
+var working = $('[class^="input__item"]')[5];
+var referance = $('[class^="input__item"]')[6];
+var volume = $('[class^="input__item"]')[7];
+var origin = $('[class^="input__item"]')[8];
+var expexteddate = $('[class^="input__item custom_field"]')[0];
+var quantity = $('[class^="input__item custom_field"]')[2];
+client.appendChild(service);
+created.appendChild(expaire);
+deadline.appendChild(expexteddate);
+working.appendChild(referance);
+volume.appendChild(quantity);
+origin.appendChild(expaire);
+}
+if($('[class^="input__item"]').length==36){
+var client = $('[class^="input__item"]')[0];
+var service = $('[class^="input__item"]')[1];
+var created = $('[class^="input__item"]')[2];
+var actual = $('[class^="input__item"]')[3];
+var expaire = $('[class^="input__item"]')[4];
+var deadline = $('[class^="input__item"]')[5];
+var working = $('[class^="input__item"]')[6];
+var referance = $('[class^="input__item"]')[7];
+var volume = $('[class^="input__item"]')[8];
+var origin = $('[class^="input__item"]')[9];
+var expexteddate = $('[class^="input__item custom_field"]')[0];
+var quantity = $('[class^="input__item custom_field"]')[2];
+client.appendChild(service);
+created.appendChild(actual);
+deadline.appendChild(expexteddate);
+working.appendChild(referance);
+volume.appendChild(quantity);
+origin.appendChild(expaire);
+}
+}, 6000);
+
+/////////////////////////changed languages///////////////////////////
+var flag = 0;
+var p_source;
+var p_target;
+var intervalId = window.setInterval(function() {
+  var languages = $('[class^="nd-display ng-binding ng-scope"]');
+  var source = languages[0];
+  var target = languages[1];
+  if(flag==0){
+        p_source = source.textContent;
+        p_target = target.textContent;
+    flag=1;
+  }
+if(p_source=="Select Language..."&&p_target=="Select Languages..."&&source.textContent!="Select Language..."&&target.textContent!="Select Languages..."){
+  setTimeout(function(){
+    window.scrollTo(0, 0);
+    location.reload();
+  }, 3000);
+}
+if((p_source!="Select Language..."||p_target!="Select Languages...")&&(source.textContent!=p_source||target.textContent!=p_target)){
+  setTimeout(function(){
+    window.scrollTo(0, 0);
+    location.reload();
+}, 3000);
+}
+}, 1000);
+
+
+////////////////////////hyperlinks////////////////////////////////
+setTimeout( function (){ 
+
+var pdffield = $('[class^="input read-only ng-scope"]')[0];
+var pdflink = pdffield.textContent;
+var sheetfield = $('[class^="input read-only ng-scope"]')[2];
+var sheetlink = sheetfield.textContent;
+if(pdflink!=""){
+pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
+}
+sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
+
+}, 5000);
+
+
+
+/////////////////////////refresh job1////////////////////////////
+var flag1 = 0;
+var flag2 = 0;
+var p_status1
+var c_status1
+var p_status2
+var c_status2
+
+var intervalId = window.setInterval(function() {
+  var service = $('[class^="input ng-binding ng-scope"]')[0];
+  if(service.textContent=="Timing Only"||service.textContent=="Translation + source"||service.textContent=="Conversion"||service.textContent=="Basic Translation"||service.textContent=="Basic Transcription"||service.textContent=="Additional Final File"){
+  var jobtitles = $('[class^="short text--center ng-binding ng-isolate-scope"]');
+  var jobs = $('[class^="status ng-binding"]');
+  var jobboxs = $('[class^="job ng-scope"]');
+  var clickables = $('[class^="content ng-scope clickable"]');
+  var job1
+  var job2
+  var jobbox1
+  var jobbox2
+  if (jobs.length > 0 && flag1 == 0) {
+    for (var i = 0; i < jobs.length; i++) {
+      if (jobtitles[i].textContent == "Update Finance") {
+        //console.log("job1 assigned");
+        job1 = jobs[i];
+        p_statu1s1 = job1.textContent;
+        flag1 = 1;
+      }
+    }
+  }
+  if (jobs.length > 0 && flag2 == 0) {
+    for (var i = 0; i < jobs.length; i++) {
+      if (jobtitles[i].textContent == "Create PDF") {
+        //console.log("job2 assigned");
+        job2 = jobs[i];
+        p_status2 = job2.textContent;
+        flag2 = 1;
+      }
+    }
+  }
+  if (jobs.length > 0) {
+    for (var i = 0; i < jobs.length; i++) {
+      if (jobtitles[i].textContent == "Update Finance") {
+        job1 = jobs[i];
+        c_status1 = job1.textContent;
+      }
+    }
+  }
+  if (jobs.length > 0) {
+    for (var i = 0; i < jobs.length; i++) {
+      if (jobtitles[i].textContent == "Create PDF") {
+        job2 = jobs[i];
+        c_status2 = job2.textContent;
+      }
+    }
+  }
+  //console.log(p_status2);
+  //console.log(c_status2);
+  if (job1 != undefined && c_status1 == "Started" && p_status1 == "Accepted") {
+    //  p_status=c_status;
+    for (var i = 0; i < jobs.length; i++) {
+      if (jobtitles[i].textContent == "Update Finance") {
+        jobbox1 = jobboxs[i + 1];
+      }
+    }
+    var classjobbox1 = jobbox1.className;
+    if (classjobbox1 == "job ng-scope selected") {
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      //eventFire(clickables[1], 'click');
+    }
+    if (classjobbox1 == "job ng-scope") {
+      //jobbox1.className="job ng-scope selected";
+      eventFire(clickables[0], 'click');
+    }
+  }
+  if (job2 != undefined && c_status2 == "Started" && p_status2 == "Accepted") {
+    //  p_status=c_status;
+    for (var i = 0; i < jobs.length; i++) {
+      if (jobtitles[i].textContent == "Create PDF") {
+        jobbox2 = jobboxs[i + 1];
+      }
+    }
+    var classjobbox2 = jobbox2.className;
+    if (classjobbox2 == "job ng-scope selected") {
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      //eventFire(clickables[0], 'click');
+    }
+    if (classjobbox2 == "job ng-scope") {
+      //jobbox1.className="job ng-scope selected";
+      eventFire(clickables[1], 'click');
+    }
+    //console.log(jobboxs.length);
+    //console.log(classjobbox);
+  }
+  if (job1 != undefined && c_status1 == "Ready" && p_status1 == "Accepted") {
+    p_status1 = c_status1;
+    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+    window.scrollTo(0, 0);
+    location.reload();
+  }
+  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted") {
+    p_status2 = c_status2;
+    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+    window.scrollTo(0, 0);
+    location.reload();
+  }
+  if (job1 != undefined && c_status1 != p_status1 && c_status1 != "Started") {
+    p_status1 = c_status1;
+  }
+  if (job2 != undefined && c_status2 != p_status2 && c_status2 != "Started") {
+    p_status2 = c_status2;
+  }
+}
+}, 1000);
+
+
 
 
 
