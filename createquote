@@ -23,4 +23,176 @@ setTimeout( function(){loader.style.display = "none";backround.style.display = "
 
 
 
+}else if(currentlink.substring(0,58)=="https://xtrf.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
+  /////////////////////////change dashboard colord/////////////////
+setTimeout( function (){
+  var tables = $('[class^="x-card__header__heading ng-binding"]');
+  //console.log(tables.length);
+  for(var i=0;i<tables.length;i++){
+    if(tables[i].textContent=="Projects Due Today+Overdue"){
+      tables[i].style = "color:#990000";
+    }
+    if(tables[i].textContent=="Jobs Due Today+Overdue"){
+      tables[i].style = "color:#351c75";
+    }
+    if(tables[i].textContent=="Open Projects"){
+      tables[i].style = "color:#38761d";
+    }
+    if(tables[i].textContent=="Quotes From The Last 30 Days"){
+      tables[i].style = "color:#741b47";
+    }
+    if(tables[i].textContent=="Jobs Assigned To Me"){
+      tables[i].style = "color:#0000ff";
+    }
+    if(tables[i].textContent=="Unassigned Jobs"){
+      tables[i].style = "color:#666666";
+    }
+    if(tables[i].textContent=="Jobs Pending Evaluation"){
+      tables[i].style = "color:#bf9000";
+    }
+  }
+}, 1000);
+
+//////////////////////////change deadline color////////////////////
+setTimeout( function (){
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  today = dd + '/' + mm + '/' + yyyy;
+  var firstDate = new Date(yyyy, mm, dd);
+  const oneDay = 24 * 60 * 60 * 1000;
+  var day
+  var month
+  var year
+  
+  var tables = $('[class^="x-card__header__heading ng-binding"]');
+  var iframes = document.getElementsByTagName("iframe");
+  
+  for(var i=0;i<tables.length;i++){
+    if(tables[i].textContent=="Projects Due Today+Overdue"){
+     var dashboardtable1 = iframes[i].contentDocument;
+    }
+    if(tables[i].textContent=="Jobs Assigned To Me"){
+     var dashboardtable2 = iframes[i].contentDocument;
+    }
+    if(tables[i].textContent=="Open Projects"){
+      var dashboardtable3 = iframes[i].contentDocument;
+    }
+    if(tables[i].textContent=="Jobs Due Today+Overdue"){
+      var dashboardtable5 = iframes[i].contentDocument;
+    }
+    if(tables[i].textContent=="Unassigned Jobs"){
+      var dashboardtable6 = iframes[i].contentDocument;
+    }
+  }
+  
+ 
+  //var dashboardtable4 = iframes[3].contentDocument;
+  //var dashboardtable7 = iframes[6].contentDocument;
+  
+  var table1rows = dashboardtable1.getElementsByTagName("tr");
+  var table2rows = dashboardtable2.getElementsByTagName("tr");
+  var table3rows = dashboardtable3.getElementsByTagName("tr");
+  var table5rows = dashboardtable5.getElementsByTagName("tr");
+  var table6rows = dashboardtable6.getElementsByTagName("tr");
+  
+  for(var i=2;i<table1rows.length;i++){
+    var table1deadline = table1rows[i].getElementsByTagName("td");
+    var deadlines1 = table1deadline[6];
+    var deadline = deadlines1.textContent;
+    day = deadline.substring(8,10);
+    month = deadline.substring(5,7);
+    year = deadline.substring(0,4);
+    var secondDate = new Date(year, month, day);
+    var diffDays = Math.round((secondDate - firstDate) / oneDay);
+    if(diffDays<=1){
+      for(var j=0;j<table1deadline.length;j++){
+        table1deadline[j].style = "color:#ff9500";
+      }
+    }
+    console.log(diffDays);
+    if(diffDays<0){
+      for(var j=0;j<table1deadline.length;j++){
+        table1deadline[j].style = "color:#fc0303";
+      }
+    }
+  }
+  for(var i=2;i<table3rows.length;i++){
+    var table3deadline = table3rows[i].getElementsByTagName("td");
+    var deadlines3 = table3deadline[7];
+    var deadline = deadlines3.textContent;
+    day = deadline.substring(8,10);
+    month = deadline.substring(5,7);
+    year = deadline.substring(0,4);
+    var secondDate = new Date(year, month, day);
+    var diffDays = Math.round((secondDate - firstDate) / oneDay);
+    if(diffDays<=1){
+      deadlines3.style = "color:#ff9500";
+    }
+    console.log(diffDays);
+    if(diffDays<0){
+      deadlines3.style = "color:#fc0303";
+    }
+  }
+  for(var i=2;i<table2rows.length;i++){
+    var table2deadline = table2rows[i].getElementsByTagName("td");
+    var deadlines2 = table2deadline[5];
+    var deadline = deadlines2.textContent;
+    day = deadline.substring(8,10);
+    month = deadline.substring(5,7);
+    year = deadline.substring(0,4);
+    var secondDate = new Date(year, month, day);
+    var diffDays = Math.round((secondDate - firstDate) / oneDay);
+    if(diffDays<=1){
+      deadlines2.style = "color:#ff9500";
+    }
+    console.log(diffDays);
+    if(diffDays<0){
+      deadlines2.style = "color:#fc0303";
+    }
+  }
+  for(var i=2;i<table5rows.length;i++){
+    var table5deadline = table5rows[i].getElementsByTagName("td");
+    var deadlines5 = table5deadline[5];
+    var deadline = deadlines5.textContent;
+    day = deadline.substring(8,10);
+    month = deadline.substring(5,7);
+    year = deadline.substring(0,4);
+    var secondDate = new Date(year, month, day);
+    var diffDays = Math.round((secondDate - firstDate) / oneDay);
+    if(diffDays<=1){
+      for(var j=0;j<table5deadline.length;j++){
+        table5deadline[j].style = "color:#ff9500";
+      }
+    }
+    console.log(diffDays);
+    if(diffDays<0){
+      for(var j=0;j<table5deadline.length;j++){
+        table5deadline[j].style = "color:#fc0303";
+      }
+    }
+  }
+  for(var i=2;i<table6rows.length;i++){
+    var table6deadline = table6rows[i].getElementsByTagName("td");
+    var deadlines6 = table6deadline[5];
+    var deadline = deadlines6.textContent;
+    day = deadline.substring(8,10);
+    month = deadline.substring(5,7);
+    year = deadline.substring(0,4);
+    var secondDate = new Date(year, month, day);
+    var diffDays = Math.round((secondDate - firstDate) / oneDay);
+    if(diffDays<=1){
+      deadlines6.style = "color:#ff9500";
+    }
+    console.log(diffDays);
+    if(diffDays<0){
+      deadlines6.style = "color:#fc0303";
+    }
+  }
+}, 5000);
+
+
+
+
 }
