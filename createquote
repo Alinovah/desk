@@ -390,7 +390,7 @@ var intervalId = window.setInterval(function() {
 
 
 
-}else if(currentlink.substring(0,43)=="https://xtrf.ngsub.tv/xtrf/faces/home.seam?"){
+}else if(currentlink.substring(0,43)=="https://xtrf.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://xtrf.ngsub.tv/xtrf/faces/home.seam"){
 //////////////////////redierct to dashboard and loading logo///////////////////
 var loader = document.createElement("div");
 //loader.innerHTML =     '<div class="ring"></div>'
