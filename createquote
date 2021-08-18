@@ -21,7 +21,7 @@ setTimeout( function(){loader.style.display = "none";backround.style.display = "
 
 
 
-}else if(currentlink=="https://xtrf.ngsub.tv/xtrf/faces/home.seam"){
+}else if(currentlink.substring(0,42)=="https://xtrf.ngsub.tv/xtrf/faces/home.seam"){
 //////////////////////redierct to dashboard and loading logo///////////////////
 var loader = document.createElement("div");
 //loader.innerHTML =     '<div class="ring"></div>'
