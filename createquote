@@ -1,0 +1,17 @@
+////////////////////loader///////////////////////
+var backround = document.createElement("div");
+var loader = document.createElement("div");
+loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:300px" ><p style="padding:0;"><img style="padding:0;opacity:2;width:10%;height:22%;" src="https://drive.google.com/uc?id=1kdUa71mSfjp1C6vOOzy6r8NaMhIl_Aop"></p><p><img style="position:absolute; top:20px;right:45%;width:10%;height:22%;" src="https://drive.google.com/uc?id=1Hzdu0BfLCAdxxk6C7paVHsbrHdwGnAMk"></p></h1>';
+
+backround.className = "center";
+backround.id = "loader";
+loader.className = "center";
+loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:1999999;";
+backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:999999;";
+var sheet = window.document.styleSheets[0];
+sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
+document.body.style = "overflow: hidden;";
+document.body.prepend(loader);
+document.body.prepend(backround);
+
+setTimeout( function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";},8000);
