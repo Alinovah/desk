@@ -395,7 +395,7 @@ var intervalId = window.setInterval(function() {
 var loader = document.createElement("div");
 //loader.innerHTML =     '<div class="ring"></div>'
 //                       +'<span class="spanc">loading...</span>';
-loader.innerHTML = '<img style="width:100%;height:90%;" src="https://drive.google.com/uc?id=1fS937DB-vK5rYPd-qg52zQhBn_CSdAws">';
+loader.innerHTML = '<img style="width:100%;height:90%;" src="https://drive.google.com/uc?id=1aaP59EcZQ4ucIBuULlWZC_iCQGLtAtiM">';
 //https://drive.google.com/uc?id=1ca-ppNRRTFSDqYzQphCKgIUIOxZsaf8L
 loader.className = "center";
 loader.id = "loader";
