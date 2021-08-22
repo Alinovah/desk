@@ -1,5 +1,5 @@
 var currentlink = window.location.href;
-if(currentlink.substring(0,67)=="https://xtrf.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
 var loader = document.createElement("div");
@@ -489,7 +489,7 @@ var intervalId = window.setInterval(function() {
 
 
 
-}else if(currentlink.substring(0,43)=="https://xtrf.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://xtrf.ngsub.tv/xtrf/faces/home.seam"){
+}else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
 //////////////////////redierct to dashboard and loading logo///////////////////
 var loader = document.createElement("div");
 //loader.innerHTML =     '<div class="ring"></div>'
@@ -506,13 +506,13 @@ loader.style = "backgrount:#ffffff;"
 document.body.style = "overflow: hidden;";
 document.body.prepend(loader);
 setTimeout(function() {
-  window.location = "https://xtrf.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
+  window.location = "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
 }, 7000);
 
 
 
 
-}else if(currentlink.substring(0,58)=="https://xtrf.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
+}else if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
   /////////////////////////change dashboard colord/////////////////
 setTimeout( function (){
   var tables = $('[class^="x-card__header__heading ng-binding"]');
