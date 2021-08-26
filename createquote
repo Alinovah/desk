@@ -1,31 +1,5 @@
 var currentlink = window.location.href;
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
-//////////////////////hide categories///////////////////
-setTimeout( function (){ 
-var service = document.querySelector("div[ng-if='project.service !== null'").textContent;
-var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
-var k = dropdown.querySelector("div");
-eventFire(k, 'click');
-if(service!="Raw Materials"){
-  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
-  for (var i=0;i<categories.length;i++){
-    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"){
-      console.log(line);
-      categories[i].style.visibility = "collapse";
-    }
-  }
-}else if(service=="Raw Materials"){
-  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
-  for (var i=0;i<categories.length;i++){
-    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-  if(line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
-      console.log(line);
-      categories[i].style.visibility = "collapse";
-      }
-    }
-  }
-}, 7000);
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
 var loader = document.createElement("div");
