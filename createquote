@@ -261,7 +261,7 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
-}, 6000);
+}, 8000);
 
 /////////////////////////changed languages///////////////////////////
 var flag = 0;
@@ -714,7 +714,7 @@ setTimeout( function (){
       deadlines6.style = "color:#fc0303";
     }
   }
-}, 5000);
+}, 7000);
 
 
 
