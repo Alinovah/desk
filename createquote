@@ -1,5 +1,64 @@
 var currentlink = window.location.href;
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+//////////////////////////revert job///////////////////////
+setTimeout( function (){ 
+  var controls = $('[class^="controls ng-scope"]')[0];
+  var button = document.createElement("button");
+  button.textContent = "Revert Job";
+  button.className  = "btn ng-scope";
+  button.onclick = revertjob;
+  controls.appendChild(button);
+}, 7000);
+var count = 50;
+
+function revertjob(){
+  var k=0;
+  var selected = document.querySelector("div[class='job ng-scope selected']");
+  var clickables = selected.querySelector("div[class='content ng-scope clickable']");
+  resetjob(clickables);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////  
+  function resetjob(clicked){
+
+    var clickable=clicked;
+    eventFire(clickable, 'click');
+    var jobs = $('[class^="head single clickable"]');
+    //console.log(jobs.length);
+    if(jobs.length==0){
+    var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
+    if(state[0].textContent=="Mark as accepted"){
+      ////do nothing
+      setTimeout(function(){
+      },2700);
+      flag = flag+1;
+      console.log("no change");
+    }else if(state[0].textContent=="Mark as ready"){
+      setTimeout(function(){
+      console.log("started to accepted");
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      },900);
+    }else if(state[0].textContent=="Revert to started"){
+      setTimeout(function(){
+      console.log("ready to started");
+      eventFire(state[0], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      setTimeout(function(){
+      eventFire(clickable, 'click');
+      console.log("started to accepted");
+      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
+      console.log(state[1].textContent);
+      eventFire(state[1], 'click');
+      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+      },700);
+      },700);
+    }else{
+      setTimeout(function(){
+      },2700);
+    }
+  }
+}
 //////////////////////hide categories///////////////////
 setTimeout( function (){ 
 var service = document.querySelector("div[ng-if='project.service !== null'").textContent;
