@@ -1,5 +1,63 @@
 var currentlink = window.location.href;
 if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
+//////////////////////hide categories///////////////////
+setTimeout( function (){ 
+var service = document.querySelector("div[ng-if='project.service != null'").textContent;
+var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
+var k = dropdown.querySelector("div");
+k.addEventListener("click", updatedropdown);
+}, 7000);
+
+
+function updatedropdown(){ 
+var service = document.querySelector("div[ng-if='project.service != null'").textContent;
+if(service!="Raw Materials"){
+  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
+  for (var i=0;i<categories.length;i++){
+    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
+    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"){
+      console.log(line);
+      categories[i].style.visibility = "collapse";
+    }
+  }
+}else if(service=="Raw Materials"){
+  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
+  for (var i=0;i<categories.length;i++){
+    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
+  if(line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
+      console.log(line);
+      categories[i].style.visibility = "collapse";
+      }
+    }
+  }
+}
+
+////////////////////loader///////////////////////
+var backround = document.createElement("div");
+var loader = document.createElement("div");
+loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:300px" ><p style="padding:0;"><img style="padding:0;opacity:2;width:20%;height:20%;" src="https://drive.google.com/uc?id=13-ZWSQg_olXbqbfL82TcDr8SK5zgh9Jd"></p></h1>';
+
+backround.className = "center";
+backround.id = "loader";
+loader.className = "center";
+loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:1999999;";
+backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:999999;";
+var sheet = window.document.styleSheets[0];
+sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
+document.body.style = "overflow: hidden;";
+document.body.prepend(loader);
+document.body.prepend(backround);
+
+setTimeout( function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";},8000);
+
+///////////////////close job if open//////////////////
+setTimeout( function (){ 
+  var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
+  if(closewindow!=undefined){
+    eventFire(closewindow, 'click');
+    //location.reload();
+  }
+}, 2000);
 
 }else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 //////////////////////////revert job///////////////////////
