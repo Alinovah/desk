@@ -1,5 +1,16 @@
 var currentlink = window.location.href;
 if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
+////////////////////////////////////////
+function eventFire(el, etype) {
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
 //////////////////////hide categories///////////////////
 setTimeout( function (){ 
 var service = document.querySelector("div[ng-if='project.service != null'").textContent;
