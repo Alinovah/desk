@@ -1,5 +1,7 @@
 var currentlink = window.location.href;
-if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"||currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
+
+}else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 //////////////////////////revert job///////////////////////
 setTimeout( function (){ 
   var controls = $('[class^="controls ng-scope"]')[0];
@@ -59,12 +61,6 @@ function revertjob(){
     }
   }
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-else if(if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-}else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 
 //////////////////////hide categories///////////////////
 setTimeout( function (){ 
