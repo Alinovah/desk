@@ -1,5 +1,5 @@
 var currentlink = window.location.href;
-if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"||currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
 //////////////////////////revert job///////////////////////
 setTimeout( function (){ 
   var controls = $('[class^="controls ng-scope"]')[0];
