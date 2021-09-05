@@ -23,6 +23,27 @@ var interval = setInterval(function() {
         clearInterval(interval);
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
 
+
+
+/////////////////////////rearange view///////////////////////////
+if($('[class^="input__item"]').length==34){
+var client = $('[class^="input__item"]')[0];
+var service = $('[class^="input__item"]')[1];
+var ordered = $('[class^="input__item"]')[2];
+var startged = $('[class^="input__item"]')[4];
+var deadline = $('[class^="input__item"]')[3];
+var referance = $('[class^="input__item"]')[5];
+var volume = $('[class^="input__item"]')[6];
+var origin = $('[class^="input__item"]')[7];
+var expexteddate = $('[class^="input__item custom_field"]')[0];
+var quantity = $('[class^="input__item custom_field"]')[2];
+client.appendChild(service);
+ordered.appendChild(startged);
+deadline.appendChild(expexteddate);
+volume.appendChild(quantity);
+origin.appendChild(referance);
+}
+
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
   if(closewindow!=undefined){
