@@ -443,12 +443,12 @@ function eventFire(el, etype) {
 }
 
 //////////////////////hide categories///////////////////
-setTimeout( function (){ 
+
 var service = document.querySelector("div[ng-if='project.service != null'").textContent;
 var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
 var k = dropdown.querySelector("div");
 k.addEventListener("click", updatedropdown);
-}, 7000);
+
 
 
 function updatedropdown(){ 
@@ -473,7 +473,7 @@ if(service!="Raw Materials"){
     }
   }
 }
-}, 1000);
+}, 2000);
 ////////////////////////////
     }    
 }, 100);
@@ -1065,7 +1065,7 @@ var intervalId = window.setInterval(function() {
 
 }, 1000);
 
-}, 1000);
+}, 2000);
     }    
 }, 100);
 }else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
