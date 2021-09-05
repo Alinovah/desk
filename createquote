@@ -713,13 +713,14 @@ function eventFire(el, etype) {
 
 //////////////////////////color empty red///////////////////////
 
-
-var intervalId = window.setInterval(function() {
 var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
 var input1 = inputs[0];
 var input6 = inputs[5];
 var input5 = inputs[4];
 var input9 = inputs[8];
+
+var intervalId = window.setInterval(function() {
+
 
 var languages = $('[class^="nd-display ng-binding ng-scope"]');
 var source = languages[0];
