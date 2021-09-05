@@ -607,14 +607,14 @@ if(service!="Raw Materials"){
 
 
 //////////////////////////reset process///////////////////////
-setTimeout( function (){ 
+
   var controls = $('[class^="controls ng-scope"]')[0];
   var button = document.createElement("button");
   button.textContent = "Reset Process";
   button.className  = "btn ng-scope";
   button.onclick = resetprocess;
   controls.appendChild(button);
-}, 7000);
+
 var count = 50;
 function resetprocess(){
   var k=-1;
