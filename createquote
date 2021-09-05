@@ -1,5 +1,9 @@
 var currentlink = window.location.href;
 if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
+var interval = setInterval(function() {
+    if($('[class^="input__item"]').length>=34){
+        clearInterval(interval);
+        
 //////////////////////////revert job///////////////////////
 setTimeout( function (){ 
   var controls = $('[class^="controls ng-scope"]')[0];
@@ -103,18 +107,42 @@ if(service!="Raw Materials"){
   }
 }
 
-
-
+    }    
+}, 100);
 }else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+
+////////////////////loader///////////////////////
+var backround = document.createElement("div");
+var loader = document.createElement("div");
+loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:300px" ><p style="padding:0;"><img style="padding:0;opacity:2;width:20%;height:20%;" src="https://drive.google.com/uc?id=13-ZWSQg_olXbqbfL82TcDr8SK5zgh9Jd"></p></h1>';
+
+backround.className = "center";
+backround.id = "loader";
+loader.className = "center";
+loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:1999999;";
+backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:999999;";
+var sheet = window.document.styleSheets[0];
+sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
+document.body.style = "overflow: hidden;";
+document.body.prepend(loader);
+document.body.prepend(backround);
+
+
+var interval = setInterval(function() {
+    if($('[class^="input__item"]').length>=34){
+        clearInterval(interval);
+
+function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";};
+        
 //////////////////////////revert job///////////////////////
-setTimeout( function (){ 
+
   var controls = $('[class^="controls ng-scope"]')[0];
   var button = document.createElement("button");
   button.textContent = "Revert Job";
   button.className  = "btn ng-scope";
   button.onclick = revertjob;
   controls.appendChild(button);
-}, 7000);
+
 var count = 50;
 
 function revertjob(){
@@ -167,12 +195,12 @@ function revertjob(){
 }
 
 //////////////////////hide categories///////////////////
-setTimeout( function (){ 
+
 var service = document.querySelector("div[ng-if='project.service !== null'").textContent;
 var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
 var k = dropdown.querySelector("div");
 k.addEventListener("click", updatedropdown);
-}, 7000);
+
 
 
 function updatedropdown(){ 
@@ -201,32 +229,15 @@ if(service!="Raw Materials"){
   }
 }
 
-////////////////////loader///////////////////////
-var backround = document.createElement("div");
-var loader = document.createElement("div");
-loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:300px" ><p style="padding:0;"><img style="padding:0;opacity:2;width:20%;height:20%;" src="https://drive.google.com/uc?id=13-ZWSQg_olXbqbfL82TcDr8SK5zgh9Jd"></p></h1>';
-
-backround.className = "center";
-backround.id = "loader";
-loader.className = "center";
-loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:1999999;";
-backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:999999;";
-var sheet = window.document.styleSheets[0];
-sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
-document.body.style = "overflow: hidden;";
-document.body.prepend(loader);
-document.body.prepend(backround);
-
-setTimeout( function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";},8000);
 
 ///////////////////close job if open//////////////////
-setTimeout( function (){ 
+
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
   if(closewindow!=undefined){
     eventFire(closewindow, 'click');
     //location.reload();
   }
-}, 2000);
+
 
 
 //////////////////////////reset process///////////////////////
@@ -333,7 +344,7 @@ function eventFire(el, etype) {
 }
 
 //////////////////////////color empty red///////////////////////
-setTimeout( function (){ 
+
 var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
 var input1 = inputs[0];
 var input6 = inputs[5];
@@ -385,9 +396,9 @@ if(input9.value!=""){
 }
 
 }, 1000);
-}, 7000);
+
 /////////////////////////expected date///////////////////////////
-setTimeout( function (){ 
+
 if($('[class^="input__item"]').length==35){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
@@ -427,7 +438,7 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
-}, 8000);
+
 
 /////////////////////////changed languages///////////////////////////
 var flag = 0;
@@ -458,7 +469,7 @@ if((p_source!="Select Language..."||p_target!="Select Languages...")&&(source.te
 
 
 ////////////////////////hyperlinks////////////////////////////////
-setTimeout( function (){ 
+
 
 var pdffield = $('[class^="input read-only ng-scope"]')[0];
 var pdflink = pdffield.textContent;
@@ -468,8 +479,6 @@ if(pdflink!=""){
 pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
 }
 sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
-
-}, 5000);
 
 
 
@@ -529,8 +538,7 @@ var intervalId = window.setInterval(function() {
       }
     }
   }
-  //console.log(p_status2);
-  //console.log(c_status2);
+
   if (job1 != undefined && c_status1 == "Started" && p_status1 == "Accepted") {
     //  p_status=c_status;
     for (var i = 0; i < jobs.length; i++) {
@@ -687,9 +695,8 @@ var intervalId = window.setInterval(function() {
 }, 1000);
 
 
-
-
-
+    }    
+}, 100);
 }else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
 //////////////////////redierct to dashboard and loading logo///////////////////
 var loader = document.createElement("div");
