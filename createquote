@@ -711,63 +711,6 @@ function eventFire(el, etype) {
   }
 }
 
-//////////////////////////color empty red///////////////////////
-
-var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
-var input1 = document.querySelector("div[class='input calendar-input']").getElementsByTagName("input")[0];//inputs[0];
-var input6 = inputs[5];
-var input5 = inputs[4];
-var input9 = inputs[8];
-
-var intervalId = window.setInterval(function() {
-
-
-var languages = $('[class^="nd-display ng-binding ng-scope"]');
-var source = languages[0];
-var target = languages[1];
-if(source.textContent=="Select Language..."){
-  source.style = "background:#f5b8b8";
-}
-if(source.textContent!="Select Language..."){
-  source.style = "background:#ffffff";
-}
-if(target.textContent=="Select Languages..."){
-  target.style = "background:#f5b8b8";
-}
-if(target.textContent!="Select Languages..."){
-  target.style = "background:#ffffff";
-}
-
-if(input1.value==""){
-  input1.style = "background-color: #f5b8b8 !important";
-}
-//console.log(input1.value);
- //input1.style = "background-color: #f5b8b8 !important";
-if(input1.value!=""){
-  input1.style = "background-color:#ffffff !important";
-}
-
-if(input5.value==""){
-  input5.style = "background-color: #f5b8b8 !important";
-}
-if(input5.value!=""){
-  input5.style = "background-color:#ffffff !important";
-}
-if(input6.value==""){
-  input6.style = "background-color: #f5b8b8 !important";
-}
-if(input6.value!=""){
-  input6.style = "background-color:#ffffff !important";
-}
-if(input9.value==""){
-  input9.style = "background-color: #f5b8b8 !important";
-}
-if(input9.value!=""){
-  input9.style = "background-color:#ffffff !important";
-}
-
-}, 1000);
-
 /////////////////////////rearange view///////////////////////////
 
 if($('[class^="input__item"]').length==35){
@@ -809,6 +752,64 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
+
+//////////////////////////color empty red///////////////////////
+
+var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
+var input1 = document.querySelector("div[class='input calendar-input']").getElementsByTagName("input")[0];//inputs[0];
+var input6 = inputs[5];
+var input5 = inputs[4];
+var input9 = inputs[8];
+
+var intervalId = window.setInterval(function() {
+
+
+var languages = $('[class^="nd-display ng-binding ng-scope"]');
+var source = languages[0];
+var target = languages[1];
+if(source.textContent=="Select Language..."){
+  source.style = "background:#f5b8b8";
+}
+if(source.textContent!="Select Language..." ){
+  source.style = "background:#ffffff";
+}
+if(target.textContent=="Select Languages..."){
+  target.style = "background:#f5b8b8";
+}
+if(target.textContent!="Select Languages..."){
+  target.style = "background:#ffffff";
+}
+
+if(input1.value==""){
+  input1.style = "background-color: #f5b8b8 !important";
+}
+//console.log(input1.value);
+ //input1.style = "background-color: #f5b8b8 !important";
+if(input1.value!=""){
+  input1.style = "background-color:#ffffff !important";
+}
+
+if(input5.value==""){
+  input5.style = "background-color: #f5b8b8 !important";
+}
+if(input5.value!=""){
+  input5.style = "background-color:#ffffff !important";
+}
+if(input6.value==""){
+  input6.style = "background-color: #f5b8b8 !important";
+}
+if(input6.value!=""){
+  input6.style = "background-color:#ffffff !important";
+}
+if(input9.value==""){
+  input9.style = "background-color: #f5b8b8 !important";
+}
+if(input9.value!=""){
+  input9.style = "background-color:#ffffff !important";
+}
+
+}, 1000);
+
 
 
 /////////////////////////changed languages///////////////////////////
