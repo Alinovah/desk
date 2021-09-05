@@ -473,7 +473,7 @@ if(service!="Raw Materials"){
     }
   }
 }
-}, 2000);
+}, 1000);
 ////////////////////////////
     }    
 }, 100);
@@ -1066,7 +1066,7 @@ var intervalId = window.setInterval(function() {
 
 }, 1000);
 
-}, 2000);
+}, 1000);
     }    
 }, 100);
 }else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
