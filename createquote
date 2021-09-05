@@ -19,6 +19,7 @@ document.body.prepend(backround);
 
 
 var interval = setInterval(function() {
+    console.log($('[class^="input__item"]').length);
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
         setTimeout( function (){ 
@@ -346,6 +347,7 @@ sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_bla
 
 
 /////////////////////////rearange view///////////////////////////
+console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==34){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
@@ -497,6 +499,7 @@ document.body.prepend(backround);
 
 
 var interval = setInterval(function() {
+    console.log($('[class^="input__item"]').length);
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
         setTimeout( function (){ 
@@ -712,7 +715,7 @@ function eventFire(el, etype) {
 }
 
 /////////////////////////rearange view///////////////////////////
-
+console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==35){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
@@ -732,6 +735,7 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
+console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==36){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
