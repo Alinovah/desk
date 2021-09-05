@@ -25,6 +25,17 @@ var interval = setInterval(function() {
 
 
 
+ ////////////////////////hyperlinks////////////////////////////////
+var pdffield = $('[class^="input read-only ng-scope"]')[0];
+var pdflink = pdffield.textContent;
+var sheetfield = $('[class^="input read-only ng-scope"]')[2];
+var sheetlink = sheetfield.textContent;
+if(pdflink!=""){
+pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
+}
+sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
+
+
 /////////////////////////rearange view///////////////////////////
 if($('[class^="input__item"]').length==34){
 var client = $('[class^="input__item"]')[0];
