@@ -497,7 +497,7 @@ document.body.prepend(backround);
 var interval = setInterval(function() {
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
-
+        setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
         
 //////////////////////////revert job///////////////////////
@@ -763,7 +763,7 @@ if(input9.value!=""){
 
 }, 1000);
 
-/////////////////////////expected date///////////////////////////
+/////////////////////////rearange view///////////////////////////
 
 if($('[class^="input__item"]').length==35){
 var client = $('[class^="input__item"]')[0];
@@ -1060,7 +1060,7 @@ var intervalId = window.setInterval(function() {
 
 }, 1000);
 
-
+}, 1000);
     }    
 }, 100);
 }else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
