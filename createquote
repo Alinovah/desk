@@ -21,6 +21,7 @@ document.body.prepend(backround);
 var interval = setInterval(function() {
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
+        setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
 
 
@@ -472,6 +473,7 @@ if(service!="Raw Materials"){
     }
   }
 }
+}, 1000);
 ////////////////////////////
     }    
 }, 100);
