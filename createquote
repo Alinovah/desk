@@ -714,7 +714,7 @@ function eventFire(el, etype) {
 //////////////////////////color empty red///////////////////////
 
 var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
-var input1 = inputs[0];
+var input1 = document.querySelector("div[class='input calendar-input']").getElementsByTagName("input")[0];//inputs[0];
 var input6 = inputs[5];
 var input5 = inputs[4];
 var input9 = inputs[8];
