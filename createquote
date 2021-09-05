@@ -23,6 +23,13 @@ var interval = setInterval(function() {
         clearInterval(interval);
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
 
+///////////////////close job if open//////////////////
+  var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
+  if(closewindow!=undefined){
+    eventFire(closewindow, 'click');
+  }
+
+
 //////////////////////////revert job///////////////////////
 setTimeout( function (){ 
   var controls = $('[class^="controls ng-scope"]')[0];
