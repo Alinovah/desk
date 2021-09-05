@@ -779,7 +779,7 @@ if(target.textContent=="Select Languages..."){
 if(target.textContent!="Select Languages..."){
   target.style = "background:#ffffff";
 }
-
+console.log(input1.value);
 if(input1.value==""){
   input1.style = "background-color: #f5b8b8 !important";
 }
