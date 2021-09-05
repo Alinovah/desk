@@ -132,7 +132,7 @@ var interval = setInterval(function() {
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
 
-function(){loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";};
+        loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
         
 //////////////////////////revert job///////////////////////
 
