@@ -19,7 +19,7 @@ document.body.prepend(backround);
 
 
 var interval = setInterval(function() {
-    if($('[class^="input__item"]').length>=30){
+    if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
 
@@ -155,7 +155,7 @@ document.body.prepend(backround);
 
 
 var interval = setInterval(function() {
-    if($('[class^="input__item"]').length>=30){
+    if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
