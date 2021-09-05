@@ -715,7 +715,7 @@ document.body.style = "overflow: hidden;";
 document.body.prepend(loader);
 setTimeout(function() {
   window.location = "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
-}, 7000);
+}, 6000);
 
 
 
