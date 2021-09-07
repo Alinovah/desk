@@ -25,7 +25,64 @@ var interval = setInterval(function() {
         setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
 
+//////////////////////////////////// color gannt ////////////////////////////
+           var dates = [];
+           var dates_header = [];
+           var holiday_pos = [];
+           var url = 'https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&mod=on&year=now&month=x&lg=h';
+            fetch(url)
+            .then(response => response.json())
+            .then(data => holidays(data));
+            
+            function holidays(data){
+              //console.log(data);
+              //console.log(data["items"].length);
+              for(var i=0;i<data["items"].length;i++){
+                dates.push([data["items"][i]["title"],new Date(data["items"][i]["date"])]);
+              }
+              //console.log(dates);
+              var today = new Date();
+              var year = today.getFullYear();
+              var month = today.getMonth()+1;
+              var day = today.getDay();
+              var ganttheader = $('[class^="gantt-column-header ng-binding"]');
+              var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
+              var header_length = ganttheader.length-1;
 
+              var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
+              var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200)
+              
+              for(var i=0;i<header_length;i++){
+                dates_header.push(today.addDays(-today_pos+i+1));
+              }
+             //console.log(dates_header);
+              for(var i=0;i<dates_header.length;i++){
+                //console.log(dates_header[i].getDay());
+                if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
+                  ganttheader[i+1].style.backgroundColor = "#cad5e6";
+                  ganntblock[i].style.backgroundColor = "#e6eefa";
+                }
+              }
+              
+              for(var i=0;i<dates.length;i++){
+                for(var j=0;j<dates_header.length;j++){
+                  if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
+                    if(holiday_pos.indexOf(j+1)==-1){
+                      //console.log([dates[i][1].getFullYear(),dates_header[j].getFullYear(),dates[i][1].getMonth()+1,dates_header[j].getMonth()+1,dates[i][1].getDate(),dates_header[j].getDate()]);
+                      holiday_pos.push([j+1,dates[i][0]]);
+                    }
+                  }
+                }
+              }
+              //console.log(holiday_pos);
+              for(var i=0;i<holiday_pos.length;i++){
+                ganttheader[holiday_pos[i][0]].style.backgroundColor = "#cad5e6";
+                ganttheader[holiday_pos[i][0]].innerText = ganttheader[holiday_pos[i][0]].innerText+" - "+holiday_pos[i][1];
+                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+              }
+            }
+            
+////////////////////////////////////
 
 /////////////////////////refresh job1////////////////////////////
 var flag1 = 0;
@@ -504,7 +561,66 @@ var interval = setInterval(function() {
         clearInterval(interval);
         setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
-        
+ 
+//////////////////////////////////// color gannt ////////////////////////////
+           var dates = [];
+           var dates_header = [];
+           var holiday_pos = [];
+           var url = 'https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&mod=on&year=now&month=x&lg=h';
+            fetch(url)
+            .then(response => response.json())
+            .then(data => holidays(data));
+            
+            function holidays(data){
+              //console.log(data);
+              //console.log(data["items"].length);
+              for(var i=0;i<data["items"].length;i++){
+                dates.push([data["items"][i]["title"],new Date(data["items"][i]["date"])]);
+              }
+              //console.log(dates);
+              var today = new Date();
+              var year = today.getFullYear();
+              var month = today.getMonth()+1;
+              var day = today.getDay();
+              var ganttheader = $('[class^="gantt-column-header ng-binding"]');
+              var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
+              var header_length = ganttheader.length-1;
+
+              var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
+              var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200)
+              
+              for(var i=0;i<header_length;i++){
+                dates_header.push(today.addDays(-today_pos+i+1));
+              }
+             //console.log(dates_header);
+              for(var i=0;i<dates_header.length;i++){
+                //console.log(dates_header[i].getDay());
+                if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
+                  ganttheader[i+1].style.backgroundColor = "#cad5e6";
+                  ganntblock[i].style.backgroundColor = "#e6eefa";
+                }
+              }
+              
+              for(var i=0;i<dates.length;i++){
+                for(var j=0;j<dates_header.length;j++){
+                  if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
+                    if(holiday_pos.indexOf(j+1)==-1){
+                      //console.log([dates[i][1].getFullYear(),dates_header[j].getFullYear(),dates[i][1].getMonth()+1,dates_header[j].getMonth()+1,dates[i][1].getDate(),dates_header[j].getDate()]);
+                      holiday_pos.push([j+1,dates[i][0]]);
+                    }
+                  }
+                }
+              }
+              //console.log(holiday_pos);
+              for(var i=0;i<holiday_pos.length;i++){
+                ganttheader[holiday_pos[i][0]].style.backgroundColor = "#cad5e6";
+                ganttheader[holiday_pos[i][0]].innerText = ganttheader[holiday_pos[i][0]].innerText+" - "+holiday_pos[i][1];
+                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+              }
+            }
+            
+//////////////////////////////////// 
+ 
 //////////////////////////revert job///////////////////////
 
   var controls = $('[class^="controls ng-scope"]')[0];
@@ -1268,4 +1384,12 @@ setTimeout( function (){
 
 
 
+}
+
+
+//////////////////////////////
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
 }
