@@ -47,19 +47,33 @@ var interval = setInterval(function() {
               var day = today.getDay();
               var ganttheader = $('[class^="gantt-column-header ng-binding"]');
               var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
-              var header_length = ganttheader.length-1;
-
+              if(ganttheader.length==31){
+                var header_length = ganttheader.length-1;
+              }else if(ganttheader.length==32){
+                var header_length = ganttheader.length-2;
+              }
               var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
               var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200)
               
-              for(var i=0;i<header_length;i++){
+              if(ganttheader.length==31){
+               for(var i=0;i<header_length;i++){
                 dates_header.push(today.addDays(-today_pos+i+1));
               }
+              }else if(ganttheader.length==32){
+                for(var i=0;i<header_length;i++){
+                dates_header.push(today.addDays(-today_pos+i+2));
+              }
+              }
+              
              //console.log(dates_header);
               for(var i=0;i<dates_header.length;i++){
                 //console.log(dates_header[i].getDay());
                 if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
-                  ganttheader[i+1].style.backgroundColor = "#cad5e6";
+                 if(ganttheader.length==31){
+               ganttheader[i+1].style.backgroundColor = "#cad5e6";
+              }else if(ganttheader.length==32){
+                ganttheader[i+2].style.backgroundColor = "#cad5e6";
+              }       
                   ganntblock[i].style.backgroundColor = "#e6eefa";
                 }
               }
@@ -68,8 +82,13 @@ var interval = setInterval(function() {
                 for(var j=0;j<dates_header.length;j++){
                   if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
                     if(holiday_pos.indexOf(j+1)==-1){
-                      //console.log([dates[i][1].getFullYear(),dates_header[j].getFullYear(),dates[i][1].getMonth()+1,dates_header[j].getMonth()+1,dates[i][1].getDate(),dates_header[j].getDate()]);
-                      holiday_pos.push([j+1,dates[i][0]]);
+                     
+                      if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
+                         if(ganttheader.length==31){
+                       holiday_pos.push([j+1,dates[i][0]]);
+                      }else if(ganttheader.length==32){
+                         holiday_pos.push([j+2,dates[i][0]]);
+                      } 
                     }
                   }
                 }
@@ -78,7 +97,12 @@ var interval = setInterval(function() {
               for(var i=0;i<holiday_pos.length;i++){
                 ganttheader[holiday_pos[i][0]].style.backgroundColor = "#cad5e6";
                 ganttheader[holiday_pos[i][0]].innerText = ganttheader[holiday_pos[i][0]].innerText+" - "+holiday_pos[i][1];
-                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+                
+                if(ganttheader.length==31){
+                       ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+                      }else if(ganttheader.length==32){
+                         ganntblock[holiday_pos[i][0]-2].style.backgroundColor = "#e6eefa";
+                      }
               }
             }
             
@@ -584,19 +608,33 @@ var interval = setInterval(function() {
               var day = today.getDay();
               var ganttheader = $('[class^="gantt-column-header ng-binding"]');
               var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
-              var header_length = ganttheader.length-1;
-
+              if(ganttheader.length==31){
+                var header_length = ganttheader.length-1;
+              }else if(ganttheader.length==32){
+                var header_length = ganttheader.length-2;
+              }
               var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
               var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200)
               
-              for(var i=0;i<header_length;i++){
+              if(ganttheader.length==31){
+               for(var i=0;i<header_length;i++){
                 dates_header.push(today.addDays(-today_pos+i+1));
               }
+              }else if(ganttheader.length==32){
+                for(var i=0;i<header_length;i++){
+                dates_header.push(today.addDays(-today_pos+i+2));
+              }
+              }
+              
              //console.log(dates_header);
               for(var i=0;i<dates_header.length;i++){
                 //console.log(dates_header[i].getDay());
                 if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
-                  ganttheader[i+1].style.backgroundColor = "#cad5e6";
+                 if(ganttheader.length==31){
+               ganttheader[i+1].style.backgroundColor = "#cad5e6";
+              }else if(ganttheader.length==32){
+                ganttheader[i+2].style.backgroundColor = "#cad5e6";
+              }       
                   ganntblock[i].style.backgroundColor = "#e6eefa";
                 }
               }
@@ -605,8 +643,13 @@ var interval = setInterval(function() {
                 for(var j=0;j<dates_header.length;j++){
                   if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
                     if(holiday_pos.indexOf(j+1)==-1){
-                      //console.log([dates[i][1].getFullYear(),dates_header[j].getFullYear(),dates[i][1].getMonth()+1,dates_header[j].getMonth()+1,dates[i][1].getDate(),dates_header[j].getDate()]);
-                      holiday_pos.push([j+1,dates[i][0]]);
+                     
+                      if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
+                         if(ganttheader.length==31){
+                       holiday_pos.push([j+1,dates[i][0]]);
+                      }else if(ganttheader.length==32){
+                         holiday_pos.push([j+2,dates[i][0]]);
+                      } 
                     }
                   }
                 }
@@ -615,7 +658,12 @@ var interval = setInterval(function() {
               for(var i=0;i<holiday_pos.length;i++){
                 ganttheader[holiday_pos[i][0]].style.backgroundColor = "#cad5e6";
                 ganttheader[holiday_pos[i][0]].innerText = ganttheader[holiday_pos[i][0]].innerText+" - "+holiday_pos[i][1];
-                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+                
+                if(ganttheader.length==31){
+                       ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+                      }else if(ganttheader.length==32){
+                         ganntblock[holiday_pos[i][0]-2].style.backgroundColor = "#e6eefa";
+                      }
               }
             }
             
