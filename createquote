@@ -663,7 +663,7 @@ var interval = setInterval(function() {
         new_grid.className = "input-wrap grid";
         var parentNode = document.querySelector('div[class="body ng-scope"]');
         parentNode.insertBefore(new_grid, client_Notes);
-        new_grid.style = "height:60px;"
+        new_grid.style = "height:100px;"
         
         
         var input_items = document.querySelectorAll('div[class="input__item"]');
