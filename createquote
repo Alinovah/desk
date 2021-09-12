@@ -1108,12 +1108,14 @@ if(input9.value!=""){
   input9.style = "background-color:#ffffff !important";
 }
 
-var specilazation = document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[0];
+for(var i=0;i<3;i++){        
+var specilazation = document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[i];
 if(specilazation.innerText=="___"){
   specilazation.style = "background-color: #f5b8b8 !important; color: #949494 !important";
 }
 if(specilazation.innerText!="___"){
   specilazation.style = "background-color:#ffffff !important";
+}
 }
 }, 1000);
 
