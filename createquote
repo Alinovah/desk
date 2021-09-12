@@ -1385,9 +1385,11 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
 job = document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText;
 }
 var intervalIddatepicker5 = window.setInterval(function() {
+if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
   if(job!=document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText){
     job=document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText;
     set_datepicker_3_4();
+  }
   }
   if(!document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
     set_datepicker_3_4();
