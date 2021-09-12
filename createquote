@@ -1356,7 +1356,7 @@ var intervalIddatepicker2 = window.setInterval(function() {
 var intervalIddatepicker3 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
      console.log("set datepicker 3");
-     clearInterval(intervalIddatepicker3);
+     //clearInterval(intervalIddatepicker3);
      document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
      console.log(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id);
      jQuery('#end_date_id2').datetimepicker({
@@ -1369,7 +1369,7 @@ var intervalIddatepicker3 = window.setInterval(function() {
 var intervalIddatepicker4 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
      console.log("set datepicker 4");
-     clearInterval(intervalIddatepicker4);
+     //clearInterval(intervalIddatepicker4);
      document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
      console.log(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id);
      jQuery('#start_date_id2').datetimepicker({
@@ -1430,31 +1430,6 @@ var intervalIddatepicker4 = window.setInterval(function() {
             //console.log([contact_old=="",contact_old==" ",contact_old==null,contact_old==undefined,contact_old.charCodeAt(0)]);
             setTimeout(function() {
             window.scrollTo(0, 0);
-            var intervalIddatepicker3 = window.setInterval(function() {
-            if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
-                 console.log("set datepicker 3");
-                 clearInterval(intervalIddatepicker3);
-                 document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
-                 console.log(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id);
-                 jQuery('#end_date_id2').datetimepicker({
-                   dayOfWeekStart:'0',
-                   format:'Y-m-d H:00',
-                  });
-               }
-            },100);  
-
-            var intervalIddatepicker4 = window.setInterval(function() {
-               if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
-                 console.log("set datepicker 4");
-                 clearInterval(intervalIddatepicker4);
-                 document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
-                 console.log(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id);
-                 jQuery('#start_date_id2').datetimepicker({
-                   dayOfWeekStart:'0',
-                   format:'Y-m-d H:00',
-                  });
-               }
-            },100);  
             }, 500);
             contact_old = innercontact;
             pm_old = innerpm;
