@@ -1,34 +1,4 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
  
-@Alinovah 
-Alinovah
-/
-desk
-Public
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-desk/createquote
-@Alinovah
-Alinovah Update createquote
-Latest commit d8c85fb 38 minutes ago
- History
- 1 contributor
-1499 lines (1376 sloc)  53.7 KB
-  
 var currentlink = window.location.href;
 if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
 
