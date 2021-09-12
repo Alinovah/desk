@@ -1291,8 +1291,103 @@ var intervalId = window.setInterval(function() {
 }, 1000);
 
 }, 1000);
+    } 
+ 
+ 
+///////////////// datetimepicker starting on Sunday/////////////////////////////
+
+var Offer_Expiration = document.querySelectorAll('div[class="input calendar-input"]')[0];
+var Offer_Expiration_input = Offer_Expiration.getElementsByTagName("input")[0];
+Offer_Expiration_input.id = "Offer_Expiration_id";
+jQuery('#Offer_Expiration_id').datetimepicker({
+    dayOfWeekStart:'0',
+    format:'Y-m-d H:00'
+  });
+
+var Estimated_Start_Date = document.querySelectorAll('div[class="input ng-scope calendar-input"]')[0];
+var Estimated_Start_Date_input = Estimated_Start_Date.getElementsByTagName("input")[0];
+Estimated_Start_Date_input.id = "Estimated_Start_Date_id";
+jQuery('#Estimated_Start_Date_id').datetimepicker({
+    dayOfWeekStart:'0',
+    format:'Y-m-d H:00'
+  });
+ 
+var Expected_Delivery_Date = document.querySelectorAll('div[class="input calendar-input"]')[1];
+var Expected_Delivery_Date_input = Expected_Delivery_Date.getElementsByTagName("input")[0];
+Expected_Delivery_Date_input.id = "Expected_Delivery_Date_id";
+jQuery('#Expected_Delivery_Date_id').datetimepicker({
+    dayOfWeekStart:'0',
+    format:'Y-m-d H:00'
+  });
+ 
+
+  
+var intervalIddatepicker1 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="startDate"]')){
+     clearInterval(intervalIddatepicker1);
+     document.querySelector('input[ng-model="startDate"]').id = "start_date_id";
+     jQuery('#start_date_id').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+var intervalIddatepicker2 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="deadline"]')){
+     clearInterval(intervalIddatepicker2);
+     document.querySelector('input[ng-model="deadline"]').id = "end_date_id";
+     jQuery('#end_date_id').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+var intervalIddatepicker3 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
+     clearInterval(intervalIddatepicker3);
+     document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
+     jQuery('#end_date_id2').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+var intervalIddatepicker4 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
+     clearInterval(intervalIddatepicker4);
+     document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
+     jQuery('#start_date_id2').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+
+
+
+////////////////////////////
     }    
 }, 100);
+
+
+///////////// for datetimepicker starting on sunday ///////////////////
+var script = document.createElement("script");
+script.src = "https://alinovah.github.io/desk/datetimepickerfullmin";
+document.head.appendChild(script);
+
+var intervalIddatepicker = window.setInterval(function() {
+  for(var i=1;i<=30;i++){
+    if(document.getElementById("datetimepicker_id"+i)){
+      document.getElementById("datetimepicker_id"+i).remove();
+    }
+  }
+},100);
+//////////////////////
+
 }else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
 //////////////////////redierct to dashboard and loading logo///////////////////
 var loader = document.createElement("div");
