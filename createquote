@@ -1353,10 +1353,11 @@ var intervalIddatepicker2 = window.setInterval(function() {
    }
 },100);  
 
+function set_datepicker_3_4(){
 var intervalIddatepicker3 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
      console.log("set datepicker 3");
-     //clearInterval(intervalIddatepicker3);
+     clearInterval(intervalIddatepicker3);
      document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
      console.log(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id);
      jQuery('#end_date_id2').datetimepicker({
@@ -1369,7 +1370,7 @@ var intervalIddatepicker3 = window.setInterval(function() {
 var intervalIddatepicker4 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
      console.log("set datepicker 4");
-     //clearInterval(intervalIddatepicker4);
+     clearInterval(intervalIddatepicker4);
      document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
      console.log(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id);
      jQuery('#start_date_id2').datetimepicker({
@@ -1378,7 +1379,13 @@ var intervalIddatepicker4 = window.setInterval(function() {
       });
    }
 },100);  
+}
 
+var intervalIddatepicker5 = window.setInterval(function() {
+  if(!document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
+    set_datepicker_3_4();
+  }
+},100);  
 ////////////////////////// put contact and pm on top /////////////////////
         
         //var client_Notes = document.querySelectorAll('div[class="input__item one-half"]')[0];
