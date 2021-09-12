@@ -631,6 +631,10 @@ var intervalIddatepicker = window.setInterval(function() {
 
 }else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 
+var script = document.createElement("script");
+script.src = "https://alinovah.github.io/desk/datetimepickerfullmin";
+document.head.appendChild(script);
+
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
 var loader = document.createElement("div");
