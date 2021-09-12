@@ -654,7 +654,82 @@ var interval = setInterval(function() {
         clearInterval(interval);
         setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
- 
+        
+////////////////////////// put contact and pm on top /////////////////////
+        
+        //var client_Notes = document.querySelectorAll('div[class="input__item one-half"]')[0];
+        var client_Notes =  document.querySelector('div[class="input-wrap grid"]');
+        var new_grid = document.createElement("div");
+        new_grid.className = "input-wrap grid";
+        var parentNode = document.querySelector('div[class="body ng-scope"]');
+        parentNode.insertBefore(new_grid, client_Notes);
+        new_grid.style = "height:40px;"
+        
+        
+        var input_items = document.querySelectorAll('div[class="input__item"]');
+        var contact_person
+        var project_manager
+        for(var i=0;i<input_items.length;i++){
+          if(input_items[i].querySelector('div').innerText=='Main Contact'){
+            contact_person=input_items[i];
+          }
+          if(input_items[i].querySelector('div').innerText=='Project Manager'){
+            project_manager=input_items[i];
+          }
+        }
+        project_manager.parentElement.style =  "position: relative";
+        project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
+        contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+        var contact_old = contact_person.querySelector("label").innerText;
+        var pm_old = project_manager.querySelector("a").innerText;
+        
+        var interval_contact = setInterval(function() {
+        var input_items = document.querySelectorAll('div[class="input__item"]');
+        var contact_person
+        var project_manager
+        for(var i=0;i<input_items.length;i++){
+          if(input_items[i].querySelector('div').innerText=='Main Contact'){
+            contact_person=input_items[i];
+          }
+          if(input_items[i].querySelector('div').innerText=='Project Manager'){
+            project_manager=input_items[i];
+          }
+        }
+        project_manager.parentElement.style =  "position: relative";
+        project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
+        contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+        var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
+        var innercontact =contact_person.querySelector("label").innerText;
+          if((innerpm!=pm_old||innercontact!=contact_old)&&innercontact!=""&&contact_old!=""&&innercontact!=" "&&contact_old!=" "&&innercontact!=null&&contact_old!=null&&contact_old.charCodeAt(0)!=160&&innercontact.charCodeAt(0)!=160){
+            console.log("contact chagned");
+            console.log([innerpm,pm_old,innercontact,contact_old]);
+            //console.log([contact_old=="",contact_old==" ",contact_old==null,contact_old==undefined,contact_old.charCodeAt(0)]);
+            setTimeout(function() {
+            window.scrollTo(0, 0);
+            }, 500);
+            contact_old = innercontact;
+            pm_old = innerpm;
+            //console.log(project_manager.style.position);
+          
+          var input_items = document.querySelectorAll('div[class="input__item"]');
+                  var contact_person
+                  var project_manager
+                  for(var i=0;i<input_items.length;i++){
+                    if(input_items[i].querySelector('div').innerText=='Main Contact'){
+                      contact_person=input_items[i];
+                    }
+                    if(input_items[i].querySelector('div').innerText=='Project Manager'){
+                      project_manager=input_items[i];
+                    }
+                  }
+            
+            project_manager.parentElement.style =  "position: relative";
+            project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
+            contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+
+          }
+        }, 100);  
+        ////////////////////////// 
 //////////////////////////////////// color gannt ////////////////////////////
       
  var dates = [];
