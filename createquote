@@ -1380,7 +1380,10 @@ var intervalIddatepicker4 = window.setInterval(function() {
    }
 },100);  
 }
-var job = document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText;
+var job = "";
+if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
+job = document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText;
+}
 var intervalIddatepicker5 = window.setInterval(function() {
   if(job!=document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText){
     job=document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]').innerText;
