@@ -1358,6 +1358,7 @@ var intervalIddatepicker3 = window.setInterval(function() {
      console.log("set datepicker 3");
      clearInterval(intervalIddatepicker3);
      document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
+     console.log(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id);
      jQuery('#end_date_id2').datetimepicker({
        dayOfWeekStart:'0',
        format:'Y-m-d H:00',
@@ -1370,6 +1371,7 @@ var intervalIddatepicker4 = window.setInterval(function() {
      console.log("set datepicker 4");
      clearInterval(intervalIddatepicker4);
      document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
+     console.log(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id);
      jQuery('#start_date_id2').datetimepicker({
        dayOfWeekStart:'0',
        format:'Y-m-d H:00',
