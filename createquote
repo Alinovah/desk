@@ -537,9 +537,97 @@ if(service!="Raw Materials"){
   }
 }
 }, 1000);
+
+///////////////// datetimepicker starting on Sunday/////////////////////////////
+var Estimated_Start_Date = document.querySelectorAll('div[class="input ng-scope calendar-input"]')[0];
+var Estimated_Start_Date_input = Estimated_Start_Date.getElementsByTagName("input")[0];
+Estimated_Start_Date_input.id = "Estimated_Start_Date_id";
+jQuery('#Estimated_Start_Date_id').datetimepicker({
+    dayOfWeekStart:'0',
+    format:'Y-m-d H:00',
+  });
+  
+var divdate = document.querySelectorAll('div[class="input calendar-input"]');
+var inputdate = divdate[1].getElementsByTagName("input");
+var Client_Deadline = inputdate[0];
+Client_Deadline.id = "Client_Deadline_id";
+jQuery('#Client_Deadline_id').datetimepicker({
+    dayOfWeekStart:'0',
+    format:'Y-m-d H:00',
+  });
+  
+var divdate = document.querySelectorAll('div[class="input calendar-input"]');
+var Ordered_on = divdate[0].getElementsByTagName("input");
+var Ordered_on_input = Ordered_on[0];
+Ordered_on_input.id = "Ordered_on_id";
+jQuery('#Ordered_on_id').datetimepicker({
+    dayOfWeekStart:'0',
+    format:'Y-m-d',
+    timepicker:false
+  });
+  
+var intervalIddatepicker1 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="startDate"]')){
+     clearInterval(intervalIddatepicker1);
+     document.querySelector('input[ng-model="startDate"]').id = "start_date_id";
+     jQuery('#start_date_id').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+var intervalIddatepicker2 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="deadline"]')){
+     clearInterval(intervalIddatepicker2);
+     document.querySelector('input[ng-model="deadline"]').id = "end_date_id";
+     jQuery('#end_date_id').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+var intervalIddatepicker3 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
+     clearInterval(intervalIddatepicker3);
+     document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id";
+     jQuery('#end_date_id').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
+var intervalIddatepicker4 = window.setInterval(function() {
+   if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
+     clearInterval(intervalIddatepicker4);
+     document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "end_date_id";
+     jQuery('#end_date_id').datetimepicker({
+       dayOfWeekStart:'0',
+       format:'Y-m-d H:00',
+      });
+   }
+},100);  
+
 ////////////////////////////
     }    
 }, 100);
+
+
+///////////// for datetimepicker starting on sunday ///////////////////
+var script = document.createElement("script");
+script.src = "https://alinovah.github.io/desk/datetimepickerfullmin";
+document.head.appendChild(script);
+
+var intervalIddatepicker = window.setInterval(function() {
+  for(var i=1;i<=30;i++){
+    if(document.getElementById("datetimepicker_id"+i)){
+      document.getElementById("datetimepicker_id"+i).remove();
+    }
+  }
+},100);
+
 }else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 
 ////////////////////loader///////////////////////
