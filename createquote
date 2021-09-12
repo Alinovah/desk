@@ -1355,7 +1355,7 @@ var intervalIddatepicker2 = window.setInterval(function() {
 
 var intervalIddatepicker3 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
-     console.leg("set datepicker 3");
+     console.log("set datepicker 3");
      clearInterval(intervalIddatepicker3);
      document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
      jQuery('#end_date_id2').datetimepicker({
@@ -1367,7 +1367,7 @@ var intervalIddatepicker3 = window.setInterval(function() {
 
 var intervalIddatepicker4 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
-     console.leg("set datepicker 4");
+     console.log("set datepicker 4");
      clearInterval(intervalIddatepicker4);
      document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
      jQuery('#start_date_id2').datetimepicker({
