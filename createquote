@@ -668,6 +668,15 @@ console.log(vid_duration);
 }, 500);
 //////////////////////////////
 
+////////////////////////// hide purchas order /////////////////////////
+var interval_purchas_order = setInterval(function() {
+if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
+     document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
+}     
+    }    
+}, 1000);
+////////////////////////// END ////////////////////
+
 ////////////////////////////
     }    
 }, 100);
@@ -1585,6 +1594,14 @@ console.log(vid_duration);
 }, 500);
 //////////////////////////////
 
+////////////////////////// hide purchas order /////////////////////////
+var interval_purchas_order = setInterval(function() {
+if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
+     document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
+}     
+    }    
+}, 1000);
+////////////////////////// END ////////////////////
 
 /////////////////////////////
   }
