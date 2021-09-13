@@ -1462,7 +1462,6 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
 },100);  
 ////////////////////////// put contact and pm on top /////////////////////
         
-        //var client_Notes = document.querySelectorAll('div[class="input__item one-half"]')[0];
         var client_Notes =  document.querySelector('div[class="input-wrap grid"]');
         var new_grid = document.createElement("div");
         new_grid.className = "input-wrap grid";
@@ -1483,8 +1482,13 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
           }
         }
         project_manager.parentElement.style =  "position: relative";
+        if(document.querySelector('div[class="x-embedded --warning"]')){
+        project_manager.style = "position: absolute; top: -2140px;left:0px;z-index: 1000;";
+        contact_person.style = "position: absolute; top: -2020px;left: 270px;z-index: 1000;";
+        }else{
         project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
         contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+        }
         var contact_old = contact_person.querySelector("label").innerText;
         var pm_old = project_manager.querySelector("a").innerText;
         
@@ -1501,8 +1505,13 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
           }
         }
         project_manager.parentElement.style =  "position: relative";
+        if(document.querySelector('div[class="x-embedded --warning"]')){
+        project_manager.style = "position: absolute; top: -2140px;left:0px;z-index: 1000;";
+        contact_person.style = "position: absolute; top: -2020px;left: 270px;z-index: 1000;";
+        }else{
         project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
         contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+        }
         var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
         var innercontact =contact_person.querySelector("label").innerText;
           if((innerpm!=pm_old||innercontact!=contact_old)&&innercontact!=""&&contact_old!=""&&innercontact!=" "&&contact_old!=" "&&innercontact!=null&&contact_old!=null&&contact_old.charCodeAt(0)!=160&&innercontact.charCodeAt(0)!=160){
@@ -1529,12 +1538,18 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
                   }
             
             project_manager.parentElement.style =  "position: relative";
-            project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
-            contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+            if(document.querySelector('div[class="x-embedded --warning"]')){
+        project_manager.style = "position: absolute; top: -2140px;left:0px;z-index: 1000;";
+        contact_person.style = "position: absolute; top: -2020px;left: 270px;z-index: 1000;";
+        }else{
+        project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
+        contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
+        }
 
           }
         }, 100);  
-        ////////////////////////// 
+
+////////////////////////// END ////////////////////
 
 ////////////////////////// check video duration /////////////////////////
 
