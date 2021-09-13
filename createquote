@@ -676,6 +676,12 @@ if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
 }, 1000);
 ////////////////////////// END ////////////////////
 
+////////////////////////// resize gannt /////////////////////
+ document.querySelector('div[ng-controller="project.jobsCtrl"]').style.height = "550px";
+ document.querySelectorAll('div[class="body"]')[1].style.height="450px";
+
+////////////////////////// END ////////////////////
+
 ////////////////////////////
     }    
 }, 100);
@@ -1614,6 +1620,12 @@ if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
      document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
 }     
 }, 1000);
+////////////////////////// END ////////////////////
+
+////////////////////////// resize gannt /////////////////////
+ document.querySelector('div[ng-controller="project.jobsCtrl"]').style.height = "550px";
+ document.querySelectorAll('div[class="body"]')[1].style.height="450px";
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
