@@ -672,8 +672,7 @@ console.log(vid_duration);
 var interval_purchas_order = setInterval(function() {
 if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
      document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
-}     
-    }    
+}        
 }, 1000);
 ////////////////////////// END ////////////////////
 
@@ -1599,7 +1598,6 @@ var interval_purchas_order = setInterval(function() {
 if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
      document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
 }     
-    }    
 }, 1000);
 ////////////////////////// END ////////////////////
 
