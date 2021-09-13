@@ -1641,7 +1641,7 @@ if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
 ////////////////////////// resize gannt /////////////////////
  document.querySelector('div[ng-controller="project.jobsCtrl"]').style.height = "550px";
  for(var i=0;i<document.querySelectorAll('div[class="body"]').length;i++){
-   if(document.querySelectorAll('div[class="body"]')[i].querySelector('div').className=="controls"){
+   if(document.querySelectorAll('div[class="body"]')[i].querySelector('div')){
      if(document.querySelectorAll('div[class="body"]')[i].querySelector('div').className=="controls"){
        document.querySelectorAll('div[class="body"]')[i].style.height="450px";
      }
