@@ -1483,13 +1483,14 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
   }
 },100);  
 ////////////////////////// put contact and pm on top /////////////////////
+
         
         var client_Notes =  document.querySelector('div[class="input-wrap grid"]');
         var new_grid = document.createElement("div");
         new_grid.className = "input-wrap grid";
         var parentNode = document.querySelector('div[class="body ng-scope"]');
         parentNode.insertBefore(new_grid, client_Notes);
-        new_grid.style = "height:100px;"
+        new_grid.style = "height:150px;"
         
         
         var input_items = document.querySelectorAll('div[class="input__item"]');
@@ -1503,16 +1504,20 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
             project_manager=input_items[i];
           }
         }
-        project_manager.parentElement.style =  "position: relative";
-        if(document.querySelector('div[class="x-embedded --warning"]')){
-        project_manager.style = "position: absolute; top: -2140px;left:0px;z-index: 1000;";
-        contact_person.style = "position: absolute; top: -2020px;left: 270px;z-index: 1000;";
-        }else{
-        project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
-        contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
-        }
+        project_manager.parentElement.style =  "position: relative;width:100%";
+          const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+          var pos = rect.top + window.scrollY;
+          console.log(pos);
+          const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
+          var pos2 = rect2.top + window.scrollY;
+          console.log(pos2);
+          var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
+          var pos_offset2 = pos-pos2-260;
+        project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 270px;";
+
         var contact_old = contact_person.querySelector("label").innerText;
-        var pm_old = project_manager.querySelector("a").innerText;
+        var pm_old = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
         
         var interval_contact = setInterval(function() {
         var input_items = document.querySelectorAll('div[class="input__item"]');
@@ -1526,27 +1531,30 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
             project_manager=input_items[i];
           }
         }
-        project_manager.parentElement.style =  "position: relative";
-        if(document.querySelector('div[class="x-embedded --warning"]')){
-        project_manager.style = "position: absolute; top: -2140px;left:0px;z-index: 1000;";
-        contact_person.style = "position: absolute; top: -2020px;left: 270px;z-index: 1000;";
-        }else{
-        project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
-        contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
-        }
+        
+        project_manager.parentElement.style =  "position: relative;width:100%";
+          const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+          var pos = rect.top + window.scrollY;
+          console.log(pos);
+          const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
+          var pos2 = rect2.top + window.scrollY;
+          console.log(pos2);
+          var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
+        var pos_offset2 = pos-pos2-260;
+        project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 270px;";
+        
         var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
         var innercontact =contact_person.querySelector("label").innerText;
           if((innerpm!=pm_old||innercontact!=contact_old)&&innercontact!=""&&contact_old!=""&&innercontact!=" "&&contact_old!=" "&&innercontact!=null&&contact_old!=null&&contact_old.charCodeAt(0)!=160&&innercontact.charCodeAt(0)!=160){
             console.log("contact chagned");
             console.log([innerpm,pm_old,innercontact,contact_old]);
-            //console.log([contact_old=="",contact_old==" ",contact_old==null,contact_old==undefined,contact_old.charCodeAt(0)]);
             setTimeout(function() {
             window.scrollTo(0, 0);
             }, 500);
             contact_old = innercontact;
             pm_old = innerpm;
-            //console.log(project_manager.style.position);
-          
+
           var input_items = document.querySelectorAll('div[class="input__item"]');
                   var contact_person
                   var project_manager
@@ -1558,15 +1566,17 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
                       project_manager=input_items[i];
                     }
                   }
-            
-            project_manager.parentElement.style =  "position: relative";
-            if(document.querySelector('div[class="x-embedded --warning"]')){
-        project_manager.style = "position: absolute; top: -2140px;left:0px;z-index: 1000;";
-        contact_person.style = "position: absolute; top: -2020px;left: 270px;z-index: 1000;";
-        }else{
-        project_manager.style = "position: absolute; top: -2220px;left:0px;z-index: 1000;";
-        contact_person.style = "position: absolute; top: -2100px;left: 270px;z-index: 1000;";
-        }
+        project_manager.parentElement.style =  "position: relative;width:100%";
+          const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+          var pos = rect.top + window.scrollY;
+          console.log(pos);
+          const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
+          var pos2 = rect2.top + window.scrollY;
+          console.log(pos2);
+          var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
+          var pos_offset2 = pos-pos2-260;
+        project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 270px;";
 
           }
         }, 100);  
