@@ -10,8 +10,8 @@ loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:30
 backround.className = "center";
 backround.id = "loader";
 loader.className = "center";
-loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:1999999;";
-backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:999999;";
+loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:97;";
+backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:97;";
 var sheet = window.document.styleSheets[0];
 sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
 document.body.style = "overflow: hidden;";
@@ -639,8 +639,8 @@ loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:30
 backround.className = "center";
 backround.id = "loader";
 loader.className = "center";
-loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:1999999;";
-backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:999999;";
+loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:97;";
+backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:97;";
 var sheet = window.document.styleSheets[0];
 sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
 document.body.style = "overflow: hidden;";
