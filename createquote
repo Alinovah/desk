@@ -1473,9 +1473,8 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
 
 ////////////////////////// check video duration /////////////////////////
 
-var duration = document.querySelector('input[ng-model="quote.volume"]').value;
-
 var interval_filecount = setInterval(function() {
+var duration = document.querySelector('input[ng-model="quote.volume"]').value;
 if(!document.querySelector('a[class="filename link ng-binding x-icon --file"]')){
   console.log("no uploads");
   flag = 0;
