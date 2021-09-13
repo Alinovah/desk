@@ -521,7 +521,7 @@ if(service!="Raw Materials"){
   var categories = document.querySelectorAll("div[ng-attr-tabindex]");
   for (var i=0;i<categories.length;i++){
     var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"){
+    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"||line=="Locators"){
       console.log(line);
       categories[i].style.visibility = "collapse";
     }
@@ -857,7 +857,7 @@ if(service!="Raw Materials"){
   var categories = document.querySelectorAll("div[ng-attr-tabindex]");
   for (var i=0;i<categories.length;i++){
     var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"){
+    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"||line=="Locators"){
       console.log(line);
       categories[i].style.visibility = "collapse";
     }
