@@ -1,6 +1,19 @@
  
 var currentlink = window.location.href;
-if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
+////////////////////////// fix stuck after receivables /////////////////////
+if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
+  console.log("bad url");
+  var redirect = currentlink.substring(0,currentlink.length-69);
+  console.log(redirect);
+  window.location = redirect;
+}else if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){ 
+   console.log("bad url");
+   var redirect = currentlink.substring(0,currentlink.length-71);
+   console.log(redirect);
+   window.location = redirect;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}else if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
 
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
@@ -1667,17 +1680,7 @@ setTimeout( function (){
   window.location = "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
 },6000);
 
-////////////////////////// fix stuck after receivables /////////////////////
-}else if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
-  console.log("bad url");
-  var redirect = currentlink.substring(0,currentlink.length-69);
-  console.log(redirect);
-  window.location = redirect;
-}else if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){ 
-   console.log("bad url");
-   var redirect = currentlink.substring(0,currentlink.length-71);
-   console.log(redirect);
-   window.location = redirect;
+/////////////////////////////////////////////////////////////////////////////////////////
 
 }else if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
   /////////////////////////change dashboard colord/////////////////
