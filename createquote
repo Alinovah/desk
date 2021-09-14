@@ -19,12 +19,6 @@ document.body.prepend(loader);
 document.body.prepend(backround);
 
 
-var interval = setInterval(function() {
-    setTimeout( function (){ 
-       if($('[class^="input__item"]').length<34){
-         location.reload();
-       }
-    },10000);
     console.log($('[class^="input__item"]').length);
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
@@ -730,12 +724,6 @@ document.body.prepend(loader);
 document.body.prepend(backround);
 
 
-var interval = setInterval(function() {
-    setTimeout( function (){ 
-       if($('[class^="input__item"]').length<34){
-         location.reload();
-       }
-    },10000);
     console.log($('[class^="input__item"]').length);
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
