@@ -1669,13 +1669,15 @@ setTimeout( function (){
 
 ////////////////////////// fix stuck after receivables /////////////////////
 }else if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
-setTimeout( function (){ 
-  window.location = currentlink.substring(0,currentlink.length-69);
-},1000);
+  console.log("bad url");
+  var redirect = currentlink.substring(0,currentlink.length-69;
+  console.log(redirect);
+  window.location = redirect;
 }else if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){ 
-setTimeout( function (){ 
-   window.location = currentlink.substring(0,currentlink.length-71);
-},1000);
+   console.log("bad url");
+   var redirect = currentlink.substring(0,currentlink.length-71);
+   console.log(redirect);
+   window.location = redirect;
 
 }else if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
   /////////////////////////change dashboard colord/////////////////
