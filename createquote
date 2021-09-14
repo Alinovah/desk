@@ -33,7 +33,7 @@ document.body.prepend(backround);
 
 var interval = setInterval(function() {
     console.log($('[class^="input__item"]').length);
-    if($('[class^="input__item"]').length>=34){
+    if($('[class^="input__item"]').length>=33){
         clearInterval(interval);
         setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
