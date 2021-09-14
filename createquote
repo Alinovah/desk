@@ -536,7 +536,7 @@ if(service!="Raw Materials"){
     }
   }
 }
-//}, 1000);
+}, 1000);
 
 ///////////////// datetimepicker starting on Sunday/////////////////////////////
 var Estimated_Start_Date = document.querySelectorAll('div[class="input ng-scope calendar-input"]')[0];
