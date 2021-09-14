@@ -1701,8 +1701,11 @@ setTimeout( function (){
   window.location = "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
 },6000);
 
-
-
+////////////////////////// fix stuck after receivables /////////////////////
+}else if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
+   window.location = currentlink.substring(0,currentlink.length-69);
+}else if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){
+   window.location = currentlink.substring(0,currentlink.length-71);
 
 }else if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
   /////////////////////////change dashboard colord/////////////////
