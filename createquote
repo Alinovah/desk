@@ -18,7 +18,7 @@ document.body.style = "overflow: hidden;";
 document.body.prepend(loader);
 document.body.prepend(backround);
 
-
+var interval = setInterval(function() {
     console.log($('[class^="input__item"]').length);
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
@@ -713,7 +713,7 @@ document.body.style = "overflow: hidden;";
 document.body.prepend(loader);
 document.body.prepend(backround);
 
-
+var interval = setInterval(function() {
     console.log($('[class^="input__item"]').length);
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
