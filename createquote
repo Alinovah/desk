@@ -569,6 +569,8 @@ if(service!="Raw Materials"){
     }
   }
 }
+
+////////////////////////////
 }, 1000);
 
 ///////////////// datetimepicker starting on Sunday/////////////////////////////
