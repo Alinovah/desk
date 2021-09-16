@@ -328,7 +328,7 @@ function resetprocess(){
   function movei(z){
     setTimeout(function(){
     z=z+1;
-    console.log(z);
+    //console.log(z);
     if(z<20){
       resetstage(z);
       movei(z);
@@ -416,7 +416,7 @@ sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_bla
 
 
 /////////////////////////rearange view///////////////////////////
-console.log($('[class^="input__item"]').length);
+//console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==34){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
@@ -428,11 +428,11 @@ var volume = $('[class^="input__item"]')[6];
 var origin = $('[class^="input__item"]')[7];
 var expexteddate = $('[class^="input__item custom_field"]')[0];
 var quantity = $('[class^="input__item custom_field"]')[2];
-console.log([client,service]);
-console.log([ordered,startged]);
-console.log([deadline,expexteddate]);
-console.log([volume,quantity]);
-console.log([origin,referance]);
+//console.log([client,service]);
+//console.log([ordered,startged]);
+//console.log([deadline,expexteddate]);
+//console.log([volume,quantity]);
+//console.log([origin,referance]);
 client.appendChild(service);
 ordered.appendChild(startged);
 deadline.appendChild(expexteddate);
@@ -650,7 +650,7 @@ var intervalIddatepicker4 = window.setInterval(function() {
 var interval_filecount = setInterval(function() {
 var duration = document.querySelector('input[ng-model="::order.volume"]').value;
 if(!document.querySelector('a[class="filename link ng-binding x-icon --file"]')){
-  console.log("no uploads");
+  //console.log("no uploads");
   flag = 0;
 }else{
   if(flag==0){
@@ -846,7 +846,7 @@ function revertjob(){
       setTimeout(function(){
       },2700);
       flag = flag+1;
-      console.log("no change");
+      //console.log("no change");
     }else if(state[0].textContent=="Mark as ready"){
       setTimeout(function(){
       console.log("started to accepted");
@@ -893,7 +893,7 @@ if(service!="Raw Materials"){
   for (var i=0;i<categories.length;i++){
     var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
     if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"||line=="Locators"){
-      console.log(line);
+      //console.log(line);
       categories[i].style.visibility = "collapse";
     }
   }
@@ -902,7 +902,7 @@ if(service!="Raw Materials"){
   for (var i=0;i<categories.length;i++){
     var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
   if(line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
-      console.log(line);
+      //console.log(line);
       categories[i].style.visibility = "collapse";
       }
     }
@@ -937,7 +937,7 @@ function resetprocess(){
   function movei(z){
     setTimeout(function(){
     z=z+1;
-    console.log(z);
+    //console.log(z);
     if(z<20){
       resetstage(z);
       movei(z);
@@ -963,7 +963,7 @@ function resetprocess(){
       setTimeout(function(){
       },2700);
       flag = flag+1;
-      console.log("no change");
+      //console.log("no change");
     }else if(state[0].textContent=="Start Job"){
       setTimeout(function(){
       console.log("accepted to open");
@@ -1024,7 +1024,7 @@ function eventFire(el, etype) {
 }
 
 /////////////////////////rearange view///////////////////////////
-console.log($('[class^="input__item"]').length);
+//console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==35){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
@@ -1037,12 +1037,12 @@ var volume = $('[class^="input__item"]')[7];
 var origin = $('[class^="input__item"]')[8];
 var expexteddate = $('[class^="input__item custom_field"]')[0];
 var quantity = $('[class^="input__item custom_field"]')[2];
-console.log([client,expaire,service]);
-console.log([created,expaire]);
-console.log([deadline,expexteddate]);
-console.log([working,referance]);
-console.log([volume,quantity]);
-console.log([origin,expaire]);
+//console.log([client,expaire,service]);
+//console.log([created,expaire]);
+//console.log([deadline,expexteddate]);
+//console.log([working,referance]);
+//console.log([volume,quantity]);
+//console.log([origin,expaire]);
 client.appendChild(expaire);
 client.appendChild(service);
 created.appendChild(expaire);
@@ -1051,7 +1051,7 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
-console.log($('[class^="input__item"]').length);
+//console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==36){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
@@ -1065,12 +1065,12 @@ var volume = $('[class^="input__item"]')[8];
 var origin = $('[class^="input__item"]')[9];
 var expexteddate = $('[class^="input__item custom_field"]')[0];
 var quantity = $('[class^="input__item custom_field"]')[2];
-console.log([client,service]);
-console.log([created,actual]);
-console.log([deadline,expexteddate]);
-console.log([working,referance]);
-console.log([volume,quantity]);
-console.log([origin,service]);
+//console.log([client,service]);
+//console.log([created,actual]);
+//console.log([deadline,expexteddate]);
+//console.log([working,referance]);
+//console.log([volume,quantity]);
+//console.log([origin,service]);
 client.appendChild(service);
 created.appendChild(actual);
 deadline.appendChild(expexteddate);
@@ -1105,7 +1105,7 @@ if(target.textContent=="Select Languages..."){
 if(target.textContent!="Select Languages..."){
   target.style = "background:#ffffff";
 }
-console.log(input1.value);
+//console.log(input1.value);
 if(input1.value==""){
   input1.style = "background-color: #f5b8b8 !important";
 }
@@ -1458,10 +1458,10 @@ var intervalIddatepicker2 = window.setInterval(function() {
 function set_datepicker_3_4(){
 var intervalIddatepicker3 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]')){
-     console.log("set datepicker 3");
+     //console.log("set datepicker 3");
      clearInterval(intervalIddatepicker3);
      document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id = "end_date_id2";
-     console.log(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id);
+     //console.log(document.querySelector('input[ng-model="datesCtrl.uiState.deadline"]').id);
      jQuery('#end_date_id2').datetimepicker({
        dayOfWeekStart:'0',
        format:'Y-m-d H:00',
@@ -1471,10 +1471,10 @@ var intervalIddatepicker3 = window.setInterval(function() {
 
 var intervalIddatepicker4 = window.setInterval(function() {
    if(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]')){
-     console.log("set datepicker 4");
+     //console.log("set datepicker 4");
      clearInterval(intervalIddatepicker4);
      document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id = "start_date_id2";
-     console.log(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id);
+     //console.log(document.querySelector('input[ng-model="datesCtrl.uiState.startDate"]').id);
      jQuery('#start_date_id2').datetimepicker({
        dayOfWeekStart:'0',
        format:'Y-m-d H:00',
@@ -1522,10 +1522,10 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
         project_manager.parentElement.style =  "position: relative;width:100%";
           const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
           var pos = rect.top + window.scrollY;
-          console.log(pos);
+          //console.log(pos);
           const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
           var pos2 = rect2.top + window.scrollY;
-          console.log(pos2);
+          //console.log(pos2);
           var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
           var pos_offset2 = pos-pos2-260;
         project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
@@ -1550,10 +1550,10 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
         project_manager.parentElement.style =  "position: relative;width:100%";
           const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
           var pos = rect.top + window.scrollY;
-          console.log(pos);
+          //console.log(pos);
           const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
           var pos2 = rect2.top + window.scrollY;
-          console.log(pos2);
+          //console.log(pos2);
           var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
         var pos_offset2 = pos-pos2-260;
         project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
@@ -1562,8 +1562,8 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
         var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
         var innercontact =contact_person.querySelector("label").innerText;
           if((innerpm!=pm_old||innercontact!=contact_old)&&innercontact!=""&&contact_old!=""&&innercontact!=" "&&contact_old!=" "&&innercontact!=null&&contact_old!=null&&contact_old.charCodeAt(0)!=160&&innercontact.charCodeAt(0)!=160){
-            console.log("contact chagned");
-            console.log([innerpm,pm_old,innercontact,contact_old]);
+            //console.log("contact chagned");
+            //console.log([innerpm,pm_old,innercontact,contact_old]);
             setTimeout(function() {
             window.scrollTo(0, 0);
             }, 500);
@@ -1584,10 +1584,10 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
         project_manager.parentElement.style =  "position: relative;width:100%";
           const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
           var pos = rect.top + window.scrollY;
-          console.log(pos);
+          //console.log(pos);
           const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
           var pos2 = rect2.top + window.scrollY;
-          console.log(pos2);
+          //console.log(pos2);
           var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
           var pos_offset2 = pos-pos2-260;
         project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
@@ -1603,7 +1603,7 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
 var interval_filecount = setInterval(function() {
 var duration = document.querySelector('input[ng-model="quote.volume"]').value;
 if(!document.querySelector('a[class="filename link ng-binding x-icon --file"]')){
-  console.log("no uploads");
+  //console.log("no uploads");
   flag = 0;
 }else{
   if(flag==0){
@@ -1794,7 +1794,7 @@ setTimeout( function (){
         table1deadline[j].style = "color:#ff9500";
       }
     }
-    console.log(diffDays);
+    //console.log(diffDays);
     if(diffDays<0){
       for(var j=0;j<table1deadline.length;j++){
         table1deadline[j].style = "color:#fc0303";
@@ -1813,7 +1813,7 @@ setTimeout( function (){
     if(diffDays<=1){
       deadlines3.style = "color:#ff9500";
     }
-    console.log(diffDays);
+    //console.log(diffDays);
     if(diffDays<0){
       deadlines3.style = "color:#fc0303";
     }
@@ -1830,7 +1830,7 @@ setTimeout( function (){
     if(diffDays<=1){
       deadlines2.style = "color:#ff9500";
     }
-    console.log(diffDays);
+    //console.log(diffDays);
     if(diffDays<0){
       deadlines2.style = "color:#fc0303";
     }
@@ -1849,7 +1849,7 @@ setTimeout( function (){
         table5deadline[j].style = "color:#ff9500";
       }
     }
-    console.log(diffDays);
+    //console.log(diffDays);
     if(diffDays<0){
       for(var j=0;j<table5deadline.length;j++){
         table5deadline[j].style = "color:#fc0303";
@@ -1868,7 +1868,7 @@ setTimeout( function (){
     if(diffDays<=1){
       deadlines6.style = "color:#ff9500";
     }
-    console.log(diffDays);
+    //console.log(diffDays);
     if(diffDays<0){
       deadlines6.style = "color:#fc0303";
     }
