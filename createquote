@@ -39,7 +39,8 @@ var interval = setInterval(function() {
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
 
 //////////////////////////////////// color gannt ////////////////////////////
-        
+  eventFire(document.querySelector('button[ng-click="pluginScope.goToToday()"]'), 'click');
+ 
  var dates = [];
            var dates_header = [];
            var holiday_pos = [];
@@ -767,7 +768,7 @@ var interval = setInterval(function() {
         
 
 //////////////////////////////////// color gannt ////////////////////////////
-      
+ eventFire(document.querySelector('button[ng-click="pluginScope.goToToday()"]'), 'click');     
  var dates = [];
            var dates_header = [];
            var holiday_pos = [];
