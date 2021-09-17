@@ -1579,8 +1579,8 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
           //console.log(pos2);
           var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
           var pos_offset2 = pos-pos2-260;
-        project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
-        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 270px;";
+        //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
 
         var contact_old = contact_person.querySelector("label").innerText;
         var pm_old = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
@@ -1607,8 +1607,8 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
           //console.log(pos2);
           var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
         var pos_offset2 = pos-pos2-260;
-        project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
-        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 270px;";
+        //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
         
         var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
         var innercontact =contact_person.querySelector("label").innerText;
@@ -1641,8 +1641,8 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
           //console.log(pos2);
           var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
           var pos_offset2 = pos-pos2-260;
-        project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
-        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 270px;";
+        //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
 
           }
         }, 100);  
