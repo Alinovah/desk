@@ -1080,19 +1080,36 @@ origin.appendChild(expaire);
 }
 
 //////////////////////////color empty red///////////////////////
-
+var flag = 0;
 var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
 var input1 = document.querySelector("div[class='input calendar-input']").getElementsByTagName("input")[0];//inputs[0];
 var input6 = inputs[5];
 var input5 = inputs[4];
 var input9 = inputs[8];
+var for_disable = document.createElement("div");
+for_disable.id = "for_disable";
+document.body.prepend(for_disable);
 
 var intervalId = window.setInterval(function() {
 
+var process_list = document.querySelector('div[class="nd-list"]');
+if(process_list){
+  process_list.style.zIndex = 100;
+  process_list.style.position = "relative";
+}
+var div_to_disable = document.querySelector('div[class="process-container project-process ng-scope"]');
+const rect = div_to_disable.getBoundingClientRect();
+var pos = rect.top + window.scrollY;
+const rect2 = document.querySelector('span[ng-if="project.name"]').getBoundingClientRect();
+var pos2 = rect2.top;// + window.scrollY;
+var pos_offset = (pos-pos2-52.984375-116+230);
+console.log([pos,pos2,pos_offset]);
+var left_pos = rect.left;
 
 var languages = $('[class^="nd-display ng-binding ng-scope"]');
 var source = languages[0];
 var target = languages[1];
+
 if(source.textContent=="Select Language..."){
   source.style = "background:#f5b8b8";
 }
@@ -1145,6 +1162,40 @@ if(specilazation.innerText!="___"){
 }
 }
 }
+
+//////////// disable process if requiered is empty /////////////
+
+var specilazation_flag = 0;
+var flag=0;
+for(var c=0;c<3;c++){
+if(document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[c]){
+var specilazation = document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[c];
+if(specilazation.innerText=="___"){
+  flag = 0;
+}
+if(specilazation.innerText!="___"){
+  flag++;
+}
+}
+}
+if(flag == 3){
+  specilazation_flag=0;
+}else{
+  specilazation_flag=1;
+}
+
+if(source.textContent=="Select Language..."||target.textContent=="Select Languages..."||input1.value==""||input5.value==""||input6.value==""||input9.value==""||specilazation_flag==1){
+    console.log("One of the requiered fields are missing! Can't start process.");
+    for_disable.style = "display:block; opacity:0.5; height:"+(div_to_disable.clientHeight)+"px; width:"+div_to_disable.clientWidth+"px; background-color:#ffffff; position:absolute; top:"+pos_offset+"px;left:"+left_pos+"px; z-index:2;";
+    document.querySelectorAll('button[ng-click="startJobs()"]')[0].style.display="none";
+    document.querySelectorAll('button[ng-click="startJobs()"]')[1].style.display="none";
+}else{
+    for_disable.style.display="none";
+    document.querySelectorAll('button[ng-click="startJobs()"]')[0].style.display="block";
+    document.querySelectorAll('button[ng-click="startJobs()"]')[1].style.display="block";
+}
+
+
 }, 1000);
 
 
