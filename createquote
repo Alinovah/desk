@@ -1098,7 +1098,7 @@ var input5 = inputs[4];
 var input9 = inputs[8];
 var for_disable = document.createElement("div");
 for_disable.id = "for_disable";
-//document.body.prepend(for_disable);
+document.body.prepend(for_disable);
 
 var intervalId = window.setInterval(function() {
 
@@ -1559,7 +1559,7 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
   }
 },100);  
 ////////////////////////// put contact and pm on top /////////////////////
-
+/*
         
         var client_Notes =  document.querySelector('div[class="input-wrap grid"]');
         var new_grid = document.createElement("div");
@@ -1656,7 +1656,7 @@ if(document.querySelector('h3[class="job-name ng-binding ng-isolate-scope"]')){
 
           }
         }, 100);  
-
+*/
 ////////////////////////// END ////////////////////
 
 ////////////////////////// check video duration /////////////////////////
