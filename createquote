@@ -1113,7 +1113,7 @@ var pos = rect.top + window.scrollY;
 const rect2 = document.querySelector('span[ng-if="project.name"]').getBoundingClientRect();
 var pos2 = rect2.top;// + window.scrollY;
 var pos_offset = (pos-pos2-52.984375-116+230);
-console.log([pos,pos2,pos_offset]);
+//console.log([pos,pos2,pos_offset]);
 var left_pos = rect.left;
 
 var languages = $('[class^="nd-display ng-binding ng-scope"]');
