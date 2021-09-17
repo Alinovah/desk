@@ -1102,7 +1102,7 @@ document.body.prepend(for_disable);
 for_disable.style = "display:none; opacity:0.5; height:0px; width:0px; background-color:#ffffff;position:relative; top:0px;left:0px; z-index:2;";
 
 var intervalId = window.setInterval(function() {
-
+for_disable.style = for_disable.style;
 var process_list = document.querySelector('div[class="nd-list"]');
 if(process_list){
   process_list.style.zIndex = 100;
