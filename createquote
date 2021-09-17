@@ -710,7 +710,17 @@ if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
 }, 1000);
 ////////////////////////// END ////////////////////
 
-
+////////////////////////// change raw materials volume field name /////////////////////
+var service = $('[class^="input ng-binding ng-scope"]')[0];
+var titles = document.querySelectorAll('div[class="title ng-binding ng-scope"]');
+if(service.textContent=="Raw Materials"){
+  for(var i=0;i<titles.length;i++){
+    if(titles[i].textContent =='number of video files'){
+      titles[i].textContent = "Number of pages";
+    }
+  }
+}
+////////////////////////// END ////////////////////
 
 ////////////////////////////
     }    
@@ -1714,6 +1724,17 @@ if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
 }, 1000);
 ////////////////////////// END ////////////////////
 
+////////////////////////// change raw materials volume field name /////////////////////
+var service = $('[class^="input ng-binding ng-scope"]')[0];
+var titles = document.querySelectorAll('div[class="title ng-binding ng-scope"]');
+if(service.textContent=="Raw Materials"){
+  for(var i=0;i<titles.length;i++){
+    if(titles[i].textContent =='number of video files'){
+      titles[i].textContent = "Number of pages";
+    }
+  }
+}
+////////////////////////// END ////////////////////
 
 /////////////////////////////
   }
