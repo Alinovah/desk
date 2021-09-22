@@ -1114,12 +1114,20 @@ if(flag == 3){
 if(source.textContent=="Select Language..."||target.textContent=="Select Languages..."||input1.value==""||input5.value==""||input6.value==""||input9.value==""||specilazation_flag==1){
     console.log("One of the requiered fields are missing! Can't start process.");
     for_disable.style = "display:block; opacity:0.5; height:"+(div_to_disable.clientHeight)+"px; width:"+div_to_disable.clientWidth+"px; background-color:#ffffff; position:absolute; top:"+pos_offset+"px;left:"+left_pos+"px; z-index:2;";
+    if(document.querySelectorAll('button[ng-click="startJobs()"]')[0]){
     document.querySelectorAll('button[ng-click="startJobs()"]')[0].style.display="none";
+    }
+    if(document.querySelectorAll('button[ng-click="startJobs()"]')[1]){
     document.querySelectorAll('button[ng-click="startJobs()"]')[1].style.display="none";
+    }
 }else{
     for_disable.style.display="none";
+    if(document.querySelectorAll('button[ng-click="startJobs()"]')[0]){
     document.querySelectorAll('button[ng-click="startJobs()"]')[0].style.display="block";
+    }
+    if(document.querySelectorAll('button[ng-click="startJobs()"]')[1]){
     document.querySelectorAll('button[ng-click="startJobs()"]')[1].style.display="block";
+    }
 }
 
 
