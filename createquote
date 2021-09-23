@@ -1662,6 +1662,7 @@ function sendemail(request){
 ////////////////////////// send email /////////////////////
 var project_id = document.querySelector('span[ng-if="project.name"]').innerText.substring(0,document.querySelector('span[ng-if="project.name"]').innerText.length-1).toString();
 var pm = document.querySelector('div[class="name"]').textContent;
+var email = document.querySelector('div[class="email"]').textContent;
 var data = {
     service_id: 'service_65sfjal',
     template_id: 'template_cpglsht',
@@ -1672,6 +1673,7 @@ var data = {
         'decline': "123",
         'approve':url_for_approve,
         'project_link': window.location.href,
+        'reply_to': email,
         'reason': request,
         'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
     }
