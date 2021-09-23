@@ -1570,6 +1570,126 @@ if(service.textContent=="Raw Materials"){
 }
 ////////////////////////// END ////////////////////
 
+////////////////////////// request price change button /////////////////////
+
+var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
+var enablechange = "";
+for(var i=0;i<customfields.length;i++){
+  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"){
+    enablechange = document.querySelectorAll('div[class="input__item custom_field"]')[i];
+  }
+} 
+
+var intervaleditbutton = setInterval(function() {
+var editbutton = document.getElementById("formWithPanels:receivablesTable:0:j_idt297");
+    if(editbutton){
+        if(enablechange.querySelectorAll('div')[1].innerText=="FALSE"){
+          editbutton.style.display="none";
+        }else{
+          editbutton.style.display="block";
+        }
+    }
+}, 100);
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("assistedProjectId");
+var url_for_approve = "http://pilk.mooo.com:7896/requestrateadjustment?id="+c;
+
+var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
+for(var i=0;i<customfields.length;i++){
+  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"&&document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelectorAll('div')[1].innerText=="FALSE"){
+    var requesttext = document.createElement("TEXTAREA");
+    requesttext.id = "requesttext";
+    requesttext.className = "inp ng-pristine ng-valid ng-empty ng-touched";
+    requesttext.style = "width: 100%; max-width: 100%; overflow: hidden; overflow-wrap: break-word; resize: none; height: 58px;";
+    requesttext.style.display = "none";
+    requesttext.dir="rtl";
+    customfields[i].append(requesttext);
+    var requestbutton = document.createElement("button");
+    requestbutton.innerText = "Request Price Change";
+    requestbutton.className= "btn ng-scope";
+    requestbutton.onclick = requestform;
+    requestbutton.id = "requestbutton";
+    customfields[i].append(requestbutton);
+    var cancelbutton = document.createElement("button");
+    cancelbutton.innerText = "Cancel Request";
+    cancelbutton.className= "btn ng-scope";
+    cancelbutton.onclick = cancelrequest;
+    cancelbutton.id = "cancelrequest";
+    cancelbutton.style.display = "none";
+    customfields[i].append(cancelbutton);
+  }
+}
+
+function requestform(){
+  console.log("clicked");
+    var requestbutton = document.getElementById("requestbutton");
+    requestbutton.innerText = "Send Request";
+    requestbutton.onclick = sendrequest;
+    var cancelbutton = document.getElementById("cancelrequest");
+    cancelbutton.style.display = "block";
+    var requesttext = document.getElementById("requesttext");
+    requesttext.style.display = "block";
+}
+
+function cancelrequest(){
+  console.log("clicked cancelrequest");
+    var requestbutton = document.getElementById("requestbutton");
+    requestbutton.innerText = "Request Price Change";
+    requestbutton.onclick = requestform;
+    var cancelbutton = document.getElementById("cancelrequest");
+    cancelbutton.style.display = "none";
+    var requesttext = document.getElementById("requesttext");
+    requesttext.style.display = "none";
+}
+
+function sendrequest(){
+  console.log("clicked sendrequest");
+    var requestbutton = document.getElementById("requestbutton");
+    requestbutton.innerText = "Request Sent!";
+    requestbutton.disabled = true;
+    var cancelbutton = document.getElementById("cancelrequest");
+    cancelbutton.style.display = "none";
+    var requesttext = document.getElementById("requesttext");
+    requesttext.style.display = "none";
+    var request = requesttext.value;
+    sendemail(request);
+}
+
+function sendemail(request){
+
+////////////////////////// send email /////////////////////
+var project_id = document.querySelector('span[ng-if="project.name"]').innerText.substring(0,document.querySelector('span[ng-if="project.name"]').innerText.length-1).toString();
+var pm = document.querySelector('div[class="name"]').textContent;
+var data = {
+    service_id: 'service_65sfjal',
+    template_id: 'template_cpglsht',
+    user_id: 'user_Rmex4xmP46PWaVqzAOuCP',
+    template_params: {
+        'pm': pm,
+        'project_id': project_id,
+        'decline': "123",
+        'approve':url_for_approve,
+        'project_link': window.location.href,
+        'reason': request,
+        'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
+    }
+};
+$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json'
+}).done(function() {
+    console.log('Your mail is sent!');
+}).fail(function(error) {
+    console.log('Oops... ' + JSON.stringify(error));
+});
+
+
+}
+////////////////////////// END ////////////////////
+
 /////////////////////////////
   }
 }, 100);
