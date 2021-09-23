@@ -33,7 +33,7 @@ document.body.prepend(backround);
 
 var interval = setInterval(function() {
     console.log($('[class^="input__item"]').length);
-    if($('[class^="input__item"]').length>=33){
+    if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
         setTimeout( function (){ 
         loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
@@ -418,7 +418,7 @@ sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_bla
 
 /////////////////////////rearange view///////////////////////////
 //console.log($('[class^="input__item"]').length);
-if($('[class^="input__item"]').length==34){
+if($('[class^="input__item"]').length==35){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
 var ordered = $('[class^="input__item"]')[2];
@@ -440,7 +440,7 @@ deadline.appendChild(expexteddate);
 volume.appendChild(quantity);
 origin.appendChild(referance);
 }
-if($('[class^="input__item"]').length==33){
+if($('[class^="input__item"]').length==34){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
 var ordered = $('[class^="input__item"]')[2];
@@ -952,7 +952,7 @@ function eventFire(el, etype) {
 
 /////////////////////////rearange view///////////////////////////
 //console.log($('[class^="input__item"]').length);
-if($('[class^="input__item"]').length==35){
+if($('[class^="input__item"]').length==36){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
 var created = $('[class^="input__item"]')[2];
@@ -978,8 +978,8 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
-//console.log($('[class^="input__item"]').length);
-if($('[class^="input__item"]').length==36){
+//console.log(\);
+if($('[class^="input__item"]').length==37){
 var client = $('[class^="input__item"]')[0];
 var service = $('[class^="input__item"]')[1];
 var created = $('[class^="input__item"]')[2];
