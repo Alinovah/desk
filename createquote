@@ -41,7 +41,7 @@ var interval = setInterval(function() {
 //////////////////////////////////// color gannt ////////////////////////////
 if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
   eventFire(document.querySelector('button[ng-click="pluginScope.goToToday()"]'), 'click');
-  }
+  
  
  var dates = [];
            var dates_header = [];
@@ -96,7 +96,7 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
               }
             }
             
-            
+    }        
 ////////////////////////////////////
 
 /////////////////////////refresh job1////////////////////////////
@@ -688,7 +688,7 @@ var interval = setInterval(function() {
 //////////////////////////////////// color gannt ////////////////////////////
 if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
  eventFire(document.querySelector('button[ng-click="pluginScope.goToToday()"]'), 'click');     
- }
+ 
  var dates = [];
            var dates_header = [];
            var holiday_pos = [];
@@ -742,7 +742,7 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
               }
             }
             
-            
+            }
 //////////////////////////////////// 
  
 //////////////////////////revert job///////////////////////
