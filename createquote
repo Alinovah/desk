@@ -563,7 +563,7 @@ if(service!="Raw Materials"){
   var categories = document.querySelectorAll("div[ng-attr-tabindex]");
   for (var i=0;i<categories.length;i++){
     var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-  if(line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
+  if(line=="מחירון_ח.תרגום"||line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
       console.log(line);
       categories[i].style.visibility = "collapse";
       }
@@ -828,7 +828,7 @@ if(service!="Raw Materials"){
   var categories = document.querySelectorAll("div[ng-attr-tabindex]");
   for (var i=0;i<categories.length;i++){
     var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-  if(line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
+  if(line=="מחירון_ח.תרגום"||line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
       //console.log(line);
       categories[i].style.visibility = "collapse";
       }
