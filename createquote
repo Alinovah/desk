@@ -1667,7 +1667,7 @@ function sendemail(request){
 var project_id = document.querySelector('span[ng-if="project.name"]').innerText.substring(0,document.querySelector('span[ng-if="project.name"]').innerText.length-1).toString();
 var pm = document.querySelector('div[class="name"]').textContent;
 var email = document.querySelector('div[class="email"]').textContent;
-url_for_approve = url_for_approve+"&pm="+pm+"&email="+email+"&project_id="+project_id+"&link="+window.location.href;
+url_for_approve = url_for_approve+"&pm="+pm+"&email="+email+"&project_id="+project_id;
 var data = {
     service_id: 'service_65sfjal',
     template_id: 'template_cpglsht',
