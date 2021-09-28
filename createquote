@@ -1598,7 +1598,7 @@ var editbutton = document.getElementById("formWithPanels:receivablesTable:0:j_id
 var url_string = window.location.href;
 var url = new URL(url_string);
 var c = url.searchParams.get("assistedProjectId");
-var url_for_approve = "http://pilk.mooo.com:7896/requestrateadjustment?id="+c;
+var url_for_approve = "http://8ddd-2a00-a040-185-6ff4-8cbb-10d1-9fc5-dbb9.ngrok.io"/requestrateadjustment?id="+c; //"http://pilk.mooo.com:7896/requestrateadjustment?id="+c;
 
 var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
 for(var i=0;i<customfields.length;i++){
