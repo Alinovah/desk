@@ -1044,11 +1044,21 @@ document.body.prepend(for_disable);
 
 var intervalId = window.setInterval(function() {
 
-var process_list = document.querySelector('div[class="nd-list"]');
-if(process_list){
-  process_list.style.zIndex = 100;
-  process_list.style.position = "relative";
-}
+  var one = document.getElementById("nd-ms-3cnt");
+  one.style.zIndex = 5;
+  one.style.position = "relative";
+  one.style.top=0;
+  
+  var one = document.getElementById("nd-ms-2cnt");
+  one.style.zIndex = 5;
+  one.style.position = "relative";
+  one.style.top=0;
+  
+  var one = document.getElementById("nd-ms-1cnt");
+  one.style.zIndex = 5;
+  one.style.position = "relative";
+  one.style.top=0;
+  
 var div_to_disable = document.querySelector('div[class="process-container project-process ng-scope"]');
 const rect = div_to_disable.getBoundingClientRect();
 var pos = rect.top + window.scrollY;
