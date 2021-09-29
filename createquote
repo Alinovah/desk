@@ -659,6 +659,15 @@ if(service.textContent=="Raw Materials"){
 }
 ////////////////////////// END ////////////////////
 
+//////////////////////////////////// rtl textarea  ////////////////////////////
+
+if(document.querySelector('textarea[ng-model="quote.customerNotes"]')&&document.querySelector('textarea[ng-model="quote.internalNotes"]')){
+document.querySelector('textarea[ng-model="quote.customerNotes"]').dir="rtl";
+document.querySelector('textarea[ng-model="quote.internalNotes"]').dir="rtl";
+}
+
+////////////////////////// END ////////////////////
+
 ////////////////////////////
     }    
 }, 100);
@@ -1706,6 +1715,15 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 
 
 }
+////////////////////////// END ////////////////////
+
+//////////////////////////////////// rtl textarea  ////////////////////////////
+
+if(document.querySelector('textarea[ng-model="quote.customerNotes"]')&&document.querySelector('textarea[ng-model="quote.internalNotes"]')){
+document.querySelector('textarea[ng-model="quote.customerNotes"]').dir="rtl";
+document.querySelector('textarea[ng-model="quote.internalNotes"]').dir="rtl";
+}
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
