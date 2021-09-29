@@ -90,9 +90,14 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
               }
               //console.log(holiday_pos);
               for(var i=0;i<holiday_pos.length;i++){
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#cad5e6";
                 ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText = ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText+" - "+holiday_pos[i][1];
+              if(holiday_pos[i][1]=="עֶרֶב פּוּרִים"||holiday_pos[i][1]=="יוֹם העלייה"||holiday_pos[i][1]=="פֶּסַח ב׳"||holiday_pos[i][1]=="פֶּסַח ג׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ד׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ה׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ו׳ (חוה״מ)"||holiday_pos[i][1]=="יוֹם הַשּׁוֹאָה"||holiday_pos[i][1]=="יוֹם הַזִּכָּרוֹן"||holiday_pos[i][1]=="יוֹם יְרוּשָׁלַיִם"||holiday_pos[i][1]=="עֶרֶב תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="סוּכּוֹת ב׳"||holiday_pos[i][1]=="סוּכּוֹת ג׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ד׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ה׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ו׳ (חוה״מ)"||holiday_pos[i][1]=="שִׂמְחַת תּוֹרָה"||holiday_pos[i][1]=="שמירת בית הספר ליום העלייה"||holiday_pos[i][1]=="סיגד"||holiday_pos[i][1]=="חֲנוּכָּה: א׳ נֵר"||holiday_pos[i][1]=="חֲנוּכָּה: ב׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ג׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ד׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ה׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ו׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ז׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ח׳ נֵרוֹת"){
+                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#fff2cc";
+                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#d9be73";
+              }else{
                 ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#cad5e6";
+              }
               }
             }
             
@@ -736,9 +741,15 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
               }
               //console.log(holiday_pos);
               for(var i=0;i<holiday_pos.length;i++){
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#cad5e6";
                 ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText = ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText+" - "+holiday_pos[i][1];
+              
+              if(holiday_pos[i][1]=="עֶרֶב פּוּרִים"||holiday_pos[i][1]=="יוֹם העלייה"||holiday_pos[i][1]=="פֶּסַח ב׳"||holiday_pos[i][1]=="פֶּסַח ג׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ד׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ה׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ו׳ (חוה״מ)"||holiday_pos[i][1]=="יוֹם הַשּׁוֹאָה"||holiday_pos[i][1]=="יוֹם הַזִּכָּרוֹן"||holiday_pos[i][1]=="יוֹם יְרוּשָׁלַיִם"||holiday_pos[i][1]=="עֶרֶב תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="סוּכּוֹת ב׳"||holiday_pos[i][1]=="סוּכּוֹת ג׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ד׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ה׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ו׳ (חוה״מ)"||holiday_pos[i][1]=="שִׂמְחַת תּוֹרָה"||holiday_pos[i][1]=="שמירת בית הספר ליום העלייה"||holiday_pos[i][1]=="סיגד"||holiday_pos[i][1]=="חֲנוּכָּה: א׳ נֵר"||holiday_pos[i][1]=="חֲנוּכָּה: ב׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ג׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ד׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ה׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ו׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ז׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ח׳ נֵרוֹת"){
+                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#fff2cc";
+                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#d9be73";
+              }else{
                 ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
+                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#cad5e6";
+              }
               }
             }
             
