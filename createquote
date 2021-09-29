@@ -1041,6 +1041,7 @@ var input9 = inputs[8];
 var for_disable = document.createElement("div");
 for_disable.id = "for_disable";
 document.body.prepend(for_disable);
+document.querySelector('input[ng-model="quote.volume"]').placeholder="כדאי קודם כול לבחור שפות...";
 
 var intervalId = window.setInterval(function() {
 
