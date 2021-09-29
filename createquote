@@ -1173,13 +1173,13 @@ var intervalId = window.setInterval(function() {
         p_target = target.textContent;
     flag=1;
   }
-if(p_source=="Select Language..."&&p_target=="Select Languages..."&&source.textContent!="Select Language..."&&target.textContent!="Select Languages..."){
+if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getElementById("nd-ms-1cnt").style.display=="")&&(document.getElementById("nd-ms-2cnt").style.display=="none"||document.getElementById("nd-ms-2cnt").style.display==""))&&p_source=="Select Language..."&&p_target=="Select Languages..."&&source.textContent!="Select Language..."&&target.textContent!="Select Languages..."){
   setTimeout(function(){
     window.scrollTo(0, 0);
     location.reload();
   }, 3000);
 }
-if((p_source!="Select Language..."||p_target!="Select Languages...")&&(source.textContent!=p_source||target.textContent!=p_target)){
+if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getElementById("nd-ms-1cnt").style.display=="")&&(document.getElementById("nd-ms-2cnt").style.display=="none"||document.getElementById("nd-ms-2cnt").style.display==""))&&(p_source!="Select Language..."||p_target!="Select Languages...")&&(source.textContent!=p_source||target.textContent!=p_target)){
   setTimeout(function(){
     window.scrollTo(0, 0);
     location.reload();
