@@ -661,11 +661,10 @@ if(service.textContent=="Raw Materials"){
 
 //////////////////////////////////// rtl textarea  ////////////////////////////
 
-if(document.querySelector('textarea[ng-model="quote.customerNotes"]')&&document.querySelector('textarea[ng-model="quote.internalNotes"]')){
-document.querySelector('textarea[ng-model="quote.customerNotes"]').dir="rtl";
-document.querySelector('textarea[ng-model="quote.internalNotes"]').dir="rtl";
+if(document.querySelector('textarea[ng-model="order.customerNotes"]')&&document.querySelector('textarea[ng-model="order.customerNotes"]')){
+document.querySelector('textarea[ng-model="order.customerNotes"]').dir="rtl";
+document.querySelector('textarea[ng-model="order.customerNotes"]').dir="rtl";
 }
-
 ////////////////////////// END ////////////////////
 
 ////////////////////////////
