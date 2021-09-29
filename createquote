@@ -64,7 +64,9 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
               var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
               var header_length = ganttheader.length-$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length;
               var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
-              var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200)
+              if(gannt_today){
+                var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200);
+              }else{ var today_pos = "";
               
               for(var i=0;i<header_length;i++){
                 dates_header.push(today.addDays(-today_pos+i+1));
