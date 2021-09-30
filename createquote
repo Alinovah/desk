@@ -1738,6 +1738,13 @@ document.querySelector('textarea[ng-model="quote.internalNotes"]').dir="rtl";
 
 ////////////////////////// END ////////////////////
 
+//////////////////////////comments placeholder///////////////////////
+
+var comments = document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]')[1];
+comments.placeholder="מופיע בהצעת המחיר";
+
+////////////////////////// END ////////////////////
+
 /////////////////////////////
   }
 }, 100);
