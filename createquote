@@ -1186,18 +1186,40 @@ var intervalId = window.setInterval(function() {
   }
 if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getElementById("nd-ms-1cnt").style.display=="")&&(document.getElementById("nd-ms-2cnt").style.display=="none"||document.getElementById("nd-ms-2cnt").style.display==""))&&p_source=="Select Language..."&&p_target=="Select Languages..."&&source.textContent!="Select Language..."&&target.textContent!="Select Languages..."){
   setTimeout(function(){
-    window.scrollTo(0, 0);
-    location.reload();
+    var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
+    for(var i=0;i<customfields.length;i++){
+      if(customfields[i].querySelector('div').textContent=="Estimated Start Date"||customfields[i].querySelector('div').textContent=="number of video files"){
+      customfields[i].remove();
+      }
+    }
   }, 1000);
 }
 if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getElementById("nd-ms-1cnt").style.display=="")&&(document.getElementById("nd-ms-2cnt").style.display=="none"||document.getElementById("nd-ms-2cnt").style.display==""))&&(p_source!="Select Language..."||p_target!="Select Languages...")&&(source.textContent!=p_source||target.textContent!=p_target)){
   setTimeout(function(){
-    window.scrollTo(0, 0);
-    location.reload();
+    var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
+    var count1=0;
+    var count2=0;
+    for(var i=0;i<customfields.length;i++){
+      if(customfields[i].querySelector('div').textContent=="Estimated Start Date"){
+        if(count1==0){
+          count1++;
+        }else{
+          customfields[i].remove();
+        }
+        }
+        if(customfields[i].querySelector('div').textContent=="number of video files"){
+        if(count2==0){
+          count2++;
+        }else{
+          customfields[i].remove();
+        }
+        }
+    }
 }, 1000);
 }
 }, 1000);
 
+////////////////////////// END ////////////////////
 
 ////////////////////////hyperlinks////////////////////////////////
 
