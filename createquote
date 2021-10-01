@@ -994,17 +994,17 @@ function eventFire(el, etype) {
 
 /////////////////////////rearange view///////////////////////////
 //console.log($('[class^="input__item"]').length);
-if($('[class^="input__item"]').length==36){
+//if($('[class^="input__item"]').length==36){
 //var client = $('[class^="input__item"]')[0];
-var inputs = $('[class^="input__item"]');
-for(var i=0;i<inputs.length;i++){
-  if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Client'){
-      var client = inputs[i];
-    }
-  }
-}
-var service = $('[class^="input__item"]')[1];
+//var inputs = $('[class^="input__item"]');
+//for(var i=0;i<inputs.length;i++){
+//  if(inputs[i].querySelector("div")){
+//    if(inputs[i].querySelector("div").innerText=='Client'){
+//      var client = inputs[i];
+//    }
+//  }
+//}
+/*var service = $('[class^="input__item"]')[1];
 var created = $('[class^="input__item"]')[2];
 var expaire = $('[class^="input__item"]')[3];
 var deadline = $('[class^="input__item"]')[4];
@@ -1014,12 +1014,8 @@ var volume = $('[class^="input__item"]')[7];
 var origin = $('[class^="input__item"]')[8];
 var expexteddate = $('[class^="input__item custom_field"]')[0];
 var quantity = $('[class^="input__item custom_field"]')[2];
-//console.log([client,expaire,service]);
-//console.log([created,expaire]);
-//console.log([deadline,expexteddate]);
-//console.log([working,referance]);
-//console.log([volume,quantity]);
-//console.log([origin,expaire]);
+*/
+/*
 client.appendChild(expaire);
 client.appendChild(service);
 created.appendChild(expaire);
@@ -1027,9 +1023,11 @@ deadline.appendChild(expexteddate);
 working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
-}
+*/
 
-if($('[class^="input__item"]').length==37){
+//}
+
+//if($('[class^="input__item"]').length==37){
 
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
@@ -1078,14 +1076,25 @@ for(var i=0;i<inputscustomfields.length;i++){
     }
   }
 }
-
-client.appendChild(service);
-created.appendChild(actual);
+if(actual){
+  client.appendChild(service);
+  created.appendChild(actual);
+}else{
+  client.appendChild(expaire);
+  created.appendChild(expaire);
+}
 deadline.appendChild(expexteddate);
 working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
-}
+
+
+
+
+
+
+
+//}
 
 //////////////////////////color empty red///////////////////////
 var flag = 0;
