@@ -1041,7 +1041,6 @@ for(var i=0;i<inputscustomfields.length;i++){
     }
   }
 }
-console.log(actual);
 if(actual!=undefined){
   created.appendChild(actual);
 }else{
