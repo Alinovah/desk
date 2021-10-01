@@ -1043,8 +1043,6 @@ for(var i=0;i<inputscustomfields.length;i++){
 }
 if(actual!=undefined){
   created.appendChild(actual);
-}else{
-  created.appendChild(expaire);
 }
 client.appendChild(service);
 deadline.appendChild(expexteddate);
