@@ -1067,9 +1067,17 @@ for(var i=0;i<inputs.length;i++){
   }
 }
 
-
-var expexteddate = $('[class^="input__item custom_field"]')[0];
-var quantity = $('[class^="input__item custom_field"]')[2];
+var inputscustomfields = $('[class^="input__item custom_field"]');
+for(var i=0;i<inputscustomfields.length;i++){
+  if(inputscustomfields[i].querySelector("div")){
+    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
+      var expexteddate = inputscustomfields[i];
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'){
+      var quantity = inputscustomfields[i];
+    }
+  }
+}
 
 client.appendChild(service);
 created.appendChild(actual);
