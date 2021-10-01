@@ -1043,12 +1043,11 @@ for(var i=0;i<inputscustomfields.length;i++){
 }
 console.log(actual);
 if(actual!=undefined){
-  client.appendChild(service);
   created.appendChild(actual);
 }else{
-  client.appendChild(expaire);
   created.appendChild(expaire);
 }
+client.appendChild(service);
 deadline.appendChild(expexteddate);
 working.appendChild(referance);
 volume.appendChild(quantity);
