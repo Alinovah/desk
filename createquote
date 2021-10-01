@@ -428,7 +428,14 @@ sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_bla
 /////////////////////////rearange view///////////////////////////
 //console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==35){
-var client = $('[class^="input__item"]')[0];
+//var client = $('[class^="input__item"]')[0];
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div").innerText=='Client'){
+    var client = inputs[i];
+  }
+}
+
 var service = $('[class^="input__item"]')[1];
 var ordered = $('[class^="input__item"]')[2];
 var startged = $('[class^="input__item"]')[4];
@@ -450,7 +457,13 @@ volume.appendChild(quantity);
 origin.appendChild(referance);
 }
 if($('[class^="input__item"]').length==34){
-var client = $('[class^="input__item"]')[0];
+//var client = $('[class^="input__item"]')[0];
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div").innerText=='Client'){
+    var client = inputs[i];
+  }
+}
 var service = $('[class^="input__item"]')[1];
 var ordered = $('[class^="input__item"]')[2];
 //var startged = $('[class^="input__item"]')[4];
@@ -978,7 +991,13 @@ function eventFire(el, etype) {
 /////////////////////////rearange view///////////////////////////
 //console.log($('[class^="input__item"]').length);
 if($('[class^="input__item"]').length==36){
-var client = $('[class^="input__item"]')[0];
+//var client = $('[class^="input__item"]')[0];
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div").innerText=='Client'){
+    var client = inputs[i];
+  }
+}
 var service = $('[class^="input__item"]')[1];
 var created = $('[class^="input__item"]')[2];
 var expaire = $('[class^="input__item"]')[3];
@@ -1005,7 +1024,13 @@ origin.appendChild(expaire);
 }
 //console.log(\);
 if($('[class^="input__item"]').length==37){
-var client = $('[class^="input__item"]')[0];
+//var client = $('[class^="input__item"]')[0];
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div").innerText=='Client'){
+    var client = inputs[i];
+  }
+}
 var service = $('[class^="input__item"]')[1];
 var created = $('[class^="input__item"]')[2];
 var actual = $('[class^="input__item"]')[3];
