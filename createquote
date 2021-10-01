@@ -1028,34 +1028,49 @@ working.appendChild(referance);
 volume.appendChild(quantity);
 origin.appendChild(expaire);
 }
-//console.log(\);
+
 if($('[class^="input__item"]').length==37){
-//var client = $('[class^="input__item"]')[0];
+
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
     if(inputs[i].querySelector("div").innerText=='Client'){
       var client = inputs[i];
     }
+    if(inputs[i].querySelector("div").innerText=='Service'){
+      var service = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Created on'){
+      var created = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Actual Start Date'){
+      var actual = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Offer Expiration'){
+      var expaire = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+      var deadline = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Business Days'){
+      var working = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Client Reference Number'){
+      var referance = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Volume (Minute)'){
+      var volume = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Origin'){
+      var origin = inputs[i];
+    }
   }
 }
-var service = $('[class^="input__item"]')[1];
-var created = $('[class^="input__item"]')[2];
-var actual = $('[class^="input__item"]')[3];
-var expaire = $('[class^="input__item"]')[4];
-var deadline = $('[class^="input__item"]')[5];
-var working = $('[class^="input__item"]')[6];
-var referance = $('[class^="input__item"]')[7];
-var volume = $('[class^="input__item"]')[8];
-var origin = $('[class^="input__item"]')[9];
+
+
 var expexteddate = $('[class^="input__item custom_field"]')[0];
 var quantity = $('[class^="input__item custom_field"]')[2];
-//console.log([client,service]);
-//console.log([created,actual]);
-//console.log([deadline,expexteddate]);
-//console.log([working,referance]);
-//console.log([volume,quantity]);
-//console.log([origin,service]);
+
 client.appendChild(service);
 created.appendChild(actual);
 deadline.appendChild(expexteddate);
