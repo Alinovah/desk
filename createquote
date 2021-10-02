@@ -1054,11 +1054,35 @@ origin.appendChild(expaire);
 
 //////////////////////////color empty red///////////////////////
 var flag = 0;
-var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
-var input1 = document.querySelector("div[class='input calendar-input']").getElementsByTagName("input")[0];//inputs[0];
-var input6 = inputs[5];
-var input5 = inputs[4];
-var input9 = inputs[8];
+//var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
+//var input1 = document.querySelector("div[class='input calendar-input']").getElementsByTagName("input")[0];//inputs[0];
+//var input6 = inputs[5];
+//var input5 = inputs[4];
+//var input9 = inputs[8];
+
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div")){
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+      var input1 = inputs[i].querySelector('input');
+    }
+    if(inputs[i].querySelector("div").innerText=='Volume (Minute)'){
+      var input5 = inputs[i].querySelector('input');
+    }
+  }
+}
+var inputscustomfields = $('[class^="input__item custom_field"]');
+for(var i=0;i<inputscustomfields.length;i++){
+  if(inputscustomfields[i].querySelector("div")){
+    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'){
+      var input6 = inputscustomfields[i].querySelector('input');
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='Umbrella Number'){
+      var input9 = inputscustomfields[i].querySelector('input');
+    }    
+  }
+}
+
 var for_disable = document.createElement("div");
 for_disable.id = "for_disable";
 document.body.prepend(for_disable);
