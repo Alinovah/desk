@@ -1079,7 +1079,11 @@ for(var i=0;i<inputscustomfields.length;i++){
     }
     if(inputscustomfields[i].querySelector("div").innerText=='Umbrella Number'){
       var input9 = inputscustomfields[i].querySelector('input');
-    }    
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
+      var UseStatus = inputscustomfields[i].querySelector('input').checked;
+      var UseStatusEl = inputscustomfields[i];
+    }
   }
 }
 
@@ -1192,7 +1196,7 @@ if(flag == 3){
   specilazation_flag=1;
 }
 
-if(source.textContent=="Select Language..."||target.textContent=="Select Languages..."||input1.value==""||input5.value==""||input6.value==""||input9.value==""||specilazation_flag==1){
+if(source.textContent=="Select Language..."||target.textContent=="Select Languages..."||(input1.value==""&&UseStatus==false)||input5.value==""||input6.value==""||input9.value==""||specilazation_flag==1){
     console.log("One of the requiered fields are missing! Can't start process.");
     for_disable.style = "display:block; opacity:0.5; height:"+(div_to_disable.clientHeight)+"px; width:"+div_to_disable.clientWidth+"px; background-color:#ffffff; position:absolute; top:"+pos_offset+"px;left:"+left_pos+"px; z-index:2;";
     if(document.querySelectorAll('button[ng-click="startJobs()"]')[0]){
