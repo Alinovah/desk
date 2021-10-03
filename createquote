@@ -1833,65 +1833,6 @@ comments.placeholder="מופיע בהצעת המחיר";
 
 ////////////////////////// END ////////////////////
 
-///////////////////////// Use Status ///////////////////////////
-
-var inputs = $('[class^="input__item"]');
-for(var i=0;i<inputs.length;i++){
-  if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
-      var deadline = inputs[i];
-    }
-  }
-}
-
-var inputscustomfields = $('[class^="input__item custom_field"]');
-for(var i=0;i<inputscustomfields.length;i++){
-  if(inputscustomfields[i].querySelector("div")){
-    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
-      var UseStatus = inputscustomfields[i].querySelector('input').checked;
-      var UseStatusEl = inputscustomfields[i];
-    }
-    if(inputscustomfields[i].querySelector("div").innerText=='Status'){
-      var Status = inputscustomfields[i];
-    }
-    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
-      var EstimatedStartDate = inputscustomfields[i];
-    }
-  }
-}
-EstimatedStartDate.append(UseStatusEl);
-deadline.append(Status);
-UseStatusEl.querySelector('span').style.width ="40px";
-var interval3 = setInterval(function() {
-
-if(document.getElementById("nd-ms-10cnt").querySelector('div[class="nd-item ng-scope"]')){  
-  if(document.getElementById("nd-ms-10cnt").querySelector('div[class="nd-item ng-scope"]').textContent=='Unspecified'){
-    document.getElementById("nd-ms-10cnt").querySelector('div[class="nd-item ng-scope"]').style.display="none";
-  }
-}
-  
-var inputscustomfields = $('[class^="input__item custom_field"]');
-for(var i=0;i<inputscustomfields.length;i++){
-  if(inputscustomfields[i].querySelector("div")){
-    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
-      var UseStatus = inputscustomfields[i].querySelector('input').checked;
-    }
-  }
-}
-if(UseStatus){
-  deadline.querySelectorAll('div')[0].style.display="none";
-  deadline.querySelectorAll('div')[1].style.display="none";
-  Status.style.display="block";
-  Status.style.width ="10px";
-  Status.style.marginBottom ="0px";
-  
-}else{
-  deadline.querySelectorAll('div')[0].style.display="block";
-  deadline.querySelectorAll('div')[1].style.display="block";
-  Status.style.display="none";
-}
-}, 1000);
-////////////////////////// END ////////////////////
 
 /////////////////////////////
   }
