@@ -1119,8 +1119,12 @@ var pos_offset = (pos-pos2-52.984375-116+230);
 var left_pos = rect.left;
 
 var languages = $('[class^="nd-display ng-binding ng-scope"]');
-var source = languages[0];
-var target = languages[1];
+for(var i=0;i<languages.length;i++){
+  if(languages[i].parentElement.parentElement.parentElement.querySelector('div').innerText=='Source Language'){
+    var source = languages[i];
+    var target = languages[i+1];
+  }
+}
 
 if(source.textContent=="Select Language..."){
   source.style = "background:#f5b8b8";
@@ -1225,9 +1229,15 @@ var flag = 0;
 var p_source;
 var p_target;
 var intervalId = window.setInterval(function() {
+
   var languages = $('[class^="nd-display ng-binding ng-scope"]');
-  var source = languages[0];
-  var target = languages[1];
+for(var i=0;i<languages.length;i++){
+  if(languages[i].parentElement.parentElement.parentElement.querySelector('div').innerText=='Source Language'){
+    var source = languages[i];
+    var target = languages[i+1];
+  }
+}
+  
   if(flag==0){
         p_source = source.textContent;
         p_target = target.textContent;
