@@ -1163,7 +1163,7 @@ if(input9.value!=""){
   input9.style = "background-color:#ffffff !important";
 }
 
-for(var c=0;c<3;c++){   
+for(var c=0;c<10;c++){   
 if(document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[c]){
 var specilazation = document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[c];
 if(specilazation.innerText=="___"){
@@ -1179,7 +1179,7 @@ if(specilazation.innerText!="___"){
 
 var specilazation_flag = 0;
 var flag=0;
-for(var c=0;c<3;c++){
+for(var c=0;c<10;c++){
 if(document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[c]){
 var specilazation = document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[c];
 if(specilazation.innerText=="___"){
