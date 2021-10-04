@@ -1185,7 +1185,7 @@ var specilazation = document.querySelectorAll('div[class="nd-display ng-binding 
 if(specilazation.innerText=="___"){
   flag = 0;
 }
-if(specilazation.innerText!="___"){
+if(specilazation.innerText!="___"||specilazation==undefined){
   flag++;
 }
 }
