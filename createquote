@@ -26,7 +26,7 @@ for(var i=0;i<spans.length;i++){
 }
 var label = document.querySelectorAll("label");
 for(var i=0;i<label.length;i++){
-  if(label[i].textContent=="Tax No."||label[i].textContent=="Industries"||label[i].textContent=="Categories"||label[i].textContent=="Default Payment Terms"){
+  if(label[i].textContent=="Tax No. "||label[i].textContent=="Industries"||label[i].textContent=="Categories"||label[i].textContent=="Default Payment Terms"){
     label[i].parentElement.style.backgroundColor = "#ffa8a8";
   }
 }
