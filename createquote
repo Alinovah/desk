@@ -1755,7 +1755,7 @@ var url_for_approve = "http://pilk.mooo.com:7896/requestrateadjustment?id="+c;
 
 var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
 for(var i=0;i<customfields.length;i++){
-  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"&&document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelectorAll('div')[1].innerText=="FALSE"){
+  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"&&document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelectorAll('div')[1].innerText=="FALSE"&&email!='mor@ngsub.tv'&&email!='mor@ngsub.tv'&&email!='carmel@ngsub.tv'){
     var requesttext = document.createElement("TEXTAREA");
     requesttext.id = "requesttext";
     requesttext.className = "inp ng-pristine ng-valid ng-empty ng-touched";
