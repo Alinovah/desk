@@ -11,6 +11,29 @@ if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePa
    var redirect = currentlink.substring(0,currentlink.length-71);
    console.log(redirect);
    window.location = redirect;
+   
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}else if(currentlink.substring(0,51)=='https://desk.ngsub.tv/xtrf/faces/customer/form.seam'){  
+  var interval2 = setInterval(function() {
+  
+  ///////////////////////// color important red ///////////////////////////
+var spans = document.querySelectorAll("span");
+for(var i=0;i<spans.length;i++){
+  if(spans[i].textContent=='Main Data'||spans[i].textContent=='Invoicing'||spans[i].textContent=="Identification Data"){
+    spans[i].parentElement.style.backgroundColor = "#ffa8a8";
+  }
+}
+var label = document.querySelectorAll("label");
+for(var i=0;i<label.length;i++){
+  if(label[i].textContent=="Industries"||label[i].textContent=="Categories"||label[i].textContent=="Default Payment Terms"){
+    label[i].parentElement.style.backgroundColor = "#ffa8a8";
+  }
+}
+////////////////////////// END ////////////////////
+
+  }, 500);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }else if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
