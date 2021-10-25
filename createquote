@@ -1529,11 +1529,15 @@ var intervalId = window.setInterval(function() {
     window.scrollTo(0, 0);
     location.reload();
   }
-  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted") {
+  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted" && document.querySelector('div[class="email"]').textContent!="tal.levy@ngsub.tv" ) {
     p_status2 = c_status2;
     eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
     window.scrollTo(0, 0);
     location.reload();
+  }else if(job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted" && document.querySelector('div[class="email"]').textContent=="tal.levy@ngsub.tv" ){
+    p_status2 = c_status2;
+    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+    ///////////////////////////
   }
   if (job1 != undefined && c_status1 != p_status1 && c_status1 != "Started") {
     p_status1 = c_status1;
