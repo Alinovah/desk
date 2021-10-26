@@ -1317,22 +1317,28 @@ if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getEl
 
 ////////////////////////hyperlinks function////////////////////////////////
 function hyperlinks(){
-var pdffield = $('[class^="input read-only ng-scope"]')[0];
-var pdflink = pdffield.textContent;
-var sheetfield = $('[class^="input read-only ng-scope"]')[2];
-var sheetlink = sheetfield.textContent;
+var pdffield="";
+var pdflink="";
+var sheetfield="";
+var sheetlink="";
+var elements = document.querySelectorAll('div[class="input__item custom_field"]');
+for(var i=0;i<elements.length;i++){
+  if(elements[i].querySelector('div').textContent=='Quote PDF Link'){
+    pdffield = elements[i].querySelector('div[class="custom-field-section"]');
+    pdflink = pdffield.textContent;
+  }
+  if(elements[i].querySelector('div').textContent=='Price List Sheet Link'){
+    sheetfield = elements[i].querySelector('div[class="custom-field-section"]');
+    sheetlink = sheetfield.textContent;
+  }
+}
 if(pdflink!=""){
 pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
 }
 sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
 }
-
-////////////////////////// END ////////////////////
-
-////////////////////////hyperlinks////////////////////////////////
-
-
 hyperlinks();
+////////////////////////// END ////////////////////
 
 /////////////////////////refresh job1////////////////////////////
 var flag1 = 0;
