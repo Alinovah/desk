@@ -1097,7 +1097,7 @@ for(var i=0;i<inputs.length;i++){
 var inputscustomfields = $('[class^="input__item custom_field"]');
 for(var i=0;i<inputscustomfields.length;i++){
   if(inputscustomfields[i].querySelector("div")){
-    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'){
+    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'||inputscustomfields[i].querySelector("div").innerText=='Number of pages'){
       var input6 = inputscustomfields[i].querySelector('input');
     }
     if(inputscustomfields[i].querySelector("div").innerText=='Umbrella Number'){
