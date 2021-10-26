@@ -1059,7 +1059,7 @@ for(var i=0;i<inputscustomfields.length;i++){
     if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
       var expexteddate = inputscustomfields[i];
     }
-    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'){
+    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'||inputscustomfields[i].querySelector("div").innerText=='Number of pages'){
       var quantity = inputscustomfields[i];
     }
   }
