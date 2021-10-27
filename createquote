@@ -1879,7 +1879,7 @@ comments.placeholder="מופיע בהצעת המחיר";
 
 ////////////////////////// END ////////////////////
 
-
+///////////////// statuses handler ////////////////////////
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
@@ -1909,20 +1909,11 @@ deadline.append(Status);
 UseStatusEl.querySelector('span').style.width ="40px";
 var interval3 = setInterval(function() {
 
-if(document.getElementById("nd-ms-10cnt")){  
-  if(document.getElementById("nd-ms-10cnt").querySelector('div[class="nd-item ng-scope"]')){  
-  if(document.getElementById("nd-ms-10cnt").querySelector('div[class="nd-item ng-scope"]').textContent=='Unspecified'){
-    document.getElementById("nd-ms-10cnt").querySelector('div[class="nd-item ng-scope"]').style.display="none";
+var statuslist = document.querySelectorAll('div[class="nd-label ng-binding ng-scope"]');
+for(var i=0;i<statuslist.length;i++){
+  if(statuslist[i].textContent=='Unspecified'){
+    statuslist[i].parentElement.style.display='none'
   }
-  }
-}
-if(document.getElementById("nd-ms-9cnt")){  
-  if(document.getElementById("nd-ms-9cnt").querySelector('div[class="nd-item ng-scope"]')){  
-  if(document.getElementById("nd-ms-9cnt").querySelector('div[class="nd-item ng-scope"]').textContent=='Unspecified'){
-    document.getElementById("nd-ms-9cnt").querySelector('div[class="nd-item ng-scope"]').style.display="none";
-  }
-  }
-}
   
 var inputscustomfields = $('[class^="input__item custom_field"]');
 for(var i=0;i<inputscustomfields.length;i++){
@@ -1945,6 +1936,11 @@ if(UseStatus){
   Status.style.display="none";
 }
 }, 500);
+
+//////////////////////// hide categories ////////////////////////////////
+document.querySelector('div[class="widget-micro"]').style.display="none";
+////////////////////////// END ////////////////////
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
