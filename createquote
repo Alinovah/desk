@@ -1914,7 +1914,7 @@ for(var i=0;i<statuslist.length;i++){
   if(statuslist[i].textContent=='Unspecified'){
     statuslist[i].parentElement.style.display='none'
   }
-  
+}  
 var inputscustomfields = $('[class^="input__item custom_field"]');
 for(var i=0;i<inputscustomfields.length;i++){
   if(inputscustomfields[i].querySelector("div")){
