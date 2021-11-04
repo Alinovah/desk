@@ -1989,6 +1989,16 @@ setInterval(function() {
 }, 200);
 ///////////////////////// END ////////////////////////
 
+//////////////////////// appand calc price button /////////////////////////
+var controls = $('[class^="controls ng-scope"]')[0];
+var finance = document.querySelector('button[title="Add Payables Using CAT Analysis"]').parentElement;
+var button = document.createElement("button");
+button.textContent = "Calc Price";
+button.className  = "btn ng-scope";
+button.onclick = calcprice;
+controls.appendChild(button);
+//////////////////////// END /////////////////////////
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
