@@ -1953,6 +1953,42 @@ for(var k=0;k<customfields.length;k++){
  }
 ///////////////////////// END ////////////////////////////
 
+//////////////////////// Check specilazation for pricelist /////////////////////////
+ var pricelistinitial;
+  var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+  for(var k=0;k<customfields.length;k++){
+           if(customfields[k].querySelector('div').textContent=='Pricelist'){
+                pricelistinitial = customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent ;
+           }
+  }
+  console.log(pricelistinitial);
+setInterval(function() {
+  var inputitems=document.querySelectorAll('div[class="input__item"]');
+  var specilazation;
+  for(var k=0;k<inputitems.length;k++){
+         if(inputitems[k].querySelector('div').textContent=='Specialization'){
+              specilazation = inputitems[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent;
+         }
+   }
+  var expression = /סדר/gi;
+  var matches = specilazation.match(expression);
+ 
+  
+    var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+    for(var k=0;k<customfields.length;k++){
+           if(customfields[k].querySelector('div').textContent=='Pricelist'){
+             if(matches){
+                 customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent ="מחירון_סדרות";
+              }else{
+                 customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent =pricelistinitial ;
+               }   
+           }
+     }
+    
+ 
+}, 200);
+///////////////////////// END ////////////////////////
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
