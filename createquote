@@ -2063,7 +2063,6 @@ async function calcprice(){
         
         }else{
           flagunit=2;
-        }else{
         }
         if(document.getElementById('calcunit')){
           var calcunit = document.getElementById("calcunit");
