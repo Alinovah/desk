@@ -2053,17 +2053,6 @@ async function calcprice(){
           quantity=Number(quantity)+Number(jsondata["rows"][jsonkeys[i]]["columns"][14]);
         }
       console.log(quantity) ; 
-      if(quantity<=5){
-        quantityforpl=5;
-      }else if(quantity<=15){
-        quantityforpl=15;
-      }else if(quantity<=25){
-        quantityforpl=25;
-      }else if(quantity<=50){
-        quantityforpl=0;
-      }else{
-         quantityforpl=1000;
-       }
       var checkp1= "מחירון_סטנדרט|"+status+"|"+"Task|"+duration+"|5 - Israel Shekel [ILS]";
       var checkp2= "מחירון_סטנדרט|"+status+"|"+"Minute|"+duration+"|5 - Israel Shekel [ILS]";
       console.log(checkp1);
@@ -2085,7 +2074,7 @@ async function calcprice(){
           }else if(flagunit==2){
             calcunit.setAttribute("unit", "minute");
           }
-          calcunit.setAttribute("discount", quantityforpl);
+          calcunit.setAttribute("quantity", quantity);
         }else{
           var calcunit = document.createElement("div");
           calcunit.id="calcunit";
@@ -2113,6 +2102,22 @@ async function calcprice(){
     }
   }, 100);
 }
+
+////////////////////////// END ////////////////////
+
+//////////////////////// confirm pricelist change  /////////////////////////
+        setInterval(function() {
+          var tab1 = document.querySelectorAll('div[tabindex="-1"]');
+          for(var i=0;i<tab1.length;i++){
+            if(tab1[i].querySelector('strong')&&tab1[i].querySelector('strong').textContent=='Rates are about to be recalculated and the contact person may be changed'){
+              if(tab1[i].style.display =="block"){
+                //tab1[i].style.display="none";
+                eventFire(document.querySelector('button[id="confirm_btn"]'),"click");
+              }
+            }
+          }
+        }, 500);
+////////////////////////// END ////////////////////
 
 ////////////////////////// END ////////////////////
 
