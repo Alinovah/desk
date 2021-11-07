@@ -2088,12 +2088,12 @@ async function calcprice(){
         console.log(select.options[j].textContent);
         var expression = /Minute\|\d*/gi;
         var expression2 = /\d*/gi;
-        var maxduration = select.options[j].textContent.match(expression)[0].match(expression2).filter(Number)[0]; 
         if(select.options[j].textContent==checkp1){
           selectop=select.options[j];
           select.options[j].selected=true;
           select.dispatchEvent(new Event('change'));
         }else if(flagunit==2&&select.options[j].textContent.match(expression)!=null){
+          var maxduration = select.options[j].textContent.match(expression)[0].match(expression2).filter(Number)[0]; 
           selectop=select.options[j];
           select.options[j].selected=true;
           select.dispatchEvent(new Event('change'));
