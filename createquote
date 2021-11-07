@@ -2066,6 +2066,8 @@ async function calcprice(){
        }
       var checkp1= "מחירון_סטנדרט|"+status+"|"+"Task|"+duration+"|5 - Israel Shekel [ILS]";
       var checkp2= "מחירון_סטנדרט|"+status+"|"+"Minute|"+duration+"|5 - Israel Shekel [ILS]";
+      console.log(checkp1);
+      console.log(checkp2);
       var selectop = "";
       var flagunit=0;
       for(var j=0;j<length;j++){
@@ -2097,6 +2099,7 @@ async function calcprice(){
           }
           calcunit.setAttribute("discount", quantityforpl);
         }
+        console.log(select.options[j].textContent);
         if(select.options[j].textContent==checkp1||select.options[j].textContent==checkp2){
           selectop=select.options[j];
           select.options[j].selected=true;
