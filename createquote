@@ -2083,7 +2083,6 @@ async function calcprice(){
           }else if(flagunit==2){
             calcunit.setAttribute("unit", "minute");
           }
-          }
           calcunit.setAttribute("discount", quantityforpl);
         }else{
           var calcunit = document.createElement("div");
