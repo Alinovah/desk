@@ -2053,7 +2053,7 @@ async function calcprice(){
           quantity=Number(quantity)+Number(jsondata["rows"][jsonkeys[i]]["columns"][14]);
         }
       console.log(quantity) ; 
-      var checkp= "מחירון_סטנדרט|"+status+"|"+"Task|"+duration+"|5 - Israel Shekel [ILS]";
+      var checkp1= "מחירון_סטנדרט|"+status+"|"+"Task|"+duration+"|5 - Israel Shekel [ILS]";
       console.log(checkp1);
       var selectop = "";
       var flagunit=0;
