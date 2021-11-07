@@ -1999,6 +1999,119 @@ button.onclick = calcprice;
 controls.appendChild(button);
 //////////////////////// END /////////////////////////
 
+//////////////////////// calc price  /////////////////////////
+
+async function calcprice(){
+  var tabs = document.querySelectorAll('span[class="rf-tab-lbl"]');
+  var tabnumber =-1;
+  var receivabletab = "";
+  for(var i=0;i<tabs.length;i++){
+    if(tabs[i].textContent=="Rates"){
+      tabnumber=i;
+      eventFire(tabs[i], 'click');
+    }
+  }
+  var intervalrates = setInterval(function() {
+    console.log(document.querySelector('select[class="eutecert-select"]'));
+    if(document.querySelector('select[class="eutecert-select"]')){
+      clearInterval(intervalrates);
+      var select = document.querySelector('select[class="eutecert-select"]');
+      var length = select.options.length;
+      var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+      var duration = document.querySelector('input[ng-model="quote.volume"]').value;
+      var quantity = 0;
+      var quantityforpl = 0;
+      var status = "";
+      var umbrella = "";
+      var key = "";
+      for(var k=0;k<customfields.length;k++){
+       if(customfields[k].querySelector('div').textContent=='Status'){
+          status = customfields[k].querySelectorAll('div')[1].textContent;
+       }
+       if(customfields[k].querySelector('div').textContent=='Umbrella Number'){
+          umbrella = customfields[k].querySelector('input').value;
+       }
+       if(customfields[k].querySelector('div').textContent=='key'){
+          key = customfields[k].querySelector('span').textContent;
+       }
+      }
+      var url = "https://desk.ngsub.tv/home-api/browser?viewId=405&q.customFields.textField4=eq("+umbrella+")";
+      const myHeaders = new Headers({'X-AUTH-ACCESS-TOKEN': key});
+      const myRequest = new Request(url, {
+            method: 'GET',
+            headers: myHeaders
+            });
+      var jsondata;
+      fetch(myRequest)
+            .then(response => response.json())
+            .then(data => jsondata=data);
+      console.log(jsondata);
+      setTimeout(function() {
+        console.log(jsondata["rows"]);
+        var jsonkeys = Object.keys(jsondata["rows"]);
+        for(var i=0;i<jsonkeys.length;i++){
+          quantity=Number(quantity)+Number(jsondata["rows"][jsonkeys[i]]["columns"][14]);
+        }
+      console.log(quantity) ; 
+      if(quantity<=5){
+        quantityforpl=5;
+      }else if(quantity<=15){
+        quantityforpl=15;
+      }else if(quantity<=25){
+        quantityforpl=25;
+      }else if(quantity<=50){
+        quantityforpl=0;
+      }else{
+         quantityforpl=1000;
+       }
+      var checkp1= "מחירון_סטנדרט|"+status+"|"+"Task|"+duration+"|5 - Israel Shekel [ILS]";
+      var checkp2= "מחירון_סטנדרוט|"+status+"|"+"Minute|"+duration+"|5 - Israel Shekel [ILS]";
+      var selectop = "";
+      var flagunit=0;
+      for(var j=0;j<length;j++){
+        if(select.options[j].textContent==checkp1){
+          flagunit=1;
+        
+        }else if(select.options[j].textContent==checkp2){
+          flagunit=2;
+        }else{
+        }
+        if(document.getElementById('calcunit')){
+          var calcunit = document.getElementById("calcunit");
+          if(flagunit==1){
+            calcunit.setAttribute("unit", "task");
+          }else if(flagunit==2){
+            calcunit.setAttribute("unit", "minute");
+          }
+          }
+          calcunit.setAttribute("discount", quantityforpl);
+        }else{
+          var calcunit = document.createElement("div");
+          calcunit.id="calcunit";
+          document.body.appendChild(calcunit);
+          var calcunit = document.getElementById("calcunit");
+          calcunit.style.display = "none";
+          if(flagunit==1){
+            calcunit.setAttribute("unit", "task");
+          }else if(flagunit==2){
+            calcunit.setAttribute("unit", "minute");
+          }
+          calcunit.setAttribute("discount", quantityforpl);
+        }
+        if(select.options[j].textContent==checkp1||select.options[j].textContent==checkp2){
+          selectop=select.options[j];
+          select.options[j].selected=true;
+          select.dispatchEvent(new Event('change'));
+        }
+      }
+      console.log(selectop.textContent);
+      }, 700);
+    }else{
+      eventFire(tabs[tabnumber], 'click');
+    }
+  }, 100);
+}
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
