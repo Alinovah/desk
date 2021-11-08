@@ -2129,7 +2129,7 @@ async function calcprice(){
 ////////////////////////// END ////////////////////
 
 //////////////////////// calculate price ////////////////////////////////
-
+/*
 var p_statte = "none";
 var intervalconfirmrate = setInterval(function() {
   var confirmbutton = document.querySelector('div[aria-describedby="confirm-dialog"]');
@@ -2146,7 +2146,7 @@ var intervalconfirmrate = setInterval(function() {
       }
   }
 },100);
-
+*/
 ////////////////////////// END ////////////////////
 
 ///////////////////////////////////// startpricegeneration function ////////////////////////////
