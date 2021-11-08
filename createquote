@@ -2020,7 +2020,6 @@ async function calcprice(){
       var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
       var duration = document.querySelector('input[ng-model="quote.volume"]').value;
       var quantity = 0;
-      var quantityforpl = 0;
       var status = "";
       var umbrella = "";
       var key = "";
@@ -2083,7 +2082,7 @@ async function calcprice(){
           }else if(flagunit==2){
             calcunit.setAttribute("unit", "minute");
           }
-          calcunit.setAttribute("discount", quantityforpl);
+          calcunit.setAttribute("discount", quantity);
         }
         
       for(var j=0;j<length;j++){
