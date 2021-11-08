@@ -2082,7 +2082,7 @@ async function calcprice(){
           }else if(flagunit==2){
             calcunit.setAttribute("unit", "minute");
           }
-          calcunit.setAttribute("discount", quantity);
+          calcunit.setAttribute("quantity", quantity);
         }
         
       for(var j=0;j<length;j++){
