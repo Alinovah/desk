@@ -2087,6 +2087,8 @@ async function calcprice(){
           calcunit.setAttribute("discount", quantityforpl);
         }
         console.log(select.options[j].textContent);
+        console.log("flagunit="+flagunit);
+        console.log("flagstop="+flagstop);
         var expression = /Minute\|\d*/gi;
         var expression2 = /\d*/gi;
         if(select.options[j].textContent==checkp1&&flagstop==0){
