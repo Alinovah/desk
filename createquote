@@ -2057,6 +2057,7 @@ async function calcprice(){
       console.log(checkp1);
       var selectop = "";
       var flagunit=0;
+      var flagstop = 0;
       for(var j=0;j<length;j++){
         if(select.options[j].textContent==checkp1){
           flagunit=1;
@@ -2088,7 +2089,6 @@ async function calcprice(){
         console.log(select.options[j].textContent);
         var expression = /Minute\|\d*/gi;
         var expression2 = /\d*/gi;
-        var flagstop = 0;
         if(select.options[j].textContent==checkp1&&flagstop==0){
           flagstop=1;
           selectop=select.options[j];
