@@ -2056,16 +2056,15 @@ async function calcprice(){
       var checkp1= "מחירון_סטנדרט|"+status+"|"+"Task|"+duration+"|5 - Israel Shekel [ILS]";
       console.log(checkp1);
       var selectop = "";
-      var flagunit=0;
+      var flagunit=2;
       var flagstop = 0;
       for(var j=0;j<length;j++){
         if(select.options[j].textContent==checkp1){
           flagunit=1;
-        
-        }else{
-          flagunit=2;
         }
-        if(document.getElementById('calcunit')){
+      }
+      
+      if(document.getElementById('calcunit')){
           var calcunit = document.getElementById("calcunit");
           if(flagunit==1){
             calcunit.setAttribute("unit", "task");
@@ -2086,17 +2085,19 @@ async function calcprice(){
           }
           calcunit.setAttribute("discount", quantityforpl);
         }
+        
+      for(var j=0;j<length;j++){
         console.log(select.options[j].textContent);
         console.log("flagunit="+flagunit);
         console.log("flagstop="+flagstop);
         var expression = /Minute\|\d*/gi;
         var expression2 = /\d*/gi;
-        if(select.options[j].textContent==checkp1&&flagstop==0){
+        if((select.options[j].textContent==checkp1)&&(flagstop==0)){
           flagstop=1;
           selectop=select.options[j];
           select.options[j].selected=true;
           select.dispatchEvent(new Event('change'));
-        }else if(flagunit==2&&select.options[j].textContent.match(expression)!=null&&flagstop==0){
+        }else if((flagunit==2)&&(select.options[j].textContent.match(expression)!=null)&&(flagstop==0)){
           flagstop=1;
           var maxduration = select.options[j].textContent.match(expression)[0].match(expression2).filter(Number)[0]; 
           selectop=select.options[j];
