@@ -2128,6 +2128,117 @@ async function calcprice(){
         }, 500);
 ////////////////////////// END ////////////////////
 
+//////////////////////// calculate price ////////////////////////////////
+
+var p_statte = "none";
+var intervalconfirmrate = setInterval(function() {
+  var confirmbutton = document.querySelector('div[aria-describedby="confirm-dialog"]');
+
+  if(confirmbutton){
+    if(confirmbutton.style.display=="block"&&p_statte=="none"){
+        p_statte = "block";
+      }else if(confirmbutton.style.display=="none"&&p_statte=="block"){
+        console.log("approved");
+        p_statte = "none";
+        startpricegeneration();
+      }else{
+        p_statte = confirmbutton.style.display;
+      }
+  }
+},100);
+
+////////////////////////// END ////////////////////
+
+///////////////////////////////////// startpricegeneration function ////////////////////////////
+        function startpricegeneration(){
+        var intervalloading = setInterval(function() {
+          var receivabletab = document.getElementById("formWithPanels:receivablesTab");
+           if(receivabletab.style.display=="none"){
+               var tabs = document.querySelectorAll('span[class="rf-tab-lbl"]');
+               for(var z=0;z<tabs.length;z++){
+                 if(tabs[z].textContent=="Receivables"){
+                     eventFire(tabs[z], 'click');
+                 }
+               }
+           }else{
+             clearInterval(intervalloading);
+             var createreceivable = document.querySelector('input[value="Add Receivable"]');
+             eventFire(createreceivable, 'click');
+             var intervalrates =setInterval(function() {
+               var quantityfield = document.querySelectorAll('input[class="eutecert-inputText float-validate"]')[1];
+               console.log(quantityfield);
+               if(quantityfield){
+                 clearInterval(intervalrates);
+                 setTimeout(function() { 
+                   var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+                   var unit = document.getElementById('calcunit').getAttribute("unit");
+                   for(var k=0;k<customfields.length;k++){
+                      if(customfields[k].querySelector('div').textContent=='number of video files'){
+                          if(unit=="task"){
+                            quantityfield.value = customfields[k].querySelector('input').value;
+                          }else{
+                            quantityfield.value = customfields[k].querySelector('input').value * document.querySelector('input[ng-model="quote.volume"]').value;
+                          }
+                     }
+                   }
+                   var selectunit = document.querySelectorAll('select[class="eutecert-select"]')[5];
+                   var unitselect;
+                   console.log(document.getElementById('calcunit').getAttribute("unit"));
+                   for(var k=0;k<selectunit.options.length;k++){
+                     if(selectunit.options[k].textContent==document.getElementById('calcunit').getAttribute("unit")){
+                        unitselect=selectunit.options[k];
+                        selectunit.options[k].selected=true;
+                        selectunit.dispatchEvent(new Event('change'));
+                      }
+                   }
+                   var quantity = document.getElementById('calcunit').getAttribute("quantity");
+                   console.log(quantity);
+                   var quantityforpl = 0;
+                   var dicountamount = 1;
+                   if(quantity<=5){
+                      quantityforpl=5;
+                      dicountamount=0;
+                    }else if(quantity<=15){
+                      quantityforpl=15;
+                    }else if(quantity<=25){
+                      quantityforpl=25;
+                    }else if(quantity<=50){
+                      quantityforpl=50;
+                    }else{
+                       quantityforpl=1000;
+                     }
+                   console.log("quantityforpl="+quantityforpl);
+                   var savebutton = document.querySelector('input[value="Save"]');
+                   if(dicountamount!=0){
+                     setTimeout(function() {
+                       eventFire($('[id*="amountModifiersButton"]')[1], 'click');
+                       var intervaltempforselect = setInterval(function() {
+                         if($('[id*="amountModifiersTable"]')[0]){
+                          clearInterval(intervaltempforselect);
+                          var selectdiscount = $('[id*="amountModifiersTable"]')[0].parentElement.querySelector('select');
+                           for(var i=0;i<selectdiscount.options.length;i++){
+                              if(selectdiscount.options[i].textContent.match(/Quantity Discount \d*/gi)&&selectdiscount.options[i].textContent.match(/Quantity Discount \d*/gi)[0]=="Quantity Discount "+quantityforpl){
+                                selectdiscount.options[i].selected=true;    
+                              }
+                           }
+                           eventFire(document.querySelectorAll('input[class="eutecert-default-button"]')[0], 'click');
+                           eventFire(savebutton, 'click');
+                         }
+                       }, 100);
+                     }, 700);
+                   }else{
+                    eventFire(savebutton, 'click');
+                   }
+                 },700);
+               }else{
+                 var quantityfield = document.querySelector('input[id="j_id104:quantityInput"]');
+               }
+             }, 100);
+           }
+        }, 200);
+        }
+////////////////////////// END ////////////////////
+
 ////////////////////////// END ////////////////////
 
 /////////////////////////////
