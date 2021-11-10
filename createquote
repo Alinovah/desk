@@ -1940,7 +1940,7 @@ if(UseStatus){
 //////////////////////// hide categories ////////////////////////////////
 document.querySelector('div[class="widget-micro"]').style.display="none";
 ////////////////////////// END ////////////////////
-
+/*
 //////////////////////// disable pricelist selection ////////////////////////////////
 var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
 for(var k=0;k<customfields.length;k++){
@@ -1988,7 +1988,7 @@ setInterval(function() {
  
 }, 200);
 ///////////////////////// END ////////////////////////
-
+*/
 
 
 
