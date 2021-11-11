@@ -343,100 +343,162 @@ var intervalId = window.setInterval(function() {
 }, 1000);
 
 
-
-//////////////////////////reset process///////////////////////
-/*
+/////////////////////////// append reset button ////////////////////
   var controls = $('[class^="controls ng-scope"]')[0];
   var button = document.createElement("button");
   button.textContent = "Reset Process";
   button.className  = "btn ng-scope";
   button.onclick = resetprocess;
   controls.appendChild(button);
+////////////////////////// END ///////////////////////////////////  
+//////////////////////////reset process///////////////////////
+async function resetprocess(){
+      var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+      var key = "";
+      for(var k=0;k<customfields.length;k++){
+        if(customfields[k].querySelector('div').textContent=='key'){
+          key = customfields[k].querySelector('span').textContent;
+        }
+      }
+      var pid = window.assistedProjectId;
+      var url = "https://desk.ngsub.tv/home-api/v2/projects/"+pid+"/jobs";
+      const myHeaders = new Headers({'X-AUTH-ACCESS-TOKEN': key});
+      const myRequest = new Request(url, {
+            method: 'GET',
+            headers: myHeaders
+            });
+      var jsondata;
+      fetch(myRequest)
+            .then(response => response.json())
+            .then(data => jsondata=data);
+      setTimeout(function() {
+         var ids=[];
+         var statuss=[];
+         var jsonkeys = Object.keys(jsondata);
+         for(var a=0;a<jsonkeys.length;a++){
+           ids.push(jsondata[jsonkeys[a]]["id"]);
+           statuss.push(jsondata[jsonkeys[a]]["status"]);
+         }
+         for(var d=0;d<ids.length;d++){
+           var id=ids[d];
+           var url = "https://desk.ngsub.tv/home-api/v2/jobs/"+id+"/status";
+           var flag = 0;
+           if(statuss[d]=="OPEN"){
+             flag = 0;
+           }else if(statuss[d]=="CANCELLED"){
+             flag = 1;
+           }else if(statuss[d]=="STARTED"){
+             flag = 2;
+           }else if(statuss[d]=="ACCEPTED"){
+             flag = 1;
+           }else if(statuss[d]=="READY"){
+             flag = 3;
+           }else{
+             flag = 0;
+           }
+           if(flag==0){
+           }else if(flag==1){
+              changestatus(url);
+           }else if(flag==2){
+              changestatus2(url);
+           }else if(flag==3){
+              changestatus3(url);
+           }
+         }
+       }, 1000);
+    }
+////////////////////////// END /////////////////////////////////// 
 
-var count = 50;
-function resetprocess(){
-  var k=-1;
-  movei(k);
-}
-  function movei(z){
-    setTimeout(function(){
-    z=z+1;
-    //console.log(z);
-    if(z<20){
-      resetstage(z);
-      movei(z);
-    }
-  },3000);
+///////////////////// reset process functions /////////////////////////
+function changestatus(url){
+  console.log(url);
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", url);
+    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          console.log(xhr.responseText);
+       }};
+    var data = '{"status":"OPEN"}';   
+    xhr.send(data);
   }
-  function resetstage(i){
-  if($('[class^="close x-icon --close ng-scope"]')[0]!=undefined){
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
+function changestatus2(url){
+    console.log(url);
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", url);
+    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            setTimeout(function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", url);
+            xhr.setRequestHeader("accept", "*/*");
+            xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+               if (xhr.readyState === 4) {
+                  console.log(xhr.status);
+                  console.log(xhr.responseText);
+               }};
+            var data = '{"status":"OPEN"}';   
+            xhr.send(data);
+          }, 500);
+       }};
+    var data = '{"status":"ACCEPTED"}';   
+    xhr.send(data);
   }
-  var clickables = $('[class^="content ng-scope clickable"]');
-  var flag = 1;
-    count=count-1;
-    var clickables = $('[class^="content ng-scope clickable"]');
-    var clickable=clickables[i];
-    eventFire(clickable, 'click');
-    var jobs = $('[class^="head single clickable"]');
-    //console.log(jobs.length);
-    if(jobs.length==0){
-    var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-    if(state[0].textContent=="Mark as accepted"){
-      ////do nothing
-      setTimeout(function(){
-      },2700);
-      flag = flag+1;
-      console.log("no change");
-    }else if(state[0].textContent=="Start Job"){
-      setTimeout(function(){
-      console.log("accepted to open");
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },2700);
-    }else if(state[0].textContent=="Mark as ready"){
-      setTimeout(function(){
-      console.log("started to accepted");
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("accepted to open");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },700);
-      },900);
-    }else if(state[0].textContent=="Revert to started"){
-      setTimeout(function(){
-      console.log("ready to started");
-      eventFire(state[0], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("started to accepted");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("accepted to open");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },700);
-      },700);
-      },700);
-    }else{
-      setTimeout(function(){
-      },2700);
-    }
+  function changestatus3(url){
+    console.log(url);
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", url);
+    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            setTimeout(function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", url);
+            xhr.setRequestHeader("accept", "*/*");
+            xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+               if (xhr.readyState === 4) {
+                  console.log(xhr.status);
+                  console.log(xhr.responseText);
+                  setTimeout(function() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("PUT", url);
+                    xhr.setRequestHeader("accept", "*/*");
+                    xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.onreadystatechange = function () {
+                       if (xhr.readyState === 4) {
+                          console.log(xhr.status);
+                          console.log(xhr.responseText);
+                       }};
+                    var data = '{"status":"OPEN"}';   
+                    xhr.send(data);
+                  }, 500);
+               }};
+            var data = '{"status":"ACCEPTED"}';   
+            xhr.send(data);
+          }, 500);
+       }};
+    var data = '{"status":"STARTED"}';   
+    xhr.send(data);
   }
-}
-*/
+////////////////////////// END /////////////////////////////////// 
+
  ////////////////////////hyperlinks////////////////////////////////
 var pdffield = $('[class^="input read-only ng-scope"]')[0];
 var pdflink = pdffield.textContent;
