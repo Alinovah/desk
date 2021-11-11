@@ -457,9 +457,9 @@ var interval_filecount = setInterval(function() {
 var duration = 0;
 if(document.querySelector('input[ng-model="::order.volume"]')||document.querySelector('input[ng-model="quote.volume"]')){
  if(document.querySelector('input[ng-model="::order.volume"]')){
-  duration = document.querySelector('input[ng-model="::order.volume"]')).value;
+  duration = document.querySelector('input[ng-model="::order.volume"]').value;
  }else{
-  duration = document.querySelector('input[ng-model="::quote.volume"]')).value;
+  duration = document.querySelector('input[ng-model="::quote.volume"]').value;
  }
 }
 if(!document.querySelector('a[class="filename link ng-binding x-icon --file"]')){
