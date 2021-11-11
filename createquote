@@ -1,20 +1,21 @@
  
 var currentlink = window.location.href;
-////////////////////////// fix stuck after receivables /////////////////////
+////////////////////////// fix stuck after receivables quote or project /////////////////////
 if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
   console.log("bad url");
   var redirect = currentlink.substring(0,currentlink.length-69);
   console.log(redirect);
   window.location = redirect;
-}else if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){ 
+}
+if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){ 
    console.log("bad url");
    var redirect = currentlink.substring(0,currentlink.length-71);
    console.log(redirect);
    window.location = redirect;
-   
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}   
+///////////////////////////////////// in customer profile ///////////////////////////////////////////////
 
-}else if(currentlink.substring(0,51)=='https://desk.ngsub.tv/xtrf/faces/customer/form.seam'){  
+if(currentlink.substring(0,51)=='https://desk.ngsub.tv/xtrf/faces/customer/form.seam'){  
   var interval2 = setInterval(function() {
   
   ///////////////////////// color important red ///////////////////////////
@@ -32,11 +33,11 @@ for(var i=0;i<label.length;i++){
 }
 ////////////////////////// END ////////////////////
 
-  }, 500);
+}, 500);
+}
+////////////////////////////////////////// in quote or project ///////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-}else if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"){
+if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"||currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 
 ////////////////////loader///////////////////////
 var backround = document.createElement("div");
@@ -94,9 +95,7 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
               for(var i=0;i<header_length;i++){
                 dates_header.push(today.addDays(-today_pos+i+1));
               }
-             //console.log(dates_header);
               for(var i=0;i<dates_header.length;i++){
-                //console.log(dates_header[i].getDay());
                 if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
                   ganttheader[i+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length].style.backgroundColor = "#cad5e6";
                   ganntblock[i].style.backgroundColor = "#e6eefa";
@@ -107,13 +106,11 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
                 for(var j=0;j<dates_header.length;j++){
                   if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
                     if(holiday_pos.indexOf(j+1)==-1){
-                      //console.log([dates[i][1].getFullYear(),dates_header[j].getFullYear(),dates[i][1].getMonth()+1,dates_header[j].getMonth()+1,dates[i][1].getDate(),dates_header[j].getDate()]);
                       holiday_pos.push([j+1,dates[i][0]]);
                     }
                   }
                 }
               }
-              //console.log(holiday_pos);
               for(var i=0;i<holiday_pos.length;i++){
                 ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText = ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText+" - "+holiday_pos[i][1];
               if(holiday_pos[i][1]=="עֶרֶב פּוּרִים"||holiday_pos[i][1]=="יוֹם העלייה"||holiday_pos[i][1]=="פֶּסַח ב׳"||holiday_pos[i][1]=="פֶּסַח ג׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ד׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ה׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ו׳ (חוה״מ)"||holiday_pos[i][1]=="יוֹם הַשּׁוֹאָה"||holiday_pos[i][1]=="יוֹם הַזִּכָּרוֹן"||holiday_pos[i][1]=="יוֹם יְרוּשָׁלַיִם"||holiday_pos[i][1]=="עֶרֶב תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="סוּכּוֹת ב׳"||holiday_pos[i][1]=="סוּכּוֹת ג׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ד׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ה׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ו׳ (חוה״מ)"||holiday_pos[i][1]=="שִׂמְחַת תּוֹרָה"||holiday_pos[i][1]=="שמירת בית הספר ליום העלייה"||holiday_pos[i][1]=="סיגד"||holiday_pos[i][1]=="חֲנוּכָּה: א׳ נֵר"||holiday_pos[i][1]=="חֲנוּכָּה: ב׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ג׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ד׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ה׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ו׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ז׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ח׳ נֵרוֹת"){
@@ -129,219 +126,6 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
     }        
 ////////////////////////////////////
 
-/////////////////////////refresh job1////////////////////////////
-var flag1 = 0;
-var flag2 = 0;
-var p_status1
-var c_status1
-var p_status2
-var c_status2
-
-var intervalId = window.setInterval(function() {
-  var service = $('[class^="input ng-binding ng-scope"]')[0];
-  if(service.textContent=="Timing Only"||service.textContent=="Translation + source"||service.textContent=="Conversion"||service.textContent=="Basic Translation"||service.textContent=="Basic Transcription"||service.textContent=="Additional Final File"){
-  var jobtitles = $('[class^="short text--center ng-binding ng-isolate-scope"]');
-  var jobs = $('[class^="status ng-binding"]');
-  var jobboxs = $('[class^="job ng-scope"]');
-  var clickables = $('[class^="content ng-scope clickable"]');
-  var job1
-  var job2
-  var jobbox1
-  var jobbox2
-  var pos = 0;
-  if (jobs.length > 0 && flag1 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        //console.log("job1 assigned");
-        job1 = jobs[i];
-        p_statu1s1 = job1.textContent;
-        flag1 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0 && flag2 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        //console.log("job2 assigned");
-        job2 = jobs[i];
-        p_status2 = job2.textContent;
-        flag2 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        job1 = jobs[i];
-        c_status1 = job1.textContent;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        job2 = jobs[i];
-        c_status2 = job2.textContent;
-      }
-    }
-  }
-  //console.log(p_status2);
-  //console.log(c_status2);
-  if (job1 != undefined && c_status1 == "Started" && p_status1 == "Accepted") {
-    //  p_status=c_status;
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        jobbox1 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox1 = jobbox1.className;
-    if (classjobbox1 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    }
-    if (classjobbox1 == "job ng-scope") {
-      eventFire(clickables[pos], 'click');
-    }
-  }
-  if (job2 != undefined && c_status2 == "Started" && p_status2 == "Accepted") {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        jobbox2 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox2 = jobbox2.className;
-    if (classjobbox2 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    }
-    if (classjobbox2 == "job ng-scope") {
-      eventFire(clickables[pos], 'click');
-    }
-  }
-  if (job1 != undefined && c_status1 == "Ready" && p_status1 == "Accepted") {
-    p_status1 = c_status1;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }
-  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted") {
-    p_status2 = c_status2;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }
-  if (job1 != undefined && c_status1 != p_status1 && c_status1 != "Started") {
-    p_status1 = c_status1;
-  }
-  if (job2 != undefined && c_status2 != p_status2 && c_status2 != "Started") {
-    p_status2 = c_status2;
-  }
-}else if(service.textContent=="Raw Materials"){
-  var jobtitles = $('[class^="short text--center ng-binding ng-isolate-scope"]');
-  var jobs = $('[class^="status ng-binding"]');
-  var jobboxs = $('[class^="job ng-scope"]');
-  var clickables = $('[class^="content ng-scope clickable"]');
-  var job1
-  var job2
-  var jobbox1
-  var jobbox2
-  if (jobs.length > 0 && flag1 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        //console.log("job1 assigned");
-        job1 = jobs[i];
-        p_statu1s1 = job1.textContent;
-        flag1 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0 && flag2 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        //console.log("job2 assigned");
-        job2 = jobs[i];
-        p_status2 = job2.textContent;
-        flag2 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        job1 = jobs[i];
-        c_status1 = job1.textContent;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        job2 = jobs[i];
-        c_status2 = job2.textContent;
-      }
-    }
-  }
-
-  if (job1 != undefined && c_status1 == "Started" && p_status1 == "Accepted") {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        jobbox1 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox1 = jobbox1.className;
-    if (classjobbox1 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      //eventFire(clickables[1], 'click');
-    }
-    if (classjobbox1 == "job ng-scope") {
-      //jobbox1.className="job ng-scope selected";
-      eventFire(clickables[pos], 'click');
-    }
-  }
-  if (job2 != undefined && c_status2 == "Started" && p_status2 == "Accepted") {
-    //  p_status=c_status;
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        jobbox2 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox2 = jobbox2.className;
-    if (classjobbox2 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      //eventFire(clickables[0], 'click');
-    }
-    if (classjobbox2 == "job ng-scope") {
-      //jobbox1.className="job ng-scope selected";
-      eventFire(clickables[pos], 'click');
-    }
-    //console.log(jobboxs.length);
-    //console.log(classjobbox);
-  }
-  if (job1 != undefined && c_status1 == "Ready" && p_status1 == "Accepted") {
-    p_status1 = c_status1;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }
-  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted") {
-    p_status2 = c_status2;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }
-  if (job1 != undefined && c_status1 != p_status1 && c_status1 != "Started") {
-    p_status1 = c_status1;
-  }
-  if (job2 != undefined && c_status2 != p_status2 && c_status2 != "Started") {
-    p_status2 = c_status2;
-  }
-  
-}
-
-}, 1000);
-
 
 /////////////////////////// append reset button ////////////////////
   var controls = $('[class^="controls ng-scope"]')[0];
@@ -350,7 +134,8 @@ var intervalId = window.setInterval(function() {
   button.className  = "btn ng-scope";
   button.onclick = resetprocess;
   controls.appendChild(button);
-////////////////////////// END ///////////////////////////////////  
+////////////////////////// END /////////////////////////////////// 
+
 //////////////////////////reset process///////////////////////
 async function resetprocess(){
       var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
@@ -499,78 +284,90 @@ function changestatus2(url){
   }
 ////////////////////////// END /////////////////////////////////// 
 
- ////////////////////////hyperlinks////////////////////////////////
-var pdffield = $('[class^="input read-only ng-scope"]')[0];
-var pdflink = pdffield.textContent;
-var sheetfield = $('[class^="input read-only ng-scope"]')[2];
-var sheetlink = sheetfield.textContent;
-if(pdflink!=""){
-pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
-}
-sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
-
+////////////////////////hyperlinks function////////////////////////////////
+function hyperlinks(){
+    var pdffield="";
+    var pdflink="";
+    var sheetfield="";
+    var sheetlink="";
+    var elements = document.querySelectorAll('div[class="input__item custom_field"]');
+    for(var i=0;i<elements.length;i++){
+      if(elements[i].querySelector('div').textContent=='Quote PDF Link'){
+        pdffield = elements[i].querySelector('div[class="custom-field-section"]');
+        pdflink = pdffield.textContent;
+      }
+      if(elements[i].querySelector('div').textContent=='Price List Sheet Link'){
+        sheetfield = elements[i].querySelector('div[class="custom-field-section"]');
+        sheetlink = sheetfield.textContent;
+      }
+    }
+    if(pdflink!=""){
+    pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
+    }
+    sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
+    }
+    hyperlinks();
+////////////////////////// END ////////////////////
 
 /////////////////////////rearange view///////////////////////////
-//console.log($('[class^="input__item"]').length);
-if($('[class^="input__item"]').length==35){
-//var client = $('[class^="input__item"]')[0];
+
+/////////////////////////rearange view///////////////////////////
+
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
     if(inputs[i].querySelector("div").innerText=='Client'){
       var client = inputs[i];
     }
+    if(inputs[i].querySelector("div").innerText=='Service'){
+      var service = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Created on'){
+      var created = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Actual Start Date'){
+      var actual = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Offer Expiration'){
+      var expaire = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+      var deadline = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Business Days'){
+      var working = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Client Reference Number'){
+      var referance = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Volume (Minute)'){
+      var volume = inputs[i];
+    }
+    if(inputs[i].querySelector("div").innerText=='Origin'){
+      var origin = inputs[i];
+    }
   }
 }
 
-var service = $('[class^="input__item"]')[1];
-var ordered = $('[class^="input__item"]')[2];
-var startged = $('[class^="input__item"]')[4];
-var deadline = $('[class^="input__item"]')[3];
-var referance = $('[class^="input__item"]')[5];
-var volume = $('[class^="input__item"]')[6];
-var origin = $('[class^="input__item"]')[7];
-var expexteddate = $('[class^="input__item custom_field"]')[0];
-var quantity = $('[class^="input__item custom_field"]')[2];
-//console.log([client,service]);
-//console.log([ordered,startged]);
-//console.log([deadline,expexteddate]);
-//console.log([volume,quantity]);
-//console.log([origin,referance]);
+var inputscustomfields = $('[class^="input__item custom_field"]');
+for(var i=0;i<inputscustomfields.length;i++){
+  if(inputscustomfields[i].querySelector("div")){
+    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
+      var expexteddate = inputscustomfields[i];
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'||inputscustomfields[i].querySelector("div").innerText=='Number of pages'){
+      var quantity = inputscustomfields[i];
+    }
+  }
+}
+if(actual!=undefined){
+  created.appendChild(actual);
+}
 client.appendChild(service);
-ordered.appendChild(startged);
 deadline.appendChild(expexteddate);
+working.appendChild(referance);
 volume.appendChild(quantity);
-origin.appendChild(referance);
-}
-if($('[class^="input__item"]').length==34){
-//var client = $('[class^="input__item"]')[0];
-var inputs = $('[class^="input__item"]');
-for(var i=0;i<inputs.length;i++){
-  if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Client'){
-      var client = inputs[i];
-    }
-  }
-}
-var service = $('[class^="input__item"]')[1];
-var ordered = $('[class^="input__item"]')[2];
-//var startged = $('[class^="input__item"]')[4];
-var deadline = $('[class^="input__item"]')[3];
-var referance = $('[class^="input__item"]')[4];
-var volume = $('[class^="input__item"]')[5];
-var origin = $('[class^="input__item"]')[6];
-var expexteddate = $('[class^="input__item custom_field"]')[0];
-var quantity = $('[class^="input__item custom_field"]')[2];
-
-
-client.appendChild(service);
-ordered.appendChild(deadline);
-//deadline.appendChild(expexteddate);
-volume.appendChild(quantity);
-origin.appendChild(referance);
-
-}
+origin.appendChild(expaire);
 
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
@@ -647,38 +444,6 @@ function eventFire(el, etype) {
     var evObj = document.createEvent('Events');
     evObj.initEvent(etype, true, false);
     el.dispatchEvent(evObj);
-  }
-}
-
-//////////////////////hide categories///////////////////
-
-var service = document.querySelector("div[ng-if='project.service != null'").textContent;
-var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
-var k = dropdown.querySelector("div");
-k.addEventListener("click", updatedropdown);
-
-
-
-function updatedropdown(){ 
-var service = document.querySelector("div[ng-if='project.service != null'").textContent;
-if(service!="Raw Materials"){
-  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
-  for (var i=0;i<categories.length;i++){
-    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"||line=="Locators"){
-      console.log(line);
-      categories[i].style.visibility = "collapse";
-    }
-  }
-}else if(service=="Raw Materials"){
-  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
-  for (var i=0;i<categories.length;i++){
-    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-  if(line=="מחירון_ח.תרגום"||line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
-      console.log(line);
-      categories[i].style.visibility = "collapse";
-      }
-    }
   }
 }
 
@@ -771,346 +536,19 @@ document.querySelector('textarea[ng-model="order.customerNotes"]').dir="rtl";
 }
 ////////////////////////// END ////////////////////
 
-////////////////////////////
-    }    
-}, 100);
+//////////////////////////comments placeholder///////////////////////
 
+var comments = document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]')[1];
+comments.placeholder="מופיע בהצעת המחיר";
 
-}else if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+////////////////////////// END ////////////////////
 
-////////////////////loader///////////////////////
-var backround = document.createElement("div");
-var loader = document.createElement("div");
-loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:300px" ><p style="padding:0;"><img style="padding:0;opacity:2;width:20%;height:20%;" src="https://drive.google.com/uc?id=13-ZWSQg_olXbqbfL82TcDr8SK5zgh9Jd"></p></h1>';
-
-backround.className = "center";
-backround.id = "loader";
-loader.className = "center";
-loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:97;";
-backround.style = "background: rgba(255, 255, 255, .7);width:100%;height:100%;position:absolute ;z-index:97;";
-var sheet = window.document.styleSheets[0];
-sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
-document.body.style = "overflow: hidden;";
-document.body.prepend(loader);
-document.body.prepend(backround);
-
-var interval = setInterval(function() {
-    console.log($('[class^="input__item"]').length);
-    if($('[class^="input__item"]').length>=34){
-        clearInterval(interval);
-        setTimeout( function (){ 
-        loader.style.display = "none";backround.style.display = "none"; document.body.style = "overflow: scroll;";
-        
-
-//////////////////////////////////// color gannt ////////////////////////////
-if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
- eventFire(document.querySelector('button[ng-click="pluginScope.goToToday()"]'), 'click');     
- 
- var dates = [];
-           var dates_header = [];
-           var holiday_pos = [];
-           var url = 'https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&mod=on&year=now&month=x&lg=h';
-            fetch(url)
-            .then(response => response.json())
-            .then(data => holidays(data));
-            
-            function holidays(data){
-              for(var i=0;i<data["items"].length;i++){
-                dates.push([data["items"][i]["title"],new Date(data["items"][i]["date"])]);
-              }
-
-              var today = new Date();
-              var year = today.getFullYear();
-              var month = today.getMonth()+1;
-              var day = today.getDay();
-              var ganttheader = $('[class^="gantt-column-header ng-binding"]');
-              var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
-              var header_length = ganttheader.length-$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length;
-              var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
-              var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200)
-              
-              for(var i=0;i<header_length;i++){
-                dates_header.push(today.addDays(-today_pos+i+1));
-              }
-             //console.log(dates_header);
-              for(var i=0;i<dates_header.length;i++){
-                //console.log(dates_header[i].getDay());
-                if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
-                  ganttheader[i+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length].style.backgroundColor = "#cad5e6";
-                  ganntblock[i].style.backgroundColor = "#e6eefa";
-                }
-              }
-              
-              for(var i=0;i<dates.length;i++){
-                for(var j=0;j<dates_header.length;j++){
-                  if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
-                    if(holiday_pos.indexOf(j+1)==-1){
-                      //console.log([dates[i][1].getFullYear(),dates_header[j].getFullYear(),dates[i][1].getMonth()+1,dates_header[j].getMonth()+1,dates[i][1].getDate(),dates_header[j].getDate()]);
-                      holiday_pos.push([j+1,dates[i][0]]);
-                    }
-                  }
-                }
-              }
-              //console.log(holiday_pos);
-              for(var i=0;i<holiday_pos.length;i++){
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText = ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText+" - "+holiday_pos[i][1];
-              
-              if(holiday_pos[i][1]=="עֶרֶב פּוּרִים"||holiday_pos[i][1]=="יוֹם העלייה"||holiday_pos[i][1]=="פֶּסַח ב׳"||holiday_pos[i][1]=="פֶּסַח ג׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ד׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ה׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ו׳ (חוה״מ)"||holiday_pos[i][1]=="יוֹם הַשּׁוֹאָה"||holiday_pos[i][1]=="יוֹם הַזִּכָּרוֹן"||holiday_pos[i][1]=="יוֹם יְרוּשָׁלַיִם"||holiday_pos[i][1]=="עֶרֶב תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="סוּכּוֹת ב׳"||holiday_pos[i][1]=="סוּכּוֹת ג׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ד׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ה׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ו׳ (חוה״מ)"||holiday_pos[i][1]=="שִׂמְחַת תּוֹרָה"||holiday_pos[i][1]=="שמירת בית הספר ליום העלייה"||holiday_pos[i][1]=="סיגד"||holiday_pos[i][1]=="חֲנוּכָּה: א׳ נֵר"||holiday_pos[i][1]=="חֲנוּכָּה: ב׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ג׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ד׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ה׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ו׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ז׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ח׳ נֵרוֹת"){
-                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#fff2cc";
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#d9be73";
-              }else{
-                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#cad5e6";
-              }
-              }
-            }
-            
-            }
-//////////////////////////////////// 
- 
-//////////////////////////revert job///////////////////////
-
-  var controls = $('[class^="controls ng-scope"]')[0];
-  var button = document.createElement("button");
-  button.textContent = "Revert Job";
-  button.className  = "btn ng-scope";
-  button.onclick = revertjob;
-  controls.appendChild(button);
-
-var count = 50;
-
-function revertjob(){
-  var k=0;
-  var selected = document.querySelector("div[class='job ng-scope selected']");
-  var clickables = selected.querySelector("div[class='content ng-scope clickable']");
-  resetjob(clickables);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////  
-  function resetjob(clicked){
-
-    var clickable=clicked;
-    eventFire(clickable, 'click');
-    var jobs = $('[class^="head single clickable"]');
-    //console.log(jobs.length);
-    if(jobs.length==0){
-    var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-    if(state[0].textContent=="Mark as accepted"){
-      ////do nothing
-      setTimeout(function(){
-      },2700);
-      flag = flag+1;
-      //console.log("no change");
-    }else if(state[0].textContent=="Mark as ready"){
-      setTimeout(function(){
-      console.log("started to accepted");
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },900);
-    }else if(state[0].textContent=="Revert to started"){
-      setTimeout(function(){
-      console.log("ready to started");
-      eventFire(state[0], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("started to accepted");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },700);
-      },700);
-    }else{
-      setTimeout(function(){
-      },2700);
-    }
-  }
-}
-
-//////////////////////hide categories///////////////////
-
-var service = document.querySelector("div[ng-if='project.service !== null'").textContent;
-var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
-var k = dropdown.querySelector("div");
-k.addEventListener("click", updatedropdown);
-
-
-
-function updatedropdown(){ 
-var service = document.querySelector("div[ng-if='project.service !== null'").textContent;
-//var dropdown = document.querySelector("div[class='nd-multiselect dropdown--is-closed ng-isolate-scope']");
-//var k = dropdown.querySelector("div");
-//eventFire(k, 'click');
-if(service!="Raw Materials"){
-  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
-  for (var i=0;i<categories.length;i++){
-    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-    if(line=="Raw_Materials_10"||line=="Raw_Materials_12"||line=="Raw_Materials_14"||line=="Locators"){
-      //console.log(line);
-      categories[i].style.visibility = "collapse";
-    }
-  }
-}else if(service=="Raw Materials"){
-  var categories = document.querySelectorAll("div[ng-attr-tabindex]");
-  for (var i=0;i<categories.length;i++){
-    var line = categories[i].querySelector("div[ng-if='::(!itemLabels)']").textContent;
-  if(line=="מחירון_ח.תרגום"||line=="מחירון_בלעדיות"||line=="מחירון_סדרות"|| line=="מחירון_סטודנטים"||line=="מחירון_סטנדרט"||line=="Accurate script from client"||line=="Accurate script+timings from client"||line=="Addition Technical"||line=="Inaccurate script from client"||line=="Many Supers"){
-      //console.log(line);
-      categories[i].style.visibility = "collapse";
-      }
-    }
-  }
-}
-
-
-///////////////////close job if open//////////////////
-
-  var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
-  if(closewindow!=undefined){
-    eventFire(closewindow, 'click');
-    //location.reload();
-  }
-
-
-
-//////////////////////////reset process///////////////////////
-
-  var controls = $('[class^="controls ng-scope"]')[0];
-  var button = document.createElement("button");
-  button.textContent = "Reset Process";
-  button.className  = "btn ng-scope";
-  button.onclick = resetprocess;
-  controls.appendChild(button);
-
-var count = 50;
-function resetprocess(){
-  var k=-1;
-  movei(k);
-}
-  function movei(z){
-    setTimeout(function(){
-    z=z+1;
-    //console.log(z);
-    if(z<20){
-      resetstage(z);
-      movei(z);
-    }
-  },3000);
-  }
-  function resetstage(i){
-  if($('[class^="close x-icon --close ng-scope"]')[0]!=undefined){
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-  }
-  var clickables = $('[class^="content ng-scope clickable"]');
-  var flag = 1;
-    count=count-1;
-    var clickables = $('[class^="content ng-scope clickable"]');
-    var clickable=clickables[i];
-    eventFire(clickable, 'click');
-    var jobs = $('[class^="head single clickable"]');
-    //console.log(jobs.length);
-    if(jobs.length==0){
-    var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-    if(state[0].textContent=="Mark as accepted"){
-      ////do nothing
-      setTimeout(function(){
-      },2700);
-      flag = flag+1;
-      //console.log("no change");
-    }else if(state[0].textContent=="Start Job"){
-      setTimeout(function(){
-      console.log("accepted to open");
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },2700);
-    }else if(state[0].textContent=="Mark as ready"){
-      setTimeout(function(){
-      console.log("started to accepted");
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("accepted to open");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },700);
-      },900);
-    }else if(state[0].textContent=="Revert to started"){
-      setTimeout(function(){
-      console.log("ready to started");
-      eventFire(state[0], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("started to accepted");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      setTimeout(function(){
-      eventFire(clickable, 'click');
-      console.log("accepted to open");
-      var state = $('[class^="item ng-binding ng-scope ng-isolate-scope"]');
-      console.log(state[1].textContent);
-      eventFire(state[1], 'click');
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      },700);
-      },700);
-      },700);
-    }else{
-      setTimeout(function(){
-      },2700);
-    }
-  }
-}
-////////////////////////////////////////
-function eventFire(el, etype) {
-  if (el.fireEvent) {
-    el.fireEvent('on' + etype);
-  } else {
-    var evObj = document.createEvent('Events');
-    evObj.initEvent(etype, true, false);
-    el.dispatchEvent(evObj);
-  }
-}
-
-/////////////////////////rearange view///////////////////////////
-
+///////////////// statuses handler ////////////////////////
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Client'){
-      var client = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Service'){
-      var service = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Created on'){
-      var created = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Actual Start Date'){
-      var actual = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Offer Expiration'){
-      var expaire = inputs[i];
-    }
     if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
       var deadline = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Business Days'){
-      var working = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Client Reference Number'){
-      var referance = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Volume (Minute)'){
-      var volume = inputs[i];
-    }
-    if(inputs[i].querySelector("div").innerText=='Origin'){
-      var origin = inputs[i];
     }
   }
 }
@@ -1118,25 +556,325 @@ for(var i=0;i<inputs.length;i++){
 var inputscustomfields = $('[class^="input__item custom_field"]');
 for(var i=0;i<inputscustomfields.length;i++){
   if(inputscustomfields[i].querySelector("div")){
-    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
-      var expexteddate = inputscustomfields[i];
+    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
+      var UseStatus = inputscustomfields[i].querySelector('input').checked;
+      var UseStatusEl = inputscustomfields[i];
     }
-    if(inputscustomfields[i].querySelector("div").innerText=='number of video files'||inputscustomfields[i].querySelector("div").innerText=='Number of pages'){
-      var quantity = inputscustomfields[i];
+    if(inputscustomfields[i].querySelector("div").innerText=='Status'){
+      var Status = inputscustomfields[i];
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
+      var EstimatedStartDate = inputscustomfields[i];
     }
   }
 }
-if(actual!=undefined){
-  created.appendChild(actual);
+EstimatedStartDate.append(UseStatusEl);
+deadline.append(Status);
+UseStatusEl.querySelector('span').style.width ="40px";
+var interval3 = setInterval(function() {
+
+var statuslist = document.querySelectorAll('div[class="nd-label ng-binding ng-scope"]');
+for(var i=0;i<statuslist.length;i++){
+  if(statuslist[i].textContent=='Unspecified'){
+    statuslist[i].parentElement.style.display='none'
+  }
+}  
+var inputscustomfields = $('[class^="input__item custom_field"]');
+for(var i=0;i<inputscustomfields.length;i++){
+  if(inputscustomfields[i].querySelector("div")){
+    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
+      var UseStatus = inputscustomfields[i].querySelector('input').checked;
+    }
+  }
 }
-client.appendChild(service);
-deadline.appendChild(expexteddate);
-working.appendChild(referance);
-volume.appendChild(quantity);
-origin.appendChild(expaire);
+if(UseStatus){
+  deadline.querySelectorAll('div')[0].style.display="none";
+  deadline.querySelectorAll('div')[1].style.display="none";
+  Status.style.display="block";
+  Status.style.width ="10px";
+  Status.style.marginBottom ="0px";
+  
+}else{
+  deadline.querySelectorAll('div')[0].style.display="block";
+  deadline.querySelectorAll('div')[1].style.display="block";
+  Status.style.display="none";
+}
+}, 500);
+////////////////////////// END ////////////////////
+
+//////////////////////// hide categories ////////////////////////////////
+document.querySelector('div[class="widget-micro"]').style.display="none";
+////////////////////////// END ////////////////////
+
+//////////////////////// disable pricelist selection ////////////////////////////////
+var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+for(var k=0;k<customfields.length;k++){
+       if(customfields[k].querySelector('div').textContent=='Pricelist'){
+            customfields[k].querySelector('div[ng-class="[inline?'+"'"+'nd-inline'+"'"+':'+"''"+']"]').className="";
+       }
+       if(customfields[k].querySelector('div').textContent=='key'){
+          customfields[k].style.display="none";
+       }
+ }
+///////////////////////// END ////////////////////////////
+
+//////////////////////// Check specilazation for pricelist /////////////////////////
+var pricelistinitial;
+var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+for(var k=0;k<customfields.length;k++){
+         if(customfields[k].querySelector('div').textContent=='Pricelist'){
+              pricelistinitial = customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent ;
+         }
+}
+console.log(pricelistinitial);
+setInterval(function() {
+var inputitems=document.querySelectorAll('div[class="input__item"]');
+var specilazation;
+for(var k=0;k<inputitems.length;k++){
+       if(inputitems[k].querySelector('div').textContent=='Specialization'){
+            specilazation = inputitems[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent;
+       }
+ }
+var expression = /סדר/gi;
+var matches = specilazation.match(expression);
 
 
+  var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+  for(var k=0;k<customfields.length;k++){
+         if(customfields[k].querySelector('div').textContent=='Pricelist'){
+           if(matches){
+               customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent ="מחירון_סדרות";
+            }else{
+               customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent =pricelistinitial ;
+             }   
+         }
+   }
+  
 
+}, 200);
+///////////////////////// END ////////////////////////
+////////////////////////// put contact and pm on top /////////////////////
+
+        
+var client_Notes =  document.querySelector('div[class="input-wrap grid"]');
+var new_grid = document.createElement("div");
+new_grid.className = "input-wrap grid";
+var parentNode = document.querySelector('div[class="body ng-scope"]');
+parentNode.insertBefore(new_grid, client_Notes);
+new_grid.style = "height:150px;"
+
+
+var input_items = document.querySelectorAll('div[class="input__item"]');
+var contact_person
+var project_manager
+for(var i=0;i<input_items.length;i++){
+  if(input_items[i].querySelector('div').innerText=='Main Contact'){
+    contact_person=input_items[i];
+  }
+  if(input_items[i].querySelector('div').innerText=='Project Manager'){
+    project_manager=input_items[i];
+  }
+}
+project_manager.parentElement.style =  "position: relative;width:100%";
+  const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+  var pos = rect.top + window.scrollY;
+  //console.log(pos);
+  const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
+  var pos2 = rect2.top + window.scrollY;
+  //console.log(pos2);
+  var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
+  var pos_offset2 = pos-pos2-260;
+//project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
+
+var contact_old = contact_person.querySelector("label").innerText;
+var pm_old = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
+
+var interval_contact = setInterval(function() {
+var input_items = document.querySelectorAll('div[class="input__item"]');
+var contact_person
+var project_manager
+for(var i=0;i<input_items.length;i++){
+  if(input_items[i].querySelector('div').innerText=='Main Contact'){
+    contact_person=input_items[i];
+  }
+  if(input_items[i].querySelector('div').innerText=='Project Manager'){
+    project_manager=input_items[i];
+  }
+}
+
+project_manager.parentElement.style =  "position: relative;width:100%";
+  const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+  var pos = rect.top + window.scrollY;
+  //console.log(pos);
+  const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
+  var pos2 = rect2.top + window.scrollY;
+  //console.log(pos2);
+  var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
+var pos_offset2 = pos-pos2-260;
+//project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
+
+var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
+var innercontact =contact_person.querySelector("label").innerText;
+  if((innerpm!=pm_old||innercontact!=contact_old)&&innercontact!=""&&contact_old!=""&&innercontact!=" "&&contact_old!=" "&&innercontact!=null&&contact_old!=null&&contact_old.charCodeAt(0)!=160&&innercontact.charCodeAt(0)!=160){
+    //console.log("contact chagned");
+    //console.log([innerpm,pm_old,innercontact,contact_old]);
+    setTimeout(function() {
+    window.scrollTo(0, 0);
+    }, 500);
+    contact_old = innercontact;
+    pm_old = innerpm;
+
+  var input_items = document.querySelectorAll('div[class="input__item"]');
+          var contact_person
+          var project_manager
+          for(var i=0;i<input_items.length;i++){
+            if(input_items[i].querySelector('div').innerText=='Main Contact'){
+              contact_person=input_items[i];
+            }
+            if(input_items[i].querySelector('div').innerText=='Project Manager'){
+              project_manager=input_items[i];
+            }
+          }
+project_manager.parentElement.style =  "position: relative;width:100%";
+  const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+  var pos = rect.top + window.scrollY;
+  //console.log(pos);
+  const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
+  var pos2 = rect2.top + window.scrollY;
+  //console.log(pos2);
+  var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
+  var pos_offset2 = pos-pos2-260;
+//project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
+contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
+
+  }
+}, 100);  
+
+////////////////////////// END ////////////////////
+
+////////////////////////// request price change button /////////////////////
+
+var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
+var enablechange = "";
+for(var i=0;i<customfields.length;i++){
+  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"){
+    enablechange = document.querySelectorAll('div[class="input__item custom_field"]')[i];
+  }
+} 
+var email = document.querySelector('div[class="email"]').textContent;
+var intervaleditbutton = setInterval(function() {
+var editbutton = document.getElementById("formWithPanels:receivablesTable:0:j_idt297");
+    if(editbutton){
+        if(enablechange.querySelectorAll('div')[1].innerText=="FALSE"&&email!='mor@ngsub.tv'&&email!='tal.levy@ngsub.tv'&&email!='carmel@ngsub.tv'){
+          editbutton.style.display="none";
+        }else{
+          editbutton.style.display="block";
+        }
+    }
+}, 100);
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("assistedProjectId");
+var url_for_approve = "http://pilk.mooo.com:7896/requestrateadjustment?id="+c;
+
+var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
+for(var i=0;i<customfields.length;i++){
+  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"&&document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelectorAll('div')[1].innerText=="FALSE"&&email!='mor@ngsub.tv'&&email!='tal.levy@ngsub.tv'&&email!='carmel@ngsub.tv'){
+    var requesttext = document.createElement("TEXTAREA");
+    requesttext.id = "requesttext";
+    requesttext.className = "inp ng-pristine ng-valid ng-empty ng-touched";
+    requesttext.style = "width: 100%; max-width: 100%; overflow: hidden; overflow-wrap: break-word; resize: none; height: 58px;";
+    requesttext.style.display = "none";
+    requesttext.dir="rtl";
+    customfields[i].append(requesttext);
+    var requestbutton = document.createElement("button");
+    requestbutton.innerText = "Request Price Change";
+    requestbutton.className= "btn ng-scope";
+    requestbutton.onclick = requestform;
+    requestbutton.id = "requestbutton";
+    customfields[i].append(requestbutton);
+    var cancelbutton = document.createElement("button");
+    cancelbutton.innerText = "Cancel Request";
+    cancelbutton.className= "btn ng-scope";
+    cancelbutton.onclick = cancelrequest;
+    cancelbutton.id = "cancelrequest";
+    cancelbutton.style.display = "none";
+    customfields[i].append(cancelbutton);
+  }
+}
+
+function requestform(){
+  console.log("clicked");
+    var requestbutton = document.getElementById("requestbutton");
+    requestbutton.innerText = "Send Request";
+    requestbutton.onclick = sendrequest;
+    var cancelbutton = document.getElementById("cancelrequest");
+    cancelbutton.style.display = "block";
+    var requesttext = document.getElementById("requesttext");
+    requesttext.style.display = "block";
+}
+
+function cancelrequest(){
+  console.log("clicked cancelrequest");
+    var requestbutton = document.getElementById("requestbutton");
+    requestbutton.innerText = "Request Price Change";
+    requestbutton.onclick = requestform;
+    var cancelbutton = document.getElementById("cancelrequest");
+    cancelbutton.style.display = "none";
+    var requesttext = document.getElementById("requesttext");
+    requesttext.style.display = "none";
+}
+
+function sendrequest(){
+  console.log("clicked sendrequest");
+    var requestbutton = document.getElementById("requestbutton");
+    requestbutton.innerText = "Request Sent!";
+    requestbutton.disabled = true;
+    var cancelbutton = document.getElementById("cancelrequest");
+    cancelbutton.style.display = "none";
+    var requesttext = document.getElementById("requesttext");
+    requesttext.style.display = "none";
+    var request = requesttext.value;
+    sendemail(request);
+}
+
+function sendemail(request){
+    ////////////////////////// send email /////////////////////
+var project_id = document.querySelector('span[ng-if="project.name"]').innerText.substring(0,document.querySelector('span[ng-if="project.name"]').innerText.length-1).toString();
+var pm = document.querySelector('div[class="name"]').textContent;
+var email = document.querySelector('div[class="email"]').textContent;
+url_for_approve = url_for_approve+"&pm="+pm+"&email="+email+"&project_id="+project_id;
+var data = {
+    service_id: 'service_65sfjal',
+    template_id: 'template_cpglsht',
+    user_id: 'user_Rmex4xmP46PWaVqzAOuCP',
+    template_params: {
+        'pm': pm,
+        'project_id': project_id,
+        'decline': "123",
+        'approve':url_for_approve,
+        'project_link': window.location.href,
+        'reply_to': email,
+        'reason': request,
+        'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
+    }
+};
+$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json'
+}).done(function() {
+    console.log('Your mail is sent!');
+}).fail(function(error) {
+    console.log('Oops... ' + JSON.stringify(error));
+});
+
+
+}
+////////////////////////// END ////////////////////
 //////////////////////////color empty red///////////////////////
 var flag = 0;
 //var inputs = $('[class^="inp ng-pristine ng-untouched ng-valid ng-isolate-scope"]');
@@ -1377,692 +1115,16 @@ if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getEl
 }
 }, 1000);
 
-////////////////////////hyperlinks function////////////////////////////////
-function hyperlinks(){
-var pdffield="";
-var pdflink="";
-var sheetfield="";
-var sheetlink="";
-var elements = document.querySelectorAll('div[class="input__item custom_field"]');
-for(var i=0;i<elements.length;i++){
-  if(elements[i].querySelector('div').textContent=='Quote PDF Link'){
-    pdffield = elements[i].querySelector('div[class="custom-field-section"]');
-    pdflink = pdffield.textContent;
-  }
-  if(elements[i].querySelector('div').textContent=='Price List Sheet Link'){
-    sheetfield = elements[i].querySelector('div[class="custom-field-section"]');
-    sheetlink = sheetfield.textContent;
-  }
-}
-if(pdflink!=""){
-pdffield.innerHTML='<a style="color:#035efc" href="'+pdflink+'" target="_blank" >PDF Link</a>';
-}
-sheetfield.innerHTML='<a style="color:#035efc" href="'+sheetlink+'" target="_blank" >Google Sheet Link</a>';
-}
-hyperlinks();
-////////////////////////// END ////////////////////
 
-/////////////////////////refresh job1////////////////////////////
-var flag1 = 0;
-var flag2 = 0;
-var p_status1
-var c_status1
-var p_status2
-var c_status2
-
-var intervalId = window.setInterval(function() {
-  var service = $('[class^="input ng-binding ng-scope"]')[0];
-  if(service.textContent=="Timing Only"||service.textContent=="Translation + source"||service.textContent=="Conversion"||service.textContent=="Basic Translation"||service.textContent=="Basic Transcription"||service.textContent=="Additional Final File"){
-  var jobtitles = $('[class^="short text--center ng-binding ng-isolate-scope"]');
-  var jobs = $('[class^="status ng-binding"]');
-  var jobboxs = $('[class^="job ng-scope"]');
-  var clickables = $('[class^="content ng-scope clickable"]');
-  var job1
-  var job2
-  var jobbox1
-  var jobbox2
-  var pos = 0;
-  if (jobs.length > 0 && flag1 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        //console.log("job1 assigned");
-        job1 = jobs[i];
-        p_statu1s1 = job1.textContent;
-        flag1 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0 && flag2 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        //console.log("job2 assigned");
-        job2 = jobs[i];
-        p_status2 = job2.textContent;
-        flag2 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        job1 = jobs[i];
-        c_status1 = job1.textContent;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        job2 = jobs[i];
-        c_status2 = job2.textContent;
-      }
-    }
-  }
-
-  if (job1 != undefined && c_status1 == "Started" && p_status1 == "Accepted") {
-    //  p_status=c_status;
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        jobbox1 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox1 = jobbox1.className;
-    if (classjobbox1 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    }
-    if (classjobbox1 == "job ng-scope") {
-      eventFire(clickables[pos], 'click');
-    }
-  }
-  if (job2 != undefined && c_status2 == "Started" && p_status2 == "Accepted") {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        jobbox2 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox2 = jobbox2.className;
-    if (classjobbox2 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    }
-    if (classjobbox2 == "job ng-scope") {
-      eventFire(clickables[pos], 'click');
-    }
-  }
-  if (job1 != undefined && c_status1 == "Ready" && p_status1 == "Accepted") {
-    p_status1 = c_status1;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }
-  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted" && document.querySelector('div[class="email"]').textContent!="tal.levy@ngsub.tv") {
-    p_status2 = c_status2;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }else if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted" && document.querySelector('div[class="email"]').textContent=="tal.levy@ngsub.tv") {
-    p_status2 = c_status2;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-  }
-  if (job1 != undefined && c_status1 != p_status1 && c_status1 != "Started") {
-    p_status1 = c_status1;
-  }
-  if (job2 != undefined && c_status2 != p_status2 && c_status2 != "Started") {
-    p_status2 = c_status2;
-  }
-}else if(service.textContent=="Raw Materials"){
-  var jobtitles = $('[class^="short text--center ng-binding ng-isolate-scope"]');
-  var jobs = $('[class^="status ng-binding"]');
-  var jobboxs = $('[class^="job ng-scope"]');
-  var clickables = $('[class^="content ng-scope clickable"]');
-  var job1
-  var job2
-  var jobbox1
-  var jobbox2
-  if (jobs.length > 0 && flag1 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        //console.log("job1 assigned");
-        job1 = jobs[i];
-        p_statu1s1 = job1.textContent;
-        flag1 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0 && flag2 == 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        //console.log("job2 assigned");
-        job2 = jobs[i];
-        p_status2 = job2.textContent;
-        flag2 = 1;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        job1 = jobs[i];
-        c_status1 = job1.textContent;
-      }
-    }
-  }
-  if (jobs.length > 0) {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        job2 = jobs[i];
-        c_status2 = job2.textContent;
-      }
-    }
-  }
-
-  if (job1 != undefined && c_status1 == "Started" && p_status1 == "Accepted") {
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Update Finance") {
-        jobbox1 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox1 = jobbox1.className;
-    if (classjobbox1 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      //eventFire(clickables[1], 'click');
-    }
-    if (classjobbox1 == "job ng-scope") {
-      //jobbox1.className="job ng-scope selected";
-      eventFire(clickables[pos], 'click');
-    }
-  }
-  if (job2 != undefined && c_status2 == "Started" && p_status2 == "Accepted") {
-    //  p_status=c_status;
-    for (var i = 0; i < jobs.length; i++) {
-      if (jobtitles[i].textContent == "Create PDF") {
-        jobbox2 = jobboxs[i + 1];
-        pos = i;
-      }
-    }
-    var classjobbox2 = jobbox2.className;
-    if (classjobbox2 == "job ng-scope selected") {
-      eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-      //eventFire(clickables[0], 'click');
-    }
-    if (classjobbox2 == "job ng-scope") {
-      //jobbox1.className="job ng-scope selected";
-      eventFire(clickables[pos], 'click');
-    }
-    //console.log(jobboxs.length);
-    //console.log(classjobbox);
-  }
-  if (job1 != undefined && c_status1 == "Ready" && p_status1 == "Accepted") {
-    p_status1 = c_status1;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }
-  if (job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted" && document.querySelector('div[class="email"]').textContent!="tal.levy@ngsub.tv" ) {
-    p_status2 = c_status2;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    window.scrollTo(0, 0);
-    location.reload();
-  }else if(job2 != undefined && c_status2 == "Ready" && p_status2 == "Accepted" && document.querySelector('div[class="email"]').textContent=="tal.levy@ngsub.tv" ){
-    p_status2 = c_status2;
-    eventFire($('[class^="close x-icon --close ng-scope"]')[0], 'click');
-    ///////////////////////////
-  }
-  if (job1 != undefined && c_status1 != p_status1 && c_status1 != "Started") {
-    p_status1 = c_status1;
-  }
-  if (job2 != undefined && c_status2 != p_status2 && c_status2 != "Started") {
-    p_status2 = c_status2;
-  }
-  
-}
-
-}, 1000);
-
-}, 1000);
-     
-    
-////////////////////////// put contact and pm on top /////////////////////
-
-        
-        var client_Notes =  document.querySelector('div[class="input-wrap grid"]');
-        var new_grid = document.createElement("div");
-        new_grid.className = "input-wrap grid";
-        var parentNode = document.querySelector('div[class="body ng-scope"]');
-        parentNode.insertBefore(new_grid, client_Notes);
-        new_grid.style = "height:150px;"
-        
-        
-        var input_items = document.querySelectorAll('div[class="input__item"]');
-        var contact_person
-        var project_manager
-        for(var i=0;i<input_items.length;i++){
-          if(input_items[i].querySelector('div').innerText=='Main Contact'){
-            contact_person=input_items[i];
-          }
-          if(input_items[i].querySelector('div').innerText=='Project Manager'){
-            project_manager=input_items[i];
-          }
-        }
-        project_manager.parentElement.style =  "position: relative;width:100%";
-          const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
-          var pos = rect.top + window.scrollY;
-          //console.log(pos);
-          const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
-          var pos2 = rect2.top + window.scrollY;
-          //console.log(pos2);
-          var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
-          var pos_offset2 = pos-pos2-260;
-        //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
-        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
-
-        var contact_old = contact_person.querySelector("label").innerText;
-        var pm_old = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
-        
-        var interval_contact = setInterval(function() {
-        var input_items = document.querySelectorAll('div[class="input__item"]');
-        var contact_person
-        var project_manager
-        for(var i=0;i<input_items.length;i++){
-          if(input_items[i].querySelector('div').innerText=='Main Contact'){
-            contact_person=input_items[i];
-          }
-          if(input_items[i].querySelector('div').innerText=='Project Manager'){
-            project_manager=input_items[i];
-          }
-        }
-        
-        project_manager.parentElement.style =  "position: relative;width:100%";
-          const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
-          var pos = rect.top + window.scrollY;
-          //console.log(pos);
-          const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
-          var pos2 = rect2.top + window.scrollY;
-          //console.log(pos2);
-          var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
-        var pos_offset2 = pos-pos2-260;
-        //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
-        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
-        
-        var innerpm = project_manager.querySelector("a")?  project_manager.querySelector("a").innerText:  project_manager.querySelector("label").innerText ;
-        var innercontact =contact_person.querySelector("label").innerText;
-          if((innerpm!=pm_old||innercontact!=contact_old)&&innercontact!=""&&contact_old!=""&&innercontact!=" "&&contact_old!=" "&&innercontact!=null&&contact_old!=null&&contact_old.charCodeAt(0)!=160&&innercontact.charCodeAt(0)!=160){
-            //console.log("contact chagned");
-            //console.log([innerpm,pm_old,innercontact,contact_old]);
-            setTimeout(function() {
-            window.scrollTo(0, 0);
-            }, 500);
-            contact_old = innercontact;
-            pm_old = innerpm;
-
-          var input_items = document.querySelectorAll('div[class="input__item"]');
-                  var contact_person
-                  var project_manager
-                  for(var i=0;i<input_items.length;i++){
-                    if(input_items[i].querySelector('div').innerText=='Main Contact'){
-                      contact_person=input_items[i];
-                    }
-                    if(input_items[i].querySelector('div').innerText=='Project Manager'){
-                      project_manager=input_items[i];
-                    }
-                  }
-        project_manager.parentElement.style =  "position: relative;width:100%";
-          const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
-          var pos = rect.top + window.scrollY;
-          //console.log(pos);
-          const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
-          var pos2 = rect2.top + window.scrollY;
-          //console.log(pos2);
-          var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
-          var pos_offset2 = pos-pos2-260;
-        //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
-        contact_person.style = "position: absolute; top: -"+pos_offset2+"px;left: 30px;";
-
-          }
-        }, 100);  
-
-////////////////////////// END ////////////////////
-
-////////////////////////// check video duration /////////////////////////
-
-var interval_filecount = setInterval(function() {
-var duration = document.querySelector('input[ng-model="quote.volume"]').value;
-if(!document.querySelector('a[class="filename link ng-binding x-icon --file"]')){
-  //console.log("no uploads");
-  flag = 0;
-}else{
-  if(flag==0){
-  flag=1;
-  var file_upload= document.querySelector('a[class="filename link ng-binding x-icon --file"').href;
-  console.log(file_upload);
-  if(document.querySelector('a[class="filename link ng-binding x-icon --file"').innerText.toLowerCase().indexOf(".mp4")>-1){
-    check_duration(file_upload);
-  }
-}
-}
-
-function check_duration(link){
-if(document.getElementById('video_container')==null){
-  var div = document.createElement('div');
-  div.id = "video_container";
-  document.body.append(div);
-}else{
-  var div = document.getElementById('video_container');
-}
-
-var alert_ms = document.createElement('h3');
-div.innerHTML='<video style="display: none;" id="myvid"><source src="'+link+'" type="video/mp4"></video>';
-
-document.querySelector('button[ng-click="closeUploadPopup()"]').style.display = "none";
-
-
-
-
-setTimeout(function() {
-var myvid= document.getElementById('myvid');
-var vid_duration = Math.ceil(myvid.duration/60);
-if(vid_duration!=duration){
-  alert_ms.style = 'color:#ff0000 !important;opacity: 1;';
-  alert_ms.innerText = "Note! video duration is "+vid_duration+" Min while project duration is "+duration+" Min.";
-  document.querySelector('div[class="ngdialog-footer"]').prepend(alert_ms);
-  document.querySelector('button[ng-click="closeUploadPopup()"]').style.display = "inline";
-}else{
-  alert_ms.style = 'color:#009e3a !important;opacity: 1;';
-  alert_ms.innerText = "Confirming video duration and project duration are equal, "+vid_duration+" Min.";
-  document.querySelector('div[class="ngdialog-footer"]').prepend(alert_ms);
-  document.querySelector('button[ng-click="closeUploadPopup()"]').style.display = "inline";
-}
-console.log(vid_duration);
-}, 1000);
-}
-
-       
-}, 500);
-//////////////////////////////
-
-////////////////////////// hide purchas order /////////////////////////
-var interval_purchas_order = setInterval(function() {
-if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
-     document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
-}     
-}, 1000);
-////////////////////////// END ////////////////////
-
-////////////////////////// change raw materials volume field name /////////////////////
-var service = $('[class^="input ng-binding ng-scope"]')[0];
-var titles = document.querySelectorAll('div[class="title ng-binding ng-scope"]');
-if(service.textContent=="Raw Materials"){
-  for(var i=0;i<titles.length;i++){
-    if(titles[i].textContent =='number of video files'){
-      titles[i].textContent = "Number of pages";
-    }
-  }
-}
-////////////////////////// END ////////////////////
-
-////////////////////////// request price change button /////////////////////
-
-var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
-var enablechange = "";
-for(var i=0;i<customfields.length;i++){
-  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"){
-    enablechange = document.querySelectorAll('div[class="input__item custom_field"]')[i];
-  }
-} 
-var email = document.querySelector('div[class="email"]').textContent;
-var intervaleditbutton = setInterval(function() {
-var editbutton = document.getElementById("formWithPanels:receivablesTable:0:j_idt297");
-    if(editbutton){
-        if(enablechange.querySelectorAll('div')[1].innerText=="FALSE"&&email!='mor@ngsub.tv'&&email!='tal.levy@ngsub.tv'&&email!='carmel@ngsub.tv'){
-          editbutton.style.display="none";
-        }else{
-          editbutton.style.display="block";
-        }
-    }
-}, 100);
-
-var url_string = window.location.href;
-var url = new URL(url_string);
-var c = url.searchParams.get("assistedProjectId");
-var url_for_approve = "http://pilk.mooo.com:7896/requestrateadjustment?id="+c;
-
-var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
-for(var i=0;i<customfields.length;i++){
-  if(document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelector('div').textContent=="Enable Price Change"&&document.querySelectorAll('div[class="input__item custom_field"]')[i].querySelectorAll('div')[1].innerText=="FALSE"&&email!='mor@ngsub.tv'&&email!='tal.levy@ngsub.tv'&&email!='carmel@ngsub.tv'){
-    var requesttext = document.createElement("TEXTAREA");
-    requesttext.id = "requesttext";
-    requesttext.className = "inp ng-pristine ng-valid ng-empty ng-touched";
-    requesttext.style = "width: 100%; max-width: 100%; overflow: hidden; overflow-wrap: break-word; resize: none; height: 58px;";
-    requesttext.style.display = "none";
-    requesttext.dir="rtl";
-    customfields[i].append(requesttext);
-    var requestbutton = document.createElement("button");
-    requestbutton.innerText = "Request Price Change";
-    requestbutton.className= "btn ng-scope";
-    requestbutton.onclick = requestform;
-    requestbutton.id = "requestbutton";
-    customfields[i].append(requestbutton);
-    var cancelbutton = document.createElement("button");
-    cancelbutton.innerText = "Cancel Request";
-    cancelbutton.className= "btn ng-scope";
-    cancelbutton.onclick = cancelrequest;
-    cancelbutton.id = "cancelrequest";
-    cancelbutton.style.display = "none";
-    customfields[i].append(cancelbutton);
-  }
-}
-
-function requestform(){
-  console.log("clicked");
-    var requestbutton = document.getElementById("requestbutton");
-    requestbutton.innerText = "Send Request";
-    requestbutton.onclick = sendrequest;
-    var cancelbutton = document.getElementById("cancelrequest");
-    cancelbutton.style.display = "block";
-    var requesttext = document.getElementById("requesttext");
-    requesttext.style.display = "block";
-}
-
-function cancelrequest(){
-  console.log("clicked cancelrequest");
-    var requestbutton = document.getElementById("requestbutton");
-    requestbutton.innerText = "Request Price Change";
-    requestbutton.onclick = requestform;
-    var cancelbutton = document.getElementById("cancelrequest");
-    cancelbutton.style.display = "none";
-    var requesttext = document.getElementById("requesttext");
-    requesttext.style.display = "none";
-}
-
-function sendrequest(){
-  console.log("clicked sendrequest");
-    var requestbutton = document.getElementById("requestbutton");
-    requestbutton.innerText = "Request Sent!";
-    requestbutton.disabled = true;
-    var cancelbutton = document.getElementById("cancelrequest");
-    cancelbutton.style.display = "none";
-    var requesttext = document.getElementById("requesttext");
-    requesttext.style.display = "none";
-    var request = requesttext.value;
-    sendemail(request);
-}
-
-function sendemail(request){
-
-////////////////////////// send email /////////////////////
-var project_id = document.querySelector('span[ng-if="project.name"]').innerText.substring(0,document.querySelector('span[ng-if="project.name"]').innerText.length-1).toString();
-var pm = document.querySelector('div[class="name"]').textContent;
-var email = document.querySelector('div[class="email"]').textContent;
-url_for_approve = url_for_approve+"&pm="+pm+"&email="+email+"&project_id="+project_id;
-var data = {
-    service_id: 'service_65sfjal',
-    template_id: 'template_cpglsht',
-    user_id: 'user_Rmex4xmP46PWaVqzAOuCP',
-    template_params: {
-        'pm': pm,
-        'project_id': project_id,
-        'decline': "123",
-        'approve':url_for_approve,
-        'project_link': window.location.href,
-        'reply_to': email,
-        'reason': request,
-        'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
-    }
-};
-$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-    type: 'POST',
-    data: JSON.stringify(data),
-    contentType: 'application/json'
-}).done(function() {
-    console.log('Your mail is sent!');
-}).fail(function(error) {
-    console.log('Oops... ' + JSON.stringify(error));
-});
-
-
-}
-////////////////////////// END ////////////////////
-
-//////////////////////////////////// rtl textarea  ////////////////////////////
-
-if(document.querySelector('textarea[ng-model="quote.customerNotes"]')&&document.querySelector('textarea[ng-model="quote.internalNotes"]')){
-document.querySelector('textarea[ng-model="quote.customerNotes"]').dir="rtl";
-document.querySelector('textarea[ng-model="quote.internalNotes"]').dir="rtl";
-}
-
-////////////////////////// END ////////////////////
-
-//////////////////////////comments placeholder///////////////////////
-
-var comments = document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]')[1];
-comments.placeholder="מופיע בהצעת המחיר";
-
-////////////////////////// END ////////////////////
-
-///////////////// statuses handler ////////////////////////
-var inputs = $('[class^="input__item"]');
-for(var i=0;i<inputs.length;i++){
-  if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
-      var deadline = inputs[i];
-    }
-  }
-}
-
-var inputscustomfields = $('[class^="input__item custom_field"]');
-for(var i=0;i<inputscustomfields.length;i++){
-  if(inputscustomfields[i].querySelector("div")){
-    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
-      var UseStatus = inputscustomfields[i].querySelector('input').checked;
-      var UseStatusEl = inputscustomfields[i];
-    }
-    if(inputscustomfields[i].querySelector("div").innerText=='Status'){
-      var Status = inputscustomfields[i];
-    }
-    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
-      var EstimatedStartDate = inputscustomfields[i];
-    }
-  }
-}
-EstimatedStartDate.append(UseStatusEl);
-deadline.append(Status);
-UseStatusEl.querySelector('span').style.width ="40px";
-var interval3 = setInterval(function() {
-
-var statuslist = document.querySelectorAll('div[class="nd-label ng-binding ng-scope"]');
-for(var i=0;i<statuslist.length;i++){
-  if(statuslist[i].textContent=='Unspecified'){
-    statuslist[i].parentElement.style.display='none'
-  }
-}  
-var inputscustomfields = $('[class^="input__item custom_field"]');
-for(var i=0;i<inputscustomfields.length;i++){
-  if(inputscustomfields[i].querySelector("div")){
-    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
-      var UseStatus = inputscustomfields[i].querySelector('input').checked;
-    }
-  }
-}
-if(UseStatus){
-  deadline.querySelectorAll('div')[0].style.display="none";
-  deadline.querySelectorAll('div')[1].style.display="none";
-  Status.style.display="block";
-  Status.style.width ="10px";
-  Status.style.marginBottom ="0px";
-  
-}else{
-  deadline.querySelectorAll('div')[0].style.display="block";
-  deadline.querySelectorAll('div')[1].style.display="block";
-  Status.style.display="none";
-}
-}, 500);
-
-//////////////////////// hide categories ////////////////////////////////
-document.querySelector('div[class="widget-micro"]').style.display="none";
-////////////////////////// END ////////////////////
-
-//////////////////////// disable pricelist selection ////////////////////////////////
-var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
-for(var k=0;k<customfields.length;k++){
-       if(customfields[k].querySelector('div').textContent=='Pricelist'){
-            customfields[k].querySelector('div[ng-class="[inline?'+"'"+'nd-inline'+"'"+':'+"''"+']"]').className="";
-       }
-       if(customfields[k].querySelector('div').textContent=='key'){
-          customfields[k].style.display="none";
-       }
- }
-///////////////////////// END ////////////////////////////
-
-//////////////////////// Check specilazation for pricelist /////////////////////////
- var pricelistinitial;
-  var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
-  for(var k=0;k<customfields.length;k++){
-           if(customfields[k].querySelector('div').textContent=='Pricelist'){
-                pricelistinitial = customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent ;
-           }
-  }
-  console.log(pricelistinitial);
-setInterval(function() {
-  var inputitems=document.querySelectorAll('div[class="input__item"]');
-  var specilazation;
-  for(var k=0;k<inputitems.length;k++){
-         if(inputitems[k].querySelector('div').textContent=='Specialization'){
-              specilazation = inputitems[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent;
-         }
-   }
-  var expression = /סדר/gi;
-  var matches = specilazation.match(expression);
- 
-  
-    var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
-    for(var k=0;k<customfields.length;k++){
-           if(customfields[k].querySelector('div').textContent=='Pricelist'){
-             if(matches){
-                 customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent ="מחירון_סדרות";
-              }else{
-                 customfields[k].querySelector('div[class="nd-display ng-binding ng-scope"]').textContent =pricelistinitial ;
-               }   
-           }
-     }
-    
- 
-}, 200);
-///////////////////////// END ////////////////////////
-
-
-
-
-////////////////////////// END ////////////////////
-
-/////////////////////////////
-  }
+///////////////////////////// END ////////////////////
+////////////////////////////
+    }    
 }, 100);
 
 
+}
 
-}else if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
+if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
 //////////////////////redierct to dashboard and loading logo///////////////////
 var sidemenue = document.querySelector('div[id="side-menu"]');
 sidemenue.querySelector('ul').style = "z-index:98;";
@@ -2084,7 +1146,8 @@ setTimeout( function (){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-}else if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
+}
+if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
   /////////////////////////change dashboard colord/////////////////
 setTimeout( function (){
   var tables = $('[class^="x-card__header__heading ng-binding"]');
