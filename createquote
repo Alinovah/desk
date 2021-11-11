@@ -458,7 +458,7 @@ var duration = 0;
 if(document.querySelector('input[ng-model="::order.volume"]')!=null||document.querySelector('input[ng-model="quote.volume"]')!=null){
  if(document.querySelector('input[ng-model="::order.volume"]')!=null){
   duration = document.querySelector('input[ng-model="::order.volume"]').value;
- }else{
+ }else if(document.querySelector('input[ng-model="quote.volume"]')!=null){
   duration = document.querySelector('input[ng-model="::quote.volume"]').value;
  }
 }
