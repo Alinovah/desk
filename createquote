@@ -345,7 +345,7 @@ var intervalId = window.setInterval(function() {
 
 
 //////////////////////////reset process///////////////////////
-
+/*
   var controls = $('[class^="controls ng-scope"]')[0];
   var button = document.createElement("button");
   button.textContent = "Reset Process";
@@ -436,7 +436,7 @@ function resetprocess(){
     }
   }
 }
-
+*/
  ////////////////////////hyperlinks////////////////////////////////
 var pdffield = $('[class^="input read-only ng-scope"]')[0];
 var pdflink = pdffield.textContent;
