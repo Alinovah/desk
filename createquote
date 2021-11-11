@@ -455,8 +455,8 @@ function eventFire(el, etype) {
 
 var interval_filecount = setInterval(function() {
 var duration = 0;
-if(document.querySelector('input[ng-model="::order.volume"]')||document.querySelector('input[ng-model="quote.volume"]')){
- if(document.querySelector('input[ng-model="::order.volume"]')){
+if(document.querySelector('input[ng-model="::order.volume"]')!=null||document.querySelector('input[ng-model="quote.volume"]')!=null){
+ if(document.querySelector('input[ng-model="::order.volume"]')!=null){
   duration = document.querySelector('input[ng-model="::order.volume"]').value;
  }else{
   duration = document.querySelector('input[ng-model="::quote.volume"]').value;
