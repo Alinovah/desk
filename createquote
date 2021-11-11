@@ -1058,6 +1058,7 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 
 
 /////////////////////////changed languages///////////////////////////
+/*
 var flag = 0;
 var p_source;
 var p_target;
@@ -1125,7 +1126,7 @@ if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getEl
 }
 }, 1000);
 
-
+*/
 ///////////////////////////// END ////////////////////
 ////////////////////////////
     }    
