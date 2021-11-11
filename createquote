@@ -459,7 +459,7 @@ if(document.querySelector('input[ng-model="::order.volume"]')!=null||document.qu
  if(document.querySelector('input[ng-model="::order.volume"]')!=null){
   duration = document.querySelector('input[ng-model="::order.volume"]').value;
  }else if(document.querySelector('input[ng-model="quote.volume"]')!=null){
-  duration = document.querySelector('input[ng-model="::quote.volume"]').value;
+  duration = document.querySelector('input[ng-model="quote.volume"]').value;
  }
 }
 if(!document.querySelector('a[class="filename link ng-binding x-icon --file"]')){
