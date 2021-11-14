@@ -1058,30 +1058,15 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 
 
 /////////////////////////changed languages///////////////////////////
-/*
-var flag = 0;
-var p_source;
-var p_target;
-var intervalId = window.setInterval(function() {
-
-  var languages = $('[class^="nd-display ng-binding ng-scope"]');
-for(var i=0;i<languages.length;i++){
-  if(languages[i].parentElement.parentElement.parentElement.querySelector('div').innerText=='Source Language'){
-    var source = languages[i];
-    var target = languages[i+1];
-  }
-}
-  
-  if(flag==0){
-        p_source = source.textContent;
-        p_target = target.textContent;
-    flag=1;
-  }
-if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getElementById("nd-ms-1cnt").style.display=="")&&(document.getElementById("nd-ms-2cnt").style.display=="none"||document.getElementById("nd-ms-2cnt").style.display==""))&&p_source=="Select Language..."&&p_target=="Select Languages..."&&source.textContent!="Select Language..."&&target.textContent!="Select Languages..."){
-  setTimeout(function(){
+  setInterval(function(){
     hyperlinks();
+    var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
     var count1=0;
     var count2=0;
+    var count3=0;
+    var count4=0;
+    var firstelstatus;
+    var firstelusestatus;
     for(var i=0;i<customfields.length;i++){
       if(customfields[i].querySelector('div').textContent=="Estimated Start Date"){
         if(count1==0){
@@ -1090,44 +1075,108 @@ if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getEl
           customfields[i].remove();
         }
         }
-        if(customfields[i].querySelector('div').textContent=="number of video files"){
+        if(customfields[i].querySelector('div').textContent=="number of video files"||customfields[i].querySelector('div').textContent=="number of pages"){
         if(count2==0){
           count2++;
         }else{
           customfields[i].remove();
         }
         }
+         if(customfields[i].querySelector('div').textContent=="Status"){
+         if(count3==0){
+           count3++;
+           firstelstatus = customfields[i];
+         }else{
+           firstelstatus.remove();
+         }
+         }
+         if(customfields[i].querySelector('div').textContent=="Use Status"){
+         if(count4==0){
+           count4++;
+           firstelusestatus= customfields[i];
+         }else{
+           firstelusestatus.remove();
+           statushandler();
+         }
+         }
+      if(customfields[i].querySelector('div').textContent=='Pricelist'){
+            customfields[i].querySelector('div[ng-class="[inline?'+"'"+'nd-inline'+"'"+':'+"''"+']"]').className="";
+      }
+      if(customfields[i].querySelector('div').textContent=='key'){
+          customfields[i].style.display="none";
+      }
     }
   }, 1000);
-}
-if(((document.getElementById("nd-ms-1cnt").style.display=="none"||document.getElementById("nd-ms-1cnt").style.display=="")&&(document.getElementById("nd-ms-2cnt").style.display=="none"||document.getElementById("nd-ms-2cnt").style.display==""))&&(p_source!="Select Language..."||p_target!="Select Languages...")&&(source.textContent!=p_source||target.textContent!=p_target)){
-  setTimeout(function(){
-    hyperlinks();
-    var customfields = document.querySelectorAll('div[class="input__item custom_field"]');
-    var count1=0;
-    var count2=0;
-    for(var i=0;i<customfields.length;i++){
-      if(customfields[i].querySelector('div').textContent=="Estimated Start Date"){
-        if(count1==0){
-          count1++;
-        }else{
-          customfields[i].remove();
-        }
-        }
-        if(customfields[i].querySelector('div').textContent=="number of video files"){
-        if(count2==0){
-          count2++;
-        }else{
-          customfields[i].remove();
-        }
-        }
-    }
-}, 1000);
-}
-}, 1000);
-
-*/
+////////////////////////////////
 ///////////////////////////// END ////////////////////
+
+function statushandler(){
+///////////////// statuses handler ////////////////////////
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div")){
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+      var deadline = inputs[i];
+    }
+  }
+}
+
+var inputscustomfields = $('[class^="input__item custom_field"]');
+for(var i=0;i<inputscustomfields.length;i++){
+  if(inputscustomfields[i].querySelector("div")){
+    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
+      var UseStatus = inputscustomfields[i].querySelector('input').checked;
+      var UseStatusEl = inputscustomfields[i];
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='Status'){
+      var Status = inputscustomfields[i];
+    }
+    if(inputscustomfields[i].querySelector("div").innerText=='Estimated Start Date'){
+      var EstimatedStartDate = inputscustomfields[i];
+    }
+  }
+}
+EstimatedStartDate.append(UseStatusEl);
+//EstimatedStartDate.prepend(Status);
+//deadline.append(Status);
+//insertAfter(Status, EstimatedStartDate);
+EstimatedStartDate.parentNode.insertBefore(Status, EstimatedStartDate);
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+UseStatusEl.querySelector('span').style.width ="40px";
+var interval3 = setInterval(function() {
+
+var statuslist = document.querySelectorAll('div[class="nd-label ng-binding ng-scope"]');
+for(var i=0;i<statuslist.length;i++){
+  if(statuslist[i].textContent=='Unspecified'){
+    statuslist[i].parentElement.style.display='none'
+  }
+}  
+var inputscustomfields = $('[class^="input__item custom_field"]');
+for(var i=0;i<inputscustomfields.length;i++){
+  if(inputscustomfields[i].querySelector("div")){
+    if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
+      var UseStatus = inputscustomfields[i].querySelector('input').checked;
+    }
+  }
+}
+if(UseStatus){
+  deadline.querySelectorAll('div')[0].style.display="none";
+  deadline.querySelectorAll('div')[1].style.display="none";
+  Status.style.display="block";
+  Status.style.width ="10px";
+  Status.style.marginBottom ="0px";
+  
+}else{
+  deadline.querySelectorAll('div')[0].style.display="block";
+  deadline.querySelectorAll('div')[1].style.display="block";
+  Status.style.display="none";
+}
+}, 500);
+}
+////////////////////////// END ////////////////////
+
 ////////////////////////////
     }    
 }, 100);
