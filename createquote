@@ -309,7 +309,7 @@ for(var i=0;i<inputs.length;i++){
     if(inputs[i].querySelector("div").innerText=='Offer Expiration'){
       var expaire = inputs[i];
     }
-    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'||inputs[i].querySelector("div").innerText=='Client Deadline'){
       var deadline = inputs[i];
     }
     if(inputs[i].querySelector("div").innerText=='Business Days'){
@@ -536,7 +536,7 @@ comments.placeholder="מופיע בהצעת המחיר";
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'||inputs[i].querySelector("div").innerText=='Client Deadline'){
       var deadline = inputs[i];
     }
   }
@@ -875,7 +875,7 @@ var flag = 0;
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'||inputs[i].querySelector("div").innerText=='Client Deadline'){
       var input1 = inputs[i].querySelector('input');
     }
     if(inputs[i].querySelector("div").innerText=='Volume (Minute)'){
@@ -1094,7 +1094,7 @@ function statushandler(){
 var inputs = $('[class^="input__item"]');
 for(var i=0;i<inputs.length;i++){
   if(inputs[i].querySelector("div")){
-    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'){
+    if(inputs[i].querySelector("div").innerText=='Expected Delivery Date'||inputs[i].querySelector("div").innerText=='Client Deadline'){
       var deadline = inputs[i];
     }
   }
