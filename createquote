@@ -675,15 +675,13 @@ for(var i=0;i<input_items.length;i++){
 }
 project_manager.parentElement.style =  "position: relative;width:100%";
 if(document.querySelector('h2[class="heading x-icon x-icon--people-outline x-icon--large"]')){
-  const rect = document.querySelector('h2[class="heading x-icon x-icon--people-outline x-icon--large"]').getBoundingClientRect();
+  var rect = document.querySelector('h2[class="heading x-icon x-icon--people-outline x-icon--large"]').getBoundingClientRect();
 }else{
-  const rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
+  var rect = document.querySelector('h2[class="heading x-icon --people-outline --large"]').getBoundingClientRect();
 }
   var pos = rect.top + window.scrollY;
-  //console.log(pos);
   const rect2 = document.querySelector('h2[class="heading x-icon x-icon--order x-icon--large ng-scope"]').getBoundingClientRect();
   var pos2 = rect2.top + window.scrollY;
-  //console.log(pos2);
   var pos_offset = (pos-pos2-140);//(Math.round(window.devicePixelRatio)*10);
   var pos_offset2 = pos-pos2-260;
 //project_manager.style = "position: absolute; top: -"+pos_offset+"px;left:0px;";
