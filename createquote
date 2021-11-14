@@ -341,7 +341,7 @@ for(var i=0;i<inputscustomfields.length;i++){
     }
   }
 }
-if(actual!=undefined){
+if(actual!=undefined&&created!=undifined){
   created.appendChild(actual);
 }
 client.appendChild(service);
