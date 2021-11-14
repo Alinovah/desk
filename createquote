@@ -1176,18 +1176,6 @@ if(UseStatus){
 }
 ////////////////////////// END ////////////////////
 
-///////////////// handle empty umbrella//////////////
-
-var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
-  for(var i=0;i<customfields.length;i++){
-    if(customfields[i].querySelector('div').textContent=="Umbrella Number"){
-      if(customfields[i].querySelector('input').value==""){
-        customfields[i].querySelector('input').value=window.assistedProjectId;
-      }
-    }
-  }
-        
-/////////////////////////// END ////////////////////////
 
 ////////////////////////////
     }    
