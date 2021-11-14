@@ -536,8 +536,12 @@ document.querySelector('textarea[ng-model="quote.internalNotes"]').dir="rtl";
 
 //////////////////////////comments placeholder///////////////////////
 
-var comments = document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]')[1];
-comments.placeholder="מופיע בהצעת המחיר";
+for(var d=0;d<document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]').length;d++){
+if(document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]')[d].parentElement.parentElement.parentElement.parentElement.querySelector('div').textContent=="Comments"){
+  var comments = document.querySelectorAll('input[ng-model="customFieldCtrl.customField.value"]')[d];
+  comments.placeholder="מופיע בהצעת המחיר";
+}
+}
 
 ////////////////////////// END ////////////////////
 
