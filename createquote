@@ -324,6 +324,9 @@ for(var i=0;i<inputs.length;i++){
     if(inputs[i].querySelector("div").innerText=='Origin'){
       var origin = inputs[i];
     }
+    if(inputs[i].querySelector("div").innerText=='Ordered on'){
+      var orderedon = inputs[i];
+    }
   }
 }
 
@@ -347,7 +350,11 @@ if(working){
  working.appendChild(referance);
 }
 volume.appendChild(quantity);
-origin.appendChild(expaire);
+if(expaire){
+ origin.appendChild(expaire);
+}else{
+ origin.appendChild(orderedon);
+}
 
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
