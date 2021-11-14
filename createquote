@@ -915,8 +915,11 @@ for(var i=0;i<inputscustomfields.length;i++){
 var for_disable = document.createElement("div");
 for_disable.id = "for_disable";
 document.body.prepend(for_disable);
-document.querySelector('input[ng-model="quote.volume"]').placeholder="כדאי קודם כול לבחור שפות...";
-
+if(document.querySelector('input[ng-model="quote.volume"]')){
+  document.querySelector('input[ng-model="quote.volume"]').placeholder="כדאי קודם כול לבחור שפות...";
+}else{
+  document.querySelector('input[ng-model="::order.volume"]').placeholder="כדאי קודם כול לבחור שפות...";
+}
 var intervalId = window.setInterval(function() {
 
   var one = document.getElementById("nd-ms-3cnt");
