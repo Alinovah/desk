@@ -190,6 +190,7 @@ async function resetprocess(){
               changestatus3(url);
            }
          }
+       resetprocesss2(); 
        }, 1000);
     }
 ////////////////////////// END /////////////////////////////////// 
@@ -206,7 +207,6 @@ function changestatus(url){
        if (xhr.readyState === 4) {
           console.log(xhr.status);
           console.log(xhr.responseText);
-          resetprocesss2();
        }};
     var data = '{"status":"OPEN"}';   
     xhr.send(data);
@@ -232,7 +232,6 @@ function changestatus2(url){
                if (xhr.readyState === 4) {
                   console.log(xhr.status);
                   console.log(xhr.responseText);
-                  resetprocesss2();
                }};
             var data = '{"status":"OPEN"}';   
             xhr.send(data);
@@ -272,7 +271,6 @@ function changestatus2(url){
                        if (xhr.readyState === 4) {
                           console.log(xhr.status);
                           console.log(xhr.responseText);
-                          resetprocesss2();
                        }};
                     var data = '{"status":"OPEN"}';   
                     xhr.send(data);
@@ -317,7 +315,7 @@ function resetprocesss2(){
         }, 500);
       }, 500);
     }, 500);
-  }, 1000);  
+  }, 2000);  
 }
 ////////////////////////// END ////////////////////
     hyperlinks();
