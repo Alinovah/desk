@@ -439,7 +439,7 @@ function eventFire(el, etype) {
 
 
 ////////////////////////// check video duration /////////////////////////
-/*
+
 var interval_filecount = setInterval(function() {
 var duration = 0;
 if(document.querySelector('input[ng-model="::order.volume"]')!=null||document.querySelector('input[ng-model="quote.volume"]')!=null){
@@ -484,6 +484,9 @@ setTimeout(function() {
 var myvid= document.getElementById('myvid');
 var vid_duration = Math.ceil(myvid.duration/60);
 console.log(vid_duration.toString()=='NaN');
+alert_ms.innerHTML = '<p style="padding:0;"><img style="padding:0;opacity:2;width:10%;height:10%;" src="https://drive.google.com/uc?id=13-ZWSQg_olXbqbfL82TcDr8SK5zgh9Jd"></p>';
+document.querySelector('div[class="ngdialog-footer"]').prepend(alert_ms);
+document.querySelector('button[ng-click="closeUploadPopup()"]').style.display = "inline";
 if(vid_duration.toString()=='NaN'){
   getduration();
   console.log("not yet "+vid_duration);
@@ -506,7 +509,6 @@ console.log(vid_duration);
 }
 
 }, 500);
-*/
 ////////////////////////// END ////////////////////
 
 ////////////////////////// hide purchas order /////////////////////////
