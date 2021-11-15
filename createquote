@@ -439,7 +439,7 @@ function eventFire(el, etype) {
 
 
 ////////////////////////// check video duration /////////////////////////
-/*
+
 var interval_filecount = setInterval(function() {
 var duration = 0;
 if(document.querySelector('input[ng-model="::order.volume"]')!=null||document.querySelector('input[ng-model="quote.volume"]')!=null){
@@ -477,12 +477,17 @@ div.innerHTML='<video style="display: none;" id="myvid"><source src="'+link+'" t
 
 document.querySelector('button[ng-click="closeUploadPopup()"]').style.display = "none";
 
+getduration();
 
-
-
+function getduration(){
 setTimeout(function() {
 var myvid= document.getElementById('myvid');
 var vid_duration = Math.ceil(myvid.duration/60);
+console.log(vid_duration.toString()=='NaN');
+if(vid_duration.toString()=='NaN'){
+  getduration();
+  console.log("not yet "+vid_duration);
+}else{
 if(vid_duration!=duration){
   alert_ms.style = 'color:#ff0000 !important;opacity: 1;';
   alert_ms.innerText = "Note! video duration is "+vid_duration+" Min while project duration is "+duration+" Min.";
@@ -495,13 +500,14 @@ if(vid_duration!=duration){
   document.querySelector('button[ng-click="closeUploadPopup()"]').style.display = "inline";
 }
 console.log(vid_duration);
+}
 }, 1000);
 }
+}
 
-       
 }, 500);
-*/
-//////////////////////////////
+
+////////////////////////// END ////////////////////
 
 ////////////////////////// hide purchas order /////////////////////////
 var interval_purchas_order = setInterval(function() {
