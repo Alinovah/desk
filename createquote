@@ -439,7 +439,7 @@ function eventFire(el, etype) {
 
 
 ////////////////////////// check video duration /////////////////////////
-
+/*
 var interval_filecount = setInterval(function() {
 var duration = 0;
 if(document.querySelector('input[ng-model="::order.volume"]')!=null||document.querySelector('input[ng-model="quote.volume"]')!=null){
@@ -506,7 +506,7 @@ console.log(vid_duration);
 }
 
 }, 500);
-
+*/
 ////////////////////////// END ////////////////////
 
 ////////////////////////// hide purchas order /////////////////////////
