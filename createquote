@@ -206,6 +206,7 @@ function changestatus(url){
        if (xhr.readyState === 4) {
           console.log(xhr.status);
           console.log(xhr.responseText);
+          resetprocesss2();
        }};
     var data = '{"status":"OPEN"}';   
     xhr.send(data);
@@ -231,6 +232,7 @@ function changestatus2(url){
                if (xhr.readyState === 4) {
                   console.log(xhr.status);
                   console.log(xhr.responseText);
+                  resetprocesss2();
                }};
             var data = '{"status":"OPEN"}';   
             xhr.send(data);
@@ -270,6 +272,7 @@ function changestatus2(url){
                        if (xhr.readyState === 4) {
                           console.log(xhr.status);
                           console.log(xhr.responseText);
+                          resetprocesss2();
                        }};
                     var data = '{"status":"OPEN"}';   
                     xhr.send(data);
@@ -284,7 +287,39 @@ function changestatus2(url){
   }
 ////////////////////////// END /////////////////////////////////// 
 
-
+////////////////////////// reset process 2 ////////////////////
+function resetprocesss2(){
+  console.log("clicked");
+  setTimeout(function() {
+    console.log("after timeout");
+    var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
+    if(closewindow!=undefined){
+      eventFire(closewindow, 'click');
+    }
+    var firstjob = document.querySelector('div[class="content ng-scope clickable"]');
+    eventFire(firstjob, 'click');
+    setTimeout(function() {
+      var select = document.querySelector('div[class="very-simple-dropdown dropdown--small status-selector status ng-isolate-scope vsd-normal status__open"]');
+      eventFire(select, 'click');
+      setTimeout(function() {
+        var accepted = document.querySelector('div[value="ACCEPTED"]');
+        eventFire(accepted, 'click');
+        var accepted = document.querySelector('div[value="ACCEPTED"]');
+        eventFire(accepted, 'click');
+        eventFire(select, 'click');
+        setTimeout(function() {
+          var open = document.querySelector('div[value="OPEN"]');
+          eventFire(open, 'click');
+          var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
+          if(closewindow!=undefined){
+            eventFire(closewindow, 'click');
+          }
+        }, 500);
+      }, 500);
+    }, 500);
+  }, 1000);  
+}
+////////////////////////// END ////////////////////
     hyperlinks();
 ////////////////////////// END ////////////////////
 
