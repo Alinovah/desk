@@ -1318,12 +1318,16 @@ function resetprocess3(languages){
 ////////////////////////// END ////////////////////
 
 ///////////////////////////// appand calc price button /////////////////
+
+if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 var controls = $('[class^="controls ng-scope"]')[0];
 var button = document.createElement("button");
 button.textContent = "Calc Price";
 button.className  = "btn ng-scope";
 button.onclick = calcprice;
 controls.appendChild(button);
+}
+
 /////////////////////////////// END ///////////////////////////
 
 ///////////////////////////// calc price  //////////////////////////////
