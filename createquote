@@ -304,15 +304,17 @@ function resetprocesss2(){
         eventFire(accepted, 'click');
         var accepted = document.querySelector('div[value="ACCEPTED"]');
         eventFire(accepted, 'click');
-        eventFire(select, 'click');
         setTimeout(function() {
-          var open = document.querySelector('div[value="OPEN"]');
-          eventFire(open, 'click');
-          var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
-          if(closewindow!=undefined){
-            eventFire(closewindow, 'click');
-          }
-        }, 1000);
+         eventFire(select, 'click');
+         setTimeout(function() {
+           var open = document.querySelector('div[value="OPEN"]');
+           eventFire(open, 'click');
+           var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
+           if(closewindow!=undefined){
+             eventFire(closewindow, 'click');
+           }
+         }, 500);
+        }, 500); 
       }, 500);
     }, 500);
   }, 2000);  
