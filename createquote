@@ -1317,6 +1317,119 @@ function resetprocess3(languages){
 
 ////////////////////////// END ////////////////////
 
+///////////////////////////// appand calc price button /////////////////
+var controls = $('[class^="controls ng-scope"]')[0];
+var button = document.createElement("button");
+button.textContent = "Calc Price";
+button.className  = "btn ng-scope";
+button.onclick = calcprice;
+controls.appendChild(button);
+/////////////////////////////// END ///////////////////////////
+
+///////////////////////////// calc price  //////////////////////////////
+async function calcprice(){
+      var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+      if(document.querySelector('input[ng-model="quote.volume"]')){
+        var duration = document.querySelector('input[ng-model="quote.volume"]').value;
+      }else{
+        var duration = document.querySelector('input[ng-model="::order.volume"]').value;
+      }
+      var quantity = 0;
+      var status = "";
+      var umbrella = "";
+      var key = "";
+      for(var k=0;k<customfields.length;k++){
+       if(customfields[k].querySelector('div').textContent=='Status'){
+          status = customfields[k].querySelectorAll('div')[1].textContent;
+       }
+       if(customfields[k].querySelector('div').textContent=='Umbrella Number'){
+          umbrella = customfields[k].querySelector('input').value;
+       }
+       if(customfields[k].querySelector('div').textContent=='key'){
+          key = customfields[k].querySelector('span').textContent;
+       }
+      }
+      var url = "https://desk.ngsub.tv/home-api/browser?viewId=405&q.customFields.textField4=eq("+umbrella+")";
+      const myHeaders = new Headers({'X-AUTH-ACCESS-TOKEN': key});
+      const myRequest = new Request(url, {
+            method: 'GET',
+            headers: myHeaders
+            });
+      var jsondata;
+      fetch(myRequest)
+            .then(response => response.json())
+            .then(data => jsondata=data);
+      setTimeout(function() {
+        console.log(jsondata["rows"]);
+        var jsonkeys = Object.keys(jsondata["rows"]);
+        for(var i=0;i<jsonkeys.length;i++){
+          quantity=Number(quantity)+Number(jsondata["rows"][jsonkeys[i]]["columns"][14]);
+        }
+        console.log("total quantity="+quantity);
+        var ids=[];
+        var jsonkeys = Object.keys(jsondata["rows"]);
+        ids.push("520");
+        for(var a=0;a<jsonkeys.length;a++){
+          ids.push(jsondata["rows"][a]["id"]);
+        }
+        console.log("ids="+ids);
+        
+        var url = "https://desk.ngsub.tv/home-api/macros/37/run";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        
+        xhr.setRequestHeader("accept", "application/vnd.xtrf-v1+json;charset=UTF-8");
+        xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", key);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        
+        xhr.onreadystatechange = function () {
+           if (xhr.readyState === 4) {
+              console.log(xhr.status);
+              console.log(xhr.responseText);
+              
+              var intervalloading = setInterval(function() {
+              var receivabletab = document.getElementById("formWithPanels:receivablesTab");
+               if(receivabletab.style.display=="none"){
+                   var tabs = document.querySelectorAll('span[class="rf-tab-lbl"]');
+                   for(var z=0;z<tabs.length;z++){
+                     if(tabs[z].textContent=="Receivables"){
+                         eventFire(tabs[z], 'click');
+                     }
+                   }
+              }else{
+                 clearInterval(intervalloading);
+                 var createreceivable = document.querySelector('input[value="Add Receivable"]');
+                 eventFire(createreceivable, 'click');
+                 var intervalloading2 = setInterval(function() {
+                   var savebutton = document.querySelector('input[value="Save"]');
+                   if(savebutton){
+                     eventFire(savebutton, 'click');
+                     clearInterval(intervalloading2);
+                     setTimeout(function() {
+                     console.log($('td[id*=totalValueColumn]').length);
+                     for(var b=0;b<$('td[id*=totalValueColumn]').length;b++){
+                       console.log($('td[id*=totalValueColumn]')[b].querySelector('div').textContent);
+                       console.log($('td[id*=totalValueColumn]')[b].querySelector('div').textContent=='0.00ILS\n            ');
+                       if($('td[id*=totalValueColumn]')[b].querySelector('div').textContent=='0.00ILS\n            '){
+                        eventFire($('td[id*=deleteColumn]')[b].querySelector('a'), 'click');
+                         
+                       }
+                     }
+                    }, 2000); 
+                   }else{
+                   }
+                 }, 100);
+              }
+            }, 100);
+           }    
+        }  
+        var data = '{"ids":['+ids+'],"async":true,"params":{"totalquantity":'+quantity+'}}';
+        xhr.send(data);
+      }, 700);
+}
+////////////////////////// END ////////////////////
+
 ////////////////////////////
     }    
 }, 100);
