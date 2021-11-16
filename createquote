@@ -312,7 +312,7 @@ function resetprocesss2(){
           if(closewindow!=undefined){
             eventFire(closewindow, 'click');
           }
-        }, 500);
+        }, 1000);
       }, 500);
     }, 500);
   }, 2000);  
