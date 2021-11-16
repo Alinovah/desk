@@ -1221,6 +1221,101 @@ if(UseStatus){
 }
 ////////////////////////// END ////////////////////
 
+/////////////////////////Process select///////////////////////////
+var controls = $('[class^="controls ng-scope"]')[0];
+var button = document.createElement("button");
+button.textContent = "Select Automatic Process";
+button.className  = "btn ng-scope";
+button.onclick = selectautomaticeprocess;
+controls.appendChild(button);
+
+// // ///////////////////////////// END ////////////////////
+
+////////////////////////////////////
+function selectautomaticeprocess(){
+  if(document.getElementById('processloader')){
+    document.getElementById('processloader').style.display='block';
+  }else{
+  var loaderprocess = document.createElement('p');
+  loaderprocess.style = "padding:0;";
+  var loaderprocessimg = document.createElement('img');
+  loaderprocessimg.style = "padding:0;opacity:2;width:20%;height:20%;";
+  loaderprocessimg.src = "https://drive.google.com/uc?id=13-ZWSQg_olXbqbfL82TcDr8SK5zgh9Jd";
+  loaderprocess.appendChild(loaderprocessimg);
+  loaderprocess.id = "processloader";
+  document.getElementById("langs").appendChild(loaderprocess);
+  }
+  var languages = $('[class^="nd-display ng-binding ng-scope"]');
+  for(var i=0;i<languages.length;i++){
+    if(languages[i].parentElement.parentElement.parentElement.querySelector('div').innerText=='Source Language'){
+      var source = languages[i];
+      var target = languages[i+1];
+    }
+  }
+  console.log("changed");
+  
+  var flag = 0;
+  var elements = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand nd-none-selected"]');
+  for(var e=0;e<elements.length;e++){
+    if(elements[e].innerText=='Change Process'){
+      flag=1;
+    }
+  }
+  if(flag==0){
+    eventFire(document.getElementById('resetprocessbutton'),"click");
+  }
+  
+  console.log(target.textContent);
+  resetprocess3(target.textContent);
+}
+
+
+function resetprocess3(languages){
+  setTimeout(function() {
+  var p ="";
+  var flag = 0;
+  var elements = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand nd-none-selected"]');
+  for(var e=0;e<elements.length;e++){
+    if(elements[e].innerText=='Change Process'){
+      flag=1;
+       eventFire(elements[e],"click");
+       console.log("after");
+    }
+  }
+  if(flag==0){
+    setTimeout(function() {
+      resetprocess3(languages);
+    }, 1000);
+  }else{
+   console.log("before click");
+   var process = document.querySelectorAll('div[ng-if="::(!itemLabels)"]');
+   console.log((languages.match(/,/g) || []).length);
+   var comma = (languages.match(/,/g) || []).length;
+   if(comma==0){
+     if(languages.indexOf("EN")>-1){
+       p="תמלול->תזמון->תרגום->קיוסי";
+     }else{
+       p="תמלול->תזמון->תרגום";
+     }
+   }else{
+     if(languages.indexOf("EN")>-1){
+       p="תמלול->תזמון->תרגום->קיוסי אוטומטי";
+     }else{
+       p="תמלול->תזמון->תרגום";
+     }
+   }
+   console.log(p);
+  for(var f=0;f<process.length;f++){
+    if(process[f].textContent==p){
+      eventFire(process[f],"click");
+    }
+  }
+  document.getElementById('processloader').style.display='none';
+  }
+  }, 3000);
+}
+
+////////////////////////// END ////////////////////
 
 ////////////////////////////
     }    
