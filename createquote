@@ -132,6 +132,7 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
   var button = document.createElement("button");
   button.textContent = "Reset Process";
   button.className  = "btn ng-scope";
+  button.id  = "resetprocessbutton";
   button.onclick = resetprocess;
   controls.appendChild(button);
 ////////////////////////// END /////////////////////////////////// 
