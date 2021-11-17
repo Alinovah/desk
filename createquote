@@ -1465,14 +1465,16 @@ setTimeout( function (){
 
 }
 if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
-  /////////////////////////change dashboard colord/////////////////
-  /*
-setTimeout( function (){
+
+setInterval(function() {
+///////////////////////// change dashboard color //////////////////
   var tables = $('[class^="x-card__header__heading ng-binding"]');
-  //console.log(tables.length);
   for(var i=0;i<tables.length;i++){
     if(tables[i].textContent=="Projects Due Today+Overdue"){
       tables[i].style = "color:#990000";
+    }
+    if(tables[i].textContent=="Projects Due Today"){
+      tables[i].style = "color:#f54242";
     }
     if(tables[i].textContent=="Jobs Due Today+Overdue"){
       tables[i].style = "color:#351c75";
@@ -1493,8 +1495,7 @@ setTimeout( function (){
       tables[i].style = "color:#bf9000";
     }
   }
-}, 1000);
-*/
+  
 //////////////////////////change deadline color////////////////////
 /*
 setTimeout( function (){
