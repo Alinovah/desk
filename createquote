@@ -1466,6 +1466,7 @@ setTimeout( function (){
 }
 if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
   /////////////////////////change dashboard colord/////////////////
+  /*
 setTimeout( function (){
   var tables = $('[class^="x-card__header__heading ng-binding"]');
   //console.log(tables.length);
@@ -1493,7 +1494,7 @@ setTimeout( function (){
     }
   }
 }, 1000);
-
+*/
 //////////////////////////change deadline color////////////////////
 setTimeout( function (){
   var today = new Date();
