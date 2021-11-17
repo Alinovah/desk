@@ -1640,7 +1640,7 @@ setTimeout( function (){
 
 }, 500);
 
-
+}
 //////////////////////////////
 Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
