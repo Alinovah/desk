@@ -1435,18 +1435,19 @@ async function calcprice(){
               console.log(xhr.responseText);
               
               var url2 = xhr.responseText["resultUrl"];
+              console.log(url2);
               const myRequest2 = new Request(url2, {
                       method: 'GET',
                       headers: myHeaders
                       });
-              var jsondata;
-              var jsonresponse;
+              var jsondata2;
+              var jsonresponse2;
               fetch(myRequest)
-                      .then(response => jsonresponse=response.json())
-                      .then(data => jsondata=data);
+                      .then(response => jsonresponse2=response.json())
+                      .then(data => jsondata2=data);
               setTimeout(function() {
-                  console.log(jsondata["url"]);
-                  console.log(jsondata);
+                  console.log(jsondata2["url"]);
+                  console.log("jsondata2"+jsondata2);
               },2000);
               
               var intervalloading = setInterval(function() {
