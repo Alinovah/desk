@@ -1445,7 +1445,7 @@ async function calcprice(){
                       .then(response => jsonresponse=response.json())
                       .then(data => jsondata=data);
               setTimeout(function() {
-                  console.log(jsonresponse);
+                  console.log(jsondata["url"]);
               },700);
               
               var intervalloading = setInterval(function() {
