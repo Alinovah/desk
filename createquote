@@ -1447,7 +1447,7 @@ async function calcprice(){
               setTimeout(function() {
                   console.log(jsondata2["url"]);
                   console.log(jsondata2);
-              },1500);
+              },3000);
               
               var intervalloading = setInterval(function() {
               var receivabletab = document.getElementById("formWithPanels:receivablesTab");
