@@ -606,6 +606,7 @@ for(var i=0;i<inputscustomfields.length;i++){
     if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
       var UseStatus = inputscustomfields[i].querySelector('input').checked;
       var UseStatusEl = inputscustomfields[i];
+      UseStatusEl.style.display = "none";
     }
     if(inputscustomfields[i].querySelector("div").innerText=='Status'){
       var Status = inputscustomfields[i];
@@ -1171,6 +1172,7 @@ for(var i=0;i<inputscustomfields.length;i++){
     if(inputscustomfields[i].querySelector("div").innerText=='Use Status'){
       var UseStatus = inputscustomfields[i].querySelector('input').checked;
       var UseStatusEl = inputscustomfields[i];
+      UseStatusEl.style.display = "none";
     }
     if(inputscustomfields[i].querySelector("div").innerText=='Status'){
       var Status = inputscustomfields[i];
