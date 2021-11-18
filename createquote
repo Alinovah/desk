@@ -1441,14 +1441,13 @@ async function calcprice(){
                       headers: myHeaders
                       });
               var jsondata2;
-              var jsonresponse2;
-              fetch(myRequest)
-                      .then(response => jsonresponse2=response.json())
+              fetch(myRequest2)
+                      .then(response => response.json())
                       .then(data => jsondata2=data);
               setTimeout(function() {
                   console.log(jsondata2["url"]);
-                  console.log("jsondata2"+jsondata2);
-              },2000);
+                  console.log(jsondata2);
+              },700);
               
               var intervalloading = setInterval(function() {
               var receivabletab = document.getElementById("formWithPanels:receivablesTab");
