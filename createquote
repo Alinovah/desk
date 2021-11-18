@@ -1436,7 +1436,7 @@ async function calcprice(){
               
               var url2 = xhr.responseText["resultUrl"];
               var xhr2 = new XMLHttpRequest();
-              xhr2.open("POST", url2);
+              xhr2.open("GET", url2);
 
               xhr2.setRequestHeader("accept", "application/vnd.xtrf-v1+json;charset=UTF-8");
               xhr2.setRequestHeader("X-AUTH-ACCESS-TOKEN", key);
