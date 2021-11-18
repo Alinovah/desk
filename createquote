@@ -1448,6 +1448,22 @@ async function calcprice(){
                 setTimeout(function() {
                     console.log(jsondata2["url"]);
                     console.log(jsondata2);
+                    ///////////////////////////
+                    var url3 = jsondata2["url"];
+                    const myRequest3 = new Request(url3, {
+                            method: 'GET',
+                            headers: myHeaders
+                            });
+                    var jsondata3;
+                    setTimeout(function() {
+                      fetch(myRequest3)
+                              .then(response => response.json())
+                              .then(data => jsondata3=data);
+                      setTimeout(function() {
+                          console.log(jsondata3);
+                      },1500);    
+                    },1500);
+                    ///////////////////////////
                 },1500);    
               },1500);
               
