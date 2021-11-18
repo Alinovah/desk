@@ -1440,11 +1440,12 @@ async function calcprice(){
                       headers: myHeaders
                       });
               var jsondata;
+              var jsonresponse;
               fetch(myRequest)
-                      .then(response => response.json())
+                      .then(response => jsonresponse=response.json())
                       .then(data => jsondata=data);
               setTimeout(function() {
-                  console.log(jsondata);
+                  console.log(jsonresponse);
               },700);
               
               var intervalloading = setInterval(function() {
