@@ -1317,18 +1317,58 @@ function resetprocess3(languages){
 
 ////////////////////////// END ////////////////////
 
-///////////////////////////// appand calc price button /////////////////
+///////////////////////////// appand calc price button + PDF button /////////////////
 
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+
 var controls = $('[class^="controls ng-scope"]')[0];
 var button = document.createElement("button");
 button.textContent = "Calc Price";
 button.className  = "btn ng-scope";
 button.onclick = calcprice;
 controls.appendChild(button);
+
+var controls = $('[class^="controls ng-scope"]')[0];
+var button = document.createElement("button");
+button.textContent = "Create PDF";
+button.className  = "btn ng-scope";
+button.id  = "createpdfbutton";
+button.onclick = createpdf;
+controls.appendChild(button);
+
+var controls = $('[class^="controls ng-scope"]')[0];
+var button = document.createElement("button");
+button.textContent = "Create General PDF";
+button.className  = "btn ng-scope";
+button.id  = "creategeneralpdfbutton";
+button.onclick = createpdf;
+controls.appendChild(button);
+
 }
 
 /////////////////////////////// END ///////////////////////////
+
+///////////////////////////// create PDF  //////////////////////////////
+async function createpdf(){
+  //var url = 'http://ebd1-109-66-132-141.ngrok.io/updatefinancenew?pid='+window.assistedProjectId;
+  var url = 'http://3.121.36.180:7896/updatefinancenew?pid='+window.assistedProjectId;
+  //window.open(url);
+  var popup = window.open(url, "popup", "left=0,top=0,width=0,height=0");
+  setTimeout(function() {
+    popup.close();
+  }, 1000);
+}
+
+///////////////////////////// create General PDF  //////////////////////////////
+async function creategeneralpdfbutton(){
+  //var url = 'http://ebd1-109-66-132-141.ngrok.io/updatefinancenew?pid='+window.assistedProjectId;
+  var url = 'http://3.121.36.180:7896/updatefinancenew?pid='+window.assistedProjectId;
+  //window.open(url);
+  var popup = window.open(url, "popup", "left=0,top=0,width=0,height=0");
+  setTimeout(function() {
+    popup.close();
+  }, 1000);
+}
 
 ///////////////////////////// calc price  //////////////////////////////
 async function calcprice(){
