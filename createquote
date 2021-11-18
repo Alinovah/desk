@@ -1384,6 +1384,7 @@ async function calcprice(){
       var status = "";
       var umbrella = "";
       var key = "";
+      var workDays = "";
       for(var k=0;k<customfields.length;k++){
        if(customfields[k].querySelector('div').textContent=='Status'){
           status = customfields[k].querySelectorAll('div')[1].textContent;
@@ -1393,6 +1394,9 @@ async function calcprice(){
        }
        if(customfields[k].querySelector('div').textContent=='key'){
           key = customfields[k].querySelector('span').textContent;
+       }
+       if(customfields[k].querySelector('div').textContent=='Work Days'){
+          workDays = customfields[k].querySelector('input');
        }
       }
       var url = "https://desk.ngsub.tv/home-api/browser?viewId=405&q.customFields.textField4=eq("+umbrella+")";
@@ -1460,7 +1464,9 @@ async function calcprice(){
                               .then(response => response.json())
                               .then(data => jsondata3=data);
                       setTimeout(function() {
-                          console.log(jsondata3);
+                          //console.log(jsondata3);
+                          console.log(Math.max(...jsondata3));
+                          workDays.value = Math.max(...jsondata3);
                       },1500);    
                     },1500);
                     ///////////////////////////
