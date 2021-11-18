@@ -1435,18 +1435,20 @@ async function calcprice(){
               console.log(xhr.responseText);
               
               var url2 = xhr.responseText["resultUrl"];
-              const myRequest2 = new Request(url2, {
-                      method: 'GET',
-                      headers: myHeaders
-                      });
-              var jsondata;
-              var jsonresponse;
-              fetch(myRequest)
-                      .then(response => jsonresponse=response.json())
-                      .then(data => jsondata=data);
-              setTimeout(function() {
-                  console.log(jsondata["url"]);
-              },700);
+              var xhr2 = new XMLHttpRequest();
+              xhr2.open("POST", url2);
+
+              xhr2.setRequestHeader("accept", "application/vnd.xtrf-v1+json;charset=UTF-8");
+              xhr2.setRequestHeader("X-AUTH-ACCESS-TOKEN", key);
+              xhr2.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+              xhr2.onreadystatechange = function () {
+              if (xhr2.readyState === 4) {
+                  console.log(xhr2.status);
+                  console.log(xhr2.responseText);
+                  }
+              }  
+              xhr2.send();
               
               var intervalloading = setInterval(function() {
               var receivabletab = document.getElementById("formWithPanels:receivablesTab");
