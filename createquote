@@ -1413,7 +1413,7 @@ async function calcprice(){
         console.log(jsondata["rows"]);
         var jsonkeys = Object.keys(jsondata["rows"]);
         for(var i=0;i<jsonkeys.length;i++){
-          quantity=Number(quantity)+Number(jsondata["rows"][jsonkeys[i]]["columns"][12]);
+          quantity=Number(quantity)+Number(jsondata["rows"][jsonkeys[i]]["columns"][13]);
         }
         console.log("total quantity="+quantity);
         var ids=[];
