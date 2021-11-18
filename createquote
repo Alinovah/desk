@@ -1434,7 +1434,7 @@ async function calcprice(){
               console.log(xhr.status);
               console.log(xhr.responseText);
               
-              var url2 = xhr.responseText["resultUrl"];
+              var url2 = JSON.parse(xhr.responseText)["resultUrl"];
               console.log(url2);
               const myRequest2 = new Request(url2, {
                       method: 'GET',
