@@ -1499,14 +1499,14 @@ async function calcprice(){
                           console.log(jsondata3);
                           //console.log(Math.max(...jsondata3));
                           //workDays.value = Math.max(...jsondata3);
-                          standardR.value = jsondata3[0];
-                          rushR.value = jsondata3[1];
-                          urgentR.value = jsondata3[2];
-                          immidiateR.value = jsondata3[3];
-                          standardD.value = jsondata3[4];
-                          rushD.value = jsondata3[5];
-                          urgentD.value = jsondata3[6];
-                          immidiateD.value = jsondata3[7];
+                          standardR.value = jsondata3[4];
+                          rushR.value = jsondata3[5];
+                          urgentR.value = jsondata3[6];
+                          immidiateR.value = jsondata3[7];
+                          standardD.value = jsondata3[0];
+                          rushD.value = jsondata3[1];
+                          urgentD.value = jsondata3[2];
+                          immidiateD.value = jsondata3[3];
                       },1500);    
                     },1500);
                     ///////////////////////////
