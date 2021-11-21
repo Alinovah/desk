@@ -1483,10 +1483,10 @@ async function calcprice(){
                           console.log(jsondata3);
                           //console.log(Math.max(...jsondata3));
                           //workDays.value = Math.max(...jsondata3);
-                          standardR.value = JSON.stringfy(jsondata3[0]);
-                          rushR.value = JSON.stringfy(jsondata3[1]);
-                          urgentR.value = JSON.stringfy(jsondata3[2]);
-                          immidiateR.value = JSON.stringfy(jsondata3[3]);
+                          standardR.value = JSON.stringify(jsondata3[0]);
+                          rushR.value = JSON.stringify(jsondata3[1]);
+                          urgentR.value = JSON.stringify(jsondata3[2]);
+                          immidiateR.value = JSON.stringify(jsondata3[3]);
                       },1500);    
                     },1500);
                     ///////////////////////////
