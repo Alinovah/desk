@@ -1385,10 +1385,14 @@ async function calcprice(){
       var umbrella = "";
       var key = "";
       //var workDays = "";
-      var standard = 0;
-      var rush = 0;
-      var urgent = 0;
-      var immidiate = 0;
+      var standardR = 0;
+      var rushR = 0;
+      var urgentR = 0;
+      var immidiateR = 0;
+      var standardD = 0;
+      var rushD = 0;
+      var urgentD = 0;
+      var immidiateD = 0;
       for(var k=0;k<customfields.length;k++){
        if(customfields[k].querySelector('div').textContent=='Status'){
           status = customfields[k].querySelectorAll('div')[1].textContent;
@@ -1403,16 +1407,28 @@ async function calcprice(){
        //   workDays = customfields[k].querySelector('input');
        //}
        if(customfields[k].querySelector('div').textContent=='כללית - רגיל'){
-          standard = customfields[k].querySelector('input');
+          standardR = customfields[k].querySelector('input');
        }
        if(customfields[k].querySelector('div').textContent=='כללית - דחוף'){
-          rush = customfields[k].querySelector('input');
+          rushR = customfields[k].querySelector('input');
        }
        if(customfields[k].querySelector('div').textContent=='כללית - בהול'){
-          urgent = customfields[k].querySelector('input');
+          urgentR = customfields[k].querySelector('input');
        }
        if(customfields[k].querySelector('div').textContent=='כללית - מיידי'){
-          immidiate = customfields[k].querySelector('input');
+          immidiateR = customfields[k].querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='הגשה - רגיל'){
+          standardD = customfields[k].querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='הגשה - דחוף'){
+          rushD = customfields[k].querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='הגשה - בהול'){
+          urgentD = customfields[k].querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='הגשה - מיידי'){
+          immidiateD = customfields[k].querySelector('input');
        }
       }
       var url = "https://desk.ngsub.tv/home-api/browser?viewId=405&q.customFields.textField4=eq("+umbrella+")";
@@ -1483,10 +1499,14 @@ async function calcprice(){
                           console.log(jsondata3);
                           //console.log(Math.max(...jsondata3));
                           //workDays.value = Math.max(...jsondata3);
-                          standard.value = jsondata3[0];
-                          rush.value = jsondata3[1];
-                          urgent.value = jsondata3[2];
-                          immidiate.value = jsondata3[3];
+                          standardR.value = jsondata3[0];
+                          rushR.value = jsondata3[1];
+                          urgentR.value = jsondata3[2];
+                          immidiateR.value = jsondata3[3];
+                          standardD.value = jsondata3[4];
+                          rushD.value = jsondata3[5];
+                          urgentD.value = jsondata3[6];
+                          immidiateD.value = jsondata3[7];
                       },1500);    
                     },1500);
                     ///////////////////////////
