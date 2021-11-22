@@ -1509,7 +1509,7 @@ async function calcprice(){
                     },1500);
                     ///////////////////////////
                 },1500);  
-                }
+                
               
               
               var intervalloading = setInterval(function() {
@@ -1546,6 +1546,7 @@ async function calcprice(){
                  }, 100);
               }
             }, 100);
+            }
            }    
         }  
         var data = '{"ids":['+ids+'],"async":true,"params":{"totalquantity":'+quantity+',"quoteId":"'+window.assistedProjectId+'"}}';
