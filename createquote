@@ -1461,21 +1461,30 @@ async function calcprice(){
                       headers: myHeaders
                       });
               var jsondata2;
-              setTimeout(function() {
-
+              var flag = 10;
+              calcpricwait1(flag);
+             function calcpricwait1(flag){ 
+             if(flag>0){
+             setTimeout(function() {
                 fetch(myRequest2)
                         .then(response => {
                           if (response.ok) {
                             return response.json();
+                            calcpricwait2(data);
                           } else {
                             console.log('Something went wrong');
+                            flag=flag-1;
+                            calcpricwait1(flag);
                           }
                         })
                         .then(data => jsondata2=data)
                         .catch((error) => {
                           console.log(error)
                          });
-
+                  },1500);
+                 }
+                }
+               function calcpricwait2(jsondata2){
                 setTimeout(function() {
                     console.log(jsondata2["url"]);
                     console.log(jsondata2);
@@ -1499,8 +1508,9 @@ async function calcprice(){
                       },1500);    
                     },1500);
                     ///////////////////////////
-                },1500);    
-              },1500);
+                },1500);  
+                }
+              
               
               var intervalloading = setInterval(function() {
               var receivabletab = document.getElementById("formWithPanels:receivablesTab");
