@@ -1462,25 +1462,24 @@ async function calcprice(){
                       });
               var jsondata2;
               var flag = 10;
-              calcpricwait1(flag,myRequest2);
-             function calcpricwait1(flag,myRequest2){ 
+              calcpricwait1(flag);
+             function calcpricwait1(flag){ 
              if(flag>0){
              setTimeout(async function() {
                 fetch(myRequest2)
                         .then(response => {
-                          console.log(response);
                           if (response.status==200) {
-                            var jsondata2=response.json();
-                            console.log(response.url);
-                            calcpricwait2(response.url);
-                            return jsondata2;
+                            return response.json();
                           } else {
                             console.log('Something went wrong');
                             flag=flag-1;
-                            calcpricwait1(flag,myRequest2);
+                            calcpricwait1(flag);
                           }
                         })
-                        .then(data => {jsondata2=data;})
+                        .then(data => {
+                          jsondata2=data;
+                          calcpricwait2(jsondata2);
+                          })
                         .catch((error) => {
                           console.log(error)
                          });
