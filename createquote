@@ -1488,10 +1488,10 @@ async function calcprice(){
                 }
                function calcpricwait2(jsondata2){
                 setTimeout(function() {
-                    //console.log(jsondata2["url"]);
+                    console.log(jsondata2["url"]);
                     console.log(jsondata2);
                     ///////////////////////////
-                    var url3 = jsondata2;//["url"];
+                    var url3 = jsondata2["url"];
                     const myRequest3 = new Request(url3, {
                             method: 'GET',
                             headers: myHeaders
