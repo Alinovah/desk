@@ -1477,7 +1477,7 @@ async function calcprice(){
                             calcpricwait1(flag);
                           }
                         })
-                        .then(data => calcpricwait2(data);)
+                        .then(data => {calcpricwait2(data);})
                         .catch((error) => {
                           console.log(error)
                          });
