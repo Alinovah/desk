@@ -1470,7 +1470,7 @@ async function calcprice(){
                         .then(response => {
                           console.log(response);
                           if (response.status==200) {
-                            var jsondata2=await response.json();
+                            var jsondata2=response.json();
                             console.log(jsondata2);
                             calcpricwait2(jsondata2);
                             return jsondata2;
@@ -1511,7 +1511,7 @@ async function calcprice(){
                       },1500);    
                     },1500);
                     ///////////////////////////
-                },1500);  
+                },3000);  
                 
               
               
