@@ -1468,16 +1468,16 @@ async function calcprice(){
              setTimeout(function() {
                 fetch(myRequest2)
                         .then(response => {
+                          console.log(response);
                           if (response.ok) {
                             return response.json();
-                            calcpricwait2(data);
                           } else {
                             console.log('Something went wrong');
                             flag=flag-1;
                             calcpricwait1(flag);
                           }
                         })
-                        .then(data => jsondata2=data)
+                        .then(data => calcpricwait2(data);)
                         .catch((error) => {
                           console.log(error)
                          });
