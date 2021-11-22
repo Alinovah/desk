@@ -1470,8 +1470,10 @@ async function calcprice(){
                         .then(response => {
                           console.log(response);
                           if (response.status==200) {
-                            calcpricwait2(response.json());
-                            return response.json();
+                            var jsondata2=response.json();
+                            console.log(jsondata2);
+                            calcpricwait2(jsondata2);
+                            return jsondata2;
                           } else {
                             console.log('Something went wrong');
                             flag=flag-1;
