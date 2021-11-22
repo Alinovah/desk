@@ -1465,12 +1465,12 @@ async function calcprice(){
               calcpricwait1(flag,myRequest2);
              function calcpricwait1(flag,myRequest2){ 
              if(flag>0){
-             setTimeout(function() {
+             setTimeout(async function() {
                 fetch(myRequest2)
                         .then(response => {
                           console.log(response);
                           if (response.status==200) {
-                            var jsondata2=response.json();
+                            var jsondata2=await response.json();
                             console.log(jsondata2);
                             calcpricwait2(jsondata2);
                             return jsondata2;
