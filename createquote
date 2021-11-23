@@ -1319,7 +1319,7 @@ function resetprocess3(languages){
 
 ////////////////////////// END ////////////////////
 
-/*
+
 ///////////////////////////// appand calc price button + PDF button /////////////////
 
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
@@ -1373,7 +1373,6 @@ async function creategeneralpdfbutton(){
   }, 1000);
 }
 
-///////////////////////////// calc price  //////////////////////////////
 async function calcprice(){
       var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
       if(document.querySelector('input[ng-model="quote.volume"]')){
@@ -1385,7 +1384,6 @@ async function calcprice(){
       var status = "";
       var umbrella = "";
       var key = "";
-      //var workDays = "";
       var standardR = 0;
       var rushR = 0;
       var urgentR = 0;
@@ -1400,9 +1398,6 @@ async function calcprice(){
        if(customfields[k].querySelector('div').textContent=='key'){
           key = customfields[k].querySelector('span').textContent;
        }
-       //if(customfields[k].querySelector('div').textContent=='Work Days'){
-       //   workDays = customfields[k].querySelector('input');
-       //}
        if(customfields[k].querySelector('div').textContent=='כללית - רגיל'){
           standardR = customfields[k].querySelector('input');
        }
@@ -1440,7 +1435,16 @@ async function calcprice(){
           ids.push(jsondata["rows"][a]["id"]);
         }
         console.log("ids="+ids);
-        
+        macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR);
+
+      }, 700);
+}
+////////////////////////// END ////////////////////
+
+        ///////////// run macro calc price ///////////////
+        function macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR){
+          console.log("in macrocalcprice")
+
         var url = "https://desk.ngsub.tv/home-api/macros/37/run";
 
         var xhr = new XMLHttpRequest();
@@ -1457,18 +1461,32 @@ async function calcprice(){
               
               var url2 = JSON.parse(xhr.responseText)["resultUrl"];
               console.log(url2);
-              const myRequest2 = new Request(url2, {
-                      method: 'GET',
-                      headers: myHeaders
-                      });
-              var jsondata2;
-              setTimeout(function() {
+              
+              fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR);
+              
+           }  
+           
+        }  
+        var data = '{"ids":['+ids+'],"async":true,"params":{"totalquantity":'+quantity+',"quoteId":"'+window.assistedProjectId+'"}}';
+        xhr.send(data);
+      }
+      function fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR){
+setTimeout(function() {
+  var jsondata2="";
+  console.log(url2);       
+  var myRequest2 = new Request(url2, {
+        method: 'GET',
+        headers: myHeaders
+        });
                 fetch(myRequest2)
-                        .then(response => response.json())
                         .then(data => jsondata2=data);
-                setTimeout(function() {
-                    console.log(jsondata2["url"]);
-                    console.log(jsondata2);
+        setTimeout(function() {  
+                console.log(jsondata2["status"]) ;       
+                if(jsondata2["url"]==undefined) {
+                   fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR);
+                 }else{ 
+                     console.log(jsondata2["url"]);
+                     console.log(jsondata2);
                     ///////////////////////////
                     var url3 = jsondata2["url"];
                     const myRequest3 = new Request(url3, {
@@ -1478,12 +1496,9 @@ async function calcprice(){
                     var jsondata3;
                     setTimeout(function() {
                       fetch(myRequest3)
-                              .then(response => response.json())
                               .then(data => jsondata3=data);
                       setTimeout(function() {
                           console.log(jsondata3);
-                          //console.log(Math.max(...jsondata3));
-                          //workDays.value = Math.max(...jsondata3);
                           standardR.value = JSON.stringify(jsondata3[0]);
                           rushR.value = JSON.stringify(jsondata3[1]);
                           urgentR.value = JSON.stringify(jsondata3[2]);
@@ -1491,51 +1506,59 @@ async function calcprice(){
                       },1500);    
                     },1500);
                     ///////////////////////////
+                    aftercalculateprice();
+                }
                 },1500);    
-              },1500);
-              
-              var intervalloading = setInterval(function() {
-              var receivabletab = document.getElementById("formWithPanels:receivablesTab");
-               if(receivabletab.style.display=="none"){
-                   var tabs = document.querySelectorAll('span[class="rf-tab-lbl"]');
-                   for(var z=0;z<tabs.length;z++){
-                     if(tabs[z].textContent=="Receivables"){
-                         eventFire(tabs[z], 'click');
-                     }
-                   }
-              }else{
-                 clearInterval(intervalloading);
-                 var createreceivable = document.querySelector('input[value="Add Receivable"]');
-                 eventFire(createreceivable, 'click');
-                 var intervalloading2 = setInterval(function() {
-                   var savebutton = document.querySelector('input[value="Save"]');
-                   if(savebutton){
-                     eventFire(savebutton, 'click');
-                     clearInterval(intervalloading2);
-                     setTimeout(function() {
-                     console.log($('td[id*=totalValueColumn]').length);
-                     for(var b=0;b<$('td[id*=totalValueColumn]').length;b++){
-                       console.log($('td[id*=totalValueColumn]')[b].querySelector('div').textContent);
-                       console.log($('td[id*=totalValueColumn]')[b].querySelector('div').textContent=='0.00ILS\n            ');
-                       if($('td[id*=totalValueColumn]')[b].querySelector('div').textContent=='0.00ILS\n            '){
-                        eventFire($('td[id*=deleteColumn]')[b].querySelector('a'), 'click');
-                         
-                       }
-                     }
-                    }, 2000); 
-                   }else{
-                   }
-                 }, 100);
-              }
-            }, 100);
-           }    
-        }  
-        var data = '{"ids":['+ids+'],"async":true,"params":{"totalquantity":'+quantity+',"quoteId":"'+window.assistedProjectId+'"}}';
-        xhr.send(data);
-      }, 700);
+          },1500);
 }
-////////////////////////// END ////////////////////
-*/
+ 
+ 
+     function aftercalculateprice(){
+    var intervalloading = setInterval(function() {
+    var receivabletab = document.getElementById("formWithPanels:receivablesTab");
+     if(receivabletab.style.display=="none"){
+         var tabs = document.querySelectorAll('span[class="rf-tab-lbl"]');
+         for(var z=0;z<tabs.length;z++){
+           if(tabs[z].textContent=="Receivables"){
+               eventFire(tabs[z], 'click');
+           }
+         }
+    }else{
+       clearInterval(intervalloading);
+       var createreceivable = document.querySelector('input[value="Add Receivable"]');
+       eventFire(createreceivable, 'click');
+       var intervalloading2 = setInterval(function() {
+         var savebutton = document.querySelector('input[value="Save"]');
+         if(savebutton){
+           eventFire(savebutton, 'click');
+           clearInterval(intervalloading2);
+           var flag=0;
+           
+           var deletezero = setInterval(function() {
+             console.log(flag);
+            if(flag==3){
+              clearInterval(deletezero);
+            }else{
+              flag++;
+             console.log($('td[id*=totalValueColumn]').length);
+             for(var b=0;b<$('td[id*=totalValueColumn]').length;b++){
+             console.log($('td[id*=totalValueColumn]')[b].querySelector('div').textContent);
+             console.log($('td[id*=totalValueColumn]')[b].querySelector('div').textContent=='0.00ILS\n            ');
+             if($('td[id*=totalValueColumn]')[b].querySelector('div').textContent=='0.00ILS\n            '){
+              eventFire($('td[id*=deleteColumn]')[b].querySelector('a'), 'click');
+             }
+            }
+          }
+          }, 3000); 
+         }else{
+         }
+       }, 100);
+    }
+  }, 100);
+    }             
+    
+//////////////////////////// END ////////////////////////////
+
 ////////////////////////////
     }    
 }, 100);
