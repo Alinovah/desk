@@ -1461,32 +1461,10 @@ async function calcprice(){
                       headers: myHeaders
                       });
               var jsondata2;
-              var flag = 10;
-              calcpricwait1(flag);
-             function calcpricwait1(flag){ 
-             if(flag>0){
-             setTimeout(async function() {
+              setTimeout(function() {
                 fetch(myRequest2)
-                        .then(response => {
-                          if (response.status==200) {
-                            return response.json();
-                          } else {
-                            console.log('Something went wrong');
-                            flag=flag-1;
-                            calcpricwait1(flag);
-                          }
-                        })
-                        .then(data => {
-                          jsondata2=data;
-                          calcpricwait2(jsondata2);
-                          })
-                        .catch((error) => {
-                          console.log(error)
-                         });
-                  },1500);
-                 }
-                }
-               function calcpricwait2(jsondata2){
+                        .then(response => response.json())
+                        .then(data => jsondata2=data);
                 setTimeout(function() {
                     console.log(jsondata2["url"]);
                     console.log(jsondata2);
@@ -1503,6 +1481,8 @@ async function calcprice(){
                               .then(data => jsondata3=data);
                       setTimeout(function() {
                           console.log(jsondata3);
+                          //console.log(Math.max(...jsondata3));
+                          //workDays.value = Math.max(...jsondata3);
                           standardR.value = JSON.stringify(jsondata3[0]);
                           rushR.value = JSON.stringify(jsondata3[1]);
                           urgentR.value = JSON.stringify(jsondata3[2]);
@@ -1510,9 +1490,8 @@ async function calcprice(){
                       },1500);    
                     },1500);
                     ///////////////////////////
-                },1500);  
-                
-              
+                },1500);    
+              },1500);
               
               var intervalloading = setInterval(function() {
               var receivabletab = document.getElementById("formWithPanels:receivablesTab");
@@ -1548,7 +1527,6 @@ async function calcprice(){
                  }, 100);
               }
             }, 100);
-            }
            }    
         }  
         var data = '{"ids":['+ids+'],"async":true,"params":{"totalquantity":'+quantity+',"quoteId":"'+window.assistedProjectId+'"}}';
