@@ -635,7 +635,7 @@ for(var i=0;i<inputscustomfields.length;i++){
     }
   }
 }
-if(UseStatus){
+if(UseStatus&&currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
   deadline.querySelectorAll('div')[0].style.display="none";
   deadline.querySelectorAll('div')[1].style.display="none";
   Status.style.display="block";
@@ -1207,7 +1207,7 @@ for(var i=0;i<inputscustomfields.length;i++){
     }
   }
 }
-if(UseStatus){
+if(UseStatus&&currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
   deadline.querySelectorAll('div')[0].style.display="none";
   deadline.querySelectorAll('div')[1].style.display="none";
   Status.style.display="block";
