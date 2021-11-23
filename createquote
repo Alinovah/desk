@@ -1514,6 +1514,15 @@ setTimeout(function() {
  
  
      function aftercalculateprice(){
+  function eventFire(el, etype) {
+   if (el.fireEvent) {
+     el.fireEvent('on' + etype);
+   } else {
+     var evObj = document.createEvent('Events');
+     evObj.initEvent(etype, true, false);
+     el.dispatchEvent(evObj);
+   }
+ }
     var intervalloading = setInterval(function() {
     var receivabletab = document.getElementById("formWithPanels:receivablesTab");
      if(receivabletab.style.display=="none"){
