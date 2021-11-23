@@ -392,6 +392,34 @@ if(expaire){
  origin.appendChild(orderedon);
 }
 
+var languages_el = document.querySelector('div[class="input-wrap languages"]');
+var pmvewrification;
+var clientreview;
+var qc;
+var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+for(var k=0;k<customfields.length;k++){
+       if(customfields[k].querySelector('div').textContent=='PM Verification'){
+          pmvewrification = customfields[k];//.querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='Client Review'){
+          clientreview = customfields[k];//.querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='QC'){
+          qc = customfields[k];//.querySelectorAll('div')[1];
+       }
+ }
+pmvewrification.style.width="120px";
+clientreview.style.width="110px";
+qc.style.width="100px";
+qc.querySelector('div[ng-model="customFieldCtrl.selected"]').style.width = "130px";
+
+for(var m=0;m<document.querySelectorAll('span[class="checkbox_box"]').length;m++){ 
+  document.querySelectorAll('span[class="checkbox_box"]')[m].style.width="17%";
+}
+languages_el.append(pmvewrification);
+languages_el.append(clientreview);
+languages_el.append(qc);
+
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
   if(closewindow!=undefined){
