@@ -1319,6 +1319,7 @@ function resetprocess3(languages){
 
 ////////////////////////// END ////////////////////
 
+/*
 ///////////////////////////// appand calc price button + PDF button /////////////////
 
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
@@ -1534,7 +1535,7 @@ async function calcprice(){
       }, 700);
 }
 ////////////////////////// END ////////////////////
-
+*/
 ////////////////////////////
     }    
 }, 100);
