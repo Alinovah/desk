@@ -420,6 +420,13 @@ languages_el.append(pmvewrification);
 languages_el.append(clientreview);
 languages_el.append(qc);
 
+var button = document.createElement("button");
+button.textContent = "Build Process";
+button.className  = "btn ng-scope";
+button.id  = "buildprocessbutton";
+//button.onclick = buildprocess;
+languages_el.append(button);
+
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
   if(closewindow!=undefined){
