@@ -1094,7 +1094,7 @@ if(specilazation.innerText!="___"){
 }
 
 //////////// disable process if requiered is empty /////////////
-
+if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 var specilazation_flag = 0;
 var flag=0;
 for(var c=0;c<document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]').length;c++){
@@ -1133,7 +1133,7 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
     }
 }
 
-
+}
 }, 100);
 
 
