@@ -1238,7 +1238,7 @@ for(var m=0;m<document.querySelectorAll('span[class="checkbox_box"]').length;m++
 }
 var buildbutton = document.getElementById("buildprocessbutton");
 languages_el.append(qc);
-languages_el.append(buildbutton;)
+languages_el.append(buildbutton);
 }
 
 /////////////////////////////// END ///////////////////////////
