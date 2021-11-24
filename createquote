@@ -1236,7 +1236,9 @@ qc.querySelector('div[ng-model="customFieldCtrl.selected"]').style.width = "130p
 for(var m=0;m<document.querySelectorAll('span[class="checkbox_box"]').length;m++){ 
   document.querySelectorAll('span[class="checkbox_box"]')[m].style.width="17%";
 }
+var buildbutton = document.getElementById("buildprocessbutton");
 languages_el.append(qc);
+languages_el.append(buildbutton;)
 }
 
 /////////////////////////////// END ///////////////////////////
