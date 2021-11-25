@@ -1323,12 +1323,12 @@ if(UseStatus&&currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/pro
 ////////////////////////// END ////////////////////
 
 /////////////////////////Process select///////////////////////////
-var controls = $('[class^="controls ng-scope"]')[0];
+/*var controls = $('[class^="controls ng-scope"]')[0];
 var button = document.createElement("button");
 button.textContent = "Select Automatic Process";
 button.className  = "btn ng-scope";
 button.onclick = selectautomaticeprocess;
-controls.appendChild(button);
+controls.appendChild(button);*/
 
 // // ///////////////////////////// END ////////////////////
 
