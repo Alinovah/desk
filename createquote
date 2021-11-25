@@ -432,6 +432,9 @@ languages_el.append(button);
 
 ///////////////////// rearang widgets //////////////////////
 var order = document.getElementById("order");
+if(order==undefined){
+var order = document.getElementById("quote");
+}
 var langs = document.getElementById("langs");
 var process = document.getElementById("process");
 order.parentElement.insertBefore(langs,order);
