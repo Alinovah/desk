@@ -427,7 +427,7 @@ var button = document.createElement("button");
 button.textContent = "Build Process";
 button.className  = "btn ng-scope";
 button.id  = "buildprocessbutton";
-//button.onclick = buildprocess;
+button.onclick = buildprocess;
 languages_el.append(button);
 
 ///////////////////// rearang widgets //////////////////////
@@ -437,6 +437,307 @@ var process = document.getElementById("process");
 order.parentElement.insertBefore(langs,order);
 order.parentElement.insertBefore(process,order);
 
+////////////////// buildprocess ///////////////////////////
+function buildprocess(){
+  //console.log("clicked");
+  var pmvewrification;
+  var clientreview;
+  var qc;
+  var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+  for(var k=0;k<customfields.length;k++){
+         if(customfields[k].querySelector('div').textContent=='PM Verification'){
+            pmvewrification = customfields[k].querySelector('input');
+         }
+         if(customfields[k].querySelector('div').textContent=='Client Review'){
+            clientreview = customfields[k].querySelector('input');
+         }
+         if(customfields[k].querySelector('div').textContent=='QC'){
+            qc = customfields[k].querySelectorAll('div')[1];
+         }
+   }
+var inputs = $('[class^="input__item"]');
+for(var i=0;i<inputs.length;i++){
+  if(inputs[i].querySelector("div")){
+    if(inputs[i].querySelector("div").innerText=='Service'){
+      var service = inputs[i];
+    }
+  }
+}
+var flag = 0;
+var elements = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand nd-none-selected"]');
+var elements2 = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand"]');
+for(var e=0;e<elements.length;e++){
+  console.log(elements[e].innerText);
+  if(elements[e].innerText=='Change Process'){
+    flag=1;
+  }
+}
+for(var e=0;e<elements2.length;e++){
+  console.log(elements2[e].innerText);
+  if(elements2[e].innerText=='Change Process'){
+    flag=1;
+  }
+}
+console.log(flag);
+if(flag==0){
+  eventFire(document.getElementById('resetprocessbutton'),"click");
+}  
+selectprocess(service,pmvewrification,clientreview,qc);
+}
+
+function eventFire(el, etype) {
+ if (el.fireEvent) {
+   el.fireEvent('on' + etype);
+ } else {
+   var evObj = document.createEvent('Events');
+   evObj.initEvent(etype, true, false);
+   el.dispatchEvent(evObj);
+ }
+}
+
+///////////////////////// END ///////////////////////////////
+
+///////////////////////// select process ///////////////////////////////
+function selectprocess(service,pmvewrification,clientreview,qc){
+  var elements = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand nd-none-selected"]');
+  var elements2 = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand"]');
+  for(var e=0;e<elements.length;e++){
+    if(elements[e].innerText=='Change Process'){
+      flag=1;
+       eventFire(elements[e],"click");
+       function eventFire(el, etype) {
+         if (el.fireEvent) {
+           el.fireEvent('on' + etype);
+         } else {
+           var evObj = document.createEvent('Events');
+           evObj.initEvent(etype, true, false);
+           el.dispatchEvent(evObj);
+         }
+       }
+    }
+  }
+  for(var e=0;e<elements2.length;e++){
+    if(elements2[e].innerText=='Change Process'){
+      flag=1;
+       eventFire(elements2[e],"click");
+       function eventFire(el, etype) {
+         if (el.fireEvent) {
+           el.fireEvent('on' + etype);
+         } else {
+           var evObj = document.createEvent('Events');
+           evObj.initEvent(etype, true, false);
+           el.dispatchEvent(evObj);
+         }
+       }
+    }
+  }
+  if(flag==0){
+    setTimeout(function() {
+     selectprocess(service,pmvewrification,clientreview,qc);
+    }, 1000);
+  }else{ 
+var qccheck = qc.innerText;
+var languages = $('[class^="nd-display ng-binding ng-scope"]');
+  for(var i=0;i<languages.length;i++){
+    if(languages[i].parentElement.parentElement.parentElement.querySelector('div').innerText=='Source Language'){
+      var source = languages[i];
+      var target = languages[i+1];
+    }
+  }
+languages=target.textContent;
+source=source.textContent;
+if(service.querySelectorAll('div')[1].textContent=='Basic Translation'){
+  console.log("tranlsation process");
+  servicebasictranslation(pmvewrification,clientreview,qccheck,languages,source);
+}else if(service.querySelectorAll('div')[1].textContent=='Basic Transcription'){
+  console.log("transcription process");
+  servicebasictranscription(pmvewrification,clientreview,qccheck,languages,source);
+}else if(service.querySelectorAll('div')[1].textContent=='Translation + source'){
+  console.log("Translation + source process");
+  servicetranslationwithsource(pmvewrification,clientreview,qccheck,languages,source);
+}
+  }
+}
+
+///////////////////////// END ///////////////////////////////
+
+///////////////////////// service basic translation ///////////////////////////////
+
+function servicebasictranslation(pmvewrification,clientreview,qccheck,languages,source){
+var p="";
+var comma = (languages.match(/,/g) || []).length;
+if(qccheck=="English Only"){
+   if(comma==0){
+     if(source=="HE"&&languages.indexOf("EN")>-1){
+      qccheck="Yes";
+     }else{
+      qccheck="No";
+     }
+   }else{
+     if(source=="HE"&&languages.indexOf("EN")>-1){
+      qccheck=="English Only";
+     }else{
+      qccheck="No";
+     }
+   }
+}
+  if(pmvewrification.checked&&clientreview.checked&&qccheck=="English Only"){
+    p="תמלול->תזמון->תרגום->קיוסי אוטומטי->מנהל->לקוח  (1)";
+  }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="English Only"){
+    p="תמלול->תזמון->תרגום->קיוסי אוטומטי->לקוח  (2)";
+  }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="English Only"){
+    p="תמלול->תזמון->תרגום->קיוסי אוטומטי->מנהל (3)";
+  }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="English Only"){
+    p="תמלול->תזמון->תרגום->קיוסי (8)";
+  }else if(pmvewrification.checked&&clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->תרגום->קיוסי->מנהל->לקוח (5)";
+  }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->תרגום->קיוסי->לקוח (6)";
+  }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->תרגום->קיוסי->מנהל (7)";
+  }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->תרגום->קיוסי (8)";
+  }else if(pmvewrification.checked&&clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->תרגום->מנהל->לקוח (9)";
+  }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->תרגום->לקוח (10)";
+  }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->תרגום->מנהל (11)";
+  }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->תרגום (12)";
+  }
+  console.log(p);
+  var process = document.querySelectorAll('div[ng-if="::(!itemLabels)"]');
+  for(var f=0;f<process.length;f++){
+    if(process[f].textContent==p){
+      eventFire(process[f],"click");
+      setTimeout(function() {
+      if(document.querySelectorAll('div[class="widget ng-scope view-loading"]').length>0){
+       var intervalloadingprocess = setInterval(function() {
+        if(document.querySelectorAll('div[class="widget ng-scope view-loading"]').length==0){
+          clearInterval(intervalloadingprocess);
+          location.reload();
+        }
+      }, 200);
+      }
+      }, 500);
+    }
+  }
+}  
+  
+///////////////////////// END ///////////////////////////////
+
+///////////////////////// service basic transcription ///////////////////////////////
+
+function servicebasictranscription(pmvewrification,clientreview,qccheck,languages,source){
+  var p="";
+  var comma = (languages.match(/,/g) || []).length;
+  if(qccheck=="English Only"){
+     if(source=="HE"&&languages.indexOf("EN")>-1){
+      qccheck="Yes";
+     }else{
+      qccheck="No";
+     }
+  }
+  if(pmvewrification.checked&&clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->קיוסי->מנהל->לקוח (5)";
+  }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->קיוסי->לקוח (6)";
+  }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->קיוסי->מנהל (7)";
+  }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="Yes"){
+    p="תמלול->תזמון->קיוסי (8)";
+  }else if(pmvewrification.checked&&clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->מנהל->לקוח (9)";
+  }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->לקוח (10)";
+  }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון->מנהל (11)";
+  }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="No"){
+    p="תמלול->תזמון (12)";
+  }
+  console.log(p);
+  var process = document.querySelectorAll('div[ng-if="::(!itemLabels)"]');
+  for(var f=0;f<process.length;f++){
+    if(process[f].textContent==p){
+      eventFire(process[f],"click");
+      setTimeout(function() {
+      if(document.querySelectorAll('div[class="widget ng-scope view-loading"]').length>0){
+       var intervalloadingprocess = setInterval(function() {
+        if(document.querySelectorAll('div[class="widget ng-scope view-loading"]').length==0){
+          clearInterval(intervalloadingprocess);
+          location.reload();
+        }
+      }, 200);
+      }
+      }, 500);
+    }
+  }
+}
+///////////////////////// END ///////////////////////////////
+
+///////////////////////// service translation with source ///////////////////////////////
+
+function servicetranslationwithsource(pmvewrification,clientreview,qccheck,languages,source){
+  var p="";
+  if(source!="HE"&&source!="EN"&&source!="AR"&&source!="RU"){
+    p="המרה";
+  }else{
+    var comma = (languages.match(/,/g) || []).length;
+    if(source)
+    if(qccheck=="English Only"){
+         if(source=="HE"&&languages.indexOf("EN")>-1){
+          qccheck="English Only";
+         }else{
+          qccheck="No";
+         }
+    }
+    if(pmvewrification.checked&&clientreview.checked&&qccheck=="English Only"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי->מנהל->לקוח (8)";
+    }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="English Only"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי->לקוח (10)";
+    }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="English Only"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי->מנהל (9)";
+    }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="English Only"){
+      p="תמלול->תזמון->תרגום->קיוסי (8)";
+    }else if(pmvewrification.checked&&clientreview.checked&&qccheck=="Yes"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי->מנהל->לקוח (1)";
+    }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="Yes"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי->לקוח (2)";
+    }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="Yes"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי->מנהל (3)";
+    }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="Yes"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->קיוסי (4)";
+    }else if(pmvewrification.checked&&clientreview.checked&&qccheck=="No"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->מנהל->לקוח (5)";
+    }else if(!pmvewrification.checked&&clientreview.checked&&qccheck=="No"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->לקוח (6)";
+    }else if(pmvewrification.checked&&!clientreview.checked&&qccheck=="No"){
+      p=source+" תרגום+תמלול תמלול->תזמון->תרגום->מנהל (7)";
+    }else if(!pmvewrification.checked&&!clientreview.checked&&qccheck=="No"){
+      p="תמלול->תזמון->תרגום (12)";
+    }
+  }
+  console.log(p);
+  var process = document.querySelectorAll('div[ng-if="::(!itemLabels)"]');
+  for(var f=0;f<process.length;f++){
+    if(process[f].textContent==p){
+      eventFire(process[f],"click");
+      setTimeout(function() {
+      if(document.querySelectorAll('div[class="widget ng-scope view-loading"]').length>0){
+      var intervalloadingprocess = setInterval(function() {
+        if(document.querySelectorAll('div[class="widget ng-scope view-loading"]').length==0){
+          clearInterval(intervalloadingprocess);
+          location.reload();
+        }
+      }, 200);
+      }
+      }, 500);
+    }
+  }
+}
+
+///////////////////////// END ///////////////////////////////
 
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
