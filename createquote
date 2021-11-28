@@ -431,6 +431,8 @@ button.onclick = buildprocess;
 languages_el.append(button);
 
 ///////////////////// rearang widgets //////////////////////
+if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
+}else{
 var order = document.getElementById("order");
 if(order==undefined){
 var order = document.getElementById("quote");
@@ -439,7 +441,7 @@ var langs = document.getElementById("langs");
 var process = document.getElementById("process");
 order.parentElement.insertBefore(langs,order);
 order.parentElement.insertBefore(process,order);
-
+}
 ////////////////// buildprocess ///////////////////////////
 function buildprocess(){
   //console.log("clicked");
