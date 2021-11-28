@@ -1904,7 +1904,7 @@ setTimeout(function() {
                         .then(data => jsondata2=data);
         setTimeout(function() {  
                 console.log(jsondata2["status"]) ;       
-                if(jsondata2["url"]==undefined) {
+                if(jsondata2["url"]==undefined||jsondata2["status"]=="500"||jsondata2["status"]==500) {
                    fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR);
                  }else{ 
                      console.log(jsondata2["url"]);
