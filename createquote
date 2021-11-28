@@ -1911,7 +1911,7 @@ setTimeout(function() {
                 if(jsondata2["url"]==undefined||jsondata2["status"]=="500"||jsondata2["status"]==500) {
                    fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity);
                    //macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR);
-                 }else if(jsondata2["status"]=="204"||jsondata2["status"]==204) {
+                 }else if(jsondata2["status"]=="204"||jsondata2["status"]==204||jsondata2["status"]=="400"||jsondata2["status"]==400) {
                    macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR);
                  }else{ 
                      console.log(jsondata2["url"]);
