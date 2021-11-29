@@ -1932,7 +1932,7 @@ setTimeout(function() {
                           rushR.value = JSON.stringify(jsondata3[1]);
                           urgentR.value = JSON.stringify(jsondata3[2]);
                           immidiateR.value = JSON.stringify(jsondata3[3]);
-                      },1500);    
+                      },2000);    
                     },1500);
                     ///////////////////////////
                     aftercalculateprice();
