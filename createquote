@@ -1905,7 +1905,7 @@ setTimeout(function() {
         headers: myHeaders
         });
                 fetch(myRequest2)
-                        .then(data => jsondata2=data);
+                        .then(data => jsondata2=data.json());
         setTimeout(function() {  
                 console.log(jsondata2["status"]) ;       
                 if(jsondata2["url"]==undefined||jsondata2["status"]=="500"||jsondata2["status"]==500) {
