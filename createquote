@@ -2002,6 +2002,32 @@ setTimeout(function() {
     
 //////////////////////////// END ////////////////////////////
 
+/////////////////////////// hide general quote for show and fix unspecified pricelist ////////////////////
+
+setInterval(function() {
+var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
+var pricelist;
+for(var k=0;k<customfields.length;k++){
+       if(customfields[k].querySelector('div').textContent=='Pricelist'){
+            pricelist = customfields[k];
+       }
+}
+if(pricelist.querySelectorAll('div')[1].innerText=='Unspecified'){
+  pricelist.querySelectorAll('div')[1].innerText="מחירון_סטנדרט";
+}
+var generalPDFbutton = document.getElementById('creategeneralpdfbutton');
+if(generalPDFbutton==null){
+}else{
+  if(pricelist.querySelectorAll('div')[1].innerText=='מחירון_סדרות'){
+    generalPDFbutton.style.display="none";
+  }else{
+    generalPDFbutton.style.display="block";
+  }
+}
+}, 500);
+
+/////////////////////////////// END ///////////////////////////
+
 ////////////////////////////
     }    
 }, 100);
