@@ -1028,6 +1028,9 @@ for(var k=0;k<customfields.length;k++){
          }
 }
 console.log(pricelistinitial);
+if(pricelistinitial=='Unspecified'){
+  pricelistinitial="מחירון_סטנדרט";
+}
 setInterval(function() {
 var inputitems=document.querySelectorAll('div[class="input__item"]');
 var specilazation;
