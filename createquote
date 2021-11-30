@@ -2005,7 +2005,7 @@ setTimeout(function() {
     
 //////////////////////////// END ////////////////////////////
 
-/////////////////////////// hide general quote for show and fix unspecified pricelist ////////////////////
+/////////////////////////// hide general quote for show ////////////////////
 
 setInterval(function() {
 var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
