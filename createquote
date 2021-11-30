@@ -2013,7 +2013,7 @@ for(var k=0;k<customfields.length;k++){
        }
 }
 if(pricelist.querySelectorAll('div')[1].innerText=='Unspecified'){
-  pricelist.querySelectorAll('div')[1].innerText="מחירון_סטנדרט";
+  pricelist.querySelectorAll('div')[1].textContent="מחירון_סטנדרט";
 }
 var generalPDFbutton = document.getElementById('creategeneralpdfbutton');
 if(generalPDFbutton==null){
