@@ -1488,6 +1488,7 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
   var count5=0;
   var count6=0;
   var count7=0;
+  var count8=0;
   
   var firstelstatus;
   var firstelusestatus;
@@ -1496,6 +1497,13 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
     if(customfields[i].querySelector('div').textContent=="PM Verification"){
       if(count5==0){
         count5++;
+      }else{
+        customfields[i].remove();
+      }
+      }
+      if(customfields[i].querySelector('div').textContent=="Working Days"){
+      if(count8==0){
+        count8++;
       }else{
         customfields[i].remove();
       }
