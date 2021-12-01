@@ -1950,7 +1950,7 @@ setTimeout(function() {
                           rushR.value = JSON.stringify(jsondata3[1]);
                           urgentR.value = JSON.stringify(jsondata3[2]);
                           immidiateR.value = JSON.stringify(jsondata3[3]);
-                          workingdays.value = JSON.stringify(jsondata3[4]);
+                          workingdays.value = jsondata3[4][0];
                       },2000);    
                     },1500);
                     ///////////////////////////
