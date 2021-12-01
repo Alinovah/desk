@@ -1941,7 +1941,11 @@ setTimeout(function() {
                               .then(data => jsondata3=data);
                               //.then(data => jsondata3=data);
                       setTimeout(function() {
-                          console.log(jsondata3);
+                          console.log(jsondata3[0]);
+                          console.log(jsondata3[1]);
+                          console.log(jsondata3[2]);
+                          console.log(jsondata3[3]);
+                          console.log(jsondata3[4]);
                           standardR.value = JSON.stringify(jsondata3[0]);
                           rushR.value = JSON.stringify(jsondata3[1]);
                           urgentR.value = JSON.stringify(jsondata3[2]);
