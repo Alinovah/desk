@@ -551,7 +551,7 @@ var languages = $('[class^="nd-display ng-binding ng-scope"]');
   }
 languages=target.textContent;
 source=source.textContent;
-if(service.querySelectorAll('div')[1].textContent=='Basic Translation'){
+if(service.querySelectorAll('div')[1].textContent=='Basic Transcription / Translation without template'){
   console.log("tranlsation process");
   servicebasictranslation(pmvewrification,clientreview,qccheck,languages,source);
 }else if(service.querySelectorAll('div')[1].textContent=='Basic Transcription'){
