@@ -1782,6 +1782,7 @@ var controls = $('[class^="controls ng-scope"]')[0];
 var button = document.createElement("button");
 button.textContent = "Calc Price";
 button.className  = "btn ng-scope";
+button.id  = "calcpricebutton";
 button.onclick = calcprice;
 controls.appendChild(button);
 
