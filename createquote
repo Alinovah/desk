@@ -383,7 +383,9 @@ if(actual!=undefined&&created!=undefined){
 client.appendChild(service);
 deadline.appendChild(expexteddate);
 if(working){
- working.appendChild(referance);
+ working.style.display("none");
+ referance.style.display("none");
+ //working.appendChild(referance);
 }
 volume.appendChild(quantity);
 if(expaire){
