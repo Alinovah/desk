@@ -1843,7 +1843,7 @@ async function calcprice(){
           immidiateR = customfields[k].querySelector('input');
        }
        if(customfields[k].querySelector('div').textContent=='Working Days'){
-          immidiateR = customfields[k].querySelector('input');
+          workingdays = customfields[k].querySelector('input');
        }
       }
       var url = "https://desk.ngsub.tv/home-api/browser?viewId=405&q.customFields.textField4=eq("+umbrella+")";
