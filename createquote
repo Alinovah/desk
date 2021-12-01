@@ -1819,6 +1819,7 @@ async function calcprice(){
       var rushR = 0;
       var urgentR = 0;
       var immidiateR = 0;
+      var workingdays = 0;
       for(var k=0;k<customfields.length;k++){
        if(customfields[k].querySelector('div').textContent=='Status'){
           status = customfields[k].querySelectorAll('div')[1].textContent;
@@ -1839,6 +1840,9 @@ async function calcprice(){
           urgentR = customfields[k].querySelector('input');
        }
        if(customfields[k].querySelector('div').textContent=='כללית - מיידי'){
+          immidiateR = customfields[k].querySelector('input');
+       }
+       if(customfields[k].querySelector('div').textContent=='Working Days'){
           immidiateR = customfields[k].querySelector('input');
        }
       }
@@ -1866,14 +1870,14 @@ async function calcprice(){
           ids.push(jsondata["rows"][a]["id"]);
         }
         console.log("ids="+ids);
-        macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR);
+        macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR,workingdays);
 
       }, 700);
 }
 ////////////////////////// END ////////////////////
 
         ///////////// run macro calc price ///////////////
-        function macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR){
+        function macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR,workingdays){
           console.log("in macrocalcprice")
 
         var url = "https://desk.ngsub.tv/home-api/macros/37/run";
@@ -1893,7 +1897,7 @@ async function calcprice(){
               var url2 = JSON.parse(xhr.responseText)["resultUrl"];
               console.log(url2);
               
-              fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity);
+              fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity,workingdays);
               
            }  
            
@@ -1901,7 +1905,7 @@ async function calcprice(){
         var data = '{"ids":['+ids+'],"async":true,"params":{"totalquantity":'+quantity+',"quoteId":"'+window.assistedProjectId+'"}}';
         xhr.send(data);
       }
-function fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity){
+function fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity,workingdays){
 setTimeout(function() {
   var jsondata2="";
   console.log(url2);       
@@ -1917,10 +1921,10 @@ setTimeout(function() {
         setTimeout(function() {  
                 //console.log(jsondata2["status"]) ;       
                 if(jsondata2["url"]==undefined){//||jsondata2["status"]=="500"||jsondata2["status"]==500) {
-                 //  fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity);
-                   //macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR);
+                 //  fetch2(url2,myHeaders,standardR,rushR,urgentR,immidiateR,ids,key,quantity,workingdays);
+                   //macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR,workingdays);
                  //}else if(jsondata2["status"]=="204"||jsondata2["status"]==204||jsondata2["status"]=="400"||jsondata2["status"]==400) {
-                   macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR);
+                   macrocalcprice(ids,key,quantity,myHeaders,standardR,rushR,urgentR,immidiateR,workingdays);
                  }else{ 
                      console.log(jsondata2["url"]);
                      console.log(jsondata2);
@@ -1942,6 +1946,7 @@ setTimeout(function() {
                           rushR.value = JSON.stringify(jsondata3[1]);
                           urgentR.value = JSON.stringify(jsondata3[2]);
                           immidiateR.value = JSON.stringify(jsondata3[3]);
+                          workingdays.value = JSON.stringify(jsondata3[4]);
                       },2000);    
                     },1500);
                     ///////////////////////////
