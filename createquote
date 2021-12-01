@@ -552,7 +552,7 @@ var languages = $('[class^="nd-display ng-binding ng-scope"]');
   }
 languages=target.textContent;
 source=source.textContent;
-consolew.log(service.querySelectorAll('div')[1].textContent);
+console.log(service.querySelectorAll('div')[1].textContent);
 if(service.querySelectorAll('div')[1].textContent=='Basic Translation'){
   console.log("tranlsation process");
   servicebasictranslation(pmvewrification,clientreview,qccheck,languages,source);
