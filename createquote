@@ -2173,11 +2173,14 @@ setInterval(function() {
         var table2deadline = table2rows[k].getElementsByTagName("td");
         var deadlines2 = table2deadline[5];
         var status = table2deadline[7];
+        if(status==null){
+        }else{
         console.log(status.textContent);
         if(status.textContent=="Accepted"){
           status.style = "color:#d1cb1f";
         }else if(status.textContent=="Started"){
           status.style = "color:#0d9125";
+        }
         }
         var deadline = deadlines2.textContent;
         day = deadline.substring(8,10);
