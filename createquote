@@ -2168,6 +2168,7 @@ setInterval(function() {
   }
     }
     if(tables[i].textContent=="Jobs Assigned To Me"||tables[i].textContent=="Jobs Assigned To Kfir"||tables[i].textContent=="Jobs Assigned To Lee"||tables[i].textContent=="Jobs Assigned To Yuval"||tables[i].textContent=="Jobs Assigned To Dani"){
+    if(iframes[i].contentDocument.getElementsByTagName("tr")==undefined){}else{
      var table2rows = iframes[i].contentDocument.getElementsByTagName("tr");
       for(var k=2;k<table2rows.length;k++){
         var table2deadline = table2rows[k].getElementsByTagName("td");
@@ -2194,6 +2195,7 @@ setInterval(function() {
         if(diffDays<0){
           deadlines2.style = "color:#fc0303";
         }
+      }
       }
     }
     if(tables[i].textContent=="Open Projects"){
