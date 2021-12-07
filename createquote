@@ -2168,7 +2168,7 @@ setInterval(function() {
   }
     }
     if(tables[i].textContent=="Jobs Assigned To Me"||tables[i].textContent=="Jobs Assigned To Kfir"||tables[i].textContent=="Jobs Assigned To Lee"||tables[i].textContent=="Jobs Assigned To Yuval"||tables[i].textContent=="Jobs Assigned To Dani"){
-    if(iframes[i].contentDocument.getElementsByTagName("tr")==undefined){}else{
+    if(iframes[i].contentDocument==undefined){}else{
      var table2rows = iframes[i].contentDocument.getElementsByTagName("tr");
       for(var k=2;k<table2rows.length;k++){
         var table2deadline = table2rows[k].getElementsByTagName("td");
