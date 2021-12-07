@@ -2243,6 +2243,7 @@ setInterval(function() {
       }
     }
     if(tables[i].textContent=="Unassigned Jobs"){
+    if(iframes[i]==undefined){}else{
       var dashboardtable6 = iframes[i].contentDocument;
       var table6rows = dashboardtable6.getElementsByTagName("tr");
       for(var k=2;k<table6rows.length;k++){
@@ -2261,6 +2262,7 @@ setInterval(function() {
           deadlines6.style = "color:#fc0303";
         }
       }
+    }
     }
   }
   
