@@ -128,17 +128,17 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
 
 
 /////////////////////////// append reset button ////////////////////
- /* var controls = $('[class^="controls ng-scope"]')[0];
+  var controls = $('[class^="controls ng-scope"]')[0];
   var button = document.createElement("button");
   button.textContent = "Reset Process";
   button.className  = "btn ng-scope";
   button.id  = "resetprocessbutton";
   button.onclick = resetprocess;
-  controls.appendChild(button);*/
+  controls.appendChild(button);
 ////////////////////////// END /////////////////////////////////// 
 
 //////////////////////////reset process///////////////////////
-/*async function resetprocess(){
+async function resetprocess(){
       var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
       var key = "";
       for(var k=0;k<customfields.length;k++){
@@ -193,15 +193,15 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
          }
        resetprocesss2(); 
        }, 1000);
-    }*/
+    }
 ////////////////////////// END /////////////////////////////////// 
 
 ///////////////////// reset process functions /////////////////////////
-/*function changestatus(url){
+function changestatus(url){
   console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", url);
-    xhr.setRequestHeader("accept", "*//*");
+    xhr.setRequestHeader("accept", "*/*");
     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -216,7 +216,7 @@ function changestatus2(url){
     console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", url);
-    xhr.setRequestHeader("accept", "*//*");
+    xhr.setRequestHeader("accept", "*/*");
     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -226,7 +226,7 @@ function changestatus2(url){
             setTimeout(function() {
             var xhr = new XMLHttpRequest();
             xhr.open("PUT", url);
-            xhr.setRequestHeader("accept", "*//*");
+            xhr.setRequestHeader("accept", "*/*");
             xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
@@ -245,7 +245,7 @@ function changestatus2(url){
     console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", url);
-    xhr.setRequestHeader("accept", "*//*");
+    xhr.setRequestHeader("accept", "*/*");
     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -255,7 +255,7 @@ function changestatus2(url){
             setTimeout(function() {
             var xhr = new XMLHttpRequest();
             xhr.open("PUT", url);
-            xhr.setRequestHeader("accept", "*//*");
+            xhr.setRequestHeader("accept", "*/*");
             xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
@@ -265,7 +265,7 @@ function changestatus2(url){
                   setTimeout(function() {
                     var xhr = new XMLHttpRequest();
                     xhr.open("PUT", url);
-                    xhr.setRequestHeader("accept", "*//*");
+                    xhr.setRequestHeader("accept", "*/*");
                     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.onreadystatechange = function () {
@@ -283,11 +283,11 @@ function changestatus2(url){
        }};
     var data = '{"status":"STARTED"}';   
     xhr.send(data);
-  }*/
+  }
 ////////////////////////// END /////////////////////////////////// 
 
 ////////////////////////// reset process 2 ////////////////////
-/*function resetprocesss2(){
+function resetprocesss2(){
   console.log("clicked");
   setTimeout(function() {
     console.log("after timeout");
@@ -319,7 +319,7 @@ function changestatus2(url){
       }, 500);
     }, 500);
   }, 2000);  
-}*/
+}
 ////////////////////////// END ////////////////////
     hyperlinks();
 ////////////////////////// END ////////////////////
@@ -440,12 +440,12 @@ expexteddate.append(workingdays);
 
 
 ///////////////// append build process button //////////////////////
-/*var button = document.createElement("button");
+var button = document.createElement("button");
 button.textContent = "Build Process";
 button.className  = "btn ng-scope";
 button.id  = "buildprocessbutton";
 button.onclick = buildprocess;
-languages_el.append(button);*/
+languages_el.append(button);
 
 ///////////////////// rearang widgets //////////////////////
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
@@ -460,7 +460,7 @@ order.parentElement.insertBefore(langs,order);
 order.parentElement.insertBefore(process,order);
 }
 ////////////////// buildprocess ///////////////////////////
-/*function buildprocess(){
+function buildprocess(){
   //console.log("clicked");
   var pmvewrification;
   var clientreview;
@@ -516,11 +516,11 @@ function eventFire(el, etype) {
    el.dispatchEvent(evObj);
  }
 }
-*/
+
 ///////////////////////// END ///////////////////////////////
 
 ///////////////////////// select process ///////////////////////////////
-/*function selectprocess(service,pmvewrification,clientreview,qc){
+function selectprocess(service,pmvewrification,clientreview,qc){
   var elements = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand nd-none-selected"]');
   var elements2 = document.querySelectorAll('div[class="nd-display ng-binding ng-scope nd-non-expand"]');
   for(var e=0;e<elements.length;e++){
@@ -582,11 +582,11 @@ if(service.querySelectorAll('div')[1].textContent=='Basic Translation'){
 }
   }
 }
-*/
+
 ///////////////////////// END ///////////////////////////////
 
 ///////////////////////// service basic translation ///////////////////////////////
-/*
+
 function servicebasictranslation(pmvewrification,clientreview,qccheck,languages,source){
 var p="";
 var comma = (languages.match(/,/g) || []).length;
@@ -762,7 +762,7 @@ function servicetranslationwithsource(pmvewrification,clientreview,qccheck,langu
 }
 
 ///////////////////////// END ///////////////////////////////
-*/
+
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
   if(closewindow!=undefined){
@@ -772,7 +772,7 @@ function servicetranslationwithsource(pmvewrification,clientreview,qccheck,langu
 
 
 //////////////////////////revert job///////////////////////
-/*
+
   var controls = $('[class^="controls ng-scope"]')[0];
   var button = document.createElement("button");
   button.textContent = "Revert Job";
@@ -844,7 +844,7 @@ function eventFire(el, etype) {
 
 ////////////////////////////
 }, 1000);
-*/
+
 
 ////////////////////////// check video duration /////////////////////////
 
@@ -1021,11 +1021,11 @@ if(UseStatus&&currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/pro
 }
 }, 500);
 ////////////////////////// END ////////////////////
-/*
+
 //////////////////////// hide categories ////////////////////////////////
 document.querySelector('div[class="widget-micro"]').style.display="none";
 ////////////////////////// END ////////////////////
-*/
+
 //////////////////////// disable pricelist selection ////////////////////////////////
 var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
 for(var k=0;k<customfields.length;k++){
@@ -1431,7 +1431,7 @@ if(specilazation.innerText!="___"){
 }
 }
 }
-/*
+
 //////////// disable process if requiered is empty /////////////
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 var specilazation_flag = 0;
@@ -1476,7 +1476,7 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 }, 100);
 
 
-*/
+
 /////////////////////////changed languages///////////////////////////
   setInterval(function(){
   hyperlinks();
@@ -1566,7 +1566,7 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 ////////////////////////////////
 ///////////////////////////// END ////////////////////
 
-/*
+
 
 function qchandler(){
 var languages_el = document.querySelector('div[class="input-wrap languages"]');
@@ -1587,9 +1587,9 @@ var buildbutton = document.getElementById("buildprocessbutton");
 languages_el.append(qc);
 languages_el.append(buildbutton);
 }
-*/
+
 /////////////////////////////// END ///////////////////////////
-/*
+
 function statushandler(){
 ///////////////// statuses handler ////////////////////////
 var inputs = $('[class^="input__item"]');
@@ -1667,7 +1667,7 @@ button.onclick = selectautomaticeprocess;
 controls.appendChild(button);*/
 
 // // ///////////////////////////// END ////////////////////
-/*
+
 ////////////////////////////////////
 function selectautomaticeprocess(){
   if(document.getElementById('processloader')){
@@ -1772,7 +1772,7 @@ function resetprocess3(languages){
 }
 
 ////////////////////////// END ////////////////////
-*/
+
 
 ///////////////////////////// appand calc price button + PDF button /////////////////
 
