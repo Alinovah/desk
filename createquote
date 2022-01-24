@@ -410,10 +410,10 @@ for(var k=0;k<customfields.length;k++){
           qc = customfields[k];//.querySelectorAll('div')[1];
        }
  }
-pmvewrification.style.width="120px";
-clientreview.style.width="110px";
-qc.style.width="100px";
-qc.querySelector('div[ng-model="customFieldCtrl.selected"]').style.width = "130px";
+//pmvewrification.style.width="120px";
+//clientreview.style.width="110px";
+//qc.style.width="100px";
+//qc.querySelector('div[ng-model="customFieldCtrl.selected"]').style.width = "130px";
 
 for(var m=0;m<document.querySelectorAll('span[class="checkbox_box"]').length;m++){ 
   document.querySelectorAll('span[class="checkbox_box"]')[m].style.width="17%";
