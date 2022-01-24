@@ -201,7 +201,7 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
   console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", url);
-    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("accept", "*//*");
     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -216,7 +216,7 @@ function changestatus2(url){
     console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", url);
-    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("accept", "*//*");
     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -226,7 +226,7 @@ function changestatus2(url){
             setTimeout(function() {
             var xhr = new XMLHttpRequest();
             xhr.open("PUT", url);
-            xhr.setRequestHeader("accept", "*/*");
+            xhr.setRequestHeader("accept", "*//*");
             xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
@@ -245,7 +245,7 @@ function changestatus2(url){
     console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", url);
-    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("accept", "*//*");
     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -255,7 +255,7 @@ function changestatus2(url){
             setTimeout(function() {
             var xhr = new XMLHttpRequest();
             xhr.open("PUT", url);
-            xhr.setRequestHeader("accept", "*/*");
+            xhr.setRequestHeader("accept", "*//*");
             xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
@@ -265,7 +265,7 @@ function changestatus2(url){
                   setTimeout(function() {
                     var xhr = new XMLHttpRequest();
                     xhr.open("PUT", url);
-                    xhr.setRequestHeader("accept", "*/*");
+                    xhr.setRequestHeader("accept", "*//*");
                     xhr.setRequestHeader("X-AUTH-ACCESS-TOKEN", "WmjKM4LznJhaXfcIoPODbmXx1Y");
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.onreadystatechange = function () {
