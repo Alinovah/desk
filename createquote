@@ -1667,7 +1667,7 @@ button.onclick = selectautomaticeprocess;
 controls.appendChild(button);*/
 
 // // ///////////////////////////// END ////////////////////
-*//*
+/*
 ////////////////////////////////////
 function selectautomaticeprocess(){
   if(document.getElementById('processloader')){
