@@ -128,13 +128,13 @@ if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
 
 
 /////////////////////////// append reset button ////////////////////
-  var controls = $('[class^="controls ng-scope"]')[0];
-  var button = document.createElement("button");
-  button.textContent = "Reset Process";
-  button.className  = "btn ng-scope";
-  button.id  = "resetprocessbutton";
-  button.onclick = resetprocess;
-  controls.appendChild(button);
+  //var controls = $('[class^="controls ng-scope"]')[0];
+  //var button = document.createElement("button");
+  //button.textContent = "Reset Process";
+  //button.className  = "btn ng-scope";
+  //button.id  = "resetprocessbutton";
+  //button.onclick = resetprocess;
+  //controls.appendChild(button);
 ////////////////////////// END /////////////////////////////////// 
 
 //////////////////////////reset process///////////////////////
@@ -773,12 +773,12 @@ function servicetranslationwithsource(pmvewrification,clientreview,qccheck,langu
 
 //////////////////////////revert job///////////////////////
 
-  var controls = $('[class^="controls ng-scope"]')[0];
-  var button = document.createElement("button");
-  button.textContent = "Revert Job";
-  button.className  = "btn ng-scope";
-  button.onclick = revertjob;
-  controls.appendChild(button);
+  //var controls = $('[class^="controls ng-scope"]')[0];
+  //var button = document.createElement("button");
+  //button.textContent = "Revert Job";
+  //button.className  = "btn ng-scope";
+  //button.onclick = revertjob;
+  //controls.appendChild(button);
 
 var count = 50;
 
@@ -1584,8 +1584,8 @@ for(var m=0;m<document.querySelectorAll('span[class="checkbox_box"]').length;m++
   document.querySelectorAll('span[class="checkbox_box"]')[m].style.width="17%";
 }
 var buildbutton = document.getElementById("buildprocessbutton");
-languages_el.append(qc);
-languages_el.append(buildbutton);
+//languages_el.append(qc);
+//languages_el.append(buildbutton);
 }
 
 /////////////////////////////// END ///////////////////////////
