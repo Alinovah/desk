@@ -1808,9 +1808,9 @@ controls.appendChild(button3);
 
 ///////////////////////////// create PDF  //////////////////////////////
 async function createpdf(){
-  //var url = 'http://ebd1-109-66-132-141.ngrok.io/updatefinancenew?pid='+window.assistedProjectId;
-  //var url = 'http://3.121.36.180:7896/updatefinancenew?pid='+window.assistedProjectId;
-  var url = 'http://3.121.36.180:7896/regularquote?pid='+window.assistedProjectId;
+  //var url = 'https://xtrfsubscriptions.ngsub.tv:7896/updatefinancenew?pid='+window.assistedProjectId;
+  //var url = 'https://xtrfsubscriptions.ngsub.tv:7896/updatefinancenew?pid='+window.assistedProjectId;
+  var url = 'https://xtrfsubscriptions.ngsub.tv:7896/regularquote?pid='+window.assistedProjectId;
   
   //window.open(url);
   var popup = window.open(url, "popup", "left=0,top=0,width=0,height=0");
@@ -1822,7 +1822,7 @@ async function createpdf(){
 ///////////////////////////// create General PDF  //////////////////////////////
 async function creategeneralpdfbutton(){
   //https://00c6-79-178-122-16.ngrok.io/generalquote?pid=AF4ZVUR5WFFPZIWY7HPULAE7EI
-  var url = 'http://3.121.36.180:7896/generalquote?pid='+window.assistedProjectId;
+  var url = 'https://xtrfsubscriptions.ngsub.tv:7896/generalquote?pid='+window.assistedProjectId;
   //window.open(url);
   var popup = window.open(url, "popup", "left=0,top=0,width=0,height=0");
   setTimeout(function() {
