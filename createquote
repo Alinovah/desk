@@ -2347,7 +2347,7 @@ if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/customer/browsePriceLis
 }
 ////////////////////////// overallview /////////////////////////////////////
 
-if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/workflowResource/browse.seam"")>-1){
+if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/workflowResource/browse.seam")>-1){
     document.querySelector("h1").remove();
     var content = document.querySelector("div[class='content']");
     content.innerHTML = '<iframe style="position:fixed;" width="95%" height="87%" src="https://xtrfsubscriptions.ngsub.tv:7903/overallview" title="overallview"></iframe>';
