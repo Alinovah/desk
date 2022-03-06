@@ -2345,3 +2345,12 @@ if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/customer/browsePriceLis
   var user = encodeURI(user_raw);
   content.innerHTML = '<iframe style="position:fixed;" width="90%" height="90%" src="https://xtrfsubscriptions.ngsub.tv:7899/calcprice?user='+user+'" title="pricelists"></iframe>';
 }
+////////////////////////// overallview /////////////////////////////////////
+
+if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/workflowResource/browse.seam"")>-1){
+    document.querySelector("h1").remove();
+    var content = document.querySelector("div[class='content']");
+    content.innerHTML = '<iframe style="position:fixed;" width="95%" height="87%" src="https://xtrfsubscriptions.ngsub.tv:7903/overallview" title="overallview"></iframe>';
+}
+
+
