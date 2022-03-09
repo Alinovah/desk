@@ -2352,5 +2352,23 @@ if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/workflowResource/browse
     var content = document.querySelector("div[class='content']");
     content.innerHTML = '<iframe style="position:fixed;" width="95%" height="87%" src="https://xtrfsubscriptions.ngsub.tv:7903/overallview" title="overallview"></iframe>';
 }
+////////////////////////////// vendors capacity ////////////////////////////
+var vendorcapacity = setInterval(function() {
+  if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam")){
+    var div = document.querySelector('div[ng-class="widgetCtrl.classNames"]');
+    if(!div){
+    }else{
+      clearInterval(vendorcapacity);
+      window.addEventListener('message', event => {
+          if (event.origin.startsWith('https://xtrfsubscriptions.ngsub.tv')) { 
+              window.open(event.data, "_blank");
+          } else {
+              return; 
+          } 
+      }); 
+    }
+}
+}, 500);
+
 
 
