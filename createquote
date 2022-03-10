@@ -2353,8 +2353,8 @@ if(currentlink.indexOf("https://desk.ngsub.tv/xtrf/faces/workflowResource/browse
     content.innerHTML = '<iframe style="position:fixed;" width="95%" height="87%" src="https://xtrfsubscriptions.ngsub.tv:7903/overallview" title="overallview"></iframe>';
 }
 ////////////////////////////// vendors capacity ////////////////////////////
+if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam")){
 var vendorcapacity = setInterval(function() {
-  if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam")){
     var div = document.querySelector('div[ng-class="widgetCtrl.classNames"]');
     if(!div){
     }else{
@@ -2367,11 +2367,13 @@ var vendorcapacity = setInterval(function() {
           } 
       }); 
     }
+    }, 500);
 }
-}, 500);
+
 //////////////////////// download invoices //////////////////////////
-var downloadinvoices = setInterval(function() {
+
   if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/providerInvoices/browse.seam")){
+  var downloadinvoices = setInterval(function() {
     var button = document.createElement("button");
     var div = document.querySelector('div[class="x-title-bar__actions"]');
     if(!div){
@@ -2383,8 +2385,9 @@ var downloadinvoices = setInterval(function() {
     button.onclick=()=>{downloadInvoice()};
     div.appendChild(button);
     }
+    }, 500);
 }
-}, 500);
+
 
 async function downloadInvoice(){
   var checkboxes = document.querySelectorAll('input[id^="select-"]');
