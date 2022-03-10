@@ -2437,11 +2437,13 @@ function downloadBase64File(contentType, base64Data, fileName) {
 
 //////////////////////// color vendors who didn't send invoices red //////////////////////////
 if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/providerInvoices/browse.seam")){
+  invoiceVerification();
+  async function invoiceVerification(){
+  var res = await fetch("https://xtrfsubscriptions.ngsub.tv:7903/invoiceverification");
+  var emails = await res.json();
   var invoiceverification = setInterval(async function() {
     var link = location.href;
     if(link.includes("https://desk.ngsub.tv/xtrf/faces/providerInvoices/browse.seam?viewId=8")){
-      var res = await fetch("https://xtrfsubscriptions.ngsub.tv:7903/invoiceverification");
-      var emails = await res.json();
       var table = document.querySelector("table");
       var ths = table.querySelector("thead").querySelectorAll("th");
       var trs = table.querySelector("tbody").querySelectorAll("tr");
@@ -2459,4 +2461,4 @@ if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/providerInvoices/bro
     }
   }, 500);
 }
-
+}
