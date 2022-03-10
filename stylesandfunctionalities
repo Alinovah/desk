@@ -1,0 +1,286 @@
+var interval = setInterval(function () {
+  var location = window.location.href;
+  /////////////////////////
+  //check if inside a job//
+  /////////////////////////
+  var inside_job_location = "https://desk.ngsub.tv/vendors/#/jobs/";
+  if (location.indexOf(inside_job_location) > -1) {
+    //check if job is netflix
+    var job_type = document.querySelector(
+      'dd[class="job-type ng-binding"]'
+    ).innerText;
+    if (job_type == "Netflix") {
+      //change text of submit buttons
+      var partial_finished_button = document.querySelector(
+        "span[translate='JOB.PARTLY_FINISH']"
+      );
+      partial_finished_button.textContent = "Save Uploaded Files";
+      var finished_button = document.querySelector(
+        "span[translate='JOB.FINISH']"
+      );
+      finished_button.textContent = "Confirm Job";
+    }
+  }
+  /////////////////////////
+  //check if on main page//
+  /////////////////////////
+  var main_paje_location = "https://desk.ngsub.tv/vendors/#/jobs";
+  if (location == main_paje_location) {
+    //get in progress table...
+    var table_in_progress = document.querySelector(
+      "table[ng-show='jobs.inProgress.list.length']"
+    );
+    //if table already loaded...
+    if (table_in_progress) {
+      //clearInterval(interval);
+      //change tables names
+      var table_titles = document.querySelectorAll("h2");
+      table_titles.forEach((title) => {
+        if (title.innerText === "Jobs in progress") {
+          title.innerText = "Jobs Pending Your Confirmation";
+        } else if (title.innerText === "Pending Jobs") {
+          title.innerText =
+            "Jobs Pending Netflix Confirmation (no action is needed)";
+        } else if (title.innerText === "Completed Jobs") {
+          title.innerText = "Jobs Confirmed";
+        }
+      });
+
+      //get table and rows...
+      var tbody = table_in_progress.getElementsByTagName("tbody")[0];
+      var thead = table_in_progress
+        .getElementsByTagName("thead")[0]
+        .querySelector("tr");
+      var rows = tbody.getElementsByTagName("tr");
+      // add columns in header
+
+      if (
+        thead
+          .querySelectorAll("th")
+          [thead.querySelectorAll("th").length - 1].querySelector("div")
+          .textContent == "Confirm"
+      ) {
+        // do nothing.
+      } else {
+        var th_confirm = document.createElement("th");
+        var th_price = document.createElement("th");
+        var div_confirm = document.createElement("div");
+        var div_price = document.createElement("div");
+        div_price.textContent = "Rate";
+        div_confirm.textContent = "Confirm";
+        th_confirm.appendChild(div_confirm);
+        th_price.appendChild(div_price);
+        thead.appendChild(th_price);
+        thead.appendChild(th_confirm);
+
+        var div_sum_d = document.createElement("div");
+        div_sum_d.id = "divsumd";
+        div_sum_d.style = "text-align:center;";
+        document
+          .querySelectorAll("thead")[0]
+          .parentElement.parentElement.insertBefore(
+            div_sum_d,
+            document
+              .querySelectorAll("thead")[0]
+              .parentElement.parentElement.querySelector("h2")
+          );
+      }
+      //for each row...
+      //disable click...
+      tbody.className = "disableClick";
+      for (var i = 0; i < rows.length; i++) {
+        var tds = rows[i].getElementsByTagName("td");
+        //if new checkbox already exist...
+        if (
+          tds[tds.length - 1].id.indexOf("checkboxid") > -1 ||
+          tds[1].textContent.trim() != "Netflix"
+        ) {
+          //do nothing
+        } else {
+          //enable click for all but last...
+          for (var j = 0; j < tds.length; j++) {
+            tds[j].className = "enableClick";
+          }
+          //add tr and checkbox...
+          var tr_rate = document.createElement("td");
+          var tr = document.createElement("td");
+          var input = document.createElement("input");
+          input.type = "checkbox";
+          input.style = "accent-color:#442094";
+          tr.id = "checkboxid" + (i + 1);
+          tr_rate.id = "rate" + (i + 1);
+          tr.appendChild(input);
+          rows[i].appendChild(tr_rate);
+          rows[i].appendChild(tr);
+        }
+      }
+    }
+  }
+}, 1000);
+
+async function simulateClick(event) {
+  // Send the event to the checkbox element
+  var inputs = document.querySelectorAll('[id^="checkboxid"]');
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i].querySelector("input");
+    var rect = input.getBoundingClientRect();
+    if (
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom &&
+      input.disabled != true
+    ) {
+      console.log("click");
+      input.checked = !input.checked;
+      var id = inputs[i].id;
+      //here the API call to change the job's status.
+      var jobidelement =
+        input.parentElement.parentElement.getElementsByTagName("td")[0];
+      var jobid = jobidelement.textContent.trim();
+      var position = jobid.lastIndexOf("/");
+      jobid = jobid.substring(0, position);
+      console.log("job id:" + jobid);
+      if (input.checked && input.disabled != true) {
+        input.disabled = true;
+        //API CALL WITH JOB ID
+        var url =
+          "https://xtrfsubscriptions.ngsub.tv:7898/vpconfirmjob?jobid=" + jobid;
+        try {
+          console.log("vpconfirmjob try 1");
+          var res = await fetch(url);
+        } catch (err) {
+          console.error(err);
+          console.log("vpconfirmjob try 2");
+          var res = await fetch(url);
+        }
+
+        if (res.status >= 400) {
+          console.log("vpconfirmjob try 3");
+          var res = await fetch(url);
+        }
+        var content = await res.text();
+        console.log(content);
+        //                 input.parentElement.parentElement.style="display:none;"
+      }
+    }
+  }
+}
+document
+  .getElementsByTagName("html")[0]
+  .addEventListener("click", simulateClick);
+
+var interval2 = setInterval(function () {
+  ///// change nav to purple
+  var nav = document.querySelector("ul[class='main-nav']");
+  if (nav) {
+    nav.style = "background-color:#442094;";
+    var lis = nav.querySelectorAll("li");
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].querySelector("a").style = "background-color:#442094;";
+    }
+    var logo = document.querySelector("div[class='xtrf-nav-logo']");
+    if (logo) {
+      logo.className = "";
+      var image = document.createElement("img");
+      image.src =
+        "https://drive.google.com/uc?id=1ADqKO5Nrc0fz7bXm5R5epbsL9htdoYc6";
+      image.width = "100";
+      logo.appendChild(image);
+    }
+  }
+}, 500);
+
+///// handle on hover for nav bar
+document.onmousemove = handleMouseMove;
+function handleMouseMove(event) {
+  var nav = document.querySelector("ul[class='main-nav']");
+  if (nav) {
+    var lis = nav.querySelectorAll("li");
+    for (var i = 0; i < lis.length; i++) {
+      var rect = lis[i].getBoundingClientRect();
+      if (
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom
+      ) {
+        lis[i].querySelector("a").style = "background-color:rgb(49 23 107);";
+      } else {
+        lis[i].querySelector("a").style = "background-color:#442094;";
+      }
+    }
+  }
+}
+
+var interval3 = setInterval(async function () {
+  var table_in_progress = document.querySelector(
+    "table[ng-show='jobs.inProgress.list.length']"
+  );
+  //if table already loaded...
+  if (table_in_progress) {
+    //get table and rows...
+    var tr_rates = [];
+    var sum = 0;
+    var tr_rates = document.querySelectorAll("[id^='rate']");
+    for (var i = 0; i < tr_rates.length; i++) {
+      if (tr_rates[i].textContent == "") {
+        getRate(tr_rates[i]);
+      } else {
+        var rate_in_string = tr_rates[i].textContent.substring(
+          0,
+          tr_rates[i].textContent.length - 1
+        );
+        var rate_in_number = Number(rate_in_string);
+        sum = sum + rate_in_number;
+      }
+    }
+    if (document.getElementById("divsumd")) {
+      document.getElementById("divsumd").innerHTML =
+        "Total unconfirmed sum <b>on this page</b> Netflix: $" + sum.toFixed(2);
+    }
+    //console.log(sum);
+  }
+}, 500);
+
+async function getRate(tr_rate) {
+  if (tr_rate.textContent != "") {
+  } else {
+    var jobidelement = tr_rate.parentElement.getElementsByTagName("td")[0];
+    var jobid = jobidelement.textContent.trim();
+    var position = jobid.lastIndexOf("/");
+    jobid = jobid.substring(0, position);
+    var url =
+      "https://xtrfsubscriptions.ngsub.tv:7898/vpgetrate?jobid=" + jobid;
+    try {
+      console.log("VPgetRate try 1");
+      var res = await fetch(url);
+    } catch (err) {
+      console.error(err);
+      console.log("VPgetRate try 2");
+      var res = await fetch(url);
+    }
+
+    if (res.status >= 400) {
+      console.log("VPgetRate try 3");
+      var res = await fetch(url);
+    }
+    var content = await res.text();
+    console.log(res);
+    tr_rate.textContent = content;
+  }
+}
+
+setInterval(function () {
+  var location = window.location.href;
+  var main_paje_location = "https://desk.ngsub.tv/vendors/#/jobs";
+  if (location == main_paje_location) {
+    //hide invoice buttons
+    var buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+      if (button.innerText === "Add New Invoice") {
+        button.style.display = "none";
+      }
+    });
+  }
+}, 200);
