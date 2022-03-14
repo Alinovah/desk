@@ -1778,7 +1778,7 @@ function resetprocess3(languages){
 
 if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 
-var controls = $('[class^="controls ng-scope"]')[0];
+/*var controls = $('[class^="controls ng-scope"]')[0];
 var button = document.createElement("button");
 button.textContent = "Calc Price";
 button.className  = "btn ng-scope";
@@ -1800,7 +1800,7 @@ button3.textContent = "Create General PDF";
 button3.className  = "btn ng-scope";
 button3.id  = "creategeneralpdfbutton";
 button3.onclick = creategeneralpdfbutton;
-controls.appendChild(button3);
+controls.appendChild(button3);*/
 
 }
 
