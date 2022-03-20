@@ -2497,24 +2497,24 @@ function downloadBase64File(contentType, base64Data, fileName) {
 }
 
 ///////////////////////////////////// add payables form ////////////////////////////////////////
-  if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/activity/browse.seam?viewId=592")){
+   if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/activity/browse.seam?viewId=592")){
   var add_payable = setInterval(function() {
-    var bar = $('[class^="x-title-bar__actions"]')[0];
-    if(bar){
+    var buttons_bar = $('[class^="x-title-bar__actions"]')[0];
+    if(buttons_bar){
       clearInterval(add_payable);
-      var button = document.createElement("button");
-      button.textContent = "Add Payable";
-      button.style.marginRight = "10px";
-      button.onclick = addpayable;
-      button.className  = "dropdown-toggle x-btn --large ng-scope";
-      button.id  = "add-payable-button";
-      bar.prepend(button);
+      var add_payables_button = document.createElement("button");
+      add_payables_button.textContent = "Add Payable";
+      add_payables_button.style.marginRight = "10px";
+      add_payables_button.onclick = addpayable;
+      add_payables_button.className  = "dropdown-toggle x-btn --large ng-scope";
+      add_payables_button.id  = "add-payable-button";
+      buttons_bar.prepend(add_payables_button);
       var div = document.createElement("div");
-      var x = document.createElement("button");
-      x.innerText = "X";
-      x.style = "margin:10px;width: 25px;align-self: flex-end;"
-      x.onclick = hidepayableform;
-      div.appendChild(x);
+      var x_button = document.createElement("button");
+      x_button.innerText = "X";
+      x_button.style = "margin:10px;width: 25px;align-self: flex-end;"
+      x_button.onclick = hidepayableform;
+      div.appendChild(x_button);
       div.id="add-payable-form";
       div.style = "padding-bottom:30px;padding-left:30px;flex-direction: column;transform: translate(-50%, 0%);display:none;justify-content:center;width: 500px; position: fixed; top:50%; left:50%; background-color:#ffffff;z-index:1;box-shadow: 0 0 9px 0";
       document.body.appendChild(div);
@@ -2559,28 +2559,41 @@ async function addpayable(){
   var selected = document.querySelectorAll("tr[class='x-table__row --selected']");
   var ids = [];
   var types = [];
+  var payables = [];
   var ths = document.querySelectorAll("th");
-  var index = 0;
+  var index_job_type = 0;
+  var index_payable = 0;
   for(var i=0;i<ths.length;i++){
     if(ths[i].querySelector("span")){
       if(ths[i].querySelector("span").innerText.trim()=="Job Type"){
-        index=i;
+        index_job_type=i;
+      }
+      if(ths[i].querySelector("span").innerText.trim()=="Total Cost"){
+        index_payable=i;
       }
     }
   };
   for(var i=0;i<selected.length;i++){
     var tds = selected[i].querySelectorAll("td");
     ids.push(tds[0].querySelector("input").id.substring(7,tds[0].querySelector("input").id.length));
-    types.push(tds[index].querySelector("div").querySelector("div").innerText);
+    types.push(tds[index_job_type].querySelector("div").querySelector("div").innerText);
+    payables.push(tds[index_payable].querySelector("div").querySelector("div").innerText);
   }
-  var flag = true;
+  var flag_type = true;
+  var flag_payables = true;
   var type = types[0];
   for(var i=0;i<types.length;i++){
     if(types[i]!=type){
-      flag=false;
+      flag_type=false;
+      break;
+    }
+    if(parseFloat(payables[i])>0){
+      flag_payables=false;
+      break;
     }
   }
-  if(flag){
+  // console.log(flag_type,flag_payables);
+  if(flag_type&&flag_payables){
     var calcunit_raw = await fetch("https://xtrfsubscriptions.ngsub.tv:7903/getjobtypes?type="+type);
     var calcUnit = await calcunit_raw.json();
     var payableform = document.getElementById("add-payable-form");
@@ -2595,7 +2608,11 @@ async function addpayable(){
     }
     document.getElementById("submit-payables").onclick = ()=>{submittedpayable(ids)};
   }else{
-    alert("Mixed Job Types. Please select jobs with the same type only.");
+    if(!flag_payables){
+      alert("One of the selected jobs already have a payable. Please remove first and try again.");
+    }else{
+      alert("Mixed Job Types. Please select jobs with the same type only.");
+    }
   }
 }
 
@@ -2618,7 +2635,6 @@ async function submittedpayable(ids){
   }
   await fetch("https://xtrfsubscriptions.ngsub.tv:7903/addpayables",options);
 }
-
 
 
 
