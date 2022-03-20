@@ -2407,7 +2407,7 @@ async function downloadInvoice(){
     }
   }
   //var url = "https://3.67.142.122:7903/getinvoice";
-  var url = "https://e602-89-208-5-57.ngrok.io/getinvoice";
+  var url = "https://https://desk.ngsub.tv:7903/getinvoice";
   
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
