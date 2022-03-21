@@ -1,11 +1,16 @@
 var ui_G = "";
 
 var getui = setInterval(async function () {
+  let email_container = document.querySelector("span[class*='email']");
+  if (email_container) {
     clearInterval(getui);
-    let email = document.querySelector("span[class*='email']").innerText;    
-    let ui = await fetch("https://xtrfsubscriptions.ngsub.tv:7903/getui?id="+email);
+    let email = email_container.innerText;
+    let ui = await fetch(
+      "https://xtrfsubscriptions.ngsub.tv:7903/getui?id=" + email
+    );
     ui_G = ui;
-},500);
+  }
+}, 500);
 
 
 var interval = setInterval( function () {
