@@ -2418,7 +2418,7 @@ async function downloadInvoice(){
     if (xhr.readyState === 4) {
         var links = xhr.responseText;
         if(!links.includes("missing")){
-        if(ids_clean.length==1){
+        if(ids_clean.length==2){
           links = JSON.parse(links);
           downloadBase64File("application/pdf",links[0],links[1].toString());
         }else{
