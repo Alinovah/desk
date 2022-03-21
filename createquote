@@ -2406,8 +2406,8 @@ async function downloadInvoice(){
       ids_clean.push(ids[i].substring(ids[i].indexOf("-")+1,ids[i].length));
     }
   }
-  //var url = "https://3.67.142.122:7903/getinvoice";
   var url = "https://desk.ngsub.tv:7903/getinvoice";
+  //var url = "https://4fac-89-208-5-57.ngrok.io/getinvoice";
   
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
@@ -2417,14 +2417,35 @@ async function downloadInvoice(){
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
         var links = xhr.responseText;
+        if(!links.includes("missing")){
         if(ids_clean.length==1){
           links = JSON.parse(links);
           downloadBase64File("application/pdf",links[0],links[1].toString());
         }else{
           downloadBase64File("application/zip",links,"invoices.zip");
+        }
+      }else{
+        var error = JSON.parse(links)[1];
+        var row = document.querySelector("input[id='select-"+error+"']").parentElement.parentElement;
+        var id = "";
+        var ths = document.querySelectorAll("th");
+        var index_invoice_number = 0;
+        for(var i=0;i<ths.length;i++){
+          if(ths[i].querySelector("span")){
+            if(ths[i].querySelector("span").innerText.trim()=="Internal Number"){
+              index_invoice_number=i;
+            }
+          }
+        };
+        var tds = row.querySelectorAll("td");
+        id = tds[index_invoice_number].querySelector("div").querySelector("div").innerText
+        console.log(id);
+        alert(`Invoice `+id+` is missing the file. Pleaser change status back to "Sent".`);
       }
     }  
   }  
+  ids_clean.unshift(ids_clean.length);
+  console.log(ids_clean);
   xhr.send(JSON.stringify(ids_clean));
 }
 
@@ -2435,6 +2456,7 @@ function downloadBase64File(contentType, base64Data, fileName) {
    downloadLink.download = fileName;
    downloadLink.click();
 }
+
 
 //////////////////////// color vendors who didn't send invoices red //////////////////////////
 if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/providerInvoices/browse.seam")){
