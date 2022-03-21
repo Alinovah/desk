@@ -2659,6 +2659,37 @@ async function submittedpayable(ids){
 }
 
 
+// //////////////////////// add margin view //////////////////////////
+
+  if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/reports2/")||location.href.includes("https://desk.ngsub.tv/xtrf/faces/reports/")||location.href.includes("https://desk.ngsub.tv/xtrf/faces/cashFlow/")){
+    var marginview = setInterval(function() {
+      var ul = document.querySelectorAll("ul")[6];
+      if(ul){
+        clearInterval(marginview);
+        var li = document.createElement("li");
+        li.innerHTML = "Margin View";
+        li.style.padding = "13px";
+        if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/cashFlow/")){
+          li.style.padding = "3px";
+        }
+        li.onclick = (e)=>{showMargin(e.target)};
+        ul.appendChild(li);
+      }
+    }, 500);
+}
+
+function showMargin(target){
+  console.log(target);
+  var lis = target.parentElement.querySelectorAll("li");
+  lis.forEach((li)=>{
+    li.classList.remove("active");
+  });
+  target.classList.add("active");
+  target.style.padding = "3px";
+  document.querySelector("h1").remove();
+  var content = document.querySelector("div[class='content']");
+  content.innerHTML = '<iframe style="position:fixed;" width="95%" height="87%" src="https://xtrfsubscriptions.ngsub.tv:7903/roireport" title="Margin View"></iframe>';
+}
 
 
 
