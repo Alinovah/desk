@@ -1,4 +1,8 @@
 var interval = setInterval(function () {
+
+  let email = document.querySelector("span[class*='email']");
+  console.log(email.innerText);
+  
   var location = window.location.href;
   /////////////////////////
   //check if inside a job//
