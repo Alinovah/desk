@@ -8,6 +8,7 @@ var getui = setInterval(async function () {
     let ui = await fetch(
       "https://xtrfsubscriptions.ngsub.tv:7903/getui?id=" + email
     );
+    let ui = await ui_res.json();
     ui_G = ui;
     console.log(ui);
   }
