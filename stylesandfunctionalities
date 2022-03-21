@@ -5,7 +5,7 @@ var getui = setInterval(async function () {
   if (email_container) {
     clearInterval(getui);
     let email = email_container.innerText;
-    let ui = await fetch(
+    let ui_res = await fetch(
       "https://xtrfsubscriptions.ngsub.tv:7903/getui?id=" + email
     );
     let ui = await ui_res.json();
