@@ -9,6 +9,7 @@ var getui = setInterval(async function () {
       "https://xtrfsubscriptions.ngsub.tv:7903/getui?id=" + email
     );
     ui_G = ui;
+    console.log(ui);
   }
 }, 500);
 
