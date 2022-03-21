@@ -1,5 +1,4 @@
-alert("script loaded");
-/*var interval = setInterval(function () {
+var interval = setInterval(function () {
   var location = window.location.href;
   /////////////////////////
   //check if inside a job//
@@ -286,4 +285,4 @@ setInterval(function () {
       }
     });
   }
-}, 200);*/
+}, 200);
