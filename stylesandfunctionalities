@@ -133,7 +133,7 @@ async function simulateClick(event) {
       event.clientY <= rect.bottom &&
       input.disabled != true
     ) {
-      console.log("click");
+      //console.log("click");
       input.checked = !input.checked;
       var id = inputs[i].id;
       //here the API call to change the job's status.
@@ -142,27 +142,27 @@ async function simulateClick(event) {
       var jobid = jobidelement.textContent.trim();
       var position = jobid.lastIndexOf("/");
       jobid = jobid.substring(0, position);
-      console.log("job id:" + jobid);
+      //console.log("job id:" + jobid);
       if (input.checked && input.disabled != true) {
         input.disabled = true;
         //API CALL WITH JOB ID
         var url =
           "https://xtrfsubscriptions.ngsub.tv:7898/vpconfirmjob?jobid=" + jobid;
         try {
-          console.log("vpconfirmjob try 1");
+          //console.log("vpconfirmjob try 1");
           var res = await fetch(url);
         } catch (err) {
           console.error(err);
-          console.log("vpconfirmjob try 2");
+          //console.log("vpconfirmjob try 2");
           var res = await fetch(url);
         }
 
         if (res.status >= 400) {
-          console.log("vpconfirmjob try 3");
+          //console.log("vpconfirmjob try 3");
           var res = await fetch(url);
         }
         var content = await res.text();
-        console.log(content);
+        //console.log(content);
         //                 input.parentElement.parentElement.style="display:none;"
       }
     }
@@ -255,20 +255,20 @@ async function getRate(tr_rate) {
     var url =
       "https://xtrfsubscriptions.ngsub.tv:7898/vpgetrate?jobid=" + jobid;
     try {
-      console.log("VPgetRate try 1");
+      //console.log("VPgetRate try 1");
       var res = await fetch(url);
     } catch (err) {
       console.error(err);
-      console.log("VPgetRate try 2");
+      //console.log("VPgetRate try 2");
       var res = await fetch(url);
     }
 
     if (res.status >= 400) {
-      console.log("VPgetRate try 3");
+      //console.log("VPgetRate try 3");
       var res = await fetch(url);
     }
     var content = await res.text();
-    console.log(res);
+    //console.log(res);
     tr_rate.textContent = content;
   }
 }
