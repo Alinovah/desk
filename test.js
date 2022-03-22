@@ -1,1 +1,1 @@
-alert("Apache Insertion!")
+console.log("Apache Insertion!")
