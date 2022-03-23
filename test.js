@@ -143,5 +143,137 @@ async function start(ui) {
         }
       }
     }, 1000);
+
+    document
+      .getElementsByTagName("html")[0]
+      .addEventListener("click", simulateClick);
+
+    //### add total sum ###
+    var interval3 = setInterval(async function () {
+      var table_in_progress = document.querySelector(
+        "table[ng-show='jobs.inProgress.list.length']"
+      );
+      //if table already loaded...
+      if (table_in_progress) {
+        //get table and rows...
+        var tr_rates = [];
+        var sum = 0;
+        var tr_rates = document.querySelectorAll("[id^='rate']");
+        for (var i = 0; i < tr_rates.length; i++) {
+          if (tr_rates[i].textContent == "") {
+            getRate(tr_rates[i]);
+          } else {
+            var rate_in_string = tr_rates[i].textContent.substring(
+              0,
+              tr_rates[i].textContent.length - 1
+            );
+            var rate_in_number = Number(rate_in_string);
+            sum = sum + rate_in_number;
+          }
+        }
+        if (document.getElementById("divsumd")) {
+          document.getElementById("divsumd").innerHTML =
+            "Total unconfirmed sum <b>on this page</b> Netflix: $" +
+            sum.toFixed(2);
+        }
+        //console.log(sum);
+      }
+    }, 500);
+
+    //### hide invoice buttons ###
+    setInterval(function () {
+      var location = window.location.href;
+      var main_paje_location = "https://desk.ngsub.tv/vendors/#/jobs";
+      if (location == main_paje_location) {
+        //hide invoice buttons
+        var buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => {
+          if (button.innerText === "Add New Invoice") {
+            button.style.display = "none";
+          }
+        });
+      }
+    }, 200);
   }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+async function simulateClick(event) {
+  // Send the event to the checkbox element
+  var inputs = document.querySelectorAll('[id^="checkboxid"]');
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i].querySelector("input");
+    var rect = input.getBoundingClientRect();
+    if (
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom &&
+      input.disabled != true
+    ) {
+      //console.log("click");
+      input.checked = !input.checked;
+      var id = inputs[i].id;
+      //here the API call to change the job's status.
+      var jobidelement =
+        input.parentElement.parentElement.getElementsByTagName("td")[0];
+      var jobid = jobidelement.textContent.trim();
+      var position = jobid.lastIndexOf("/");
+      jobid = jobid.substring(0, position);
+      //console.log("job id:" + jobid);
+      if (input.checked && input.disabled != true) {
+        input.disabled = true;
+        //API CALL WITH JOB ID
+        var url =
+          "https://xtrfsubscriptions.ngsub.tv:7898/vpconfirmjob?jobid=" + jobid;
+        try {
+          //console.log("vpconfirmjob try 1");
+          var res = await fetch(url);
+        } catch (err) {
+          console.error(err);
+          //console.log("vpconfirmjob try 2");
+          var res = await fetch(url);
+        }
+        if (res.status >= 400) {
+          //console.log("vpconfirmjob try 3");
+          var res = await fetch(url);
+        }
+        var content = await res.text();
+        //console.log(content);
+        //input.parentElement.parentElement.style="display:none;"
+      }
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+async function getRate(tr_rate) {
+  if (tr_rate.textContent != "") {
+  } else {
+    var jobidelement = tr_rate.parentElement.getElementsByTagName("td")[0];
+    var jobid = jobidelement.textContent.trim();
+    var position = jobid.lastIndexOf("/");
+    jobid = jobid.substring(0, position);
+    var url =
+      "https://xtrfsubscriptions.ngsub.tv:7898/vpgetrate?jobid=" + jobid;
+    try {
+      //console.log("VPgetRate try 1");
+      var res = await fetch(url);
+    } catch (err) {
+      console.error(err);
+      //console.log("VPgetRate try 2");
+      var res = await fetch(url);
+    }
+    if (res.status >= 400) {
+      //console.log("VPgetRate try 3");
+      var res = await fetch(url);
+    }
+    var content = await res.text();
+    //console.log(res);
+    tr_rate.textContent = content;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
