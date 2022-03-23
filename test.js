@@ -50,6 +50,98 @@ async function start(ui) {
             finished_button.textContent = "Confirm Job";
           }
         }
+      }
+      //############### check if main page #################
+      let main_paje_location = "https://desk.ngsub.tv/vendors/#/jobs";
+      if (location == main_paje_location) {
+        //### get "in progress" table ###
+        let table_in_progress = document.querySelector(
+          "table[ng-show='jobs.inProgress.list.length']"
+        );
+        //### check if table already loaded ###
+        if (table_in_progress) {
+          //### change tables names ###
+          let table_titles = document.querySelectorAll("h2");
+          table_titles.forEach((title) => {
+            if (title.innerText === "Jobs in progress") {
+              title.innerText = "Jobs Pending Your Confirmation";
+            } else if (title.innerText === "Pending Jobs") {
+              title.innerText =
+                "Jobs Pending Netflix Confirmation (no action is needed)";
+            } else if (title.innerText === "Completed Jobs") {
+              title.innerText = "Jobs Confirmed";
+            }
+          });
+          //### get table and rows ###
+          let tbody = table_in_progress.getElementsByTagName("tbody")[0];
+          let thead = table_in_progress
+            .getElementsByTagName("thead")[0]
+            .querySelector("tr");
+          let rows = tbody.getElementsByTagName("tr");
+          //### add columns in header ###
+          if (
+            thead
+              .querySelectorAll("th")
+              [thead.querySelectorAll("th").length - 1].querySelector("div")
+              .textContent == "Confirm"
+          ) {
+            //### do nothing ###
+          } else {
+            let th_confirm = document.createElement("th");
+            let th_price = document.createElement("th");
+            let div_confirm = document.createElement("div");
+            let div_price = document.createElement("div");
+            div_price.textContent = "Rate";
+            div_confirm.textContent = "Confirm";
+            th_confirm.appendChild(div_confirm);
+            th_price.appendChild(div_price);
+            thead.appendChild(th_price);
+            thead.appendChild(th_confirm);
+            let div_sum_d = document.createElement("div");
+            div_sum_d.id = "divsumd";
+            div_sum_d.style = "text-align:center;";
+            document
+              .querySelectorAll("thead")[0]
+              .parentElement.parentElement.insertBefore(
+                div_sum_d,
+                document
+                  .querySelectorAll("thead")[0]
+                  .parentElement.parentElement.querySelector("h2")
+              );
+          }
+          //### for each row ###
+          //### disable click ###
+          tbody.className = "disableClick";
+          tbody.style.pointerEvents = "none";
+          for (let i = 0; i < rows.length; i++) {
+            let tds = rows[i].getElementsByTagName("td");
+            //### if new checkbox already exist ###
+            if (
+              tds[tds.length - 1].id.indexOf("checkboxid") > -1 ||
+              tds[1].textContent.trim() != "Netflix"
+            ) {
+              //### do nothing ###
+            } else {
+              //### enable click for all but last ###
+              for (let j = 0; j < tds.length; j++) {
+                tds[j].className = "enableClick";
+                tds[j].style.pointerEvents = "auto";
+              }
+              //### add tr and checkbox ###
+              let tr_rate = document.createElement("td");
+              let tr = document.createElement("td");
+              let input = document.createElement("input");
+              input.type = "checkbox";
+              input.style = "accent-color:#442094";
+              tr.id = "checkboxid" + (i + 1);
+              tr_rate.id = "rate" + (i + 1);
+              tr.appendChild(input);
+              rows[i].appendChild(tr_rate);
+              rows[i].appendChild(tr);
+            }
+          }
+        }
+      }
     }, 1000);
   }
 }
