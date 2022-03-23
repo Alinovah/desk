@@ -1,4 +1,4 @@
-console.log("Apache Insertion!")
+console.log("External Script Loaded")
 var ui_G = "";
 var currentlink = window.location.href;
 console.log(currentlink);
