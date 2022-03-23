@@ -35,19 +35,21 @@ async function start(ui) {
         //### check if job is netflix ###
         let job_type = document.querySelector(
           'dd[class="job-type ng-binding"]'
-        ).innerText;
-        if (job_type == "Netflix") {
-          //### change text of submit buttons ###
-          let partial_finished_button = document.querySelector(
-            "span[translate='JOB.PARTLY_FINISH']"
-          );
-          partial_finished_button.textContent = "Save Uploaded Files";
-          let finished_button = document.querySelector(
-            "span[translate='JOB.FINISH']"
-          );
-          finished_button.textContent = "Confirm Job";
+        );
+        if (job_type) {
+          job_type = job_type.innerText;
+          if (job_type == "Netflix") {
+            //### change text of submit buttons ###
+            let partial_finished_button = document.querySelector(
+              "span[translate='JOB.PARTLY_FINISH']"
+            );
+            partial_finished_button.textContent = "Save Uploaded Files";
+            let finished_button = document.querySelector(
+              "span[translate='JOB.FINISH']"
+            );
+            finished_button.textContent = "Confirm Job";
+          }
         }
-      }
     }, 1000);
   }
 }
