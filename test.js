@@ -120,7 +120,11 @@ async function start(ui) {
               tds[tds.length - 1].id.indexOf("checkboxid") > -1 ||
               tds[1].textContent.trim() != "Netflix"
             ) {
-              //### do nothing ###
+              //### enable click for all ###
+              for (let j = 0; j < tds.length; j++) {
+                tds[j].className = "enableClick";
+                tds[j].style.pointerEvents = "auto";
+              }
             } else {
               //### enable click for all but last ###
               for (let j = 0; j < tds.length; j++) {
