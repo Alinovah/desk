@@ -215,27 +215,27 @@ async function start(ui) {
     //}, 500);
 
     ///// handle on hover for nav bar
-    document.onmousemove = handleMouseMove;
-    function handleMouseMove(event) {
-      var nav = document.querySelector("ul[class='main-nav']");
-      if (nav) {
-        var lis = nav.querySelectorAll("li");
-        for (var i = 0; i < lis.length; i++) {
-          var rect = lis[i].getBoundingClientRect();
-          if (
-            event.clientX >= rect.left &&
-            event.clientX <= rect.right &&
-            event.clientY >= rect.top &&
-            event.clientY <= rect.bottom
-          ) {
-            lis[i].querySelector("a").style =
-              "background-color:rgb(49 23 107);";
-          } else {
-            lis[i].querySelector("a").style = "background-color:#442094;";
-          }
-        }
-      }
-    }
+    //document.onmousemove = handleMouseMove;
+    //function handleMouseMove(event) {
+      //var nav = document.querySelector("ul[class='main-nav']");
+      //if (nav) {
+        //var lis = nav.querySelectorAll("li");
+        //for (var i = 0; i < lis.length; i++) {
+          //var rect = lis[i].getBoundingClientRect();
+          //if (
+          //  event.clientX >= rect.left &&
+          //  event.clientX <= rect.right &&
+          //  event.clientY >= rect.top &&
+          //  event.clientY <= rect.bottom
+          //) {
+            //lis[i].querySelector("a").style =
+              //"background-color:rgb(49 23 107);";
+          //} else {
+            //lis[i].querySelector("a").style = "background-color:#442094;";
+          //}
+        //}
+      //}
+    //}
 
     var interval3 = setInterval(async function () {
       var table_in_progress = document.querySelector(
