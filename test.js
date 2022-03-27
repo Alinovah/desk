@@ -2,9 +2,9 @@ console.log("External Script Loaded");
 var ui_G = "";
 var currentlink = window.location.href;
 console.log(currentlink);
-################################################################
+//################################################################
 //###################### Home Portal ###########################
-################################################################
+//################################################################
   if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam")){
     let duplicateprojects_interval = setInterval(function() {
       let buttons_bar = document.querySelector("div[class='x-title-bar__actions']");
@@ -94,9 +94,9 @@ function postDuplicateProjects(){
   }
 }
 
-################################################################
+//################################################################
 //####################### vendor portal #########################
-################################################################
+//################################################################
 if (currentlink.includes("https://desk.ngsub.tv/vendors/")) {
   console.log("vendor portal");
   //####################### get the ui #########################
