@@ -145,6 +145,14 @@ async function start(ui) {
           }
         }
       }
+      //############### check if inside invoices #################
+      let inside_invoices_location = "https://desk.ngsub.tv/vendors/#/invoices";
+      if (location.includes(inside_invoices_location)) {
+        //### hide new invoice button ###
+        document.querySelector(
+          'a[ui-sref="portal.invoices.new-invoice"]'
+        ).style.display = "none";
+      }
       //############### check if main page #################
       let main_paje_location = "https://desk.ngsub.tv/vendors/#/jobs";
       if (location == main_paje_location) {
