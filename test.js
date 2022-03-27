@@ -216,8 +216,8 @@ async function start(ui) {
             ) {
               //### enable click for all ###
               for (let j = 0; j < tds.length; j++) {
-                tds[j].className = "enableClick";
-                tds[j].style.pointerEvents = "auto";
+//                 tds[j].className = "enableClick";
+//                 tds[j].style.pointerEvents = "auto";
               }
             } else {
               //### enable click for all but last ###
