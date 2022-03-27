@@ -304,7 +304,7 @@ async function start(ui) {
           'a[ui-sref="portal.invoices.new-invoice"]'
         ).style.display = "none";
       }
-    }, 200);
+    }, 100);
   }
 }
 
