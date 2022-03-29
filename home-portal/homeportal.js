@@ -1,3 +1,10 @@
+
+(()=>{let home_portal_script = document.createElement("script");
+home_portal_script.type = "text/javascript";
+home_portal_script.src = "https://alinovah.github.io/desk/home-portal/test.js";
+document.querySelector("body").appendChild(home_portal_script);})();
+
+
 //////////////////////// generate masspayment ////////////////////////////////
   if(location.href.includes("https://desk.ngsub.tv/xtrf/faces/providerInvoices/browse.seam")){
   let createselfinvoice_interval = setInterval(function() {
