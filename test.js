@@ -2,13 +2,13 @@ console.log("External Script Loaded");
 var ui_G = "";
 var currentlink = window.location.href;
 console.log(currentlink);
-//### home portal ###///
+//### home portal ###
 if (currentlink.includes("https://desk.ngsub.tv/xtrf/faces/")) {
   let script = document.createElement("script");
   script.src = "https://alinovah.github.io/desk/homeportal.js";
   script.setAttribute("nonce", "lkanerfkjn");
   script.type = "text/javascript";
-  document.contentDocument.querySelector("body").appendChild(script);
+  document.querySelector("body").appendChild(script);
 }
 
 if (currentlink.includes("https://desk.ngsub.tv/vendors/")) {
