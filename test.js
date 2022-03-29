@@ -8,7 +8,7 @@ script.type = "text/javascript";
 //### home portal ###
 if (currentlink_G.includes("https://desk.ngsub.tv/xtrf/faces/")) {
   console.log("home portal");
-  script.src = "https://alinovah.github.io/desk/homeportal.js";
+  script.src = "https://alinovah.github.io/desk/home-portal/homeportal.js";
   document.querySelector("body").appendChild(script);
 }
 //### vendor portal ###
