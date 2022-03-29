@@ -65,11 +65,11 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
       let tr = document.createElement("tr");
       let td = document.createElement("td");
       div.appendChild(container);
-      let tr = document.createElement("tr");
-      let td = document.createElement("td");
+      tr = document.createElement("tr");
+      td = document.createElement("td");
       td.innerText = "Times:";
       tr.appendChild(td);
-      let td = document.createElement("td");
+      td = document.createElement("td");
       let input = document.createElement("input");
       input.id = "duplicate-times";
       input.type = "number";
