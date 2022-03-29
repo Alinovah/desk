@@ -2,7 +2,6 @@ var ui_G = "";
 var currentlink = window.location.href;
 
 if (currentlink.includes("https://desk.ngsub.tv/vendors/")) {
-  console.log("vendor portal");
   //####################### get the ui #########################
   let getui = setInterval(async function () {
     let email_container = document.querySelector("span[class*='email']");
