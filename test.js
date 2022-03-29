@@ -1,7 +1,7 @@
 console.log("External Script Loaded");
+let currentlink = window.location.href;
 console.log(currentlink);
 
-let currentlink = window.location.href;
 let script = document.createElement("script");
 script.type = "text/javascript";
 
