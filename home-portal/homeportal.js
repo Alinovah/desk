@@ -3,7 +3,7 @@
   appendScript("https://alinovah.github.io/desk/home-portal/project/duplicate_project.js");
   appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/fix_stuck_after_receivable.js");
   appendScript("https://alinovah.github.io/desk/home-portal/customer/color_red.js");
-}).();
+})();
 
 /////////////////////// append script //////////////////////
 function appendScript(url){
