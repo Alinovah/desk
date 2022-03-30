@@ -1,4 +1,3 @@
- 
 if(window.location.href.substring(window.location.href.length-63,window.location.href.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
   console.log("bad url");
   var redirect = window.location.href.substring(0,window.location.href.length-69);
