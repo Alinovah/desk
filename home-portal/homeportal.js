@@ -1,4 +1,3 @@
-
 //////////////////////// generate selfinvoice ////////////////////////////////
 (()=>{let home_portal_script = document.createElement("script");
 home_portal_script.type = "text/javascript";
