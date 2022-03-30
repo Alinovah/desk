@@ -1,23 +1,14 @@
-//////////////////////// generate selfinvoice ////////////////////////////////
-(()=>{let home_portal_script = document.createElement("script");
-home_portal_script.type = "text/javascript";
-home_portal_script.src = "https://alinovah.github.io/desk/home-portal/invoice/self_invoice.js";
-document.querySelector("body").appendChild(home_portal_script);})();
+(()=>{
+  appendScript("https://alinovah.github.io/desk/home-portal/invoice/self_invoice.js");
+  appendScript("https://alinovah.github.io/desk/home-portal/project/duplicate_project.js");
+  appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/fix_stuck_after_receivable.js");
+  appendScript("https://alinovah.github.io/desk/home-portal/customer/color_red.js");
+}).();
 
-//////////////////////// duplicate project //////////////////////////
-(()=>{let home_portal_script = document.createElement("script");
-home_portal_script.type = "text/javascript";
-home_portal_script.src = "https://alinovah.github.io/desk/home-portal/project/duplicate_project.js";
-document.querySelector("body").appendChild(home_portal_script);})();
-
-////////////////////////// fix stuck after receivables quote or project /////////////////////
-(()=>{let home_portal_script = document.createElement("script");
-home_portal_script.type = "text/javascript";
-home_portal_script.src = "https://alinovah.github.io/desk/home-portal/project_and_quote/fix_stuck_after_receivable.js";
-document.querySelector("body").appendChild(home_portal_script);})();
-
-///////////////////////// color important red customer profile///////////////////////////
-(()=>{let home_portal_script = document.createElement("script");
-home_portal_script.type = "text/javascript";
-home_portal_script.src = "https://alinovah.github.io/desk/home-portal/customer/color_red.js";
-document.querySelector("body").appendChild(home_portal_script);})();
+/////////////////////// append script //////////////////////
+function appendScript(url){
+  let script = document.createElement("script")
+  script.type = "text/javascript";
+  script.src = url";
+  document.querySelector("body").appendChild(script);
+}
