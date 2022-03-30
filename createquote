@@ -1,18 +1,3 @@
- 
-var currentlink = window.location.href;
-////////////////////////// fix stuck after receivables quote or project /////////////////////
-if(currentlink.substring(currentlink.length-63,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/quote"){
-  console.log("bad url");
-  var redirect = currentlink.substring(0,currentlink.length-69);
-  console.log(redirect);
-  window.location = redirect;
-}
-if(currentlink.substring(currentlink.length-65,currentlink.length)=="paFinancePanel%3AformWithPanels%3AreceivablesTab&action=#/project"){ 
-   console.log("bad url");
-   var redirect = currentlink.substring(0,currentlink.length-71);
-   console.log(redirect);
-   window.location = redirect;
-}   
 ///////////////////////////////////// in customer profile ///////////////////////////////////////////////
 
 if(currentlink.substring(0,51)=='https://desk.ngsub.tv/xtrf/faces/customer/form.seam'){  
