@@ -1,3 +1,4 @@
+let currentlink = window.location.href;
 ///////////////////////////////////// in customer profile ///////////////////////////////////////////////
 
 if(currentlink.substring(0,51)=='https://desk.ngsub.tv/xtrf/faces/customer/form.seam'){  
