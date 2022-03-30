@@ -9,6 +9,6 @@
 function appendScript(url){
   let script = document.createElement("script")
   script.type = "text/javascript";
-  script.src = url";
+  script.src = url;
   document.querySelector("body").appendChild(script);
 }
