@@ -15,3 +15,9 @@ document.querySelector("body").appendChild(home_portal_script);})();
 home_portal_script.type = "text/javascript";
 home_portal_script.src = "https://alinovah.github.io/desk/home-portal/project_and_quote/fix_stuck_after_receivable.js";
 document.querySelector("body").appendChild(home_portal_script);})();
+
+///////////////////////// color important red customer profile///////////////////////////
+(()=>{let home_portal_script = document.createElement("script");
+home_portal_script.type = "text/javascript";
+home_portal_script.src = "https://alinovah.github.io/desk/home-portal/customer/color_red.js";
+document.querySelector("body").appendChild(home_portal_script);})();
