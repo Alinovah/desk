@@ -26,6 +26,7 @@ if (
   document.body.prepend(backround);
 
   let interval_loader = setInterval(function () {
+    console.log($('[class^="input__item"]').length);
     if ($('[class^="input__item"]').length >= 34) {
       clearInterval(interval_loader);
       setTimeout(function () {
