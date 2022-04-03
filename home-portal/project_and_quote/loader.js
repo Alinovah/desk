@@ -33,7 +33,7 @@ if (
         backround.style.display = "none";
         document.body.style = "overflow: scroll;";
       }),
-        1000;
+        3000;
     }
   }, 100);
 }
