@@ -9,7 +9,7 @@
   appendScript("https://alinovah.github.io/desk/home-portal/project/duplicate_project.js");
   
   //###projects and quotes
-//   appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/loader.js");
+  appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/loader.js");
   appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/fix_stuck_after_receivable.js");
   
   //###customers
