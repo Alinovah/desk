@@ -4,6 +4,7 @@
   
   //###quotes
   appendScript("https://alinovah.github.io/desk/home-portal/quote/add_quote_management_view.js");
+  appendScript("https://alinovah.github.io/desk/home-portal/quote/navigate_to_quote_db_view.js");
   
   //###projects
   appendScript("https://alinovah.github.io/desk/home-portal/project/duplicate_project.js");
