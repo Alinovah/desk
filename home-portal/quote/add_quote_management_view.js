@@ -40,7 +40,12 @@ function showQuoteManagement(target){
     li.classList.remove("active");
   });
   target.classList.add("active");
-  window.location.href = window.location.href + "&quotemgm";
+      
+  const url = new URL(window.location);
+  url.searchParams.set('quotemgm', 'quotemgm');
+  window.history.pushState({}, '', url);
+  //window.location.href = window.location.href + "&quotemgm";
+      
   target.style.padding = "3px";
   document.querySelector("h1").remove();
   let content = document.querySelector("div[class='content']");
