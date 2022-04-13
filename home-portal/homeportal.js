@@ -1,24 +1,25 @@
+const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
 (()=>{
   //###invoices
-  appendScript("https://alinovah.github.io/desk/home-portal/invoice/self_invoice.js");
-  appendScript("https://alinovah.github.io/desk/home-portal/invoice/mass_payment.js");
+  appendScript(`${BASE_URL}invoice/self_invoice.js`);
+  appendScript(`${BASE_URL}invoice/mass_payment.js`);
   
   //###quotes
-  appendScript("https://alinovah.github.io/desk/home-portal/quote/add_quote_management_view.js");
-  appendScript("https://alinovah.github.io/desk/home-portal/quote/navigate_to_quote_db_view.js");
+  appendScript(`${BASE_URL}quote/add_quote_management_view.js`);
+  appendScript(`${BASE_URL}quote/navigate_to_quote_db_view.js`);
   
   //###projects
-  appendScript("https://alinovah.github.io/desk/home-portal/project/duplicate_project.js");
+  appendScript(`${BASE_URL}project/duplicate_project.js`);
   
   //###projects and quotes
-  appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/loader.js");
-  appendScript("https://alinovah.github.io/desk/home-portal/project_and_quote/fix_stuck_after_receivable.js");
+  appendScript(`${BASE_URL}project_and_quote/loader.js`);
+  appendScript(`${BASE_URL}project_and_quote/fix_stuck_after_receivable.js`);
   
   //###customers
-  appendScript("https://alinovah.github.io/desk/home-portal/customer/color_red.js");
+  appendScript(`${BASE_URL}customer/color_red.js`);
   
   //###reports
-  appendScript("https://alinovah.github.io/desk/home-portal/report/add_margin_view.js");
+  appendScript(`${BASE_URL}report/add_margin_view.js`);
   
 })();
 
