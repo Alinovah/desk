@@ -1,6 +1,7 @@
 (()=>{
   //###invoices
   appendScript("https://alinovah.github.io/desk/home-portal/invoice/self_invoice.js");
+  appendScript("https://alinovah.github.io/desk/home-portal/invoice/mass_payment.js");
   
   //###quotes
   appendScript("https://alinovah.github.io/desk/home-portal/quote/add_quote_management_view.js");
