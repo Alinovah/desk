@@ -7,6 +7,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   //###quotes
   appendScript(`${BASE_URL}quote/add_quote_management_view.js`);
   appendScript(`${BASE_URL}quote/navigate_to_quote_db_view.js`);
+  appendScript(`${BASE_URL}quote/color_view_by_status.js`);
   
   //###projects
   appendScript(`${BASE_URL}project/duplicate_project.js`);
