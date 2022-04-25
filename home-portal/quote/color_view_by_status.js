@@ -28,3 +28,4 @@ if(window.location.href.includes("https://desk.ngsub.tv/xtrf/faces/quote/browse.
       }
     }, 500);
 }
+ 
