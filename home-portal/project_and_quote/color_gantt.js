@@ -42,8 +42,9 @@ if (
             let gannt_today = document.querySelector(
               'div[class="gantt-current-date-line ng-scope"]'
             );
+            let today_pos;
             if (gannt_today) {
-              let today_pos = Math.ceil(
+              today_pos = Math.ceil(
                 Number(
                   gannt_today.style["left"].substring(
                     0,
@@ -52,7 +53,7 @@ if (
                 ) / 200
               );
             } else {
-              let today_pos = "";
+              today_pos = "";
             }
             for (let i = 0; i < header_length; i++) {
               dates_header.push(today.addDays(-today_pos + i + 1));
