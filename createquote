@@ -9,69 +9,7 @@ var interval = setInterval(function() {
         clearInterval(interval);
         setTimeout( function (){ 
 
-//////////////////////////////////// color gannt ////////////////////////////
-if(document.querySelector('button[ng-click="pluginScope.goToToday()"]')){
-  eventFire(document.querySelector('button[ng-click="pluginScope.goToToday()"]'), 'click');
-  
- 
- var dates = [];
-           var dates_header = [];
-           var holiday_pos = [];
-           var url = 'https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&mod=on&year=now&month=x&lg=h';
-            fetch(url)
-            .then(response => response.json())
-            .then(data => holidays(data));
-            
-            function holidays(data){
-              for(var i=0;i<data["items"].length;i++){
-                dates.push([data["items"][i]["title"],new Date(data["items"][i]["date"])]);
-              }
-
-              var today = new Date();
-              var year = today.getFullYear();
-              var month = today.getMonth()+1;
-              var day = today.getDay();
-              var ganttheader = $('[class^="gantt-column-header ng-binding"]');
-              var ganntblock = $('[class^="gantt-column gantt-foreground-col"]');
-              var header_length = ganttheader.length-$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length;
-              var gannt_today = document.querySelector('div[class="gantt-current-date-line ng-scope"]');
-              if(gannt_today){
-                var today_pos = Math.ceil(Number(gannt_today.style['left'].substring(0,gannt_today.style['left'].length-2))/200);
-              }else{ var today_pos = "";}
-              
-              for(var i=0;i<header_length;i++){
-                dates_header.push(today.addDays(-today_pos+i+1));
-              }
-              for(var i=0;i<dates_header.length;i++){
-                if((dates_header[i].getDay()==5)||(dates_header[i].getDay()==6)){
-                  ganttheader[i+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length].style.backgroundColor = "#cad5e6";
-                  ganntblock[i].style.backgroundColor = "#e6eefa";
-                }
-              }
-              
-              for(var i=0;i<dates.length;i++){
-                for(var j=0;j<dates_header.length;j++){
-                  if(dates[i][1].getFullYear()==dates_header[j].getFullYear()&&(dates[i][1].getMonth()+1)==(dates_header[j].getMonth()+1)&&(dates[i][1].getDate())==(dates_header[j].getDate())){
-                    if(holiday_pos.indexOf(j+1)==-1){
-                      holiday_pos.push([j+1,dates[i][0]]);
-                    }
-                  }
-                }
-              }
-              for(var i=0;i<holiday_pos.length;i++){
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText = ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].innerText+" - "+holiday_pos[i][1];
-              if(holiday_pos[i][1]=="עֶרֶב פּוּרִים"||holiday_pos[i][1]=="יוֹם העלייה"||holiday_pos[i][1]=="פֶּסַח ב׳"||holiday_pos[i][1]=="פֶּסַח ג׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ד׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ה׳ (חוה״מ)"||holiday_pos[i][1]=="פֶּסַח ו׳ (חוה״מ)"||holiday_pos[i][1]=="יוֹם הַשּׁוֹאָה"||holiday_pos[i][1]=="יוֹם הַזִּכָּרוֹן"||holiday_pos[i][1]=="יוֹם יְרוּשָׁלַיִם"||holiday_pos[i][1]=="עֶרֶב תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="תִּשְׁעָה בְּאָב"||holiday_pos[i][1]=="סוּכּוֹת ב׳"||holiday_pos[i][1]=="סוּכּוֹת ג׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ד׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ה׳ (חוה״מ)"||holiday_pos[i][1]=="סוּכּוֹת ו׳ (חוה״מ)"||holiday_pos[i][1]=="שִׂמְחַת תּוֹרָה"||holiday_pos[i][1]=="שמירת בית הספר ליום העלייה"||holiday_pos[i][1]=="סיגד"||holiday_pos[i][1]=="חֲנוּכָּה: א׳ נֵר"||holiday_pos[i][1]=="חֲנוּכָּה: ב׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ג׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ד׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ה׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ו׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ז׳ נֵרוֹת"||holiday_pos[i][1]=="חֲנוּכָּה: ח׳ נֵרוֹת"){
-                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#fff2cc";
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#d9be73";
-              }else{
-                ganntblock[holiday_pos[i][0]-1].style.backgroundColor = "#e6eefa";
-                ganttheader[holiday_pos[i][0]+$('[class^="gantt-column-header ng-binding gantt-column-header-first"]').length-1].style.backgroundColor = "#cad5e6";
-              }
-              }
-            }
-            
-    }        
-////////////////////////////////////
+/////////////////////////////////////////////////
 
     hyperlinks();
 ////////////////////////// END ////////////////////
