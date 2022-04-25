@@ -31,4 +31,4 @@ function appendScript(url){
   script.type = "text/javascript";
   script.src = url;
   document.querySelector("body").appendChild(script);
-}
+} 
