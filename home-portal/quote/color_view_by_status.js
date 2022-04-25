@@ -1,4 +1,4 @@
-if(window.location.href.includes("https://desk.ngsub.tv/xtrf/faces/quote/browse.seam?viewId=176")){
+if(window.location.href.includes("https://desk.ngsub.tv/xtrf/faces/quote/browse.seam?viewId=176")||window.location.href.includes("https://desk.ngsub.tv/xtrf/faces/quote/browse.seam?viewId=64")){
       let quoteview_interval = setInterval(function() {
       let ul = document.querySelectorAll("ul")[6];
       if(ul){
