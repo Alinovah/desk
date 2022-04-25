@@ -8,7 +8,6 @@ var interval = setInterval(function() {
     if($('[class^="input__item"]').length>=34){
         clearInterval(interval);
         setTimeout( function (){ 
-
 /////////////////////////////////////////////////
 
     hyperlinks();
