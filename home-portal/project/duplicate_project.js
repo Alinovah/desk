@@ -1,3 +1,4 @@
+let socket;
 if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam")) {
   let duplicateprojects_interval = setInterval(function () {
     let buttons_bar = document.querySelector(
@@ -6,7 +7,10 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
     if (buttons_bar) {
       clearInterval(duplicateprojects_interval);
       ///////////////////////////////////////////////////////////////////////
-
+      const socket_script = document.createElement("script");
+      socket_script.src = "https://cdn.socket.io/socket.io-3.0.1.min.js";
+      document.querySelector("body").appendChild(socket_script);
+      
       let duplicateButton = document.createElement("button");
       duplicateButton.innerText = "Duplicate X Times";
       duplicateButton.className = "dropdown-toggle x-btn --large ng-scope";
@@ -17,6 +21,7 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
       let div = document.createElement("div");
       let x_button = document.createElement("button");
       x_button.innerText = "X";
+      x_button.id = "x-button";
       x_button.style = "margin:10px;width: 25px;align-self: flex-end;";
       x_button.onclick = hideduplicateform;
       div.appendChild(x_button);
@@ -57,19 +62,51 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
 
 async function duplicateprojects() {
   document.getElementById("add-duplicate-form").style.display = "flex";
+  const submit_button = document.querySelector("#submit-duplicate");
+      socket = io.connect('https://xtrfsubscriptions.ngsub.tv:7904');
+      socket.emit("getclients");
+      socket.on("getclients",data=>{
+        console.log(data);
+        if(data!="used by , 0/0"){
+          submit_button.disabled = true;
+          submit_button.innerText = data;
+        }else{
+          submit_button.disabled = false;
+          submit_button.innerText = "Duplicate";
+        }
+      });
+      socket.on("messege",data=>{
+        console.log(data);
+        if(data!=0){
+          submit_button.disabled = true;
+          submit_button.innerText = data;
+        }else{
+          submit_button.disabled = false;
+          submit_button.innerText = "Duplicate";
+        }
+      });
+      // socket.on("messege",data=>{
+      //   // 
+      //   // console.log(submit_button);
+      //   // submit_button.disabled = true;
+      //   // submit_button.innerText = data;
+      //   console.log(data);
+      // })
 }
 
 function hideduplicateform() {
   document.getElementById("add-duplicate-form").style.display = "none";
+  socket.disconnect();
 }
 
 function postDuplicateProjects() {
+  document.getElementById("x-button").style.display="none";
   let duplicat_el = document.getElementById("duplicate-times");
   let duplicate = duplicat_el.value;
   if (duplicate <= 0) {
     alert("Please insert a valid number");
   } else {
-    hideduplicateform();
+    // hideduplicateform();
     let checkboxes = document.querySelectorAll('input[id^="select-"]');
     var id = "";
     for (var i = 1; i < checkboxes.length; i++) {
@@ -83,8 +120,10 @@ function postDuplicateProjects() {
     } else {
       id_clean = id.substring(id.indexOf("-") + 1, id.length);
     }
+    // console.log(`value=${duplicate}&pid=${id_clean}`);
+    let pm =  document.querySelector("div.name").textContent;
     fetch(
-      `https://xtrfsubscriptions.ngsub.tv:7897/duplicateproject?value=${duplicate}&pid=${id_clean}`
+      `https://xtrfsubscriptions.ngsub.tv:7904/duplicateproject?value=${duplicate}&pid=${id_clean}&pm=${pm}`
     );
   }
 }
