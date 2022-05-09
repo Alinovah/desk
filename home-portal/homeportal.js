@@ -24,6 +24,9 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   //###reports
   appendScript(`${BASE_URL}report/add_margin_view.js`);
   
+  //###dashboards
+  appendScript(`${BASE_URL}dashboard/add_overallview_link.js`
+  
 })();
 
 /////////////////////// append script //////////////////////
