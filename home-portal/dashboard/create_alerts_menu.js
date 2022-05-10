@@ -32,7 +32,7 @@ function createMenu(){
     content.style.boxShadow= "10px 10px 10px #ababab88";
     content.style.border = "1px solid black";
     content.style.flexDirection = "column";
-    content.overflow = "scroll";
+    content.style.overflow = "scroll";
   const close_button = document.createElement("button");
     close_button.innerText = "X";
     close_button.type = "button";
