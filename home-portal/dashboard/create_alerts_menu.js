@@ -24,8 +24,8 @@ function createMenu(){
     menu.style.alignItems= "center";
   const content = document.createElement("div");
     content.dir = "rtl";
-    content.style.width = "800px";
-    content.style.height = "600px";
+    content.style.width = "80%";
+    content.style.height = "60%";
     content.style.backgroundColor = "white";
     content.style.borderRadius = "15px";
     content.style.display = "flex";
