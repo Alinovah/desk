@@ -34,7 +34,7 @@ async function populateMenu(menu){
   const jobs_overdue = data["jobs overdue"];
   const missing_receivables = data["missing receivables"];
   const missing_payables = data["missing payables"];
-  if(project_overdue.length>0||jobs_overdue.length>0||missing_receivables>0||length,missing_payables>0||length){
+  if(project_overdue.length>0||jobs_overdue.length>0||missing_receivables.length>0||missing_payables.length>0){
     menu.style.display = "flex";
     if(project_overdue.length>0){
       const projects_overdue_el = document.querySelector("#projects_overdue");
