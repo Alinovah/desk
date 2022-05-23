@@ -21,6 +21,9 @@ if (
     if (logged_in != "NGDesk@ngsub.tv") {
       window.location =
         "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
+    }else{
+      loader.style.display = "none";
+      backround.style.display = "none";
     }
   }, 6000);
 }
