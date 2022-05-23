@@ -14,20 +14,6 @@ var interval = setInterval(function() {
 ////////////////////////// END ////////////////////
 
 
-///////////////////// rearang widgets //////////////////////
-if(currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
-}else{
-var order = document.getElementById("order");
-if(order==undefined){
-var order = document.getElementById("quote");
-}
-var langs = document.getElementById("langs");
-var process = document.getElementById("process");
-order.parentElement.insertBefore(langs,order);
-order.parentElement.insertBefore(process,order);
-}
-
-
 ///////////////////close job if open//////////////////
   var closewindow = $('[class^="close x-icon --close ng-scope"]')[0];
   if(closewindow!=undefined){
