@@ -422,30 +422,7 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 
 }
 
-if(currentlink.substring(0,43)=="https://desk.ngsub.tv/xtrf/faces/home.seam?"||currentlink.substring(0,42)=="https://desk.ngsub.tv/xtrf/faces/home.seam"){
-//////////////////////redierct to dashboard and loading logo///////////////////
-// var sidemenue = document.querySelector('div[id="side-menu"]');
-// sidemenue.querySelector('ul').style = "z-index:98;";
-var loader = document.createElement("div");
-var backround = document.createElement("div");
-document.body.prepend(loader);
-document.body.prepend(backround);
-loader.innerHTML = '<h1 style="width:100%;height:100%; position:absolute; top:0px" ><p style="padding:0;"><img style="padding:0;opacity:2;width:100%;height:100%;" src="https://drive.google.com/uc?id=1M5gl6GsTrM9rcxUfeKvfzM0I-P8fJKw3"></p></h1>';
-// loader.className = "center";
-loader.style = "background: rgba(255, 255, 255, 0);width:100%;height:100%;position:absolute ;z-index:97;";
-backround.style = "background: rgba(255, 255, 255, 1);width:100%;height:100%;position:absolute ;z-index:97;";
-// var sheet = window.document.styleSheets[0];
-// sheet.insertRule('.center{  display: flex;  text-align: center;  justify-content: center;  align-items: center;  min-height: 100vh;}', sheet.cssRules.length);
-document.body.style = "overflow: hidden;";
 
-
-setTimeout( function (){ 
-  window.location = "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam#/detail/";
-},6000);
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
-}
 if(currentlink.substring(0,58)=="https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"){
 
 setInterval(function() {
