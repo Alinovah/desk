@@ -326,12 +326,10 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
   var count4=0;
   var count5=0;
   var count6=0;
-  var count7=0;
   var count8=0;
   
   var firstelstatus;
   var firstelusestatus;
-  var firstelqc;
   for(var i=0;i<customfields.length;i++){
     if(customfields[i].querySelector('div').textContent=="PM Verification"){
       if(count5==0){
@@ -368,15 +366,6 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
         customfields[i].remove();
       }
       }
-       if(customfields[i].querySelector('div').textContent=="QC"){
-       if(count7==0){
-         count7++;
-         firstelqc = customfields[i];
-       }else{
-         firstelqc.remove();
-         qchandler();
-       }
-       }
        if(customfields[i].querySelector('div').textContent=="Status"){
        if(count3==0){
          count3++;
@@ -405,29 +394,6 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 ////////////////////////////////
 ///////////////////////////// END ////////////////////
 
-
-
-function qchandler(){
-var languages_el = document.querySelector('div[class="input-wrap languages"]');
-var qc;
-var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
-for(var k=0;k<customfields.length;k++){
-      if(customfields[k].querySelector('div').textContent=='QC'){
-          qc = customfields[k];//.querySelectorAll('div')[1];
-      }
-}
-qc.style.width="100px";
-qc.querySelector('div[ng-model="customFieldCtrl.selected"]').style.width = "130px";
-
-for(var m=0;m<document.querySelectorAll('span[class="checkbox_box"]').length;m++){ 
-  document.querySelectorAll('span[class="checkbox_box"]')[m].style.width="17%";
-}
-var buildbutton = document.getElementById("buildprocessbutton");
-//languages_el.append(qc);
-//languages_el.append(buildbutton);
-}
-
-/////////////////////////////// END ///////////////////////////
 
 
 //////////////////////// Check correct PM //////////////////////////        
