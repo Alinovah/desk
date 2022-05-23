@@ -31,6 +31,9 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   appendScript(`${BASE_URL}dashboard/create_alerts_menu.js`); 
   appendScript(`${BASE_URL}dashboard/populate_alerts_menu.js`); 
   
+  //###home
+  appendScript(`${BASE_URL}home/redirect-to-dashboard.js`);
+  
 })();
 
 /////////////////////// append script //////////////////////
