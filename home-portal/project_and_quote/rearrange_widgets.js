@@ -19,10 +19,13 @@ if (
           }
           let langs = document.getElementById("langs");
           let process = document.getElementById("process");
+          let jobs = document.getElementById("jobs");
           order.parentElement.insertBefore(langs, order);
           order.parentElement.insertBefore(process, order);
+          order.parentElement.insertBefore(jobs, process);
         }
       }, 1000);
     }
   }, 100);
 }
+
