@@ -12,7 +12,11 @@ let interval_redirect_quote_db = setInterval(function() {
         if(service=="DB Quote"){
           let pid = window.assistedProjectId;
           let pm = document.querySelector("div[class='name']").textContent;
-          window.location.href = `https://xtrfsubscriptions.ngsub.tv:7903/showquote?pid=${pid}&pm=${pm}` ;
+            if(document.querySelector(".email").textContent=="NGDesk@ngsub.tv"){
+                window.open(`https://xtrfsubscriptions.ngsub.tv:7903/showquote?pid=${pid}&pm=${pm}`, '_blank');
+            }else{
+                window.location.href = `https://xtrfsubscriptions.ngsub.tv:7903/showquote?pid=${pid}&pm=${pm}` ;
+            }
         }
     }
 },500);
