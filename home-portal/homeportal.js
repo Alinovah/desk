@@ -12,6 +12,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   //###projects
   appendScript(`${BASE_URL}project/duplicate_project.js`);
   appendScript(`${BASE_URL}project/split_project.js`);
+  appendScript(`${BASE_URL}project/overallview.js`);
   
   //###projects and quotes
   appendScript(`${BASE_URL}project_and_quote/loader.js`);
