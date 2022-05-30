@@ -4,6 +4,7 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboar
     if (h1) {
       clearInterval(overall_dashboard_interval);
       ///////////////////////////////////////////////////////////////////////
+      document.querySelector('a[href="/xtrf/faces/dashboard/dashboard.seam"]').style.display = "none";
       let a = document.createElement("a");
       a.href = "https://desk.ngsub.tv/xtrf/faces/workflowResource/browse.seam";
       a.textContent = "OverallView";
