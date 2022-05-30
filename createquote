@@ -4,15 +4,6 @@ var currentlink = window.location.href;
 
 if(currentlink.substring(0,71)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam"||currentlink.substring(0,67)=="https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"){
 
-
-////////////////////////// hide purchas order /////////////////////////
-var interval_purchas_order = setInterval(function() {
-if(document.querySelector('div[class="section purchase-order cf ng-scope"]')){
-     document.querySelector('div[class="section purchase-order cf ng-scope"]').style.display="none";
-}        
-}, 1000);
-////////////////////////// END ////////////////////
-
 ////////////////////////// change raw materials volume field name /////////////////////
 var service = $('[class^="input ng-binding ng-scope"]')[0];
 var titles = document.querySelectorAll('div[class="title ng-binding ng-scope"]');
