@@ -22,6 +22,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   appendScript(`${BASE_URL}project_and_quote/close_job_if_open.js`);
   appendScript(`${BASE_URL}project_and_quote/check_video_duration.js`);
   appendScript(`${BASE_URL}project_and_quote/hide_purchas_order.js`);
+  appendScript(`${BASE_URL}project_and_quote/change_raw_materials_volume_field_name.js`);
   
   //###customers
   appendScript(`${BASE_URL}customer/color_red.js`);
