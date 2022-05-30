@@ -287,7 +287,6 @@ if(source.textContent=="Select Language..."||target.textContent=="Select Languag
 
 /////////////////////////changed languages///////////////////////////
   setInterval(function(){
-  hyperlinks();
   var customfields=document.querySelectorAll('div[class="input__item custom_field"]');
   var count1=0;
   var count2=0;
