@@ -24,6 +24,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   appendScript(`${BASE_URL}project_and_quote/hide_purchas_order.js`);
   appendScript(`${BASE_URL}project_and_quote/change_raw_materials_volume_field_name.js`);
   appendScript(`${BASE_URL}project_and_quote/rtl_textarea.js`);
+  appendScript(`${BASE_URL}project_and_quote/color_empty_red.js`);
   
   //###customers
   appendScript(`${BASE_URL}customer/color_red.js`);
