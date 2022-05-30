@@ -1,7 +1,7 @@
 if (
-  currentlink.substring(0, 71) ==
+  window.location.href.substring(0, 71) ==
     "https://desk.ngsub.tv/xtrf/faces/projectAssistant/projects/project.seam" ||
-  currentlink.substring(0, 67) ==
+  window.location.href.substring(0, 67) ==
     "https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"
 ) {
   var service = $('[class^="input ng-binding ng-scope"]')[0];
