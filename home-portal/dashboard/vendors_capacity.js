@@ -1,4 +1,4 @@
-if(window.location.href.href.includes("https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam")){
+if(window.location.href.includes("https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam")){
 var vendorcapacity = setInterval(function() {
     var div = document.querySelector('div[ng-class="widgetCtrl.classNames"]');
     if(!div){
