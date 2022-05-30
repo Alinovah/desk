@@ -3,6 +3,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   //###invoices
   appendScript(`${BASE_URL}invoice/self_invoice.js`);
   appendScript(`${BASE_URL}invoice/mass_payment.js`);
+  appendScript(`${BASE_URL}invoice/download_invoices.js`);
   
   //###quotes
   appendScript(`${BASE_URL}quote/add_quote_management_view.js`);
