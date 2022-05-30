@@ -1464,4 +1464,90 @@ function hyperlinks() {
     '" target="_blank" >Google Sheet Link</a>';
 }
 
+//////////// disable process if requiered is empty /////////////
+if (
+  currentlink.substring(0, 67) ==
+  "https://desk.ngsub.tv/xtrf/faces/projectAssistant/quotes/quote.seam"
+) {
+  var specilazation_flag = 0;
+  var flag = 0;
+  for (
+    var c = 0;
+    c <
+    document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')
+      .length;
+    c++
+  ) {
+    if (
+      document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')[
+        c
+      ]
+    ) {
+      var specilazation = document.querySelectorAll(
+        'div[class="nd-display ng-binding ng-scope"]'
+      )[c];
+      if (specilazation.innerText == "___") {
+        flag = 0;
+      }
+      if (specilazation == undefined || specilazation.innerText != "___") {
+        flag++;
+      }
+    }
+  }
+  if (
+    flag ==
+    document.querySelectorAll('div[class="nd-display ng-binding ng-scope"]')
+      .length
+  ) {
+    specilazation_flag = 0;
+  } else {
+    specilazation_flag = 1;
+  }
+
+  if (
+    source.textContent == "Select Language..." ||
+    target.textContent == "Select Languages..." ||
+    (input1.value == "" && UseStatus.checked == false) ||
+    input5.value == "" ||
+    input6.value == "" ||
+    input9.value == "" ||
+    specilazation_flag == 1
+  ) {
+    console.log(
+      "One of the requiered fields are missing! Can't start process."
+    );
+    for_disable.style =
+      "display:block; opacity:0.5; height:" +
+      div_to_disable.clientHeight +
+      "px; width:" +
+      div_to_disable.clientWidth +
+      "px; background-color:#ffffff; position:absolute; top:" +
+      pos_offset +
+      "px;left:" +
+      left_pos +
+      "px; z-index:2;";
+    if (document.querySelectorAll('button[ng-click="startJobs()"]')[0]) {
+      document.querySelectorAll(
+        'button[ng-click="startJobs()"]'
+      )[0].style.display = "none";
+    }
+    if (document.querySelectorAll('button[ng-click="startJobs()"]')[1]) {
+      document.querySelectorAll(
+        'button[ng-click="startJobs()"]'
+      )[1].style.display = "none";
+    }
+  } else {
+    for_disable.style.display = "none";
+    if (document.querySelectorAll('button[ng-click="startJobs()"]')[0]) {
+      document.querySelectorAll(
+        'button[ng-click="startJobs()"]'
+      )[0].style.display = "block";
+    }
+    if (document.querySelectorAll('button[ng-click="startJobs()"]')[1]) {
+      document.querySelectorAll(
+        'button[ng-click="startJobs()"]'
+      )[1].style.display = "block";
+    }
+  }
+}
   
