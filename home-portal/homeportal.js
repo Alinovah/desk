@@ -30,6 +30,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   
   //###customers
   appendScript(`${BASE_URL}customer/color_red.js`);
+  appendScript(`${BASE_URL}customer/price_lists_loader.js`);
   
   //###reports
   appendScript(`${BASE_URL}report/add_margin_view.js`);
