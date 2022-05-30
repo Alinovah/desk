@@ -52,8 +52,10 @@ if (
     document.querySelector('input[ng-model="quote.volume"]').placeholder =
       "כדאי קודם כול לבחור שפות...";
   } else {
-    document.querySelector('input[ng-model="::order.volume"]').placeholder =
-      "כדאי קודם כול לבחור שפות...";
+    if(document.querySelector('input[ng-model="::order.volume"]')){
+      document.querySelector('input[ng-model="::order.volume"]').placeholder =
+        "כדאי קודם כול לבחור שפות...";
+    }
   }
   var intervalId = window.setInterval(function () {
     var one = document.getElementById("nd-ms-3cnt");
