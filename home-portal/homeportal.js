@@ -43,6 +43,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   appendScript(`${BASE_URL}dashboard/color_tables.js`);
   appendScript(`${BASE_URL}dashboard/color_deadlines.js`);
   appendScript(`${BASE_URL}dashboard/color_MyActiveProjects_deadlines_red_most_updated.js`);
+  appendScript(`${BASE_URL}dashboard/vendors_capacity.js`);
   
   //###home
   appendScript(`${BASE_URL}home/redirect-to-dashboard.js`);
