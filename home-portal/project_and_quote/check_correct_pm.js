@@ -8,7 +8,7 @@ if (
     if ($('[class^="input__item"]').length >= 34) {
       clearInterval(interval);
 
-      setTimeout(function () {
+//       setTimeout(function () {
         var inputs = document.querySelectorAll("div[class='input__item']");
         var pm = "";
         for (var i = 0; i < inputs.length; i++) {
@@ -20,11 +20,14 @@ if (
         var pm_name = pm.querySelector("a").innerText;
         var name = document.querySelector("div[class='name']").textContent;
         if (!(pm_name == name)) {
+          if(document.querySelector(".email").textContent=='dani.berger@ngsub.tv'){
+            window.location.href = "https://desk.ngsub.tv/xtrf/faces/dashboard2/dashboard.seam"
+          }
           alert(
             `The PM set for this project is ${pm_name} and the logged in user is ${name}.\n If the project is yours, change the PM at "People".`
           );
         }
-      }, 3000);
+//       }, 3000);
     }
   }, 100);
 }
