@@ -16,6 +16,7 @@ const BASE_URL = "https://alinovah.github.io/desk/home-portal/";
   appendScript(`${BASE_URL}project/split_project.js`);
   appendScript(`${BASE_URL}project/overallview.js`);
   appendScript(`${BASE_URL}project/add_payables.js`);
+  appendScript(`${BASE_URL}project/add_new_editor_button.js`);
   
   //###projects and quotes
   appendScript(`${BASE_URL}project_and_quote/loader.js`);
