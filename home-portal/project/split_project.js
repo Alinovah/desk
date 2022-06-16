@@ -18,19 +18,19 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
 }
 
 async function splitProjectFunction() {
-      socket = io.connect('https://xtrfsubscriptions.ngsub.tv:7904');
-      socket.emit("getclients");
-      socket.on("getclients",data=>{
-        console.log(data);
-        if(data!="used by , 0/0"){
-          alert(`Currently being used! `+data);
-        }else{
+//       socket = io.connect('https://xtrfsubscriptions.ngsub.tv:7904');
+//       socket.emit("getclients");
+//       socket.on("getclients",data=>{
+//         console.log(data);
+//         if(data!="used by , 0/0"){
+//           alert(`Currently being used! `+data);
+//         }else{
           postSplitProject();
-        }
-      });
-      socket.on("messege",data=>{
-        console.log(data);
-      });
+//         }
+//       });
+//       socket.on("messege",data=>{
+//         console.log(data);
+//       });
 }
 
 
