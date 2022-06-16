@@ -7,9 +7,9 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
     if (buttons_bar) {
       clearInterval(duplicateprojects_interval);
       ///////////////////////////////////////////////////////////////////////
-      const socket_script = document.createElement("script");
-      socket_script.src = "https://cdn.socket.io/socket.io-3.0.1.min.js";
-      document.querySelector("body").appendChild(socket_script);
+//       const socket_script = document.createElement("script");
+//       socket_script.src = "https://cdn.socket.io/socket.io-3.0.1.min.js";
+//       document.querySelector("body").appendChild(socket_script);
       
       let duplicateButton = document.createElement("button");
       duplicateButton.innerText = "Duplicate X Times";
@@ -63,28 +63,28 @@ if (location.href.includes("https://desk.ngsub.tv/xtrf/faces/project/browse.seam
 async function duplicateprojects() {
   document.getElementById("add-duplicate-form").style.display = "flex";
   const submit_button = document.querySelector("#submit-duplicate");
-      socket = io.connect('https://xtrfsubscriptions.ngsub.tv:7904');
-      socket.emit("getclients");
-      socket.on("getclients",data=>{
-        console.log(data);
-        if(data!="used by , 0/0"){
-          submit_button.disabled = true;
-          submit_button.innerText = data;
-        }else{
+//       socket = io.connect('https://xtrfsubscriptions.ngsub.tv:7904');
+//       socket.emit("getclients");
+//       socket.on("getclients",data=>{
+//         console.log(data);
+//         if(data!="used by , 0/0"){
+//           submit_button.disabled = true;
+//           submit_button.innerText = data;
+//         }else{
           submit_button.disabled = false;
           submit_button.innerText = "Duplicate";
-        }
-      });
-      socket.on("messege",data=>{
-        console.log(data);
-        if(data!=0){
-          submit_button.disabled = true;
-          submit_button.innerText = data;
-        }else{
-          submit_button.disabled = false;
-          submit_button.innerText = "Duplicate";
-        }
-      });
+//         }
+//       });
+//       socket.on("messege",data=>{
+//         console.log(data);
+//         if(data!=0){
+//           submit_button.disabled = true;
+//           submit_button.innerText = data;
+//         }else{
+//           submit_button.disabled = false;
+//           submit_button.innerText = "Duplicate";
+//         }
+//       });
       // socket.on("messege",data=>{
       //   // 
       //   // console.log(submit_button);
@@ -96,7 +96,7 @@ async function duplicateprojects() {
 
 function hideduplicateform() {
   document.getElementById("add-duplicate-form").style.display = "none";
-  socket.disconnect();
+//   socket.disconnect();
 }
 
 function postDuplicateProjects() {
