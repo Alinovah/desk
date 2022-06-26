@@ -37,6 +37,7 @@ function createEditorButton(){
     button.className = "btn ng-binding ng-scope";
     button.style.display = "none";
     button.innerText = "NG Editor";
+    button.style.backgroundColor="#c1e9ff";
   }else{
     button = document.querySelector("#editor-button");
   }
