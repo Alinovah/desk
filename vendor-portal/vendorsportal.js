@@ -4,7 +4,7 @@ var currentlink = window.location.href;
 if (currentlink.includes("https://desk.ngsub.tv/vendors/")) {
   //####################### get the ui #########################
   let getui = setInterval(async function () {
-    let email_container = document.querySelector("span[class*='email']");
+    let email_container = document.querySelector("span[class*='email']")||document.querySelector("span.email");
     if (email_container) {
       clearInterval(getui);
       let email = email_container.innerText;
