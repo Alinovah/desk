@@ -26,24 +26,25 @@ async function start(ui) {
     
     /// NG Editor button handler
     let editor_button_interval = setInterval(function () {
-  if(location.href.includes("?Editor")){
-    let url = new URL(window.location);
-    url = url.href;
-    url = url.toString().split("/").pop();
-    const jobid = url.split("-").pop();
-    console.log(jobid);
-    const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
-    if(nav.style.display!="none"){
-      console.log(url);
-      console.log(jobid);
-      if(location.href.includes("invoices?Editor")){
-        location.href = `https://desk.ngsub.tv/vendors/#/jobs/${jobid}?Editor-${jobid}`;
-        location.reload();
-      }else{
-        openEditor(jobid);
-      }
-    }
-  }else if (location.href.includes("https://desk.ngsub.tv/vendors/#/jobs/")) {
+//   if(location.href.includes("?Editor")){
+//     let url = new URL(window.location);
+//     url = url.href;
+//     url = url.toString().split("/").pop();
+//     const jobid = url.split("-").pop();
+//     console.log(jobid);
+//     const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
+//     if(nav.style.display!="none"){
+//       console.log(url);
+//       console.log(jobid);
+//       if(location.href.includes("invoices?Editor")){
+//         location.href = `https://desk.ngsub.tv/vendors/#/jobs/${jobid}?Editor-${jobid}`;
+//         location.reload();
+//       }else{
+//         openEditor(jobid);
+//       }
+//     }
+//  }else
+  if (location.href.includes("https://desk.ngsub.tv/vendors/#/jobs/")) {
     const url = new URL(window.location);
     const jobid = url.toString().split("/").pop();
     const actions_bar = document.querySelectorAll(".actions")[1];
@@ -54,14 +55,14 @@ async function start(ui) {
       actions_bar.appendChild(editorButton);
       ///////////////////////////////////////////////////////////////////////
     }
-  }else if(location.href.includes("https://desk.ngsub.tv/vendors/#/welcome")||location.href.includes("https://desk.ngsub.tv/vendors/#/jobs")){
-    const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
-    const content = document.querySelector(".content.portal.ng-scope");
-    const iframe = document.querySelector("#editor");
-    if(nav)    nav.style.display = "block";
-    if(content) content.style.display = "block";
-    if(iframe) iframe.remove();
-  }
+  }//else if(location.href.includes("https://desk.ngsub.tv/vendors/#/welcome")||location.href.includes("https://desk.ngsub.tv/vendors/#/jobs")){
+//     const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
+//     const content = document.querySelector(".content.portal.ng-scope");
+//     const iframe = document.querySelector("#editor");
+//     if(nav)    nav.style.display = "block";
+//     if(content) content.style.display = "block";
+//     if(iframe) iframe.remove();
+//   }
 }, 1000);
 //////////////////////////////////////////////////////////////
 function hideDownloadAll(actions_bar){
@@ -86,49 +87,49 @@ function openEditor(jobid){
   console.log(jobid);
   const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
   const content = document.querySelector(".content.portal.ng-scope");
-  nav.style.display = "none";
-  content.style.display = "none";
+//   nav.style.display = "none";
+//   content.style.display = "none";
   const id = document.querySelector("h1.ng-binding.ng-scope").innerText.split(":").pop().trim();
   console.log(id);
   const hash64 = btoa(id);
   console.log(hash64);
-  const iframe = document.createElement("iframe");
-    iframe.id = "editor";
-    iframe.style.border = "none";
-    iframe.style.width = "100vw";
-    iframe.style.height = "100vh";
-    iframe.style.position = "absolute";
-    iframe.src = `http://3.121.36.180:7905/${jobid}?id=${hash64}`;//`https://desk.ngsub.tv/subs-editor/${jobid}`;
-    console.log(iframe.src);
-    // window.open(`http://3.121.36.180:7905/${jobid}?id=${hash64}`, '_blank');
-    window.open(`http://3.121.36.180:7905/${jobid}?id=${hash64}`, '_self');
+//   const iframe = document.createElement("iframe");
+//     iframe.id = "editor";
+//     iframe.style.border = "none";
+//     iframe.style.width = "100vw";
+//     iframe.style.height = "100vh";
+//     iframe.style.position = "absolute";
+//     iframe.src = `http://3.121.36.180:7905/${jobid}?id=${hash64}`;//`https://desk.ngsub.tv/subs-editor/${jobid}`;
+//     console.log(iframe.src);
+    window.open(`http://3.121.36.180:7905/${jobid}?id=${hash64}`, '_blank');
+//     window.open(`http://3.121.36.180:7905/${jobid}?id=${hash64}`, '_self');
   const body = document.querySelector("body");
   // body.appendChild(iframe);
-  let old_ref = window.location.href
-  if(!old_ref.includes("?Editor")) old_ref+="?Editor-"+jobid;
-  const interval = setInterval(()=>{
-    if(location.href.includes("https://desk.ngsub.tv/vendors/#/welcome")||location.href=="https://desk.ngsub.tv/vendors/#/jobs"){
-      const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
-      const content = document.querySelector(".content.portal.ng-scope");
-      const iframe = document.querySelector("#editor");
-      if(nav)    nav.style.display = "block";
-      if(content) content.style.display = "block";
-      if(iframe) iframe.remove();
-      clearInterval(interval);
-    }else{
-      if(window.location.href==old_ref){
-        window.location.href="#/invoices?Editor-"+jobid;
-      }else{
-        window.location.href=old_ref;
-      }
-    }
-  },10000);
-  setInterval(()=>{
-    if(window.location.href=="https://desk.ngsub.tv/vendors/#/sign-in"){
-      old_ref = "https://desk.ngsub.tv/vendors/#/sign-in";
-      location.reload();
-    } 
-  },500);
+//   let old_ref = window.location.href
+//   if(!old_ref.includes("?Editor")) old_ref+="?Editor-"+jobid;
+//   const interval = setInterval(()=>{
+//     if(location.href.includes("https://desk.ngsub.tv/vendors/#/welcome")||location.href=="https://desk.ngsub.tv/vendors/#/jobs"){
+//       const nav = document.querySelector(".portal.ng-scope.main-nav-wrapper");
+//       const content = document.querySelector(".content.portal.ng-scope");
+//       const iframe = document.querySelector("#editor");
+//       if(nav)    nav.style.display = "block";
+//       if(content) content.style.display = "block";
+//       if(iframe) iframe.remove();
+//       clearInterval(interval);
+//     }else{
+//       if(window.location.href==old_ref){
+//         window.location.href="#/invoices?Editor-"+jobid;
+//       }else{
+//         window.location.href=old_ref;
+//       }
+//     }
+//   },10000);
+//   setInterval(()=>{
+//     if(window.location.href=="https://desk.ngsub.tv/vendors/#/sign-in"){
+//       old_ref = "https://desk.ngsub.tv/vendors/#/sign-in";
+//       location.reload();
+//     } 
+//   },500);
 }
     
     
