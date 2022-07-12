@@ -46,6 +46,13 @@ function createEditorButton(){
 function openEditor(jobid,id){
   const hash64 = btoa(id);
   console.log(hash64);
+  const ids = jobid.split(",");
+  if(ids.length>1){
+    for(let i=0;i<ids.length;i++){
+      window.open(`http://3.121.36.180:7905/${ids[i]}?id=${hash64}`, '_blank');
+    }
+  }else{
     window.open(`http://3.121.36.180:7905/${jobid}?id=${hash64}`, '_blank');
+  }
 }
 
